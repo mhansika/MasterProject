@@ -1,5 +1,8 @@
+
+
  <div class="seperate">
  	<?php
+    //comment
 $servername = "localhost";
 $username = "root";
 $password = "";
