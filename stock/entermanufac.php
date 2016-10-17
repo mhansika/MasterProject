@@ -1,87 +1,145 @@
- <meta charset="UTF-8">
-    <title>Manufactured Batteries</title>
-    <link rel="stylesheet" href="../css/m.css" media="screen" type="text/css" />
-
-<!--javascript form validation -->
-<script type="text/javascript">
-
-
-        function validate(){
-         
-         if (document.Form.battery_type.value == ""){
-            alert("Please fill out this field");
-            document.Form.battery_type.focus() ;
-                    return false;
-
-          } if (document.Form.battery_name.value == ""){
-            alert("Please fill out this field!");
-            document.Form.battery_name.focus() ;
-                    return false;
-
-          } if (document.Form.battery_no.value == ""){
-            alert("Please fill out this field!");
-            document.Form.battery_no.focus() ;
-                    return false;
-          }
-
-
-         if (document.Form.amount.value == ""){
-            alert("Please fill out this field!");
-            document.Form.amount.focus() ;
-                    return false;
-          }
-
-         
-
-
-
-}
-
-
-
-
-
-</script>
-
-
-</head>
-    
-    <body>
-    <?php
-            require "../core/database/connect.php";
-
-        if (isset($_POST["submit"])) {
-
-            $battery_type = $_POST['battery_type'];
-            $battery_name =$_POST['battery_name'];
-            $battery_no=$_POST['battery_no'];
-            $amount=$_POST['amount'];
-            
-            $sql = "INSERT INTO manufactured_batteries (battery_type,battery_name,battery_no,amount) VALUES ('$battery_type','$battery_name','$battery_no')";
-
-        if (mysqli_query($conn, $sql)) {
-            echo "";
+<?php
+?>
+<head>
+    <style>
+        body{
+            padding-left:200px;
+            margin:0;
+            background: #820311;
+            background: -webkit-linear-gradiant(left top, #c3654f,#820311); /*for safari 5.1 to 6.0*/
+            background: -o-linear-gradiant(bottom right,#c3654f,#820311); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(to bottom right,#c3654f,#820311); /* Standard syntax (must be last) */
         }
-
-            else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            }
-
-            
-            header("Location:inventory.php");
-
-
-
-   }
-    ?>
-
-
-
+        div#sidebar{
+            position:fixed;
+            height:100%;
+            width:200px;
+            top:0;
+            left:0;
+            background:#0f0f0f;
+        }
+        div#content{
+            width:100%;
+            height:100%;
+        }
+        li.view_Manu{
+            margin-top: 50%;
+            font-family: Calibri;
+        }
+        li.Enter_Manu{
+            font-family: Calibri;
+            text-align: left;
+            margin-top: 20%;
+        }
+        li.view_sold{
+            font-family: Calibri;
+            text-align: left;
+            margin-top: 20%;
+        }
+        li.enter_sold{
+             font-family: Calibri;
+             text-align: left;
+             margin-top: 20%;
+         }
+        li.stockIH{
+            font-family: Calibri;
+            text-align: left;
+            margin-top: 20%;
+        }
+        .icon{
+            margin-top: 42%;
+        }
+        #footer{
+            position:fixed;
+            bottom:0px;
+            width: 100%;
+            margin: 0;
+            background-color: #0f0f0f;
+            height: 20px;
+        }
+        div.back{
+            margin-left: 20%;
+        }
+		.ss{
+			style="float: right;
+    border: solid white 2px;
+    padding: 20px 20px 20px 20px;
+    width: 700px;
+   
+    margin-right: 200px;
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-bottom: 30px;"
+		}
+		button {
     
-<form action="entermanufac.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
-    
-<div class="ad">
-    <h1  style= "font-size: 20px;
+    border: none;
+
+    padding: 4px 19px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    float: right;
+    margin-top: 20px;
+    border-radius: 2px;
+    font-family: Calibri;
+    font-weight: bold;
+    margin-left: 20px;
+}
+        td{
+            font-family: Calibri;
+            font-size: 20px;
+        }
+        button:hover {
+            background-color: #0f0f0f ;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <div class="icon">
+            <div class="back">
+                <a href="http://localhost/ABM/inventory.php"><img src="../images/back.png"></a>
+                <span style="color: #9FBAC0; font-family: Calibri; font-size: 35px; margin-left: 5%;text-align: center">Stock</span>
+            </div>
+        </div>
+        <ul>
+            <div class="list">
+                <li class="view_Manu">
+                    <span style="color: #9FBAC0"><a href="viewmanufac.php">View Manufactured Batteries</a></span>
+                </li>
+            </div>
+            <div class="list">
+                <li class="Enter_Manu">
+                    <span style="color: #9FBAC0"><a href="entermanufac.php">Enter Manufactured Batteries</a></span>
+                </li>
+            </div>
+            <div class="list">
+                <li class="view_sold">
+                    <span style="color: #9FBAC0"><a href="#">View Sold Batteries</a></span>
+                </li>
+            </div>
+            <div class="list">
+                <li class="enter_sold">
+                    <span style="color: #9FBAC0"><a href="#">Enter Sold Batteries</a></span>
+                </li>
+            </div>
+            <div class="list">
+                <li class="stockIH">
+                    <span style="color: #9FBAC0"><a href="#">Stock In Hand</a></span>
+                </li>
+            </div>
+        </ul>
+
+    </div>
+    <div id="content">
+	<form action="entermanufac.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
+
+	
+ <div class="ad" style="margin-left: 20%">
+       <h1  style= "font-size: 20px;
     background-color: #990000;
     color: white;
     width:100%;
@@ -91,7 +149,7 @@
     margin:0 0 0;
     margin-bottom: 20px;
     padding-bottom: 10px;">Manufactured Batteries</h1>
-        <table>
+     <table>
         
             <tr>
             <td>Battery type:</td>
