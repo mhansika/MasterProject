@@ -123,7 +123,7 @@
             </div>
             <div class="list">
                 <li class="enter_sold">
-                    <span style="color: #9FBAC0"><a href="entersold.php">Enter Sold Batteries</a></span>
+                    <span style="color: #9FBAC0"><a href="#">Enter Sold Batteries</a></span>
                 </li>
             </div>
             <div class="list">
@@ -135,7 +135,7 @@
 
     </div>
     <div id="content">
-	<form action="entermanufac.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
+	<form action="entersold.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
 
 	
  <div class="ad" style="margin-left: 20%">
@@ -148,7 +148,7 @@
     line-height: 30px;
     margin:0 0 0;
     margin-bottom: 20px;
-    padding-bottom: 10px;">Manufactured Batteries</h1>
+    padding-bottom: 10px;">Sold Batteries</h1>
      <table>
         
             <tr>
@@ -195,20 +195,29 @@
             </td>
             </tr>
             <tr>
-                <td>Battery No:</td>
+                <td>Amount:</td>
                 <td><input type="text" name="battery number" style="width: 200px" required></td>
             </tr>
 
              <tr>
-                <td>Amount:</td>
+                <td>Area:</td>
                 <td><input type="text" name="amount" style="width: 200px" required></td>
             </tr>
+             <tr>
+                <td>Salesperson Name:</td>
+                <td><input type="text" name="amount" style="width: 200px" required></td>
+            </tr>
+             <tr>
+                <td>Dealer Name:</td>
+                <td><input type="text" name="amount" style="width: 200px" required></td>
+            </tr>
+            
               <tr>
                 <td></td>
            <td><button class="submit" name="submit" value="send">Submit</button></td>
            <td> <button type="reset">RESET</button></td>
             </tr>
-    
+
         </form>
         
         </table>
