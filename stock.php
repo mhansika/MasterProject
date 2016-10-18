@@ -50,7 +50,7 @@
         <div class="this">
 
         <div class="more"style="margin-left: 10%">
-        <a href="stock/StockInner.php"><img src="./images/more.png" style="margin-left: 79%;margin-top: 2%">
+        <a href="stock/viewmanufac.php"><img src="./images/more.png" style="margin-left: 79%;margin-top: 2%">
         <span style="color: #000; font-family: Calibri; font-size: 20px; margin-left: 5%;text-align: center;margin-left: 80%;margin-top: -3%">Enter for more</span></a>
         </div>
         <section style="width:60% ;margin-right:15% "> <!--for demo wrap-->
