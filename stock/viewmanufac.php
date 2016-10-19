@@ -1,4 +1,55 @@
- <?php
+<?php
+?>
+<head>
+<link rel="stylesheet" href="css/table.css">
+ <link rel="stylesheet" type="text/css" href="css/viewmanufac.css">
+
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <div class="icon">
+            <div class="back">
+                <a href="http://localhost/MasterProject/inventory.php"><img src="../images/back.png"></a>
+                <span style="color: #9FBAC0; font-family: Calibri; font-size: 35px; margin-left: 5%;text-align: center">Stock</span>
+            </div>
+        </div>
+        <ul>
+            <div class="list">
+                <li class="view_Manu">
+                    <span style="color: #fff"><a href="viewmanufac.php">View Manufactured Batteries</a></span>
+                </li>
+            </div>
+            <div class="list">
+                <li class="Enter_Manu">
+                    <span style="color: white"><a href="entermanufac.php">Enter Manufactured Batteries</a></span>
+                </li>
+            </div>
+            <div class="list">
+                <li class="view_sold">
+                    <span style="color: #9FBAC0"><a href="#">View Sold Batteries</a></span>
+                </li>
+            </div>
+            <div class="list">
+                <li class="enter_sold">
+                    <span style="color: #9FBAC0"><a href="#">Enter Sold Batteries</a></span>
+                </li>
+            </div>
+            <div class="list">
+                <li class="stockIH">
+                    <span style="color: #9FBAC0"><a href="#">Stock In Hand</a></span>
+                </li>
+            </div>
+
+        </ul>
+
+    </div>
+    <div id="content">
+	 <section> <!--for demo wrap-->
+<h1>Battery Details</h1> 
+<?php
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -10,47 +61,41 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$sql = "SELECT battery_type, battery_name, production_line,manufac_year, manufac_month,battery_num FROM battery";
+$sql = "SELECT battery_type, production_line, manufac_year,manufac_month,battery_num FROM battery";
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    echo "<style>
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-    background-color: #990000;
-    color: white;
-}
-tbody {
-    height: 100px;       /* Just for the demo          */
-    overflow-y: auto;    /* Trigger vertical scroll    */
-    overflow-x: hidden;  /* Hide the horizontal scroll */
-}
-</style>
-</head>
-<body>
-
-<table><tr><th>Battery Type</th><th>Battery Name</th><th>Production Line </th><th>Manufacture Year</th><th>Manufacture Month</th><th>Battery Number</th></tr>";
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["battery_type"]."</td><td>".$row["battery_name"]." </td><td>".$row["production_line"]." </td><td>".$row["manufac_year"]." </td><td>".$row["manufac_month"]." </td><td>".$row["battery_num"]." </td></tr>";
-    }
-    echo "</table></body>
-</html>";
-} else {
-    echo "0 results";
-}
-$conn->close();
-
-
 ?>
+
+<div  class="tbl-header">
+<table cellpadding="0" cellspacing="0" border="0">
+  <thead>
+    <tr>
+      <th>Battery Type</th>
+      <th>Production Line</th>
+	  <th>Manufacture Year</th>
+      <th>Manufacture Month</th>
+      <th>Battery Number</th>
+    </tr>
+  </thead>
+</div>
+         <div  class="tbl-content">
+             <?php
+             if ($result->num_rows > 0) {
+                 while($row = $result->fetch_assoc()) {
+                     echo "<tr><td>".$row["battery_type"]."</td><td>".$row["production_line"]." </td><td>".$row["manufac_year"]."</td><td>".$row["manufac_month"]."</td><td>".$row["battery_num"]."</td></tr>";
+                 }
+
+             }
+
+
+             ?>
+             <table cellpadding="0" cellspacing="0" border="0">
+                 
+             </table>
+</div>
+</section>
+
+    <div id="footer">
+
+    </div>
+</body>
