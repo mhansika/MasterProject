@@ -191,7 +191,7 @@ $( document ).ready(function() {
     require "core/init.php";
 
     $error=FALSE;
-        $dealer_nameerr = $area_noerr =  $NICerr = $addresserr = $salesPerson_iderr = $mobileNoerr = $telephoneNoerr = $emailerr = $faxerr = $dog =  "";
+        $dealer_nameerr = $area_noerr =  $NICerr = $addresserr = $salesPerson_iderr = $mobileNoerr = $telephoneNoerr = $emailerr = $faxerr =  "";
         
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
@@ -263,7 +263,7 @@ $( document ).ready(function() {
             */
           
             if(empty($_POST['email'])){ 
-                $emailerr = "rq";
+                $emailerr = "";
                 $error = TRUE;
             }else{
                 $email = $_POST['email'];
@@ -276,7 +276,7 @@ $( document ).ready(function() {
             }
             
             if(empty($_POST['fax'])){ 
-                $faxerr = "rq";
+                $faxerr = "";
                 $error = TRUE;
             }else{
                 $fax = $_POST['fax'];
@@ -320,7 +320,7 @@ $( document ).ready(function() {
          <table>
         
             <tr>
-                <td colspan="2"><b>Dealer Name:</b></td>
+                <td colspan="2"><b>Dealer Name:<span class="error">* <?php echo $dealer_nameerr;?></span></b></td>
                
 
 
@@ -343,7 +343,7 @@ $( document ).ready(function() {
             <tr>
 
                 <td colspan="2"><b>NIC: <span class="error">* <?php echo $NICerr;?></span></b></td>
-                <td><b>Fax No: <span class="error">* <?php echo $faxerr;?></span></b></td>
+                <td><b>Fax No: </b></td>
             </tr>
             <tr>
                 <td colspan="2"><input type="text" name="NIC" style="width: 200px" required></td>
@@ -352,8 +352,8 @@ $( document ).ready(function() {
             <tr>
 
                 <td><b>Area: <span class="error">* <?php echo $area_noerr;?></span></b></td>
-                <td><b>Salesperson ID: <span class="error">* <?php echo $area_noerr;?></span></b></td>
-                <td><b>E mail: <span class="error">* <?php echo $emailerr;?></span></b></td>
+                <td><b>Salesperson Name: <span class="error">* <?php echo $area_noerr;?></span></b></td>
+                <td><b>E mail: </b></td>
             </tr>
             <tr id= "trow">
                 <td>
