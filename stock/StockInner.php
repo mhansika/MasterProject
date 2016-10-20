@@ -23,7 +23,7 @@
             height:100%;
         }
         li.view_Manu{
-            margin-top: 50%;
+            margin-top: 10%;
             font-family: Calibri;
         }
         li.Enter_Manu{
@@ -47,7 +47,7 @@
             margin-top: 20%;
         }
         .icon{
-            margin-top: 42%;
+            margin-top: 20%;
         }
         #footer{
             position:fixed;
@@ -67,33 +67,38 @@
         <div class="icon">
             <div class="back">
 
-                <a style="none "href="http://localhost/ABM/inventory.php"><img src="../images/back.png"></a>
+                <a style="none"href="http://localhost/ABM/inventory.php"><img src="../images/back.png"></a>
                 <span style="color: #9FBAC0; font-family: Calibri; font-size: 35px; margin-left: 5%;text-align: center">Stock</span>
             </div>
         </div>
         <ul>
             <div class="list">
                 <li class="view_Manu">
-                    <span style="color: #9FBAC0"><a href="viewmanufac.php">View Manufactured Batteries</a></span>
+                    <img style="margin-left: 20%" src="../img/vm.png"><br>
+                    <span  style="color: #9FBAC0"><a href="viewmanufac.php"><span class="asd" >View Manufactured Batteries</span></a></span>
                 </li>
             </div>
             <div class="list">
                 <li class="Enter_Manu">
+                    <img style="margin-left: 20%" src="../img/em.png"><br>
                     <span style="color: #9FBAC0"><a href="entermanufac.php">Enter Manufactured Batteries</a></span>
                 </li>
             </div>
             <div class="list">
                 <li class="view_sold">
+                    <img style="margin-left: 20%" src="../img/vb.png"><br>
                     <span style="color: #9FBAC0">View Sold Batteries</span>
                 </li>
             </div>
             <div class="list">
                 <li class="enter_sold">
+                    <img style="margin-left: 20%" src="../img/eb.png"><br>
                     <span style="color: #9FBAC0">Enter Sold Batteries</span>
                 </li>
             </div>
             <div class="list">
                 <li class="stockIH">
+                    <img style="margin-left: 20%" src="../img/sih.png"><br>
                     <span style="color: #9FBAC0">Stock In Hand</span>
                 </li>
             </div>
