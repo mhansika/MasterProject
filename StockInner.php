@@ -74,7 +74,6 @@
             <div class="list">
                 <li class="view_Manu">
                     <span style="color: #9FBAC0">View Manufactured Batteries</span>
-                    <img class="pic" src="img/vm.png"></img>
                 </li>
             </div>
             <div class="list">
