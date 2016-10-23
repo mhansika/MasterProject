@@ -47,20 +47,16 @@
 <body>
 <div id="sidebar">
 <div class="icon-bar">
-    <a class="active" href="#"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
+    <a class="active" href="http://localhost/MasterProject/inventory.php"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
     <a href="#"><i class="fa fa-file-text fa-2x" aria-hidden="true"></i></a>
-    <a href="#"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+    <a href="viewmanufacExide.php"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
     <a href="#"><i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i></a>
     <a href="#"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>
     <a href="#"><i class="fa fa-archive fa-2x" aria-hidden="true"></i></a>
 </div>
 </div>
 <div id="content">
-    <a href="viewmanufacExide.php">Exide</a>
-    <a href="viewmanufacLucas.php">Lucas</a>
-    <a href="viewmanufacGraganite.php">Graganite</a></br></br></br></br>
-   
-
+    
     
 
 </div>

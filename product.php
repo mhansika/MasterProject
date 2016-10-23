@@ -94,6 +94,8 @@ $conn->close();
 
         url = "searchbattery.php";
 
+        
+
     } 
 
 
