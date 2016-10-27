@@ -49,7 +49,7 @@
  require "../core/database/connect.php";
 
 
- /*function array_sanitize($item) {
+ function array_sanitize($item) {
    $conn= mysqli_connect('localhost','root','','warranty_management');
    $item=mysqli_real_escape_string($conn,$item);
  }
@@ -67,7 +67,7 @@ function manufac_data($manufac_data) {
 
 }
 
-*/
+
 
 
 
@@ -183,71 +183,52 @@ if (isset($_POST["submit"])) {
                 }
 
 
-            $query= "SELECT battery_type, amount FROM released_batteries";
-            $result = $conn->query($query);
+$sql = "INSERT INTO released_batteries (battery_num,battery_type,production_line,manufacture_month,manufacture_year,amount) VALUES ('$str','$battery_type','$production_line','$manufacture_month','$manufacture_year','$amount')";
 
-            if ($result->num_rows > 0) {
-                $sql= "UPDATE released_batteries SET amount=amount +'$amount' WHERE battery_num='$str' ";
-                 if (mysqli_query($conn, $sql)) {
-                        echo "";
-                    }
+  if (mysqli_query($conn, $sql)) {
+            echo "";
+        }
 
-                        else {
-                        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                        }
-
-
+            else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             }
 
-            else{
 
 
-                 $sql = "INSERT INTO released_batteries (battery_num,battery_type,production_line,manufacture_month,manufacture_year,amount) VALUES ('$str','$battery_type','$production_line','$manufacture_month','$manufacture_year','$amount')";
+                    /*     $manufac_data = array(
 
-              if (mysqli_query($conn, $sql)) {
-                        echo "";
-                    }
-
-                        else {
-                        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                        }
-
-
-
-                                /*     $manufac_data = array(
-
-                                                '$battery_num'   =>  $_POST['battery_num'],
-                                                '$battery_type' =>  $_POST['battery_type'],
-                                                '$battery_name' =>  $_POST['battery_name'],
-                                                '$production_line' =>  $_POST['production_line'],
-                                                '$manufacture_month'   =>  $_POST['manufacture_month'],
-                                                '$manufacture_year'   =>  $_POST['manufacture_year'],
-                                                                   
-                                              
-                                              
-                                           );
+                                    '$battery_num'   =>  $_POST['battery_num'],
+                                    '$battery_type' =>  $_POST['battery_type'],
+                                    '$battery_name' =>  $_POST['battery_name'],
+                                    '$production_line' =>  $_POST['production_line'],
+                                    '$manufacture_month'   =>  $_POST['manufacture_month'],
+                                    '$manufacture_year'   =>  $_POST['manufacture_year'],
+                                                       
+                                  
+                                  
+                               );
 
 
-                                        manufac_data($manufac_data);
-                                       
-                                            exit();
+                            manufac_data($manufac_data);
+                           
+                                exit();
 
-             */                    
-                                      
-             }
+ */                    
+                          
+ }
 
-                 
+     
 
-            }
-               
+
+   
 
 
 
-               
+   
 
 
-                 
-                        
+     
+            
 
 
 
@@ -296,13 +277,7 @@ if (isset($_POST["submit"])) {
             </tr>
             <tr>
             <td>Battery Name:</td>
-            <td> <select id="batterysubtype">
-               <option value="">----Select----</option>
-                <option value="MFS65R/L">MFS65R/L</option>
-                <option value="MF105D31R/L">MF105D31R/L</option>
-                <option value="MF105D31R/L">MF105D31R/L</option>      
-
-            </select>
+            <td> <select id="batterysubtype"></select>
 
             <script>
             var batteriesAndSubtypes = {};
