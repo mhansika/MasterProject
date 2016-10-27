@@ -2,6 +2,7 @@
 ?>
 <!DOCTYPE html>
 <html>
+<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <style>
@@ -63,6 +64,60 @@
         font-family: Arial;
     }
 </style>
+<script>
+    function validate(){
+     //Battery type
+        var a= document.Form.battery_type.value;  
+       
+          
+       //  var a = document.form.name.value;
+        if(a=="")
+        {
+        alert("Please Enter Battery Type");
+        document.form.name.focus();
+        return false;
+        }
+    //Battery Name
+        var a= document.Form.battery_name.value;  
+       
+          
+       //  var a = document.form.name.value;
+        if(a=="")
+        {
+        alert("Please Enter Battery Name");
+        document.form.name.focus();
+        return false;
+        }
+
+    //Amount
+        var a= document.Form.amount.value;  
+       
+          
+       //  var a = document.form.name.value;
+        if(a=="")
+        {
+        alert("Please Enter Amount");
+        document.form.name.focus();
+        return false;
+        }
+     
+      
+         //Battery No
+        
+         var idToTest = document.Form.battery_num.value,
+            myRegExp = new RegExp(/^[]{1}[vVxX]$/);
+
+            if(myRegExp.test(idToTest)) {
+                
+            }
+            else {
+               alert( "Please Enter Battery No" );
+            }
+               return( true );
+}
+
+</script>
+</head>
 <body>
 <div id="sidebar">
     <div class="icon-bar">
