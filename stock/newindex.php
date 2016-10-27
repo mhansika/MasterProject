@@ -7,14 +7,15 @@
 <style>
     body {
         margin:0;
-        background-image: url("2.png");
+        background-image: url("../images/2.png");
     }
 
     .icon-bar {
         width: 10%;
         text-align: center;
-        background-color: #820311;
+        background-color: #B40404;
         position: fixed;
+        height: 100%;
     }
 
     .icon-bar a {
@@ -30,15 +31,15 @@
     }
 
     .active {
-        background-color: #555 !important;
+        background-color:black;
     }
     #footer {
         position:fixed;
         left:0px;
         bottom:0px;
-        height:30px;
+        height:2%;
         width:100%;
-        background:#555;
+        background:#B40404;
     }
     #content{
         margin-left: 20%;
@@ -47,12 +48,10 @@
 <body>
 <div id="sidebar">
 <div class="icon-bar">
-    <a class="active" href="http://localhost/MasterProject/inventory.php"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a>
-    <a href="#"><i class="fa fa-file-text fa-2x" aria-hidden="true"></i></a>
-    <a href="viewmanufacExide.php"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
-    <a href="#"><i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i></a>
-    <a href="#"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>
-    <a href="#"><i class="fa fa-archive fa-2x" aria-hidden="true"></i></a>
+    <a class="active" href="http://localhost/MasterProject/inventory.php"><i class="fa fa-arrow-left fa-2x " aria-hidden="true"></i></br><span style="font-size:10px;font-family: Arial">Back</span></a>
+    <a href="viewmanufacExide.php"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></br><span style="font-size:9px;font-family: Arial">Enter Manufacture Stock</span></a>
+    <a href="#"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></br><span style="font-size:10px;font-family: Arial">Enter Sold Batteries</span></a>
+    <a href="#"><i class="fa fa-archive fa-2x " aria-hidden="true"></i></br><span style="font-size:10px;font-family: Arial">Stock In Hand</span></a>
 </div>
 </div>
 <div id="content">
