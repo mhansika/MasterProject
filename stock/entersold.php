@@ -117,6 +117,25 @@
         <a href="#"><i class="fa fa-archive fa-2x " aria-hidden="true"></i></br><span style="font-size:10px;font-family: Arial">Stock In Hand</span></a>
     </div>
 </div>
+
+<?php
+    require "../database/connect.php";
+    $salesname = $x = $y = "";
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        $salesname  = $_POST['salespersonname'];
+        $sales = explode(" ", $salesname);
+        $x = $sales[0]; 
+        $y = $sales[1];
+        //    $sql = "INSERT INTO `sold` (`battery_type`, `battery_name`, `amount`, `salesPerson_id`, `dealer_id`, `sold_Date`) VALUES ('$_POST[batterytype]','$_POST[batteryname]',$_POST[amount],'$_POST[salespersonname]','$_POST[dealername]')";
+
+            $sql = "INSERT INTO `sold` (`battery_type`, `battery_name`, `amount`, `salesPerson_id`, `dealer_id`, `sold_Date`) VALUES ('$_POST[batterytype]', '$_POST[batteryname]', '$_POST[amount]', (SELECT `salesPerson_id` FROM `sales_person` WHERE F_name = '$x' AND L_name = '$y'), (SELECT `dealer_id` FROM `dealer` WHERE dealer_name = '$_POST[dealername]'), now())";
+            if(mysqli_query($connection,$sql)){
+                header("Location: entersold.php");
+                //die();
+            } else{echo "error";}
+        }
+    ?>
     <div id="content">
 	<form action="entersold.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
 
@@ -124,66 +143,26 @@
  <div class="ad">
        <h1>Sold Batteries</h1>
      <table>
-
+        
             <tr>
-            <td>Battery Type:</td>
-
-
-            <td> <select id="battery" onchange="ChangebatteryList()">
-                <option value="">----Select----</option>
-                <option value="Exide">Exide</option>
-                <option value="Lucas">Lucas</option>
-                <option value="Deganite">Deganite</option>
-                </select>
-            </td>
-
+                <td>Battery Type :</td>
+                <td><input type="text" name="batterytype"></td>
             </tr>
-            <tr>
-            <td>Battery Name:</td>
-            <td> <select id="batterysubtype"></select>
-
-            <script>
-            var batteriesAndSubtypes = {};
-            batteriesAndSubtypes['Exide'] = ['MFS65R/L', 'MF105D31R/L', '38B20R/L'];
-            batteriesAndSubtypes['Lucas'] = ['MF105D31R/L', '65D31R/L', 'MFS65R/L', 'NS 40ZR/L'];
-            batteriesAndSubtypes['Deganite'] = ['NS 40ZR/L', 'N70R/L', '80D26R/L'];
-
-            function ChangebatteryList() {
-                var batteryList = document.getElementById("battery");
-                var subtypeList = document.getElementById("batterysubtype");
-                var selbattery = batteryList.options[batteryList.selectedIndex].value;
-                while (subtypeList.options.length) {
-                    subtypeList.remove(0);
-                }
-                var batteries = batteriesAndSubtypes[selbattery];
-                if (batteries) {
-                    var i;
-                    for (i = 0; i < batteries.length; i++) {
-                        var battery = new Option(batteries[i], i);
-                        subtypeList.options.add(battery);
-                    }
-                }
-            }
-            </script>
-
-            </td>
+             <tr>
+                <td>Battery Name :</td>
+                <td><input type="text" name="batteryname"></td>
             </tr>
             <tr>
                 <td>Amount:</td>
-                <td><input type="text" name="battery number" style="width: 200px" required></td>
+                <td><input type="text" name="amount" style="width: 200px"></td>
             </tr>
-
-             <tr>
-                <td>Area:</td>
-                <td><input type="text" name="amount" style="width: 200px" required></td>
-            </tr>
-             <tr>
+            <tr>
                 <td>Salesperson Name:</td>
-                <td><input type="text" name="amount" style="width: 300px" required></td>
+                <td><input type="text" name="salespersonname" style="width: 200px"></td>
             </tr>
              <tr>
                 <td>Dealer Name:</td>
-                <td><input type="text" name="amount" style="width: 300px" required></td>
+                <td><input type="text" name="dealername" style="width: 200px"></td>
             </tr>
 
               <tr>
