@@ -1,67 +1,87 @@
 <?php
 ?>
-<head>
-       <link rel="stylesheet" type="text/css" href="css/stock.css">
-    <style>
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<style>
+    body {
+        margin:0;
+        background-image: url("../images/2.png");
+    }
 
-    </style>
-</head>
+    .icon-bar {
+        width: 10%;
+        text-align: center;
+        background-color: #B40404;
+        position: fixed;
+        height: 100%;
+        margin-top: -7%;
+    }
+
+    .icon-bar a {
+        padding: 16px;
+        display: block;
+        transition: all 0.3s ease;
+        color: white;
+        font-size: 36px;
+    }
+
+    .icon-bar a:hover {
+        background-color: #000;
+    }
+
+    .active {
+        background-color:black;
+    }
+    #footer {
+        position:fixed;
+        left:0px;
+        bottom:0px;
+        height:2%;
+        width:100%;
+        background:#B40404;
+    }
+    #content{
+        margin-left: 35%;
+    }
+    h1{
+        font-size: 25px;
+        background-color: #990000;
+        color: white;
+        width:50%;
+        padding: 10px;
+        font-family: Arial;
+        line-height: 30px;
+        margin:0 0 0;
+        text-align: center;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        margin-top: 10%;
+    }
+    .ad{
+        font-family: Arial;
+    }
+</style>
 <body>
-    <div id="sidebar">
-        <div class="icon">
-            <div class="back">
-                <a href="http://localhost/ABM/inventory.php"><img src="../images/back.png"></a>
-                <span style="color: #9FBAC0; font-family: Calibri; font-size: 35px; margin-left: 5%;text-align: center">Stock</span>
-            </div>
-        </div>
-        <ul>
-            <div class="list">
-                <li class="view_Manu">
-                    <span style="color: #9FBAC0"><a href="viewmanufac.php">View Manufactured Batteries</a></span>
-                </li>
-            </div>
-            <div class="list">
-                <li class="Enter_Manu">
-                    <span style="color: #9FBAC0"><a href="entermanufac.php">Enter Manufactured Batteries</a></span>
-                </li>
-            </div>
-            <div class="list">
-                <li class="view_sold">
-                    <span style="color: #9FBAC0"><a href="#">View Sold Batteries</a></span>
-                </li>
-            </div>
-            <div class="list">
-                <li class="enter_sold">
-                    <span style="color: #9FBAC0"><a href="#">Enter Sold Batteries</a></span>
-                </li>
-            </div>
-            <div class="list">
-                <li class="stockIH">
-                    <span style="color: #9FBAC0"><a href="#">Stock In Hand</a></span>
-                </li>
-            </div>
-        </ul>
-
+<div id="sidebar">
+    <div class="icon-bar">
+        <a class="active" href="http://localhost/MasterProject/inventory.php"><i class="fa fa-arrow-left fa-2x " aria-hidden="true"></i></br><span style="font-size:10px;font-family: Arial">Back</span></a>
+        <a href="entermanufac.php"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></br><span style="font-size:9px;font-family: Arial">Enter Manufacture Stock</span></a>
+        <a href="entersold.php"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></br><span style="font-size:10px;font-family: Arial">Enter Sold Batteries</span></a>
+        <a href="#"><i class="fa fa-archive fa-2x " aria-hidden="true"></i></br><span style="font-size:10px;font-family: Arial">Stock In Hand</span></a>
     </div>
+</div>
     <div id="content">
 	<form action="entersold.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
 
 	
- <div class="ad" style="margin-left: 20%">
-       <h1  style= "font-size: 20px;
-    background-color: #990000;
-    color: white;
-    width:100%;
-    padding: 10px;
-    font-family: Calibri;
-    line-height: 30px;
-    margin:0 0 0;
-    margin-bottom: 20px;
-    padding-bottom: 10px;">Sold Batteries</h1>
+ <div class="ad">
+       <h1>Sold Batteries</h1>
      <table>
         
             <tr>
-            <td>Battery type:</td>
+            <td>Battery Type:</td>
                
            
             <td> <select id="battery" onchange="ChangebatteryList()">
@@ -132,7 +152,10 @@
         </table>
 
     </div>
-    
-    </body>
+
+<div id="footer">
+
+</div>
+</body>
 </html>
 
