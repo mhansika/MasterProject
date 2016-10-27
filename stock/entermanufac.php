@@ -2,121 +2,113 @@
 ?>
 <!DOCTYPE html>
 <html>
-<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-<style>
-    body {
-        margin:0;
-        background-image: url("../images/2.png");
-    }
+<head>
 
-    .icon-bar {
-        width: 10%;
-        text-align: center;
-        background-color: #B40404;
-        position: fixed;
-        height: 100%;
-        margin-top: -7%;
-    }
-
-    .icon-bar a {
-        padding: 16px;
-        display: block;
-        transition: all 0.3s ease;
-        color: white;
-        font-size: 36px;
-    }
-
-    .icon-bar a:hover {
-        background-color: #000;
-    }
-
-    .active {
-        background-color:black;
-    }
-    #footer {
-        position:fixed;
-        left:0px;
-        bottom:0px;
-        height:2%;
-        width:100%;
-        background:#B40404;
-    }
-    #content{
-        margin-left: 35%;
-    }
-    h1{
-        font-size: 25px;
-        background-color: #990000;
-        color: white;
-        width:50%;
-        padding: 10px;
-        font-family: Arial;
-        line-height: 30px;
-        margin:0 0 0;
-        text-align: center;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        margin-top: 10%;
-    }
-    .ad{
-        font-family: Arial;
-    }
-</style>
-<script>
-    function validate(){
-     //Battery type
-        var a= document.Form.battery_type.value;  
-       
-          
-       //  var a = document.form.name.value;
-        if(a=="")
-        {
-        alert("Please Enter Battery Type");
-        document.form.name.focus();
-        return false;
-        }
-    //Battery Name
-        var a= document.Form.battery_name.value;  
-       
-          
-       //  var a = document.form.name.value;
-        if(a=="")
-        {
-        alert("Please Enter Battery Name");
-        document.form.name.focus();
-        return false;
+    <style>
+        body {
+            margin:0;
+            background-image: url("../images/2.png");
         }
 
-    //Amount
-        var a= document.Form.amount.value;  
-       
-          
-       //  var a = document.form.name.value;
-        if(a=="")
-        {
-        alert("Please Enter Amount");
-        document.form.name.focus();
-        return false;
+        .icon-bar {
+            width: 10%;
+            text-align: center;
+            background-color: #B40404;
+            position: fixed;
+            height: 100%;
+            margin-top: -2%;
         }
-     
-      
-         //Battery No
-        
-         var idToTest = document.Form.battery_num.value,
-            myRegExp = new RegExp(/^[]{1}[vVxX]$/);
 
-            if(myRegExp.test(idToTest)) {
-                
-            }
-            else {
-               alert( "Please Enter Battery No" );
-            }
-               return( true );
-}
+        .icon-bar a {
+            padding: 16px;
+            display: block;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 36px;
+        }
 
-</script>
+        .icon-bar a:hover {
+            background-color: #000;
+        }
+
+        .active {
+            background-color:black;
+        }
+        #footer {
+            position:fixed;
+            left:0px;
+            bottom:0px;
+            height:2%;
+            width:100%;
+            background:#B40404;
+        }
+        #content{
+            margin-left: 10%;
+        }
+        h1{
+            font-size: 25px;
+            color: white;
+            text-align: inherit;
+            padding: 1em 0;
+            font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
+            line-height: 30px;
+            text-align: center;
+            padding-bottom: 10px;
+            margin-top: -3%;
+            margin-left: -6%;
+        }
+        .ad{
+            font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
+            background: #990000;
+            margin: 0 auto;
+            padding: 30px;
+            width: 30%;
+            color: #fff;
+            font-size: 16px;
+            line-height: 1em;
+            margin-top: 2%;
+        }
+        .ad td{
+            display: block;
+            margin: 0 0 5px;
+            cursor: pointer;
+        }
+        .ad input,.ad select,.ad option{
+            font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
+            font-size: 12px;
+            border: 0;
+            background:#fff;
+            margin: 0 0 20px;
+            padding: 8px 10px;
+            display: block;
+            width: 50% ;
+        }
+        button{
+            border:0;
+            background: #fff;
+            color: #990000;
+            padding:5px 20px;
+            margin-right: 10px;
+            min-width: 145px;
+        }
+        button:hover{
+            color: #000;
+            background: #990000;
+        }
+        button.submit{
+            background:url("../img/Ok.png") #fff 10px center no-repeat;
+            padding-left: 44px;
+            margin-right: 0;
+        }
+        button.reset{
+            background:url("../img/Cancel.png") #fff 10px center no-repeat;
+            padding-left: 44px;
+            margin-right: 0;
+        }
+
+    </style>
 </head>
 <body>
 <div id="sidebar">
@@ -398,18 +390,17 @@ if (isset($_POST["submit"])) {
             </tr>
             <tr>
                 <td>Battery No:</td>
-                <td><input type="text" name="battery num" style="width: 200px" required></td>
+                <td><input type="text" name="battery number" style="width: 200px" required></td>
             </tr>
 
              <tr>
                 <td>Amount:</td>
                 <td><input type="text" name="amount" style="width: 200px" required></td>
             </tr>
-              <tr>
-                <td></td>
-           <td><button class="submit" name="submit" value="send">Submit</button></td>
-           <td> <button type="reset">RESET</button></td>
-            </tr>
+         <tr>
+             <td></td>
+             <td><button class="submit" name="submit" value="send">Submit</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="reset" name="reset" value="reset">Reset</button></td>
+         </tr>
 
         </form>
 

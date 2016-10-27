@@ -4,6 +4,8 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<head>
+
 <style>
     body {
         margin:0;
@@ -16,7 +18,7 @@
         background-color: #B40404;
         position: fixed;
         height: 100%;
-        margin-top: -7%;
+
     }
 
     .icon-bar a {
@@ -43,26 +45,69 @@
         background:#B40404;
     }
     #content{
-        margin-left: 35%;
+        margin-left: 10%;
     }
     h1{
         font-size: 25px;
-        background-color: #990000;
         color: white;
-        width:50%;
-        padding: 10px;
-        font-family: Arial;
+        padding: 1em 0;
+        font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
         line-height: 30px;
-        margin:0 0 0;
         text-align: center;
-        margin-bottom: 20px;
         padding-bottom: 10px;
-        margin-top: 10%;
+        margin-top: -10%;
+        margin-left: -6%;
     }
     .ad{
-        font-family: Arial;
+        font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
+        background: #990000;
+        margin: 0 auto;
+        padding: 30px;
+        width: 30%;
+        color: #fff;
+        font-size: 16px;
+        line-height: 1em;
     }
+    .ad td{
+        display: block;
+        margin: 0 0 5px;
+        cursor: pointer;
+    }
+    .ad input,.ad select,.ad option{
+        font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
+        font-size: 12px;
+        border: 0;
+        background:#fff;
+        margin: 0 0 20px;
+        padding: 8px 10px;
+        display: block;
+        width: 50% ;
+    }
+    button{
+        border:0;
+        background: #fff;
+        color: #990000;
+        padding:5px 20px;
+        margin-right: 10px;
+        min-width: 145px;
+    }
+    button:hover{
+        color: #000;
+        background: #990000;
+    }
+    button.submit{
+        background:url("../img/Ok.png") #fff 10px center no-repeat;
+        padding-left: 44px;
+        margin-right: 0;
+    }
+    button.reset{
+        background:url("../img/Cancel.png") #fff 10px center no-repeat;
+        padding-left: 44px;
+        margin-right: 0;
+    }
+
 </style>
+</head>
 <body>
 <div id="sidebar">
     <div class="icon-bar">
@@ -75,15 +120,15 @@
     <div id="content">
 	<form action="entersold.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
 
-	
+
  <div class="ad">
        <h1>Sold Batteries</h1>
      <table>
-        
+
             <tr>
             <td>Battery Type:</td>
-               
-           
+
+
             <td> <select id="battery" onchange="ChangebatteryList()">
                 <option value="">----Select----</option>
                 <option value="Exide">Exide</option>
@@ -91,7 +136,7 @@
                 <option value="Deganite">Deganite</option>
                 </select>
             </td>
-            
+
             </tr>
             <tr>
             <td>Battery Name:</td>
@@ -120,7 +165,7 @@
                 }
             }
             </script>
-            
+
             </td>
             </tr>
             <tr>
@@ -134,17 +179,16 @@
             </tr>
              <tr>
                 <td>Salesperson Name:</td>
-                <td><input type="text" name="amount" style="width: 200px" required></td>
+                <td><input type="text" name="amount" style="width: 300px" required></td>
             </tr>
              <tr>
                 <td>Dealer Name:</td>
-                <td><input type="text" name="amount" style="width: 200px" required></td>
+                <td><input type="text" name="amount" style="width: 300px" required></td>
             </tr>
-            
+
               <tr>
                 <td></td>
-           <td><button class="submit" name="submit" value="send">Submit</button></td>
-           <td> <button type="reset">RESET</button></td>
+           <td><button class="submit" name="submit" value="send">Submit</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="reset" name="reset" value="reset">Reset</button></td>
             </tr>
 
         </form>
