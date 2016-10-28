@@ -272,6 +272,15 @@ if (isset($_POST["submit"])) {
                         }
 
 
+                $query="UPDATE stock_in_hand SET current_stock=current_stock +'$amount' WHERE battery_type='$battery_type' ";
+                 if (mysqli_query($conn, $query)) {
+                        echo "";
+                    }
+
+                        else {
+                        echo "Error: " . $query . "<br>" . mysqli_error($conn);
+                        }
+
             }
 
             else{
@@ -288,7 +297,17 @@ if (isset($_POST["submit"])) {
                         }
 
 
+                $query = "INSERT INTO stock_in_hand (battery_type,current_stock) VALUES ('$battery_type','$amount')";
 
+                if (mysqli_query($conn, $query)) {
+                        echo "";
+                    }
+
+                        else {
+                        echo "Error: " . $query . "<br>" . mysqli_error($conn);
+                        }
+
+            }
                                 /*     $manufac_data = array(
 
                                                 '$battery_num'   =>  $_POST['battery_num'],
@@ -313,7 +332,7 @@ if (isset($_POST["submit"])) {
 
                  
 
-            }
+            
                
 
 
@@ -413,4 +432,6 @@ if (isset($_POST["submit"])) {
 </div>
 </body>
 </html>
+
+
 
