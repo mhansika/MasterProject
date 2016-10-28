@@ -136,6 +136,15 @@
                 header("Location: entersold.php");
                 //die();
             } else{echo "error";}
+
+            $query="UPDATE stock_in_hand SET current_stock=current_stock -'$_POST[amount]' WHERE battery_type='$_POST[batterytype]' AND battery_name='$_POST[batteryname]'";
+                 if (mysqli_query($connection, $query)) {
+                        echo "";
+                    }
+
+                        else {
+                        echo "Error: " . $query . "<br>" . mysqli_error($connection);
+                        }
         }
     ?>
     <div id="content">
