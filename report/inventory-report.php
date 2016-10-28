@@ -1,140 +1,61 @@
+<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+<?php include 'core/init.php';
+      protect_page(); 
+      ?>
+
+
+<?php
+$role= $user_data['role'];
+
+
+?>
+
+
+
+
+     
 <!DOCTYPE html>
-<html >
-  <head>
-    <meta charset="UTF-8">
-    <title>Inventory-Report</title>
-    
-    
-    <link rel="stylesheet" href="css/reset.css">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
 
-    
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+        <link rel="stylesheet" href="css/m.css" media="screen" type="text/css" />
 
-    
-    
-    
-  </head>
 
-  <body>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <section> <!--for demo wrap-->
-<h1>Inventory - Report</h1>  
-<div  class="tbl-header">
-<table cellpadding="0" cellspacing="0" border="0">
-  <thead>
-    <tr>
-      <th>Product - Name</th>
-      <th>Product - Type</th>
-      <th>Manufactured Quntity</th>
-      <th>Return Inwards</th>
-      <th>Stock In Hand</th>
-      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- bxSlider Javascript file -->
+    <script src="js/jquery.bxslider.js"></script>
+    <!-- bxSlider CSS file -->
+    <link href="css/jquery.bxslider.css" rel="stylesheet" />
 
-    </tr>
-  </thead>
-</table>
-</div>
-<div  class="tbl-content">
-<table cellpadding="0" cellspacing="0" border="0">
-  <tbody>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    
-  </tbody>
-</table>
-</div>
-</section>
+</head>
+<body>
+
+
+<?php
+
+include 'include/headers/head.php';
+ ?>
 
 
 
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-        <script src="js/index.js"></script>
+  <?php
 
-    
-    
-    
-  </body>
-</html>
+include 'include/footer.php';
+ ?>
+

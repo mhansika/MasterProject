@@ -98,7 +98,7 @@
         </a>
     </li>
     <li>
-        <a href="#">
+        <a href="report/production_line1.php">
             <span class="ca-icon"><img src="img/st.png"></span>
             <div class="ca-content">
                 <h3 class="ca-sub">Stock</h3>
