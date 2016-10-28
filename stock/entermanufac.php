@@ -161,7 +161,7 @@ if (isset($_POST["submit"])) {
                 $batch_num = '$arr2';
                 $amount =$_POST['amount'];
                 $battery_name=$_POST['battery_name'];
-                $battery_type=($arr3[0]);
+               //$battery_type=($arr3[0]);
 
 
     
@@ -261,9 +261,10 @@ if (isset($_POST["submit"])) {
                 }
 
 
-            $query= "SELECT battery_type FROM released_batteries";
-            $result = $conn->query($query);
+            $query =mysqli_query($conn,"SELECT battery_num FROM released_batteries WHERE battery_num='$str' ");
+            $rows=mysqli_num_rows($query);
 
+            if ($rows == 1) {
                 $sql = "UPDATE released_batteries SET amount=amount +'$amount' WHERE battery_num='$str' ";
                //$sql .="UPDATE stock_in_hand SET current_stock=current_stock +'$amount' WHERE battery_type='$battery_type' ";
                  if (mysqli_query($conn, $sql)) {
