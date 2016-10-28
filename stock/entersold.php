@@ -123,6 +123,8 @@
     $salesname = $x = $y = "";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
+
+
         $salesname  = $_POST['salespersonname'];
         $sales = explode(" ", $salesname);
         $x = $sales[0]; 
@@ -146,23 +148,23 @@
         
             <tr>
                 <td>Battery Type :</td>
-                <td><input type="text" name="batterytype"></td>
+                <td><input type="text" name="batterytype" required></td>
             </tr>
              <tr>
                 <td>Battery Name :</td>
-                <td><input type="text" name="batteryname"></td>
+                <td><input type="text" name="batteryname" required></td>
             </tr>
             <tr>
                 <td>Amount:</td>
-                <td><input type="text" name="amount" style="width: 200px"></td>
+                <td><input type="text" name="amount" style="width: 200px" required></td>
             </tr>
             <tr>
                 <td>Salesperson Name:</td>
-                <td><input type="text" name="salespersonname" style="width: 200px"></td>
+                <td><input type="text" name="salespersonname" style="width: 200px" required></td>
             </tr>
              <tr>
                 <td>Dealer Name:</td>
-                <td><input type="text" name="dealername" style="width: 200px"></td>
+                <td><input type="text" name="dealername" style="width: 200px" required></td>
             </tr>
 
               <tr>
