@@ -1,5 +1,3 @@
-<?php
-?>
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -119,6 +117,10 @@
         <a href="#"><i class="fa fa-archive fa-2x " aria-hidden="true"></i></br><span style="font-size:10px;font-family: Arial">Stock In Hand</span></a>
     </div>
 </div>
+
+
+
+
 <?php
 
  require "../core/database/connect.php";
@@ -158,7 +160,8 @@ if (isset($_POST["submit"])) {
                 $serial_no = '$arr1';
                 $batch_num = '$arr2';
                 $amount =$_POST['amount'];
-                //$battery_type=($arr3[0]);
+                $battery_name=$_POST['battery_name'];
+                $battery_type=($arr3[0]);
 
 
     
@@ -258,11 +261,11 @@ if (isset($_POST["submit"])) {
                 }
 
 
-            $query= "SELECT battery_type, amount FROM released_batteries";
+            $query= "SELECT battery_type FROM released_batteries";
             $result = $conn->query($query);
 
-            if ($result->num_rows > 0) {
-                $sql= "UPDATE released_batteries SET amount=amount +'$amount' WHERE battery_num='$str' ";
+                $sql = "UPDATE released_batteries SET amount=amount +'$amount' WHERE battery_num='$str' ";
+               //$sql .="UPDATE stock_in_hand SET current_stock=current_stock +'$amount' WHERE battery_type='$battery_type' ";
                  if (mysqli_query($conn, $sql)) {
                         echo "";
                     }
@@ -286,7 +289,7 @@ if (isset($_POST["submit"])) {
             else{
 
 
-                 $sql = "INSERT INTO released_batteries (battery_num,battery_type,production_line,manufacture_month,manufacture_year,amount) VALUES ('$str','$battery_type','$production_line','$manufacture_month','$manufacture_year','$amount')";
+                 $sql = "INSERT INTO released_batteries (battery_num,battery_type,battery_name,production_line,manufacture_month,manufacture_year,amount) VALUES ('$str','$battery_type','$battery_name','$production_line','$manufacture_month','$manufacture_year','$amount')";
 
               if (mysqli_query($conn, $sql)) {
                         echo "";
@@ -379,7 +382,13 @@ if (isset($_POST["submit"])) {
             </tr>
             <tr>
             <td>Battery Name:</td>
-            <td> <select id="batterysubtype"></select>
+            <td> <select id="batterysubtype" name="battery_name">
+                <option value="">----Select----</option>
+                <option value="MF105D31R/L">MF105D31R/L</option>
+                <option value="65D31R/L">65D31R/L</option>
+                <option value="MFS65R/L">MFS65R/L</option>
+
+            </select>
 
             <script>
             var batteriesAndSubtypes = {};
@@ -409,7 +418,7 @@ if (isset($_POST["submit"])) {
             </tr>
             <tr>
                 <td>Battery No:</td>
-                <td><input type="text" name="battery number" style="width: 200px" required></td>
+                <td><input type="text" name="battery_num" style="width: 200px" required></td>
             </tr>
 
              <tr>
@@ -432,6 +441,7 @@ if (isset($_POST["submit"])) {
 </div>
 </body>
 </html>
+
 
 
 
