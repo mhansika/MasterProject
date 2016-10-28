@@ -64,7 +64,6 @@
                         <thead>
                         <tr>
                             <th>Battery Type</th>
-                            <th>Battery Name</th>
                             <th>Available Stock</th>
                         </tr>
                         </tr>
@@ -73,19 +72,19 @@
                 <tbody>
                 <tr>
                     <td>Exide</td>
-                    <td>MFS65R/L</td>
-                    <td>12500</td>
+                  
+                    <td></td>
                 </tr>
                 <tr>
                     <td>Lucas</td>
-                    <td>MF105D31R/L</td>
-                    <td>20000</td>
+                   
+                    <td></td>
 
                 </tr>
                 <tr>
                     <td>Dagenite</td>
-                    <td>65D31R/L</td>
-                    <td>6000</td>
+                   
+                    <td></td>
 
                 </tr>
      
