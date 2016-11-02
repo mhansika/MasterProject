@@ -1,122 +1,20 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-<head>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+        <link rel="stylesheet" media="screen" type="text/css" href="css/style.css">
 
-    <style>
-        body {
-            margin:0;
-            background-image: url("../images/2.png");
-        }
-
-        .icon-bar {
-            width: 10%;
-            text-align: center;
-            background-color: #B40404;
-            position: fixed;
-            height: 100%;
-            margin-top: -2%;
-        }
-
-        .icon-bar a {
-            padding: 16px;
-            display: block;
-            transition: all 0.3s ease;
-            color: white;
-            font-size: 36px;
-        }
-
-        .icon-bar a:hover {
-            background-color: #000;
-        }
-
-        .active {
-            background-color:black;
-        }
-        #footer {
-            position:fixed;
-            left:0px;
-            bottom:0px;
-            height:2%;
-            width:100%;
-            background:#B40404;
-        }
-        #content{
-            margin-left: 10%;
-        }
-        h1{
-            font-size: 25px;
-            color: white;
-            text-align: inherit;
-            padding: 1em 0;
-            font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
-            line-height: 30px;
-            text-align: center;
-            padding-bottom: 10px;
-            margin-top: -3%;
-            margin-left: -6%;
-        }
-        .ad{
-            font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
-            background: #990000;
-            margin: 0 auto;
-            padding: 30px;
-            width: 30%;
-            color: #fff;
-            font-size: 16px;
-            line-height: 1em;
-            margin-top: 2%;
-        }
-        .ad td{
-            display: block;
-            margin: 0 0 5px;
-            cursor: pointer;
-        }
-        .ad input,.ad select,.ad option{
-            font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
-            font-size: 12px;
-            border: 0;
-            background:#fff;
-            margin: 0 0 20px;
-            padding: 8px 10px;
-            display: block;
-            width: 50% ;
-        }
-        button{
-            border:0;
-            background: #fff;
-            color: #990000;
-            padding:5px 20px;
-            margin-right: 10px;
-            min-width: 145px;
-        }
-        button:hover{
-            color: #000;
-            background: #990000;
-        }
-        button.submit{
-            background:url("../img/Ok.png") #fff 10px center no-repeat;
-            padding-left: 44px;
-            margin-right: 0;
-        }
-        button.reset{
-            background:url("../img/Cancel.png") #fff 10px center no-repeat;
-            padding-left: 44px;
-            margin-right: 0;
-        }
-
-    </style>
-</head>
-<body>
-<div id="sidebar">
-    <div class="icon-bar">
-        <a class="active" href="http://localhost/MasterProject/inventory.php"><i class="fa fa-arrow-left fa-2x " aria-hidden="true"></i></br><span style="font-size:10px;font-family: Arial">Back</span></a>
-        <a href="entermanufac.php"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></br><span style="font-size:9px;font-family: Arial">Enter Manufacture Stock</span></a>
-        <a href="entersold.php"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></br><span style="font-size:10px;font-family: Arial">Enter Sold Batteries</span></a>
-        <a href="#"><i class="fa fa-archive fa-2x " aria-hidden="true"></i></br><span style="font-size:10px;font-family: Arial">Stock In Hand</span></a>
-    </div>
-</div>
+  </head>
+    <body>
+        <div id="sidebar">
+            <div class="icon-bar">
+                <a class="active" href="http://localhost/MasterProject/inventory.php"><i class="fa fa-arrow-left fa-2x " aria-hidden="true"></i></br><span style="font-size:10px;font-family: Arial">Back</span></a>
+                <a href="entermanufac.php"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></br><span style="font-size:9px;font-family: Arial">Enter Manufacture Stock</span></a>
+                <a href="entersold.php"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></br><span style="font-size:10px;font-family: Arial">Enter Sold Batteries</span></a>
+                <a href="#"><i class="fa fa-archive fa-2x " aria-hidden="true"></i></br><span style="font-size:10px;font-family: Arial">Stock In Hand</span></a>
+            </div>
+        </div>
 
 
 
@@ -151,14 +49,14 @@ function manufac_data($manufac_data) {
 
 
 if (isset($_POST["submit"])) {
-    $str =$_POST['battery_num'];
+    $str =$_POST['batch_num'];
 
                 $arr1 = substr($str, 0,4);
                 $arr2 = substr($str, 4);
                 $arr3 = str_split($arr1);
 
                 $serial_no = '$arr1';
-                $batch_num = '$arr2';
+                $battery_num = '$arr2';
                 $amount =$_POST['amount'];
                 $battery_name=$_POST['battery_name'];
                //$battery_type=($arr3[0]);
@@ -261,11 +159,11 @@ if (isset($_POST["submit"])) {
                 }
 
 
-            $query =mysqli_query($conn,"SELECT battery_num FROM released_batteries WHERE battery_num='$str' ");
+            $query =mysqli_query($conn,"SELECT batch_num FROM manufac_batteries WHERE batch_num='$str' ");
             $rows=mysqli_num_rows($query);
 
             if ($rows == 1) {
-                $sql = "UPDATE released_batteries SET amount=amount +'$amount' WHERE battery_num='$str' ";
+                $sql = "UPDATE manufac_batteries SET amount=amount +'$amount' WHERE batch_num='$str' ";
                //$sql .="UPDATE stock_in_hand SET current_stock=current_stock +'$amount' WHERE battery_type='$battery_type' ";
                  if (mysqli_query($conn, $sql)) {
                         echo "";
@@ -290,7 +188,7 @@ if (isset($_POST["submit"])) {
             else{
 
 
-                 $sql = "INSERT INTO released_batteries (battery_num,battery_type,battery_name,production_line,manufacture_month,manufacture_year,amount) VALUES ('$str','$battery_type','$battery_name','$production_line','$manufacture_month','$manufacture_year','$amount')";
+                 $sql = "INSERT INTO manufac_batteries (batch_num,battery_type,battery_name,production_line,manufacture_month,manufacture_year,amount) VALUES ('$str','$battery_type','$battery_name','$production_line','$manufacture_month','$manufacture_year','$amount')";
 
               if (mysqli_query($conn, $sql)) {
                         echo "";
@@ -359,90 +257,87 @@ if (isset($_POST["submit"])) {
 
 
 
-<div class="table">
-    <div id="content">
-	<form action="entermanufac.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
+        <div class="table">
+            <div id="content">
+        	<form action="entermanufac.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
 
 
- <div class="ad">
-       <h1>Manufactured Batteries</h1>
-     <table>
+                    <div class="ad">
+                        <h1>Manufactured Batteries</h1>
+                             <table>
 
-            <tr>
-            <td>Battery Type:</td>
+                                    <tr>
+                                    <td>Battery Type:</td>
 
 
-            <td> <select id="battery" onchange="ChangebatteryList()">
-                <option value="">----Select----</option>
-                <option value="Exide">Exide</option>
-                <option value="Lucas">Lucas</option>
-                <option value="Deganite">Deganite</option>
-                </select>
-            </td>
+                                    <td> <select id="battery" onchange="ChangebatteryList()">
+                                        <option value="">----Select----</option>
+                                        <option value="Exide">Exide</option>
+                                        <option value="Lucas">Lucas</option>
+                                        <option value="Deganite">Deganite</option>
+                                        </select>
+                                    </td>
 
-            </tr>
-            <tr>
-            <td>Battery Name:</td>
-            <td> <select id="batterysubtype" name="battery_name">
-                <option value="">----Select----</option>
-                <option value="MF105D31R/L">MF105D31R/L</option>
-                <option value="65D31R/L">65D31R/L</option>
-                <option value="MFS65R/L">MFS65R/L</option>
+                                    </tr>
+                                    <tr>
+                                    <td>Battery Name:</td>
+                                    <td> <select id="batterysubtype" name="battery_name">
+                                        <option value="">----Select----</option>
+                                        <option value="MF105D31R/L">MF105D31R/L</option>
+                                        <option value="65D31R/L">65D31R/L</option>
+                                        <option value="MFS65R/L">MFS65R/L</option>
 
-            </select>
+                                    </select>
 
-            <script>
-            var batteriesAndSubtypes = {};
-            batteriesAndSubtypes['Exide'] = ['MFS65R/L', 'MF105D31R/L', '38B20R/L'];
-            batteriesAndSubtypes['Lucas'] = ['MF105D31R/L', '65D31R/L', 'MFS65R/L', 'NS 40ZR/L'];
-            batteriesAndSubtypes['Deganite'] = ['NS 40ZR/L', 'N70R/L', '80D26R/L'];
+                                    <script>
+                                    var batteriesAndSubtypes = {};
+                                    batteriesAndSubtypes['Exide'] = ['MFS65R/L', 'MF105D31R/L', '38B20R/L'];
+                                    batteriesAndSubtypes['Lucas'] = ['MF105D31R/L', '65D31R/L', 'MFS65R/L', 'NS 40ZR/L'];
+                                    batteriesAndSubtypes['Deganite'] = ['NS 40ZR/L', 'N70R/L', '80D26R/L'];
 
-            function ChangebatteryList() {
-                var batteryList = document.getElementById("battery");
-                var subtypeList = document.getElementById("batterysubtype");
-                var selbattery = batteryList.options[batteryList.selectedIndex].value;
-                while (subtypeList.options.length) {
-                    subtypeList.remove(0);
-                }
-                var batteries = batteriesAndSubtypes[selbattery];
-                if (batteries) {
-                    var i;
-                    for (i = 0; i < batteries.length; i++) {
-                        var battery = new Option(batteries[i], i);
-                        subtypeList.options.add(battery);
-                    }
-                }
-            }
-            </script>
+                                    function ChangebatteryList() {
+                                        var batteryList = document.getElementById("battery");
+                                        var subtypeList = document.getElementById("batterysubtype");
+                                        var selbattery = batteryList.options[batteryList.selectedIndex].value;
+                                        while (subtypeList.options.length) {
+                                            subtypeList.remove(0);
+                                        }
+                                        var batteries = batteriesAndSubtypes[selbattery];
+                                        if (batteries) {
+                                            var i;
+                                            for (i = 0; i < batteries.length; i++) {
+                                                var battery = new Option(batteries[i], i);
+                                                subtypeList.options.add(battery);
+                                            }
+                                        }
+                                    }
+                                    </script>
 
-            </td>
-            </tr>
-            <tr>
-                <td>Battery No:</td>
-                <td><input type="text" name="battery_num" style="width: 200px" required></td>
-            </tr>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Battery No:</td>
+                                        <td><input type="text" name="batch_num" style="width: 200px" required></td>
+                                    </tr>
 
-             <tr>
-                <td>Amount:</td>
-                <td><input type="text" name="amount" style="width: 200px" required></td>
-            </tr>
-         <tr>
-             <td></td>
-             <td><button class="submit" name="submit" value="send">Submit</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="reset" name="reset" value="reset">Reset</button></td>
-         </tr>
+                                     <tr>
+                                        <td>Amount:</td>
+                                        <td><input type="text" name="amount" style="width: 200px" required></td>
+                                    </tr>
+                                 <tr>
+                                    <td><button class="submit" name="submit" value="send">Submit</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="reset" name="reset" value="reset">Reset</button></td>
+                                 </tr>
 
-        </form>
+                                </form>
 
-        </table>
+                                </table>
 
-    </div>
-</div>
-<div id="footer">
+                            </div>
+        </div>
+        <div id="footer">
 
-</div>
-</body>
+        </div>
+    </body>
 </html>
-
-
 
 

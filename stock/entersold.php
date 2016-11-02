@@ -137,7 +137,7 @@
                 //die();
             } else{echo "error";}
 
-            $query="UPDATE stock_in_hand SET current_stock=current_stock -'$_POST[amount]' WHERE battery_type='$_POST[batterytype]' AND battery_name='$_POST[batteryname]'";
+            $query="UPDATE stock_in_hand SET current_stock=current_stock -'$_POST[amount]' WHERE battery_type='$_POST[batterytype]' ";
                  if (mysqli_query($connection, $query)) {
                         echo "";
                     }
