@@ -1,88 +1,84 @@
-<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-
 <?php
-include '../include/header.php';
-?>
+
+include 'header.php';
+ ?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-
-    <link rel="stylesheet" href="../css/style.css" media="screen" type="text/css" />
-    <link rel="stylesheet" href="../css/m.css" media="screen" type="text/css" />
+   
+    <link rel="stylesheet" href="css/style1.css" media="screen" type="text/css" />
+    
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- bxSlider Javascript file -->
-    <script src="js/jquery.bxslider.js"></script>
-    <!-- bxSlider CSS file -->
-    <link href="css/jquery.bxslider.css" rel="stylesheet" />
-    <script>
-        $( document ).ready(function() {
-            var id = "";
-            var url = "";
-            $("div.link_title>a").click( function(e){
-                e.preventDefault();
-            });
-            $("div.link_title>a").click( function(){
-                var id = this.id;
-                var name = "<?php echo $role ;?>";
-                console.log(name);
-                if (name != "deo") {
-                    $('div.content').html("");
+<style>
+    .widget {
+    vertical-align: top ;
+    margin-left: 1rem;
+    font-size: 2rem;
+    display: inline-block;
+    position: relative;
+}
 
-                    if ( id == "pd") {
-                        url = "Product.php";
+.widget .len {
+    width: 10rem;
+    font-size: inherit;
+    font-family: inherit;
+    letter-spacing: 5px;
+    background-color: transparent;
+    border: solid black;
+    -moz-appearance: textfield;
+}
 
-                    }   else if (id == "stock"){
+.widget .len::-webkit-inner-spin-button,
+.widget .len::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
-                        url = "stock.php";
+.widget .digit-background {
+    position: absolute;
+    top: 1px;
+    left: 0;
+    z-index: -1;
+}
 
-                    }else if (id == "dealer"){
+.widget .digit-background .digit {
+    display: inline-block;
+    float: left;
+}
 
-                        url = "dealer.php";
-
-                    } else if (id == "salep"){
-
-                        url = "salep.php";
-                    } else {
-
-                        url = "report.php";
-                    }
-                    $.ajax({
-                        type:"post",
-                        url:url,
-                        success:function(data){
-
-                            $("div.content").html(data);
-
-                        }
-                    });
-                } else{
-                    url="stock.php";
-                    $.ajax({
-                        type:"post",
-                        url:url,
-                        success:function(data){
-                            $("div.content").html(data);
-                        }
-                    });
-                }
-            });
-        });
-    </script>
+.widget .digit-background .digit::before {
+    content: '0';
+    color: gray;
+    background-color: \black;
+    display: inline-block;
+    padding: 1px;
+    margin: -1px 4px 0 -1px;
+}
+  </style>
+  
 </head>
-<body>
+
 
 <div id="body">
-    <div id="navigation"> nav</div>
+    <div id="navigation"></div>
     <nav>
         <ul id="mainsidebar">
             <li class="var_nav">
                 <div class="link_bg"></div>
                 <div class="link_title" id="pd">
 
-                    <a href="" id="pd" style="top: 1px;
+                    <a href="../inventory.php" id="pd" style="top: 1px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -98,7 +94,7 @@ include '../include/header.php';
                 <div class="link_bg"></div>
                 <div class="link_title" >
 
-                    <a href= "stock.php" id="stock" style="top: 10px;
+                    <a href= "entermanufac.php" id="stock" style="top: 10px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -149,9 +145,97 @@ include '../include/header.php';
     </nav>
 
 
-    <div class="content"
+    <div class="content">
+
+        <div class="table">
+            <div id="content">
+            <form action="entermanufac.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
 
 
+                    <div class="ad">
+                        <h1>Manufactured Batteries</h1>
+                             <table>
+
+                                     <tr>
+                                        <td>Batch No :
+                                        <div class="widget">
+                                           <input type="text" class="len" value="D2D6">
+                                           <div class="digit-background">
+                                                     <div class="digit"></div>
+                                                     <div class="digit"></div>
+                                                     <div class="digit"></div>
+                                                     <div class="digit"></div>
+                                           </div>
+                                        </div>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td>Battery Type:</td>
+
+
+                                    <td> <select id="battery" onchange="ChangebatteryList()">
+                                        <option value="">----Select----</option>
+                                        <option value="Exide">Exide</option>
+                                        <option value="Lucas">Lucas</option>
+                                        <option value="Deganite">Deganite</option>
+                                        </select>
+                                    </td>
+
+                                    </tr>
+                                    <tr>
+                                    <td>Battery Name:</td>
+                                    <td> <select id="batterysubtype" name="battery_name">
+                                        <option value="">----Select----</option>
+                                        <option value="MF105D31R/L">MF105D31R/L</option>
+                                        <option value="65D31R/L">65D31R/L</option>
+                                        <option value="MFS65R/L">MFS65R/L</option>
+
+                                    </select>
+
+                                    <script>
+                                    var batteriesAndSubtypes = {};
+                                    batteriesAndSubtypes['Exide'] = ['MFS65R/L', 'MF105D31R/L', '38B20R/L'];
+                                    batteriesAndSubtypes['Lucas'] = ['MF105D31R/L', '65D31R/L', 'MFS65R/L', 'NS 40ZR/L'];
+                                    batteriesAndSubtypes['Deganite'] = ['NS 40ZR/L', 'N70R/L', '80D26R/L'];
+
+                                    function ChangebatteryList() {
+                                        var batteryList = document.getElementById("battery");
+                                        var subtypeList = document.getElementById("batterysubtype");
+                                        var selbattery = batteryList.options[batteryList.selectedIndex].value;
+                                        while (subtypeList.options.length) {
+                                            subtypeList.remove(0);
+                                        }
+                                        var batteries = batteriesAndSubtypes[selbattery];
+                                        if (batteries) {
+                                            var i;
+                                            for (i = 0; i < batteries.length; i++) {
+                                                var battery = new Option(batteries[i], i);
+                                                subtypeList.options.add(battery);
+                                            }
+                                        }
+                                    }
+                                    </script>
+
+                                    </td>
+                                    </tr>
+                         
+
+                                   
+                                     <tr>
+                                        <td>Amount:</td>
+                                        <td><input type="text" name="amount" style="width: 200px" required></td>
+                                    </tr>
+                                 <tr>
+                                    <td><button class="submit" name="submit" value="send">Submit</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="reset" name="reset" value="reset">Reset</button></td>
+                                 </tr>
+
+                                </form>
+
+                                </table>
+
+                            </div>
+        </div>
+       
 
 </div>
 </div>

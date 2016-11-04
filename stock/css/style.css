@@ -1,7 +1,4 @@
-  body {
-            margin:0;
-            background-image: url("../images/2.png");
-        }
+
 
         .icon-bar {
             width: 10%;
@@ -55,11 +52,11 @@
             background: #990000;
             margin: 0 auto;
             padding: 30px;
-            width: 30%;
+            width: 50%;
             color: #fff;
             font-size: 16px;
             line-height: 1em;
-            margin-top: 2%;
+            margin-top:5%;
         }
         .ad td{
             display: block;
@@ -89,12 +86,12 @@
             background: #990000;
         }
         button.submit{
-            background:url("../img/Ok.png") #fff 10px center no-repeat;
+            background:url("../../img/Ok.png") #fff 10px center no-repeat;
             padding-left: 44px;
             margin-right: 0;
         }
         button.reset{
-            background:url("../img/Cancel.png") #fff 10px center no-repeat;
+            background:url("../../img/Cancel.png") #fff 10px center no-repeat;
             padding-left: 44px;
             margin-right: 0;
         }
