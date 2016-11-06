@@ -278,20 +278,13 @@ if (isset($_POST["submit"])) {
                 }
 
 
-            $query =mysqli_query($conn,"SELECT batch_num FROM manufac_batteries WHERE batch_num='$str' AND  battery_name='$battery_name' ");
+            $query =mysqli_query($conn,"SELECT battery_type FROM stock_in_hand WHERE battery_name='$battery_name' ");
             $rows=mysqli_num_rows($query);
 
-            if ($rows == 1) {
-                $sql = "UPDATE manufac_batteries SET amount=amount +'$amount' WHERE batch_num='$str' AND battery_name='$battery_name' ";
-               //$sql .="UPDATE stock_in_hand SET current_stock=current_stock +'$amount' WHERE battery_type='$battery_type' ";
-                 if (mysqli_query($conn, $sql)) {
-                        echo "";
-                    }
+            $sql =mysqli_query($conn,"SELECT batch_num FROM manufac_batteries WHERE batch_num='$str' AND  battery_name='$battery_name' ");
+            $result=mysqli_num_rows($sql);
 
-                        else {
-                        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-                        }
-
+            if ($rows == 1 AND $result==1) {
 
                 $query="UPDATE stock_in_hand SET current_stock=current_stock +'$amount' WHERE battery_type='$battery_type' AND battery_name ='$battery_name' ";
                  if (mysqli_query($conn, $query)) {
@@ -302,7 +295,18 @@ if (isset($_POST["submit"])) {
                         echo "Error: " . $query . "<br>" . mysqli_error($conn);
                         }
 
-            }
+                $sql = "UPDATE manufac_batteries SET amount=amount +'$amount' WHERE batch_num='$str' AND battery_name='$battery_name' ";
+               //$sql .="UPDATE stock_in_hand SET current_stock=current_stock +'$amount' WHERE battery_type='$battery_type' ";
+                 if (mysqli_query($conn, $sql)) {
+                        echo "";
+                    }
+
+                        else {
+                        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                        
+
+                    }
+            } 
 
             else{
 
