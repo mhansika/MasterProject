@@ -46,6 +46,7 @@
     }
 
     body {
+        background-image:url("img2/2.png") ;
     text-align:center;
     font-family:sans-arial;
     font-size: 20px;
@@ -94,8 +95,8 @@ h1  {
                 <div class="header"><img class="pic" src="img2/logo.png" align="left" height="80px" width="100px">
                 <a href="#"  style="display:block;float:right;margin-right:45px;margin-top:35px;color: white;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="signout" src="img2/signout.png" >Signout </a>
 
-        <h2 style="font-weight: bolder" >ASSOCIATED BATTERY MANUFACTURERS (CEYLON) LIMITED</h1>
-        <h1 style="font-weight: bold;font-size: 20px">Warranty Management System</h2>
+        </br><h2 style="font-weight: bolder" >ASSOCIATED BATTERY MANUFACTURERS (CEYLON) LIMITED</h1>
+        <h1 style="font-weight: bold;font-size: 20px"></h2>
     
         
     </div>
