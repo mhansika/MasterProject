@@ -1,147 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+?>
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title></title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<style>
+		body{
+			margin:0;
+			background: #820311;
+			background: -webkit-linear-gradiant(left top, #c3654f,#820311); /*for safari 5.1 to 6.0*/
+			background: -o-linear-gradiant(bottom right,#c3654f,#820311); /* For Firefox 3.6 to 15 */
+			background: linear-gradient(to bottom right,#c3654f,#820311); /* Standard syntax (must be last) */
+		}
+		.semi-transparent-button {
+			display: block;
+			box-sizing: border-box;
+			margin: 0 auto;
+			padding: 8px;
+			width: 100%;
+			max-width: 300px;
+			background: #fff; /* fallback color for old browsers */
+			background: rgba(255, 255, 255, 0.5);
+			border: 1px solid #fff;
+			color: #fff;
+			text-align: center;
+			text-decoration: none;
+			letter-spacing: 1px;
+			transition: all 0.3s ease-out;
+			font-family: Calibri;
+			font-size: large;
+		}
+		.semi-transparent-button:hover,
+		.semi-transparent-button:focus,
+		.semi-transparent-button:active {
+			background: #fff;
+			color: #000;
+			transition: all 0.5s ease-in;
+		}
+
+		#footer{
+			position:fixed;
+			bottom:0px;
+			width: 100%;
+			margin: 0;
+			background-color: #0f0f0f;
+			height: 20px;
+		}
 
 
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<style type="text/css">
-    .row > div{
-        margin-bottom: 10px;
-    }
-    .header{
-        min-height: 90px;
-
-    }
-    .footer{
-        min-height: 60px;
-    }
-    .header, .footer{
-        background: black;
-    }
-    .sidebar{
-        background: #dbdfe5;
-    }
-    .intro-left{
-        background: #b32400;
-        min-height: 250px;
-    }
-    .intro-right{
-        background: #e5ccff;
-        min-height: 250px;
-    }
-    .section{
-        min-height: 250px;
-        background: #404040;
-    }
-    .section.bg-alt{
-        background: #990000;
-        min-height: 250px;
-    }
-
-    body {
-    text-align:center;
-    font-family:sans-arial;
-    font-size: 20px;
-    font-weight: bold;
-    }
-
-    a {
-    color: black;
-    text-decoration: none;
-
-    }
-
-   .pic{
-    margin-top: 0px;
-    width: 145px;
-    }
-
-    h2{
-    margin-top:10px;
-    font-family:sans-arial;
-    font-size: 20px;
-    color: white;
-}
-
-h1  {
-    margin-top:;
-    font-family:sans-arial;
-    font-size: 12px;
-    color: white;
-
-}
-
-
-
-
-
-</style>
+	</style>
 </head>
 <body>
+<div id="sidebar" style="margin-top: 8%">
+	<div class="icon">
+		<div class="back" style="margin-top: -2%">
+			<img src="../images/back.png"style="margin-left: 5%;">
+			<span style="color: #fff; font-family: Calibri; font-size: 30px; ">Back</span>
+		</div>
+		<h2 style="font-size: 30px;font-family: Arial;color: #fff;margin-left: 33%;margin-top: -3%">Warranty Management System</h2>
+		<div class="back" style="margin-top: -7%;margin-left: 90%;max-width: 100px">
+			<a class="semi-transparent-button" href="http://localhost/ABM/index.php">LogOut</a><br/><br>
+		</div>
+	</div>
 
+</div>
+<div class="button" style="margin-top: 5%;margin-right: 5%">
+<a class="semi-transparent-button" href="#">View Sold Batteries</a><br/><br>
+<a class="semi-transparent-button" href="#">View Replacement Batteries</a><br/><br>
+<a class="semi-transparent-button" href="#">Return Inwards</a><br/><br>
+<a class="semi-transparent-button" href="#">Mis-used Dealers</a><br/><br>
+</div>
+<div id="footer">
 
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="header"><img class="pic" src="img2/logo.png" align="left" height="80px" width="100px">
-                <a href="#"  style="display:block;float:right;margin-right:45px;margin-top:35px;color: white;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="signout" src="img2/signout.png" >Signout </a>
-
-        <h2 style="font-weight: bolder" >ASSOCIATED BATTERY MANUFACTURERS (CEYLON) LIMITED</h1>
-        <h1 style="font-weight: bold;font-size: 20px">Warranty Management System</h2>
-    
-        
-    </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6">
-                <div class="intro-left"><a  href="newsold.php">
-                <span style="margin-top: -25%; margin-right: 55%">New Sold Batteries</span>
-                <img class= "pic" src="img2/m.png" align="middle" >
-                    
-        </a>
-
-        </div>
-   </div>
-            
-            <div class="col-xs-6">
-                <div class="intro-right"><a href="issuednew.php">
-                    <span style="margin-top: -25%; margin-right: 35%">Issued New Replacements</span>
-                    <img class= "pic" src="img2/a.png" align="middle">
-        </a>
-        </div>
-            </div>
-       
-        </div>
-        <div class="row">
-            <div class="col-xs-6">
-                <div class="section"><a href="replacement.php">
-                    <span style="margin-top: -25%; margin-right: 55%">Replacements</span>
-                    <img class= "pic" src="img2/c.png" align="middle">
-        </a>
-        </div>
-            </div>
-            <div class="col-xs-6">
-                <div class="section bg-alt"><a href="returninward.php">
-                    <span style="margin-top: -25%; margin-right: 55%">Return Inwards</span>
-                    <img class= "pic" src="img2/d.png" align="middle">
-        </a>
-        </div></div>
-            </div>
-        
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="footer"></div>
-            </div>
-        </div>
-    </div>
+</div>
 </body>
-</html>                                      
