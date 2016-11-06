@@ -1,71 +1,65 @@
+<!DOCTYPE html>
 <?php
-
 include 'header.php';
  ?>
 
-
-
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-   
-    <link rel="stylesheet" href="css/style1.css" media="screen" type="text/css" />
-    
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <head>
+        <meta charset="utf-8">
+       
+        <link rel="stylesheet" href="css/style1.css" media="screen" type="text/css" />
+         <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+        .widget {
+        vertical-align: top ;
+        margin-left: 1rem;
+        font-size: 2rem;
+        display: inline-block;
+        position: relative;
 
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    }
 
+    .widget .len {
+        width: 18rem;
+        font-size: inherit;
+        font-family: inherit;
+        letter-spacing: 20px;
+        background-color: transparent;
+        color: white;
+        border: solid black;
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
-    .widget {
-    vertical-align: top ;
-    margin-left: 1rem;
-    font-size: 2rem;
-    display: inline-block;
-    position: relative;
-}
+        -moz-appearance: textfield;
+    }
 
-.widget .len {
-    width: 10rem;
-    font-size: inherit;
-    font-family: inherit;
-    letter-spacing: 5px;
-    background-color: transparent;
-    border: solid black;
-    -moz-appearance: textfield;
-}
+    .widget .len::-webkit-inner-spin-button,
+    .widget .len::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 
-.widget .len::-webkit-inner-spin-button,
-.widget .len::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
+    .widget .digit-background {
+        position: absolute;
+        top: 1px;
+        left: 0;
+        z-index: -1;
+    }
 
-.widget .digit-background {
-    position: absolute;
-    top: 1px;
-    left: 0;
-    z-index: -1;
-}
+    .widget .digit-background .digit {
+        display: inline-block;
+        float: left;
+    }
 
-.widget .digit-background .digit {
-    display: inline-block;
-    float: left;
-}
-
-.widget .digit-background .digit::before {
-    content: '0';
-    color: gray;
-    background-color: \black;
-    display: inline-block;
-    padding: 1px;
-    margin: -1px 4px 0 -1px;
-}
-  </style>
+    .widget .digit-background .digit::before {
+        content: '0';
+        color: gray;
+        background-color: ;
+        display: inline-block;
+        padding: 3px;
+        margin: -1px 5px 0 -1px;
+    }
+      </style>
   
 </head>
 
@@ -110,7 +104,7 @@ include 'header.php';
                 <div class="link_bg"></div>
                 <div class="link_title" id="dealer_title" >
 
-                    <a href="" id="dealer" style="top: 10px;
+                    <a href="entersold.php" id="dealer" style="top: 10px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -143,7 +137,7 @@ include 'header.php';
 
 
     </nav>
-
+</div>
 
     <div class="content">
 
@@ -153,7 +147,8 @@ include 'header.php';
 
 
                     <div class="ad">
-                        <h1>Manufactured Batteries</h1>
+                        <h1><b>Manufactured Batteries</b></h1>
+                        <br><br>
                              <table>
 
                                      <tr>
@@ -173,7 +168,7 @@ include 'header.php';
                                     <td>Battery Type:</td>
 
 
-                                    <td> <select id="battery" onchange="ChangebatteryList()">
+                                    <td> <select id="battery" onchange="ChangebatteryList()" style="font-color:black;">
                                         <option value="">----Select----</option>
                                         <option value="Exide">Exide</option>
                                         <option value="Lucas">Lucas</option>
@@ -223,7 +218,7 @@ include 'header.php';
                                    
                                      <tr>
                                         <td>Amount:</td>
-                                        <td><input type="text" name="amount" style="width: 200px" required></td>
+                                        <td><input type="number" name="amount" style="width: 70px" required></td>
                                     </tr>
                                  <tr>
                                     <td><button class="submit" name="submit" value="send">Submit</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="reset" name="reset" value="reset">Reset</button></td>

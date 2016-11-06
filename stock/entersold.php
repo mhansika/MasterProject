@@ -1,123 +1,150 @@
 <?php
+include 'header.php';
 ?>
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <head>
+  <meta charset="utf-8">
+       
+        <link rel="stylesheet" href="css/style1.css" media="screen" type="text/css" />
+         <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+      
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+        .widget {
+        vertical-align: top ;
+        margin-left: 1rem;
+        font-size: 2rem;
+        display: inline-block;
+        position: relative;
 
-<style>
-    body {
-        margin:0;
-        background-image: url("../images/2.png");
     }
 
-    .icon-bar {
-        width: 10%;
-        text-align: center;
-        background-color: #B40404;
-        position: fixed;
-        height: 100%;
-
-    }
-
-    .icon-bar a {
-        padding: 16px;
-        display: block;
-        transition: all 0.3s ease;
+    .widget .len {
+        width: 20rem;
+        font-size: inherit;
+        font-family: inherit;
+        letter-spacing: 20px;
+        background-color: transparent;
         color: white;
-        font-size: 36px;
+        border: solid black;
+
+        -moz-appearance: textfield;
     }
 
-    .icon-bar a:hover {
-        background-color: #000;
+    .widget .len::-webkit-inner-spin-button,
+    .widget .len::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
     }
 
-    .active {
-        background-color:black;
-    }
-    #footer {
-        position:fixed;
-        left:0px;
-        bottom:0px;
-        height:2%;
-        width:100%;
-        background:#B40404;
-    }
-    #content{
-        margin-left: 10%;
-    }
-    h1{
-        font-size: 25px;
-        color: white;
-        padding: 1em 0;
-        font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
-        line-height: 30px;
-        text-align: center;
-        padding-bottom: 10px;
-        margin-top: -10%;
-        margin-left: -6%;
-    }
-    .ad{
-        font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
-        background: #990000;
-        margin: 0 auto;
-        padding: 30px;
-        width: 30%;
-        color: #fff;
-        font-size: 16px;
-        line-height: 1em;
-    }
-    .ad td{
-        display: block;
-        margin: 0 0 5px;
-        cursor: pointer;
-    }
-    .ad input,.ad select,.ad option{
-        font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
-        font-size: 12px;
-        border: 0;
-        background:#fff;
-        margin: 0 0 20px;
-        padding: 8px 10px;
-        display: block;
-        width: 50% ;
-    }
-    button{
-        border:0;
-        background: #fff;
-        color: #990000;
-        padding:5px 20px;
-        margin-right: 10px;
-        min-width: 145px;
-    }
-    button:hover{
-        color: #000;
-        background: #990000;
-    }
-    button.submit{
-        background:url("../img/Ok.png") #fff 10px center no-repeat;
-        padding-left: 44px;
-        margin-right: 0;
-    }
-    button.reset{
-        background:url("../img/Cancel.png") #fff 10px center no-repeat;
-        padding-left: 44px;
-        margin-right: 0;
+    .widget .digit-background {
+        position: absolute;
+        top: 1px;
+        left: 0;
+        z-index: -1;
     }
 
-</style>
+    .widget .digit-background .digit {
+        display: inline-block;
+        float: left;
+    }
+
+    .widget .digit-background .digit::before {
+        content: '0';
+        color: gray;
+        background-color: ;
+        display: inline-block;
+        padding: 3px;
+        margin: -1px 5px 0 -1px;
+    }
+      </style>
+  
 </head>
-<body>
-<div id="sidebar">
-    <div class="icon-bar">
-        <a class="active" href="http://localhost/MasterProject/inventory.php"><i class="fa fa-arrow-left fa-2x " aria-hidden="true"></i></br><span style="font-size:10px;font-family: Arial">Back</span></a>
-        <a href="entermanufac.php"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></br><span style="font-size:9px;font-family: Arial">Enter Manufacture Stock</span></a>
-        <a href="entersold.php"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></br><span style="font-size:10px;font-family: Arial">Enter Sold Batteries</span></a>
-        <a href="#"><i class="fa fa-archive fa-2x " aria-hidden="true"></i></br><span style="font-size:10px;font-family: Arial">Stock In Hand</span></a>
-    </div>
+
+
+<div id="body">
+    <div id="navigation"></div>
+    <nav>
+        <ul id="mainsidebar">
+            <li class="var_nav">
+                <div class="link_bg"></div>
+                <div class="link_title" id="pd">
+
+                    <a href="../inventory.php" id="pd" style="top: 1px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                text-align:center;"><img class= "pic" src="../img/Back.png" align="middle"><span>Back</span></a>
+                </div>
+            </li>
+            <li class="var_nav">
+                <div class="link_bg"></div>
+                <div class="link_title" >
+
+                    <a href= "entermanufac.php" id="stock" style="top: 10px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                text-align:center;"><img class= "pic" src="../img/manufac.png" align="middle"><span>Manufature Products</span></a>
+                </div>
+            </li>
+            <li class="var_nav">
+                <div class="link_bg"></div>
+                <div class="link_title" id="dealer_title" >
+
+                    <a href="entersold.php" id="dealer" style="top: 10px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                text-align:center;"><img class= "pic" src="../img/Sold.png" align="middle"><span>Sold Products</span></a>
+                </div>
+            </li>
+            <li class="var_nav">
+                <div class="link_bg"></div>
+                <div class="link_title" >
+
+                    <a href="#" id="salep" style="top: 10px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                text-align:center;"><img class= "pic" src="../img/stockH.png" align="middle"><span>Stock In Hand</span></a>
+                </div>
+            </li>
+
+    </nav>
+
+
+    </nav>
 </div>
 
+    <div class="content">
+
+        <div class="table">
+      
 <?php
     require "../database/connect.php";
     $salesname = $x = $y = "";
@@ -151,21 +178,49 @@
 	<form action="entersold.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
 
 
- <div class="ad">
+        <div class="ad">
        <h1>Sold Batteries</h1>
+       <br>
      <table>
-        
-            <tr>
-                <td>Battery Type :</td>
-                <td><input type="text" name="batterytype" required></td>
-            </tr>
-             <tr>
-                <td>Battery Name :</td>
-                <td><input type="text" name="batteryname" required></td>
-            </tr>
-            <tr>
-                <td>Amount:</td>
-                <td><input type="text" name="amount" style="width: 200px" required></td>
+        <tr>
+                                        <td>Batch No :
+                                        <div class="widget">
+                                           <input type="text" class="len" value="D2D6">
+                                           <div class="digit-background">
+                                                     <div class="digit"></div>
+                                                     <div class="digit"></div>
+                                                     <div class="digit"></div>
+                                                     <div class="digit"></div>
+                                           </div>
+                                        </div>
+                                    </td>
+                                    </tr>
+                                    <tr>
+                                    <td>Battery Type:</td> 
+                                    <td> <select id="battery" onchange="ChangebatteryList()" style="font-color:black;">
+                                        <option value="">----Select----</option>
+                                        <option value="Exide">Exide</option>
+                                        <option value="Lucas">Lucas</option>
+                                        <option value="Deganite">Deganite</option>
+                                        </select>
+                                    </tr>
+                                    <tr>
+                                    <td> Battery Name:</td>
+                                    <td> <select id="batterysubtype" name="battery_name">
+                                        <option value="">----Select----</option>
+                                        <option value="MF105D31R/L">MF105D31R/L</option>
+                                        <option value="65D31R/L">65D31R/L</option>
+                                        <option value="MFS65R/L">MFS65R/L</option>
+
+                                    </select>
+                                    </tr>
+                                     <tr>
+                                        <td>Amount:</td>
+                                        <td><input type="number" name="amount" style="width: 70px" required></td>
+                                    </tr>
+                                     <tr>
+                <td>Area:</td>
+                <td><input type="text" name="area" style="width: 200px" required></td>
             </tr>
             <tr>
                 <td>Salesperson Name:</td>
