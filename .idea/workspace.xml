@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d87ff9ce-aa62-468c-9785-ef298e764ecf" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/enter.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.php" afterPath="$PROJECT_DIR$/app/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stock/entermanufac.php" afterPath="$PROJECT_DIR$/stock/entermanufac.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stock/entersold.php" afterPath="$PROJECT_DIR$/stock/entersold.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/css/custom.css" afterPath="$PROJECT_DIR$/app/css/custom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/return_inwards.php" afterPath="$PROJECT_DIR$/app/return_inwards.php" />
     </list>
     <ignored path="grp_d.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,8 +39,18 @@
       <file leaf-file-name="custom.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/css/custom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+            <state relative-caret-position="688">
+              <caret line="67" column="16" selection-start-line="67" selection-start-column="16" selection-end-line="67" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="custom - RI.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/css/custom - RI.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="59" column="19" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -100,11 +108,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="return_inwards.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="return_inwards.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/return_inwards.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+            <state relative-caret-position="-315">
+              <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
               <folding>
                 <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
               </folding>
@@ -161,6 +169,8 @@
         <option value="$PROJECT_DIR$/app/sold.php" />
         <option value="$PROJECT_DIR$/app/replacements.php" />
         <option value="$PROJECT_DIR$/app/return_inwards.php" />
+        <option value="$PROJECT_DIR$/app/css/custom.css" />
+        <option value="$PROJECT_DIR$/app/css/custom - RI.css" />
       </list>
     </option>
   </component>
@@ -286,12 +296,12 @@
       <workItem from="1474223489970" duration="35409000" />
       <workItem from="1474307497946" duration="2710000" />
       <workItem from="1478104546977" duration="2548000" />
-      <workItem from="1478504629969" duration="9685000" />
+      <workItem from="1478504629969" duration="10339000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50352000" />
+    <option name="totallyTimeSpent" value="51006000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -351,14 +361,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/css/m.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="68" column="29" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/searchsalep.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
@@ -677,14 +679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/replacements.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -705,11 +699,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/return_inwards.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
+        <state relative-caret-position="-315">
+          <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
           <folding>
             <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="688">
+          <caret line="67" column="16" selection-start-line="67" selection-start-column="16" selection-end-line="67" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/css/custom - RI.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="59" column="19" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
