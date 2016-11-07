@@ -30,7 +30,7 @@ include 'header.php';
         letter-spacing: 20px;
         background-color: transparent;
         color: white;
-        border: solid black;
+        border: solid white;
 
         -moz-appearance: textfield;
     }

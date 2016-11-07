@@ -13,7 +13,7 @@
 <nav class="navbar navbar-static-top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href=""><img style="height:40px; width:40px; margin-top:8px;" src="left-arrow.png"></a>
+            <a href="app.php"><img style="height:40px; width:40px; margin-top:8px;" src="left-arrow.png"></a>
         </div>
         <p class="navbar-text" >Enter Sold Batteries</p>
 </nav>
@@ -37,7 +37,8 @@
 
                     <label class="control-label" for="barcode">Enter Barcode</label>
                     <div class="form-group input-group">
-                        <input class="form-control" id="barcode" name="email" type="text"/>
+                        
+<input class="form-control" id="barcode" name="email" type="text"/>
                         <div class="input-group-addon"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> </div>
                     </div>
                     <div class="form-group">
