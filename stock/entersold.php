@@ -185,7 +185,7 @@ include 'header.php';
         <tr>
                                         <td>Batch No :
                                         <div class="widget">
-                                           <input type="text" class="len" value="D2D6">
+                                           <input type="text" class="len" value="D2D6" required>
                                            <div class="digit-background">
                                                      <div class="digit"></div>
                                                      <div class="digit"></div>
@@ -197,7 +197,7 @@ include 'header.php';
                                     </tr>
                                     <tr>
                                     <td>Battery Type:</td> 
-                                    <td> <select id="battery" onchange="ChangebatteryList()" style="font-color:black;">
+                                    <td> <select id="battery" style="font-color:black;" required>
                                         <option value="">----Select----</option>
                                         <option value="Exide">Exide</option>
                                         <option value="Lucas">Lucas</option>
@@ -206,7 +206,7 @@ include 'header.php';
                                     </tr>
                                     <tr>
                                     <td> Battery Name:</td>
-                                    <td> <select id="batterysubtype" name="battery_name">
+                                    <td> <select id="batterysubtype" name="battery_name" required>
                                         <option value="">----Select----</option>
                                         <option value="MF105D31R/L">MF105D31R/L</option>
                                         <option value="65D31R/L">65D31R/L</option>
