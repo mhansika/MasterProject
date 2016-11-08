@@ -158,19 +158,26 @@ include 'header.php';
         $y = $sales[1];
         //    $sql = "INSERT INTO `sold` (`battery_type`, `battery_name`, `amount`, `salesPerson_id`, `dealer_id`, `sold_Date`) VALUES ('$_POST[batterytype]','$_POST[batteryname]',$_POST[amount],'$_POST[salespersonname]','$_POST[dealername]')";
 
-            $sql = "INSERT INTO `sold` (`battery_type`, `battery_name`, `amount`, `salesPerson_id`, `dealer_id`, `sold_Date`) VALUES ('$_POST[batterytype]', '$_POST[batteryname]', '$_POST[amount]', (SELECT `salesPerson_id` FROM `sales_person` WHERE F_name = '$x' AND L_name = '$y'), (SELECT `dealer_id` FROM `dealer` WHERE dealer_name = '$_POST[dealername]'), now())";
+            $sql = "INSERT INTO `sold` (`battery_type`, `battery_name`, `amount`, `salesPerson_id`, `dealer_id`, `sold_Date`) VALUES ('$_POST[battery_type]', '$_POST[battery_name]', '$_POST[amount]', (SELECT `salesPerson_id` FROM `sales_person` WHERE F_name = '$x' AND L_name = '$y'), (SELECT `dealer_id` FROM `dealer` WHERE dealer_name = '$_POST[dealername]'), now())";
             if(mysqli_query($connection,$sql)){
-                header("Location: entersold.php");
                 //die();
             } else{echo "error";}
 
-            $query="UPDATE stock_in_hand SET current_stock=current_stock -'$_POST[amount]' WHERE battery_type='$_POST[batterytype]' ";
+            $query="UPDATE stock_in_hand SET current_stock=current_stock -'$_POST[amount]' WHERE battery_type='$_POST[battery_type]' ";
                  if (mysqli_query($connection, $query)) {
                         echo "";
                     }
 
                         else {
                         echo "Error: " . $query . "<br>" . mysqli_error($connection);
+                        }
+            $query1= "call updateRelease('$_POST[batch_num]','$_POST[amount]',(SELECT `salesPerson_id` FROM `sales_person` WHERE F_name = '$x' AND L_name = '$y'),(SELECT `dealer_id` FROM `dealer` WHERE dealer_name = '$_POST[dealername]'))";
+                if (mysqli_query($connection, $query1)) {
+                        echo "";
+                    }
+
+                        else {
+                        echo "Error: " . $query1 . "<br>" . mysqli_error($connection);
                         }
         }
     ?>
@@ -183,9 +190,10 @@ include 'header.php';
        <br>
      <table>
         <tr>
-                                        <td>Batch No :
+                                        <td>Batch No :</td>
+                                        <td>
                                         <div class="widget">
-                                           <input type="text" class="len" value="D2D6">
+                                           <input type="text" class="len" value="D2D6" name="batch_num" maxlength="4">
                                            <div class="digit-background">
                                                      <div class="digit"></div>
                                                      <div class="digit"></div>
@@ -197,7 +205,7 @@ include 'header.php';
                                     </tr>
                                     <tr>
                                     <td>Battery Type:</td> 
-                                    <td> <select id="battery" onchange="ChangebatteryList()" style="font-color:black;">
+                                    <td> <select id="battery" name="battery_type" onchange="ChangebatteryList()" style="font-color:black;">
                                         <option value="">----Select----</option>
                                         <option value="Exide">Exide</option>
                                         <option value="Lucas">Lucas</option>
@@ -220,7 +228,7 @@ include 'header.php';
                                     </tr>
                                      <tr>
                 <td>Area:</td>
-                <td><input type="text" name="area" style="width: 200px" required></td>
+                <td><input type="text" name="area" style="width: 200px"></td>
             </tr>
             <tr>
                 <td>Salesperson Name:</td>
