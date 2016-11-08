@@ -1,6 +1,9 @@
-
+.col > div{
+        margin-top: 0px;
+}
 .header{
-    height: 15%;
+  min-height: 90px;
+  margin-bottom: 0px;
 
 }
 .header{
@@ -9,15 +12,16 @@
 
 .intro-left{
     background: #c84646;
-    min-height: 300%;
+    min-height: 160px;
+    margin-top: -10px;
 
 }
 .intro-right{
     background: #e2e2d8;
-    min-height: 300%;
+    min-height: 160px;
 }
 .section{
-    min-height: 300%;
+    min-height: 160px;
     background: #363636;
 }
 body {
@@ -25,6 +29,8 @@ body {
     font-family:'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
     font-size: 20px;
     font-weight: bold;
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
 
 a {
@@ -35,7 +41,7 @@ a {
 
 .pic{
     margin-top: 8px;
-    width: 60px;
+    width: 90px;
     height: 60px;
     margin-left: 2%;
 
@@ -45,6 +51,7 @@ h1  {
     font-family:'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
     font-size: 20px;
     color: white;
+    margin-top: 15px;
 
 }
 .signout{
@@ -56,5 +63,5 @@ h1  {
     font-size:18px;
 }
 .main_app{
-    margin-left: -10%;
+    margin-left: 0%;
 }

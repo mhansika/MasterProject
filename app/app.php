@@ -17,10 +17,10 @@
     
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-14">
                 <div class="header"><img class="pic" src="img2/logo.png" align="left" height="80px" width="100px">
                     <a href="login.php" class="signout"> <img class="signout" src="img2/signout.png" > </a>
-                        </br><h1 style="font-weight: bolder;" >ASSOCIATED BATTERY MANUFACTURERS (CEYLON) LIMITED</h1>
+                        </br><h1 style="font-weight: bolder; margin-top: 0% ; " >ASSOCIATED BATTERY MANUFACTURERS (CEYLON) LIMITED</h1>
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
                 <div class="intro-left">
                     <a  href="sold.php">
                         <span>Sold Batteries</span>
-                            <img class= "main_app" src="img2/m.png" align="middle" >
+                         </br><img class= "main_app" src="img2/m.png" align="middle">
                     </a>
                  </div>
             </div>
@@ -41,7 +41,7 @@
                 <div class="section">
                     <a href="replacements.php">
                         <span>Replacements</span>
-                            <img class= "main_app" src="img2/c.png" align="middle">
+                         </br>   <img class= "main_app" src="img2/c.png" align="middle">
                     </a>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                 <div class="intro-right">
                     <a href="return_inwards.php">
                         <span>Return Inwards</span>
-                            <img class= "main_app" src="img2/a.png" align="middle">
+                        </br>    <img class= "main_app" src="img2/a.png" align="middle">
                     </a>
                 </div>
             </div>
