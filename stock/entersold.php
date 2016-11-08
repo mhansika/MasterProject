@@ -163,7 +163,7 @@ include 'header.php';
                 //die();
             } else{echo "error";}
 
-            $query="UPDATE stock_in_hand SET current_stock=current_stock -'$_POST[amount]' WHERE battery_type='$_POST[battery_type]' ";
+            $query="UPDATE stock_in_hand SET current_stock=current_stock -'$_POST[amount]' WHERE battery_type='$_POST[battery_type]' AND battery_name= '$_POST[battery_name]'";
                  if (mysqli_query($connection, $query)) {
                         echo "";
                     }
