@@ -10,6 +10,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body style="background-color: #e2e2d8">
+
 <nav class="navbar navbar-static-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -52,5 +53,8 @@
         </div>
     </div>
     </div>
+<?php
+
+?>
 </body>
 </html>
