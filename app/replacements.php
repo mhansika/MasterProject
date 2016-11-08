@@ -15,7 +15,7 @@
         <div class="navbar-header">
             <a href="app.php"><img style="height:40px; width:40px; margin-top:8px;" src="left-arrow.png"></a>
         </div>
-        <p class="navbar-text" >Enter Sold Batteries</p>
+        <p class="navbar-text" >Enter Replacements</p>
 </nav>
     <div class="container">
     <div class="row">
