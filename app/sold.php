@@ -49,8 +49,6 @@ $date="";
                         $( "#datepicker" ).datepicker();
                         $("#").click(function() { 
                             $("#datepicker").datepicker( "show" );
-
-
                         })
                         });
                         </script>

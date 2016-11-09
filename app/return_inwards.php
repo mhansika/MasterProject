@@ -1,4 +1,17 @@
 <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "warranty_management";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$name="";
+$date="";
 ?>
 <head>
     <title>Enter</title>
@@ -10,7 +23,6 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </head>
 <body style="background-color: #e2e2d8">
-
 <nav class="navbar navbar-static-top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -54,7 +66,23 @@
     </div>
     </div>
 <?php
+    if (isset($_POST["barcode"])){
+        $name = $_POST["barcode"];
+    }
+$arr1 = substr($name, 0,4);
+$arr2 = substr($name, 4);
+    if (isset($_POST["date"])){
+        $date =  $_POST["date"];
+    }
 
+$sql = "UPDATE released_batteries SET battery_status=5,cus_sold_date='$date' WHERE  batch_num='$arr1'  AND battery_num='$arr2'";
+
+if ($conn->query($sql) === TRUE) {
+    echo "";
+} else {
+    echo "Error updating record: " . $conn->error;
+}
+$conn->close();
 ?>
 </body>
 </html>
