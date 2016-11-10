@@ -37,7 +37,7 @@ $date="";
                 <form action="" id="loginForm">
                     <label class="control-label" for="date">Select Date</label>
                     <div class="form-group input-group">
-                        <input class="form-control" id="datepicker" name="from" type="date" size="9" value=""/>
+                        <input class="form-control" id="datepicker" name="date" type="date" size="9" value=""/>
                         <script>
                         $(function()
                         {
@@ -51,7 +51,7 @@ $date="";
                     <label class="control-label" for="barcode">Enter Barcode</label>
                     <div class="form-group input-group">
                         
-<input class="form-control" id="barcode" name="email" type="text"/>
+<input class="form-control" id="barcode" name="barcode" type="text"/>
                         <div class="input-group-addon"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> </div>
                     </div>
                     <div class="form-group">
@@ -66,21 +66,26 @@ $date="";
     </div>
     </div>
 <?php
-    if (isset($_POST["barcode"])){
-        $name = $_POST["barcode"];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST["barcode"])) {
+        $name = $_POST['barcode'];
     }
-$arr1 = substr($name, 0,4);
-$arr2 = substr($name, 4);
-    if (isset($_POST["date"])){
-        $date =  $_POST["date"];
+    $arr1 = substr($name, 0, 4);
+    $arr2 = substr($name, 4);
+    echo $arr1;
+    echo $arr2;
+    if (isset($_POST["date"])) {
+        $date = $_POST['date'];
     }
+    if ($name == $arr1) ;
+    $sql = "UPDATE `released_batteries` SET `battery_status`=4,`cus_sold_date`='$_POST[date]' WHERE batch_num='$arr1' AND battery_num='$arr2'";
 
-$sql = "UPDATE released_batteries SET battery_status=5,cus_sold_date='$date' WHERE  batch_num='$arr1'  AND battery_num='$arr2'";
 
-if ($conn->query($sql) === TRUE) {
-    echo "";
-} else {
-    echo "Error updating record: " . $conn->error;
+    if ($conn->query($sql) === TRUE) {
+        echo "ok";
+    } else {
+        echo "Error updating record: " . $conn->error;
+    }
 }
 $conn->close();
 ?>

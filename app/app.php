@@ -17,7 +17,7 @@
     
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-14">
+            <div class="col-xs-12">
                 <div class="header"><img class="pic" src="img2/logo.png" align="left" height="80px" width="100px">
                     <a href="login.php" class="signout"> <img class="signout" src="img2/signout.png" > </a>
                         </br><h1 style="font-weight: bolder; margin-top: 0% ; " >ASSOCIATED BATTERY MANUFACTURERS (CEYLON) LIMITED</h1>
