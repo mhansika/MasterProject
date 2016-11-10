@@ -15,4 +15,3 @@ end//
 delimiter ;
 
 
-call updateRelease('D1A6',3,(SELECT `salesPerson_id` FROM `sales_person` WHERE F_name = 'Tishan' AND L_name = 'Madhawa'),(SELECT `dealer_id` FROM `dealer` WHERE dealer_name = 'MKT Perera'))
