@@ -266,9 +266,9 @@ include 'header.php';
                                     </td>
                                     </tr>
                                     <tr>
-                                    
+                                    <td>Battery Type:</td>
                                     <td> <select id="battery" name="battery_type" onchange="ChangebatteryList()" style="font-color:black;">
-                                        <option value="">Battery Type</option>
+                                        <option value="">------SELECT------</option>
                                         <option value="Exide">Exide</option>
                                         <option value="Lucas">Lucas</option>
                                         <option value="Deganite">Deganite</option>
@@ -276,9 +276,9 @@ include 'header.php';
                                     </tr>
                                     <tr>
                                     
-
+                                    <td>Battery Name:</td>
                                     <td> <select id="batterysubtype" name="battery_name">
-                                        <option value="">Battery Name</option>
+                                        <option value="">------SELECT------</option>
                                         <option value="MF105D31R/L">MF105D31R/L</option>
                                         <option value="65D31R/L">65D31R/L</option>
                                         <option value="MFS65R/L">MFS65R/L</option>
@@ -291,12 +291,13 @@ include 'header.php';
                                     </tr>
                                      
             </tr>
+            <tr><td>Area:</td></tr>
             <tr id= "trow">
                 <td>
                     <?php 
                         
                         echo '<select name="area" id="cap">';
-                        echo '<option>    Area   </option>';
+                        echo '<option>    ------SELECT------   </option>';
                         
                         $sql1 = "Select DISTINCT area_no,area from area";
                         $result1= mysqli_query($connection, $sql1);
@@ -309,23 +310,28 @@ include 'header.php';
 
                     ?>
                 </td>
+                <tr id="trow">
+                    <td>Salesperson Name:</td>
                 <td id="second">
 
               
                        <select name="salesPerson_id">
                         
-                        <option> Salesperson Name</option>
+                        <option> ------SELECT------</option>
 
                         </select>
                        
 
                 </td>
+                </tr>
+                <tr id="trow">
+                <td> Dealer Name:</td>
                 <td id="second1">
 
               
                        <select name="dealer_id" >
                         
-                        <option> Dealer</option>
+                        <option> ------SELECT------</option>
 
                         </select>
                        
