@@ -239,40 +239,6 @@ if (isset($_POST["submit"]))
 
 	//checking the manufactured year
 	
-	/*
-	if ($arr3[3]=='1') {
-		$manufacture_year='1';
-	}
-	elseif ($arr3[3]=='2') {
-		 $manufacture_year='2';
-	}
-	elseif ($arr3[3]=='3') {
-		 $manufacture_year='3';
-	}
-	elseif ($arr3[3]=='4') {
-		 $manufacture_year='4';
-	}
-	elseif ($arr3[3]=='5') {
-		 $manufacture_year='5';
-	}
-	elseif ($arr3[3]=='6') {
-		 $manufacture_year='6';
-	}
-	elseif ($arr3[3]=='7') {
-		 $manufacture_year='7';
-	}
-	elseif ($arr3[3]=='8') {
-		 $manufacture_year='8';
-	}
-	elseif ($arr3[3]=='9') {
-		 $manufacture_year='9';
-	}
-	elseif ($arr3[3]=='0') {
-		 $manufacture_year='0';
-	}
-	*/
-	// Above can be written as below.
-	
 	$manufacture_year = $arr3[3];
 
 	$sql = "INSERT INTO manufac_batteries (batch_num,battery_type,battery_name,production_line,manufac_date,manufacture_month,manufacture_year,amount) VALUES ('$str','$battery_type','$battery_name','$production_line',(NOW()),'$manufacture_month','$manufacture_year','$amount')";
@@ -288,16 +254,19 @@ if (isset($_POST["submit"]))
 	// Uses multiple values at the VALUES clause.
 	
 	$lastEntry = getLatestBatteryNumber( $conn, $str );
+    //$WarrantyPeriod = getWarrantyPeriod ($conn, $battery_type) ;
 	
-	$sql = "INSERT INTO released_batteries(batch_num, battery_num) VALUES ";
+	$sql = "INSERT INTO released_batteries(batch_num, battery_num,battery_status) VALUES ";
 	
 	for ( $i = 1 ; $i < $amount; $i++ )
 	{
 		$num = $lastEntry + $i;
-		$sql = $sql . "('$str', '". sprintf('%06d', $num )."'),";
+		$sql = $sql . "('$str', '". sprintf('%06d', $num )."','". '0' ."'),";
+       
 	}
 	$num = $lastEntry + $amount;
-	$sql = $sql . "('$str', '". sprintf('%06d', $num)."');";
+	$sql = $sql . "('$str', '". sprintf('%06d', $num)."','". '0' . "');";
+      $query= $sql . "('0')";
 	
 	if (mysqli_query($conn, $sql)) {
 		echo "";
@@ -305,6 +274,9 @@ if (isset($_POST["submit"]))
 	else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
+
+
+    
 	
 	$query =mysqli_query($conn,"SELECT battery_type FROM stock_in_hand WHERE battery_name='$battery_name' ");
 	$rows=mysqli_num_rows($query);	
@@ -371,6 +343,23 @@ if (isset($_POST["submit"]))
 			return 0;
 		}
 	 }
+
+function getWarrantyPeriod ($conn, $battery_type)
+{
+
+$query = mysqli_query($conn, "SELECT warranty_period FROM battery_description WHERE battery_type='$battery_type'");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       $fetcharray=mysqli_fetch_array($query,MYSQLI_NUM);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        return $fetcharray[0];
+
+}
+
+
+
+
+
+
+
+
 ?>
 
 	<div class="content">

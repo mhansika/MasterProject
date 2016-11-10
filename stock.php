@@ -1,4 +1,39 @@
+ <div class="content">
 
+    <div class="form">
+        <div class="this">
+
+        <div class="more"style="margin-left: 10%">
+        <a href="./stock/entermanufac.php"><img src="./images/more.png" style="margin-left: 79%;margin-top: 5%">
+        <span style="color: #000; font-family: Calibri; font-size: 20px; margin-left: 5%;text-align: center;margin-left: 80%;margin-top: -2%">Enter for more</span></a>
+        </div>
+        <section style="width:60% ;margin-right:15% "> <!--for demo wrap-->
+            <h1 style="font-size: 30px;
+                    color: #000;
+                    text-transform: uppercase;
+                    font-weight: 300;
+                    text-align: center;">Stock in Hand</h1>
+            <div  class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">  
+
+
+ <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "warranty_management";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+$sql = "SELECT battery_type, current_stock FROM stock_in_hand";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    echo "
             <style>
         table{
             width:80%;
@@ -44,23 +79,8 @@
 
 
 </head>
-<div class="content">
+<body>
 
-    <div class="form">
-        <div class="this">
-
-        <div class="more"style="margin-left: 10%">
-        <a href="./stock/entermanufac.php"><img src="./images/more.png" style="margin-left: 79%;margin-top: 5%">
-        <span style="color: #000; font-family: Calibri; font-size: 20px; margin-left: 5%;text-align: center;margin-left: 80%;margin-top: -2%">Enter for more</span></a>
-        </div>
-        <section style="width:60% ;margin-right:15% "> <!--for demo wrap-->
-            <h1 style="font-size: 30px;
-                    color: #000;
-                    text-transform: uppercase;
-                    font-weight: 300;
-                    text-align: center;">Stock in Hand</h1>
-            <div  class="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0">  
                         <thead>
                         <tr>
                             <th>Battery Type</th>
@@ -68,28 +88,13 @@
                         </tr>
                         </tr>
                         </thead>
-                </div>
-                <tbody>
-                <tr>
-                    <td>Exide</td>
-                  
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Lucas</td>
-                   
-                    <td></td>
-
-                </tr>
-                <tr>
-                    <td>Dagenite</td>
-                   
-                    <td></td>
-
-                </tr>
-     
-                </tbody>
-                </table>
+                </div>";
+                 // output data of each row
+    while($row = $result->fetch_assoc()) {
+             echo "    <tbody>
+                <tr><td>".$row["battery_type"]."</td><td>".$row["current_stock"]."</td></tr>"; }
+    echo "
+                </tbody></table></table>
         </div>
 </section>
 
@@ -99,45 +104,17 @@
 
 
 </div>     
-
-<script>
-        
-    $("div.content>ul#topnavi>li>a").click( function(e){
-
-        e.preventDefault();
-
-    });
+</body>
+</html>";
+} else {
+    echo "0 results";
+}
+$conn->close();
 
 
+?>
+               
+
+              
      
-
-     $.ajax({
-
-
-            
-        type:"post",
-        url:url,
-        success:function(data){
-
-            $("div.content> div.form").html(data);
-
-        }
-
-
-
-    });
-
-    
-
-
-
-});
-
-
-
-
-
-
-
-</script>
 
