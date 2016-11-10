@@ -73,3 +73,9 @@ h1  {
 .main_app{
     margin-left: 0%;
 }
+.logo{
+    float: left;
+    height: 80px;
+    width: 80px;
+
+}

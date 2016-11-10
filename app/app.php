@@ -17,16 +17,16 @@
     
     <div class="container-fluid">
         <div class="row">
-<<<<<<< HEAD
+
             <div class="col-xs-12">
-=======
-            <div class="col-md-16">
->>>>>>> origin/master
-                <div class="header"><img class="pic" src="img2/logo.png" align="left" height="80px" width="100px">
+
+            
+
+                <div class="header"><img class="logo" src="img2/logo.png">
                     <a href="login.php" class="signout"> <img class="signout" src="img2/signout.png" > </a>
                         </br><h1 style="font-weight: bolder; margin-top: 0% ; " >ASSOCIATED BATTERY MANUFACTURERS (CEYLON) LIMITED</h1>
                 </div>
-            </div>
+
         </div>
      </div>
         <div class="row">
