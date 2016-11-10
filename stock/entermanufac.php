@@ -4,6 +4,7 @@ include 'header.php';
  ?>
 
 <html lang="en">
+<<<<<<< HEAD
 	<head>
 		<meta charset="utf-8">
 	   
@@ -60,6 +61,64 @@ include 'header.php';
 		margin: -1px 5px 0 -1px;
 	}
 	  </style>
+=======
+    <head>
+        <meta charset="utf-8">
+       
+        <link rel="stylesheet" href="css/style1.css" media="screen" type="text/css" />
+         <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+        .widget {
+        vertical-align: top ;
+        margin-left: 1rem;
+        font-size: 2rem;
+        display: inline-block;
+        position: relative;
+
+    }
+
+    .widget .len {
+        width: 18rem;
+        font-size: inherit;
+        font-family: inherit;
+        letter-spacing: 20px;
+        background-color: transparent;
+        color: white;
+        border: solid white;
+
+        -moz-appearance: textfield;
+    }
+
+    .widget .len::-webkit-inner-spin-button,
+    .widget .len::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .widget .digit-background {
+        position: absolute;
+        top: 1px;
+        left: 0;
+        z-index: -1;
+    }
+
+    .widget .digit-background .digit {
+        display: inline-block;
+        float: left;
+    }
+
+    .widget .digit-background .digit::before {
+        content: '0';
+        color: gray;
+        background-color: ;
+        display: inline-block;
+        padding: 3px;
+        margin: -1px 5px 0 -1px;
+    }
+      </style>
+>>>>>>> b5a0b5499d4d09a893e75d21e860d67e212c4859
   
 </head>
 

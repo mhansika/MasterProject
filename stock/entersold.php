@@ -30,7 +30,7 @@ include 'header.php';
         letter-spacing: 20px;
         background-color: transparent;
         color: white;
-        border: solid black;
+        border: solid white;
 
         -moz-appearance: textfield;
     }
@@ -62,6 +62,68 @@ include 'header.php';
         margin: -1px 5px 0 -1px;
     }
       </style>
+
+
+      
+      <script type="text/javascript">
+          $( document ).ready(function() {
+     $("select#cap").click( function(){
+
+            //var id = this.id;
+            var id = $(this).children(":selected").attr("id");
+            console.log(id);
+
+            $.ajax({
+
+                url:'getdrop.php?data='+id,
+                type:"get",
+                success:function(data){
+
+                $("tr#trow>td#second").html("");
+                $("tr#trow>td#second").html(data);
+
+                        //load third
+                     $("select#carmodel").click( function(){
+                        //var id = this.id;
+                        //alert("fdsf");
+                        var id1 = $(this).children(":selected").attr("value");
+                       // alert(id1);
+                        console.log(id1);
+                        $.ajax({
+
+                            url:'getdrop2.php?data1='+id1,
+                            type:"get",
+                            success:function(data1){
+                                //alert(data1);
+
+                            $("tr#trow>td#second1").html("");
+                            $("tr#trow>td#second1").html(data1);
+                            },
+
+                            error:function (jqXHR, textstatus, errorThrown)
+                                      {
+                                          alert(errorThrown);
+
+                                      }
+
+
+                        });
+                             });
+
+                     //end of third load
+
+                }
+
+
+            });
+    });
+
+    
+    
+});
+      </script>
+
+
   
 </head>
 
@@ -147,30 +209,37 @@ include 'header.php';
       
 <?php
     require "../database/connect.php";
-    $salesname = $x = $y = "";
+    //$salesname = $x = $y = "";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
 
-        $salesname  = $_POST['salespersonname'];
-        $sales = explode(" ", $salesname);
-        $x = $sales[0]; 
-        $y = $sales[1];
+        //$salesname  = $_POST['salespersonname'];
+        //$sales = explode(" ", $salesname);
+        //$x = $sales[0]; 
+        //$y = $sales[1];
         //    $sql = "INSERT INTO `sold` (`battery_type`, `battery_name`, `amount`, `salesPerson_id`, `dealer_id`, `sold_Date`) VALUES ('$_POST[batterytype]','$_POST[batteryname]',$_POST[amount],'$_POST[salespersonname]','$_POST[dealername]')";
 
-            $sql = "INSERT INTO `sold` (`battery_type`, `battery_name`, `amount`, `salesPerson_id`, `dealer_id`, `sold_Date`) VALUES ('$_POST[batterytype]', '$_POST[batteryname]', '$_POST[amount]', (SELECT `salesPerson_id` FROM `sales_person` WHERE F_name = '$x' AND L_name = '$y'), (SELECT `dealer_id` FROM `dealer` WHERE dealer_name = '$_POST[dealername]'), now())";
+            $sql = "INSERT INTO `sold` (`battery_type`, `battery_name`, `amount`, `salesPerson_id`, `dealer_id`, `sold_Date`) VALUES ('$_POST[battery_type]', '$_POST[battery_name]', '$_POST[amount]', '$_POST[salesPerson_id]','$_POST[dealer_id]', now())";
             if(mysqli_query($connection,$sql)){
-                header("Location: entersold.php");
                 //die();
             } else{echo "error";}
 
-            $query="UPDATE stock_in_hand SET current_stock=current_stock -'$_POST[amount]' WHERE battery_type='$_POST[batterytype]' ";
+            $query="UPDATE stock_in_hand SET current_stock=current_stock -'$_POST[amount]' WHERE battery_type='$_POST[battery_type]' AND battery_name= '$_POST[battery_name]'";
                  if (mysqli_query($connection, $query)) {
                         echo "";
                     }
 
                         else {
                         echo "Error: " . $query . "<br>" . mysqli_error($connection);
+                        }
+            $query1= "call updateRelease('$_POST[batch_num]','$_POST[amount]','$_POST[salesPerson_id]','$_POST[dealer_id]')";
+                if (mysqli_query($connection, $query1)) {
+                        echo "";
+                    }
+
+                        else {
+                        echo "Error: " . $query1 . "<br>" . mysqli_error($connection);
                         }
         }
     ?>
@@ -183,9 +252,14 @@ include 'header.php';
        <br>
      <table>
         <tr>
-                                        <td>Batch No :
+                                        <td>Batch No :</td>
+                                        <td>
                                         <div class="widget">
+<<<<<<< HEAD
                                            <input type="text" class="len" value="D2D6" required>
+=======
+                                           <input type="text" class="len" value="D2D6" name="batch_num" maxlength="4">
+>>>>>>> b5a0b5499d4d09a893e75d21e860d67e212c4859
                                            <div class="digit-background">
                                                      <div class="digit"></div>
                                                      <div class="digit"></div>
@@ -196,18 +270,31 @@ include 'header.php';
                                     </td>
                                     </tr>
                                     <tr>
+<<<<<<< HEAD
                                     <td>Battery Type:</td> 
                                     <td> <select id="battery" style="font-color:black;" required>
                                         <option value="">----Select----</option>
+=======
+                                    <td>Battery Type:</td>
+                                    <td> <select id="battery" name="battery_type" onchange="ChangebatteryList()" style="font-color:black;">
+                                        <option value="">------SELECT------</option>
+>>>>>>> b5a0b5499d4d09a893e75d21e860d67e212c4859
                                         <option value="Exide">Exide</option>
                                         <option value="Lucas">Lucas</option>
                                         <option value="Deganite">Deganite</option>
                                         </select>
                                     </tr>
                                     <tr>
+<<<<<<< HEAD
                                     <td> Battery Name:</td>
                                     <td> <select id="batterysubtype" name="battery_name" required>
                                         <option value="">----Select----</option>
+=======
+                                    
+                                    <td>Battery Name:</td>
+                                    <td> <select id="batterysubtype" name="battery_name">
+                                        <option value="">------SELECT------</option>
+>>>>>>> b5a0b5499d4d09a893e75d21e860d67e212c4859
                                         <option value="MF105D31R/L">MF105D31R/L</option>
                                         <option value="65D31R/L">65D31R/L</option>
                                         <option value="MFS65R/L">MFS65R/L</option>
@@ -218,19 +305,55 @@ include 'header.php';
                                         <td>Amount:</td>
                                         <td><input type="number" name="amount" style="width: 70px" required></td>
                                     </tr>
-                                     <tr>
-                <td>Area:</td>
-                <td><input type="text" name="area" style="width: 200px" required></td>
+                                     
             </tr>
-            <tr>
-                <td>Salesperson Name:</td>
-                <td><input type="text" name="salespersonname" style="width: 200px" required></td>
-            </tr>
-             <tr>
-                <td>Dealer Name:</td>
-                <td><input type="text" name="dealername" style="width: 200px" required></td>
-            </tr>
+            <tr><td>Area:</td></tr>
+            <tr id= "trow">
+                <td>
+                    <?php 
+                        
+                        echo '<select name="area" id="cap">';
+                        echo '<option>    ------SELECT------   </option>';
+                        
+                        $sql1 = "Select DISTINCT area_no,area from area";
+                        $result1= mysqli_query($connection, $sql1);
+                             while($r=mysqli_fetch_row($result1))
+                             { 
+                                   echo '<option id=' .$r[0].'> ' . $r[1] . '</option>';
 
+                             }
+                        echo "</select>";
+
+                    ?>
+                </td>
+                <tr id="trow">
+                    <td>Salesperson Name:</td>
+                <td id="second">
+
+              
+                       <select name="salesPerson_id">
+                        
+                        <option> ------SELECT------</option>
+
+                        </select>
+                       
+
+                </td>
+                </tr>
+                <tr id="trow">
+                <td> Dealer Name:</td>
+                <td id="second1">
+
+              
+                       <select name="dealer_id" >
+                        
+                        <option> ------SELECT------</option>
+
+                        </select>
+                       
+
+                </td>
+            </tr>
               <tr>
                 <td></td>
            <td><button class="submit" name="submit" value="send">Submit</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="reset" name="reset" value="reset">Reset</button></td>
