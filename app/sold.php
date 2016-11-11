@@ -65,7 +65,7 @@ $date="";
                         <button type="submit" class="btn btn-primary btn-lg outline" style="width: 100%">Done</button>
                     </div>
                     <div class="form-group">
-                        <button type="button" class="btn btn-primary btn-lg outline" style="width: 100%">Cancel</button>
+                        <button type="clear" class="btn btn-primary btn-lg outline" style="width: 100%">Cancel</button>
                     </div>
                 </form>
             </div>
