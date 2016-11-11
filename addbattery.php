@@ -1,5 +1,5 @@
 <script><!-- test-->
-        
+     //comment
     $("div.content>ul#topnavi>li>a").click( function(e){
 
         e.preventDefault();
@@ -27,11 +27,11 @@
      $.ajax({
 
 
-            
+
         type:"post",
         url:url,
         success:function(data){
-            $('div.content > div.form').html("");            
+            $('div.content > div.form').html("");
             $("div.content> div.form").html(data);
 
         }
@@ -40,7 +40,7 @@
 
     });
 
-    
+
 
 
 
@@ -55,7 +55,7 @@
 </script>
 
 
-    
+
 
 
 
@@ -70,7 +70,7 @@
  table {
             border-collapse: collapse;
             }
-            
+
             td {
              padding-top: .5em;
             padding-bottom: .5em;
@@ -85,7 +85,7 @@
 
 
         function validate(){
-         
+
          if (document.Form.battery_type.value == ""){
             alert("Please fill out this field");
             document.Form.battery_type.focus() ;
@@ -134,7 +134,7 @@
 
 
 </head>
-    
+
     <body>
     <?php
             require "core/database/connect.php";
@@ -165,7 +165,7 @@
 
             $image=basename( $_FILES["imageUpload"]["name"],".png"); // used to store the filename in a variable
 
-  
+
             $sql = "INSERT INTO battery_description (battery_type,battery_name,warranty_period,amperehour_Value,voltage_Value,item_Type,imageUpload) VALUES ('$battery_type','$battery_name','$warranty_period','$amperehour_Value','$VoltageValue',' $item_Type','$image')";
 
         if (mysqli_query($conn, $sql)) {
@@ -176,7 +176,7 @@
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             }
 
-            
+
             header("Location:inventory.php");
 
 
@@ -186,9 +186,9 @@
 
 
 
-    
+
 <form action="addbattery.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
-    
+
 <div class="ad">
     <h1  style= "font-size: 20px;
     background-color: #990000;
@@ -201,17 +201,17 @@
     margin-bottom: 20px;
     padding-bottom: 10px;">Add Product</h1>
         <table>
-        
+
             <tr>
             <td>Product type:</td>
-               
-           
+
+
             <td> <select name="battery_type">
             <option value="Exide">Exide</option>
             <option value="Lucas">Lucas</option>
             <option value="Dagenite">Dagenite</option>
             </td>
-            
+
             </tr>
             <tr>
             <td>Product Name:</td>
@@ -241,21 +241,21 @@
                 <td>Insert a image here: </td>
                 <td><input type="file" name="imageUpload" id="imageUpload">
              </tr>
-            
-            
-            
+
+
+
             <tr>
                 <td></td>
            <td><button class="submit" name="submit" value="send">Submit</button></td>
            <td> <button type="reset">RESET</button></td>
             </tr>
-    
+
         </form>
-        
+
         </table>
 
     </div>
-    
+
     </body>
 </html>
 
