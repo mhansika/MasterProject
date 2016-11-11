@@ -1,23 +1,4 @@
- <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "warranty_management";
-
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-$name="";
-$date="";
-
-
-?>
-
-
-<html>
+ <html>
 <head>
     <title>Enter</title>
     <meta charset="utf-8">
@@ -74,6 +55,22 @@ $date="";
     </div>
    
 <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "warranty_management";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+$name="";
+$date="";
+
+
+
     if (isset($_POST["barcode"])){
         $name = $_POST["barcode"];
     }
