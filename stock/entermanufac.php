@@ -317,16 +317,16 @@ if (isset($_POST["submit"]))
 	$lastEntry = getLatestBatteryNumber( $conn, $str );
     $WarrantyPeriod = getWarrantyPeriod ($conn, $battery_type) ;
 	
-	$sql = "INSERT INTO released_batteries(batch_num, battery_num,battery_status,warranty_period) VALUES ";
+	$sql = "INSERT INTO released_batteries(batch_num, battery_num,battery_status) VALUES ";
 	
 	for ( $i = 1 ; $i < $amount; $i++ )
 	{
 		$num = $lastEntry + $i;
-		$sql = $sql . "('$str', '". sprintf('%06d', $num )."','". '0' ."','". '$WarrantyPeriod' ."'),";
+		$sql = $sql . "('$str', '". sprintf('%06d', $num )."','". '0' ."'),";
        
 	}
 	$num = $lastEntry + $amount;
-	$sql = $sql . "('$str', '". sprintf('%06d', $num)."','". '0' . "','". '$WarrantyPeriod' ."');";
+	$sql = $sql . "('$str', '". sprintf('%06d', $num)."','". '0' . "');";
 	
 	if (mysqli_query($conn, $sql)) {
 		echo "";

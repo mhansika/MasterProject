@@ -110,16 +110,56 @@ $date="";
     </div>
    
 <?php
+
+
+
+
+
+
+
+
+
+
+
+
+
     if (isset($_POST["barcode"])){
         $name = $_POST["barcode"];
     }
 $arr1 = substr($name, 0,4);
 $arr2 = substr($name, 4);
+$arr3 = str_split($arr1);
     if (isset($_POST["date"])){
+ 
+
         $date =  $_POST["date"];
+     
+    
+    
     }
 
-$sql = "UPDATE released_batteries SET battery_status=2,cus_sold_date='$date' WHERE  batch_num='$arr1'  AND battery_num='$arr2'";
+
+        //$start = new DateTime();
+       // $start = strtotime('$start');
+
+        
+        //$my_date = strtotime($date);
+        //$warrantyPeriod = ceil(abs($my_date - $start) / 86400);
+if ($arr3[0]=='D'){
+        $days= 365;
+
+    }
+    elseif ($arr3[0]=='E') {
+          $days = 730;
+    }
+    elseif ($arr3[0]=='L') {
+             $days= 1095;
+    }
+
+  
+$warrantyPeriod = date('Y-m-d', strtotime($date. ' + '.$days.'days'));
+
+$sql = "UPDATE released_batteries SET battery_status=2,cus_sold_date='$date', warranty_period='$warrantyPeriod' WHERE  batch_num='$arr1'  AND battery_num='$arr2'";
  
 if ($conn->query($sql) === TRUE) {
     echo "";
