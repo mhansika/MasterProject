@@ -118,7 +118,7 @@ include 'header.php';
         margin: -1px 5px 0 -1px;
     }
       </style>
->>>>>>> b5a0b5499d4d09a893e75d21e860d67e212c4859
+>>>>>>> origin/master
   
 </head>
 
