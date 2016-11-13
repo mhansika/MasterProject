@@ -26,6 +26,41 @@ $date="";
     <link rel="stylesheet" href="css/custom.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    function validation()
+    {
+        var regEx = /^[ELD]{1}[12]{1}[A-L]{1}[0-9]{1}[0-9]{6}$/;
+        var barCode = document.loginForm.barcode.value;
+        if(barCode=="")
+        {
+            
+             document.getElementById('bcd').innerHTML="Please Enter Barcode";
+            document.getElementById('barcode').style.border ="solid 2.5px black";
+            document.loginForm.barcode.focus()
+            return false;
+        }
+        var flag = regEx.test(barCode);
+        if(barCode.length == 10){
+            if(!flag)
+            {
+                document.getElementById('bcd').innerHTML="Invalid Barcode";
+                document.getElementById('barcode').style.border ="solid 2.5px black";             
+                document.loginForm.barcode.select()
+                return false;
+                
+                
+            }
+            
+        }
+        else{
+                document.getElementById('bcd').innerHTML="Please Enter only 10 characters";
+                document.getElementById('barcode').style.border ="solid 2.5px black";
+
+                return false;
+                        
+        }
+    }
+</script>
 </head>
 <body>
 <nav class="navbar navbar-static-top">
@@ -39,7 +74,7 @@ $date="";
     <div class="row">
         <div class="Absolute-Center is-Responsive">
             <div class=" col-lg-3 col-lg-offset-4 col-md-4 col-sm-6 col-xs-12">
-                <form action="" id="loginForm" method="POST">
+                <form action="" id="loginForm" name="loginForm" method="POST" onsubmit="return validation()">
                     <label class="control-label" for="date">Select Date</label>
                     <div class="form-group input-group">
                         <input class="form-control" id="datepicker" name="date" type="date" size="9" value="date"/>
@@ -58,7 +93,8 @@ $date="";
                     <label class="control-label" for="barcode">Enter Barcode</label>
                     <div class="form-group input-group">
                         
-                        <input class="form-control" id="barcode" name="barcode" type="text"/>
+                        <input class="form-control" id="barcode" name="barcode" type="text" onblur="validation()"/>
+                        <span style="color:black" id="bcd"></span> 
                         <div class="input-group-addon"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> </div>
                     </div>
                     <div class="form-group">

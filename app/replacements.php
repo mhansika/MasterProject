@@ -8,6 +8,72 @@
     <link rel="stylesheet" href="css/custom.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    function validation()
+    {
+        var regEx = /^[ELD]{1}[12]{1}[A-L]{1}[0-9]{1}[0-9]{6}$/;
+        var barCode = document.loginForm.oldcode.value;
+        if(barCode=="")
+        {
+            document.getElementById('bcd1').innerHTML="Please Enter Barcode";
+            document.getElementById('barcode1').style.border ="solid 2.5px red";
+            document.loginForm.oldcode.focus()
+             return false;   
+        }
+        var flag = regEx.test(barCode);
+        if(barCode.length == 10){
+            if(!flag)
+            {
+                document.getElementById('bcd1').innerHTML="Invalid Barcode";
+                document.getElementById('barcode1').style.border ="solid 2.5px red";             
+                document.loginForm.oldcode.select()
+                return false;
+            }
+            else{
+                document.getElementById('bcd1').innerHTML="";
+                document.getElementById('barcode1').style.border ="solid 2.5px white"; 
+            }
+                   
+            }                
+    
+        else{
+                document.getElementById('bcd1').innerHTML="Please Enter only 10 characters!";
+                document.getElementById('barcode1').style.border ="solid 2.5px red";
+
+                return false;
+                        
+            }
+        
+       
+        var barCode1 = document.loginForm.newcode.value;
+        if(barCode1=="")
+        {
+            document.getElementById('bcd2').innerHTML="Please Enter Barcode";
+            document.getElementById('barcode2').style.border ="solid 2.5px red";
+            document.loginForm.newcode.focus()
+            return false;
+           
+        }
+        var flag = regEx.test(barCode1);
+        if(barCode1.length == 10){
+            if(!flag)
+            {
+                document.getElementById('bcd2').innerHTML="Invalid Barcode";
+                document.getElementById('barcode2').style.border ="solid 2.5px red";
+                document.loginForm.newcode.select()
+                return false;
+                
+            }
+          }  
+        
+        else{
+                document.getElementById('bcd2').innerHTML="Please Enter only 10 characters";
+                document.getElementById('barcode2').style.border ="solid 2.5px red";
+                return false;
+            }            
+    }
+
+</script>
 </head>
 <body style="background-color: #363636">
 <nav class="navbar navbar-static-top">
@@ -21,7 +87,7 @@
     <div class="row">
         <div class="Absolute-Center is-Responsive">
             <div class=" col-lg-3 col-lg-offset-4 col-md-4 col-sm-6 col-xs-12">
-                <form action="" id="loginForm" method="POST">
+                <form action="" id="loginForm" name="loginForm" method="POST" onsubmit="return validation()">
                     <label class="control-label" for="date">Select Date</label>
                     <div class="form-group input-group">
                         <input class="form-control" id="datepicker" name="date" type="date" size="9" value=""/>
@@ -35,14 +101,17 @@
                         <div class="input-group-addon"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> </div>
                     </div>
 
-                    <label class="control-label" for="barcode">Enter Replace Battery Barcode</label>
+                    <label 
+                    class="control-label" for="barcode">Enter Replace Battery Barcode</label>
                     <div class="form-group input-group">
-                        <input class="form-control" id="barcode" name="oldname" type="text"/>
+                        <input class="form-control" id="barcode1" name="oldcode" type="text" onblur="validation()"/>
+                        <span style="color:red" id="bcd1"></span>
                         <div class="input-group-addon"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> </div>
                     </div>
                     <label class="control-label" for="barcode">Enter Issued Battery Barcode</label>
                     <div class="form-group input-group">
-                        <input class="form-control" id="barcode" name="newname" type="text"/>
+                        <input class="form-control" id="barcode2" name="newcode" type="text" onblur="validation()"/>
+                        <span style="color:red" id="bcd2"></span>
                         <div class="input-group-addon"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> </div>
                     </div>
                     <div class="form-group">

@@ -21,6 +21,40 @@ $date="";
     <link rel="stylesheet" href="css/custom%20-%20RI.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    function validation()
+    {
+        var regEx = /^[ELD]{1}[12]{1}[A-L]{1}[0-9]{1}[0-9]{6}$/;
+        var barCode = document.loginForm.barcode.value;
+        if(barCode=="")
+        {
+            
+             document.getElementById('bcd').innerHTML="Please Enter Barcode";
+            document.getElementById('barcode').style.border ="solid 2.5px red";
+            document.loginForm.barcode.focus()
+            return false;
+        }
+        var flag = regEx.test(barCode);
+        if(barCode.length == 10){
+            if(!flag)
+            {
+                document.getElementById('bcd').innerHTML="Invalid Barcode";
+                document.getElementById('barcode').style.border ="solid 2.5px red";             
+                document.loginForm.barcode.select()
+                return false;  
+                
+            }
+              
+        }
+        else{
+                document.getElementById('bcd').innerHTML="Please Enter only 10 characters";
+                document.getElementById('barcode').style.border ="solid 2.5px red";
+
+                return false;
+                        
+        }
+    }
+</script>
 </head>
 <body style="background-color: #e2e2d8">
 <nav class="navbar navbar-static-top">
@@ -34,10 +68,10 @@ $date="";
     <div class="row">
         <div class="Absolute-Center is-Responsive">
             <div class=" col-lg-3 col-lg-offset-4 col-md-4 col-sm-6 col-xs-12">
-                <form action="" id="loginForm">
+                <form action="" id="loginForm" name="loginForm" method="POST" onsubmit="return validation()">
                     <label class="control-label" for="date">Select Date</label>
                     <div class="form-group input-group">
-                        <input class="form-control" id="datepicker" name="date" type="date" size="9" value=""/>
+                        <input class="form-control" id="datepicker" name="from" type="date" size="9" value=""/>
                         <script>
                         $(function()
                         {
@@ -51,8 +85,10 @@ $date="";
                     <label class="control-label" for="barcode">Enter Barcode</label>
                     <div class="form-group input-group">
                         
-<input class="form-control" id="barcode" name="barcode" type="text"/>
-                        <div class="input-group-addon"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> </div>
+                    <input class="form-control" id="barcode" name="barcode" type="text" onblur="validation()"/>
+                    <span style="color:red" id="bcd"></span>
+                        <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> </div>
                     </div>
                     <div class="form-group">
                         <button type="button" class="btn btn-primary btn-lg outline" style="width: 100%">Done</button>
@@ -66,26 +102,21 @@ $date="";
     </div>
     </div>
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST["barcode"])) {
-        $name = $_POST['barcode'];
+    if (isset($_POST["barcode"])){
+        $name = $_POST["barcode"];
     }
-    $arr1 = substr($name, 0, 4);
-    $arr2 = substr($name, 4);
-    echo $arr1;
-    echo $arr2;
-    if (isset($_POST["date"])) {
-        $date = $_POST['date'];
+$arr1 = substr($name, 0,4);
+$arr2 = substr($name, 4);
+    if (isset($_POST["date"])){
+        $date =  $_POST["date"];
     }
-    if ($name == $arr1) ;
-    $sql = "UPDATE `released_batteries` SET `battery_status`=4,`cus_sold_date`='$_POST[date]' WHERE batch_num='$arr1' AND battery_num='$arr2'";
 
+$sql = "UPDATE released_batteries SET battery_status=5,cus_sold_date='$date' WHERE  batch_num='$arr1'  AND battery_num='$arr2'";
 
-    if ($conn->query($sql) === TRUE) {
-        echo "ok";
-    } else {
-        echo "Error updating record: " . $conn->error;
-    }
+if ($conn->query($sql) === TRUE) {
+    echo "";
+} else {
+    echo "Error updating record: " . $conn->error;
 }
 $conn->close();
 ?>
