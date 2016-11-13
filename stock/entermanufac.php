@@ -4,8 +4,7 @@ include 'header.php';
  ?>
 
 <html lang="en">
-<<<<<<< HEAD
-	<head>
+    <head>
 		<meta charset="utf-8">
 	   
 		<link rel="stylesheet" href="css/style1.css" media="screen" type="text/css" />
@@ -61,7 +60,7 @@ include 'header.php';
 		margin: -1px 5px 0 -1px;
 	}
 	  </style>
-=======
+
     <head>
         <meta charset="utf-8">
        
@@ -118,7 +117,7 @@ include 'header.php';
         margin: -1px 5px 0 -1px;
     }
       </style>
->>>>>>> origin/master
+
   
 </head>
 
@@ -179,7 +178,7 @@ include 'header.php';
 				<div class="link_bg"></div>
 				<div class="link_title" >
 
-					<a href="#" id="salep" style="top: 10px;
+					<a href="stock_in_hand.php" id="salep" style="top: 10px;
 								display:block;
 								position:absolute;
 								float:left;
@@ -234,7 +233,8 @@ if (isset($_POST["submit"]))
 	$battery_num	= '$arr2';
 	$amount			= (int)($_POST['amount']);
 	$battery_name=$_POST['battery_name'];
-   //$battery_type=($arr3[0]);
+    $b_type = $_POST['battery'];
+
 
 	//checking the battery types
 	if ($arr3[0]=='D'){
@@ -247,6 +247,8 @@ if (isset($_POST["submit"]))
 	elseif ($arr3[0]=='L') {
 			 $battery_type='Lucas';
 	}
+
+     
 
 	//checking the production line
 	if  ($arr3[1]=='1'){
@@ -313,19 +315,18 @@ if (isset($_POST["submit"]))
 	// Uses multiple values at the VALUES clause.
 	
 	$lastEntry = getLatestBatteryNumber( $conn, $str );
-    //$WarrantyPeriod = getWarrantyPeriod ($conn, $battery_type) ;
+    $WarrantyPeriod = getWarrantyPeriod ($conn, $battery_type) ;
 	
-	$sql = "INSERT INTO released_batteries(batch_num, battery_num,battery_status) VALUES ";
+	$sql = "INSERT INTO released_batteries(batch_num, battery_num,battery_status,warranty_period) VALUES ";
 	
 	for ( $i = 1 ; $i < $amount; $i++ )
 	{
 		$num = $lastEntry + $i;
-		$sql = $sql . "('$str', '". sprintf('%06d', $num )."','". '0' ."'),";
+		$sql = $sql . "('$str', '". sprintf('%06d', $num )."','". '0' ."','". '$WarrantyPeriod' ."'),";
        
 	}
 	$num = $lastEntry + $amount;
-	$sql = $sql . "('$str', '". sprintf('%06d', $num)."','". '0' . "');";
-      $query= $sql . "('0')";
+	$sql = $sql . "('$str', '". sprintf('%06d', $num)."','". '0' . "','". '$WarrantyPeriod' ."');";
 	
 	if (mysqli_query($conn, $sql)) {
 		echo "";
@@ -403,19 +404,22 @@ if (isset($_POST["submit"]))
 		}
 	 }
 
-function getWarrantyPeriod ($conn, $battery_type)
+function getWarrantyPeriod ($conn, $batteryType)
 {
 
-$query = mysqli_query($conn, "SELECT warranty_period FROM battery_description WHERE battery_type='$battery_type'");
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       $fetcharray=mysqli_fetch_array($query,MYSQLI_NUM);
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        return $fetcharray[0];
-
-}
-
-
-
-
-
+$result= mysqli_query($conn, "SELECT warranty_period FROM battery_description WHERE battery_type='$batteryType'");
+    
+        if ( mysqli_num_rows($result) > 0) {
+            if($row = mysqli_fetch_array($result)) {
+                return (int)($row["warranty_period"]);
+            }
+            else{
+                return 0;
+            }
+        } else {
+            return 0;
+        }
+     }
 
 
 
@@ -450,11 +454,11 @@ $query = mysqli_query($conn, "SELECT warranty_period FROM battery_description WH
 									<td>Battery Type:</td>
 
 
-									<td> <select id="battery" style="font-color:black;" required>
+									<td> <select id="battery" style="font-color:black;" name="battery" required>
 										<option value="">----Select----</option>
 										<option value="Exide">Exide</option>
 										<option value="Lucas">Lucas</option>
-										<option value="Deganite">Deganite</option>
+										<option value="Dagenite">Dagenite</option>
 										</select>
 									</td>
 
