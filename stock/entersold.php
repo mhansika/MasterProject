@@ -255,11 +255,7 @@ include 'header.php';
                                         <td>Batch No :</td>
                                         <td>
                                         <div class="widget">
-<<<<<<< HEAD
-                                           <input type="text" class="len" value="D2D6" required>
-=======
                                            <input type="text" class="len" value="D2D6" name="batch_num" maxlength="4">
->>>>>>> b5a0b5499d4d09a893e75d21e860d67e212c4859
                                            <div class="digit-background">
                                                      <div class="digit"></div>
                                                      <div class="digit"></div>
@@ -270,31 +266,19 @@ include 'header.php';
                                     </td>
                                     </tr>
                                     <tr>
-<<<<<<< HEAD
-                                    <td>Battery Type:</td> 
-                                    <td> <select id="battery" style="font-color:black;" required>
-                                        <option value="">----Select----</option>
-=======
                                     <td>Battery Type:</td>
                                     <td> <select id="battery" name="battery_type" onchange="ChangebatteryList()" style="font-color:black;">
                                         <option value="">------SELECT------</option>
->>>>>>> b5a0b5499d4d09a893e75d21e860d67e212c4859
                                         <option value="Exide">Exide</option>
                                         <option value="Lucas">Lucas</option>
                                         <option value="Deganite">Deganite</option>
                                         </select>
                                     </tr>
                                     <tr>
-<<<<<<< HEAD
-                                    <td> Battery Name:</td>
-                                    <td> <select id="batterysubtype" name="battery_name" required>
-                                        <option value="">----Select----</option>
-=======
                                     
                                     <td>Battery Name:</td>
                                     <td> <select id="batterysubtype" name="battery_name">
                                         <option value="">------SELECT------</option>
->>>>>>> b5a0b5499d4d09a893e75d21e860d67e212c4859
                                         <option value="MF105D31R/L">MF105D31R/L</option>
                                         <option value="65D31R/L">65D31R/L</option>
                                         <option value="MFS65R/L">MFS65R/L</option>
