@@ -30,6 +30,7 @@
                                 color:#1C1C1C;
                                 text-decoration:none;
                                 width:100%;
+                                margin-top: 20px;
                                 height:70px;
                                 text-align:center;"><img class= "pic" src="img/b.png" align="middle" width="80px"><span>Defect Type</span></a>
                 </div>
@@ -47,6 +48,7 @@
                                 text-decoration:none;
                                 width:100%;
                                 height:70px;
+                                margin-top: 10px;
                                 text-align:center;"><img class= "pic" src="img/c.png" align="middle" width="80px"><span>Check Replacements</span></a>
                 </div>
             </li>
@@ -63,6 +65,7 @@
                                 text-decoration:none;
                                 width:100%;
                                 height:70px;
+                                margin-top: 10px;
                                 text-align:center;"><img class= "pic" src="img/d.png" align="middle" width="80px"><span>Misused </br> Dealers</span></a>
                 </div>
             </li>
@@ -83,6 +86,7 @@
                                 text-align:center;"></a>
                 </div>
             </li>
+
 
     </nav>
 
