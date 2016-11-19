@@ -140,7 +140,7 @@ table{
 th{
   padding: 15px 15px;
   text-align:center;
-  font-weight: 500;
+  font-weight: 1000;
   font-size: 20px;
   color: black;
 
@@ -159,9 +159,9 @@ h1  {
 
 
   
-  font-family: arial;
 
-}
+
+
 
 
 tr:nth-child(even){background-color: #f2f2f2}

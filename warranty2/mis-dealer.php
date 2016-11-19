@@ -9,6 +9,31 @@
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
+        th{
+                 padding: 15px 15px;
+                 text-align:center;
+                 font-weight: 1000;
+                 font-size: 20px;
+                 color: black;
+                 margin-left: 80px;
+
+}
+
+      .ad input,.ad select,.ad option{
+            font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
+            font-size: 14px;
+            border: 0;
+            background:  #fff ;
+            margin: 0 0 20px;
+            padding: 8px 10px;
+            display: block;
+            width: 60% ;
+            color:black;
+            text-align: center;
+            margin-left: 75px;
+
+            
+        }
         
        
          </style>
@@ -90,14 +115,18 @@
                     <div class="ad">
                     </br>
                      
-                     <h1><b> Defect Types Of Batteries</b></h1>
+                     <h1><b> Misused Dealers</b></h1>
                      </br>
 
                     <table width="70%">
   <tr>
     <th>Area</th>
-    <th>Dealer</th>
-    <th>Date</th>
+    <th></th>
+    <th></th>
+    
+    
+    
+  
   </tr>
   <tr></tr>
   <tr>
@@ -107,25 +136,7 @@
                                         <option value=""></option>
                                         <option value=""></option>
                                         </select></th>
-    <th><select id="dealer" style="font-color:black;">
-                                        <option value="">----Select----</option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        </select></th>
-    <th><div class="form-group input-group">
-                        <input class="form-control" id="datepicker" name="from" type="date"  size="9" value=""/>
-
-                        <script>
-                        $(function()
-                        {
-                        $( "#datepicker" ).datepicker();
-                        $("#").click(function() { $("#datepicker").datepicker( "show" );})
-                        });
-                        </script>
-                        <div class="input-group-addon" ><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> </div>
-                    </div></th>
-  </tr>
+     </tr>
   
 
  
@@ -135,8 +146,10 @@
 <table cellpadding="0" cellspacing="0" border="0">
   <thead>
     <tr>
-      <th>Replace Battery Number</th>
-      <th>Defect Type</th>
+      <th>Dealer Name</th>
+      <th>No of Invalid Replacements</th>
+      <th>Status</th>
+      
       
     </tr>
   </thead>
@@ -148,51 +161,77 @@
     <tr>
       <th></th>
       <th></th>
+      <th></th>
+      
       
     </tr>
     <tr>
       <th></th>
       <th></th>
+      <th></th>
+      
       
     </tr>
     <tr>
       <th></th>
-      <th></th>    </tr>
+      <th></th>
+      <th></th>
+      
+
+      </tr>
     <tr>
        <th></th>
       <th></th>
+      <th></th>
+      
     </tr>
      <tr>
        <th></th>
       <th></th>
+      <th></th>
+      
     </tr>
      <tr>
        <th></th>
       <th></th>
+      <th></th>
+      
     </tr>
      <tr>
        <th></th>
       <th></th>
+      <th></th>
+      
     </tr>
      <tr>
        <th></th>
       <th></th>
+      <th></th>
+      
     </tr>
      <tr>
        <th></th>
       <th></th>
+      <th></th>
+      
     </tr>
      <tr>
        <th></th>
       <th></th>
+      <th></th>
+      
     </tr>
      <tr>
        <th></th>
       <th></th>
+      <th></th>
+      
     </tr>
      <tr>
        <th></th>
       <th></th>
+      <th></th>
+      
     </tr>
     
    

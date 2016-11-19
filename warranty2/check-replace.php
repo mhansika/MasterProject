@@ -90,7 +90,7 @@
                     <div class="ad">
                     </br>
                      
-                     <h1><b> Defect Types Of Batteries</b></h1>
+                     <h1><b> Check Replacements</b></h1>
                      </br>
 
                     <table width="70%">
@@ -135,8 +135,10 @@
 <table cellpadding="0" cellspacing="0" border="0">
   <thead>
     <tr>
-      <th>Replace Battery Number</th>
-      <th>Defect Type</th>
+      <th>All Reeplacements</th>
+      <th>Within Warranty Period</th>
+      <th>Defect Type Ok/Not</th>
+      <th>Valid replacement</th>
       
     </tr>
   </thead>
@@ -148,50 +150,76 @@
     <tr>
       <th></th>
       <th></th>
-      
-    </tr>
-    <tr>
       <th></th>
       <th></th>
       
     </tr>
     <tr>
       <th></th>
-      <th></th>    </tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+
+      </tr>
     <tr>
        <th></th>
       <th></th>
-    </tr>
-     <tr>
-       <th></th>
+      <th></th>
       <th></th>
     </tr>
      <tr>
        <th></th>
       <th></th>
-    </tr>
-     <tr>
-       <th></th>
+      <th></th>
       <th></th>
     </tr>
      <tr>
        <th></th>
       <th></th>
-    </tr>
-     <tr>
-       <th></th>
+      <th></th>
       <th></th>
     </tr>
      <tr>
        <th></th>
       <th></th>
-    </tr>
-     <tr>
-       <th></th>
+      <th></th>
       <th></th>
     </tr>
      <tr>
        <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+     <tr>
+       <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+     <tr>
+       <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+     <tr>
+       <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+     <tr>
+       <th></th>
+      <th></th>
+      <th></th>
       <th></th>
     </tr>
     
