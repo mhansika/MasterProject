@@ -9,6 +9,173 @@
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
+        .ad{
+            font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
+            background:#e0e0d1;
+            margin: 0 auto;
+            padding: 0px;
+            width: 114.5%;
+            color:black;
+            font-size: 18px;
+            line-height: 1em;
+            margin-top:5px;
+            margin-left: -4%;
+            height: 700px;
+        }
+.ad td{
+            display: block;
+            margin: 0 0 8px;
+            cursor: pointer;
+
+        }
+
+       
+
+
+
+
+span
+{
+    color:white;
+    margin-top:5px;
+    display:block;
+
+}
+th, td {
+    padding: 7px;
+    text-align: left;
+
+}
+
+
+.ad input,.ad select,.ad option{
+            font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
+            font-size: 14px;
+            border: 0;
+            background:  #fff ;
+            margin: 0 0 20px;
+            padding: 8px 10px;
+            display: block;
+            width: 50% ;
+            color:black;
+            text-align: center;
+            margin-left: 100px;
+
+            
+        }
+
+        body{
+    
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans';
+    margin-bottom: 0;
+    background-color:#B40404;
+
+}
+
+
+nav{
+    background-color:black;
+    margin-top:80px;
+    width: 125px;
+    
+}
+
+
+ul
+{
+    width: 170px;
+    margin-top:0px;
+    padding:0px;
+    list-style-type:none;
+    -webkit-backface-visibility: hidden; backface-visibility: hidden;
+    
+}
+.var_nav
+{
+    position:relative;
+    background:#B40404;
+    width:120px;
+    height:150px;
+    margin-top:0px;
+    margin-right: 0px;
+    margin-bottom:1px;
+
+}
+
+.var_nav:hover {
+    width: 120px;
+    background: black;
+    
+}
+.content{
+
+    padding: 0;
+    margin-left:15%;
+    width:70%;
+    height:700px;
+    margin-top:-550px;
+    margin-right: 10%;
+
+
+
+
+}
+
+div.form{
+    position: absolute;
+}
+table{
+  width:100%;
+  table-layout: fixed;
+
+
+}
+.tbl-header{
+  background-color:#808080;
+  border: 1px solid #c2c2a3;
+  font-color: black;
+  margin-left: 90px;
+  margin-right: 90px;
+ }
+.tbl-content{
+  height:300px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid #c2c2a3;
+  margin-left: 90px;
+  margin-right: 90px;
+
+}
+th{
+  padding: 15px 15px;
+  text-align:center;
+  font-weight: 500;
+  font-size: 20px;
+  color: black;
+
+
+
+
+
+
+  
+  font-family: arial;
+
+}
+
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+
+
+
          </style>
   
 </head>
@@ -30,8 +197,8 @@
                                 color:#1C1C1C;
                                 text-decoration:none;
                                 width:100%;
-                                margin-top: 20px;
                                 height:70px;
+                                margin-top: 20px;
                                 text-align:center;"><img class= "pic" src="img/b.png" align="middle" width="80px"><span>Defect Type</span></a>
                 </div>
             </li>
@@ -69,24 +236,7 @@
                                 text-align:center;"><img class= "pic" src="img/d.png" align="middle" width="80px"><span>Misused </br> Dealers</span></a>
                 </div>
             </li>
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" >
-
-                    <a href="#" id="emp" style="top: 10px;
-                                display:block;
-                                position:absolute;
-                                float:left;
-                                font-family:arial;
-                                color:#1C1C1C;
-                                text-decoration:none;
-                                width:100%;
-                                height:90px;
-                                margin-bottom: 0px;
-                                text-align:center;"></a>
-                </div>
-            </li>
-
+            
 
     </nav>
 

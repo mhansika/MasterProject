@@ -2,19 +2,20 @@
             font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
             background:#e0e0d1;
             margin: 0 auto;
-            padding: 15px;
-            width: 111.1%;
+            padding: 0px;
+            width: 114.5%;
             color:black;
             font-size: 18px;
             line-height: 1em;
-            margin-top:-15px;
+            margin-top:5px;
             margin-left: -4%;
-            height: 500px;
+            height: 700px;
         }
 .ad td{
             display: block;
             margin: 0 0 8px;
             cursor: pointer;
+
         }
 
        
@@ -32,6 +33,7 @@ span
 th, td {
     padding: 7px;
     text-align: left;
+
 }
 
 
@@ -46,6 +48,9 @@ th, td {
             width: 50% ;
             color:black;
             text-align: center;
+            margin-left: 100px;
+
+            
         }
 
         body{
@@ -54,24 +59,27 @@ th, td {
     padding: 0;
     font-family: 'Open Sans';
     margin-bottom: 0;
-    background-color: #e0e0d1;
+    background-color:#B40404;
+
 }
 
 
 nav{
     background-color:black;
-    margin-top:0px;
+    margin-top:80px;
     width: 125px;
+    
 }
 
 
 ul
 {
-    width: 70px;
+    width: 170px;
     margin-top:0px;
     padding:0px;
     list-style-type:none;
     -webkit-backface-visibility: hidden; backface-visibility: hidden;
+    
 }
 .var_nav
 {
@@ -79,23 +87,27 @@ ul
     background:#B40404;
     width:120px;
     height:150px;
-    margin-top:px;
+    margin-top:0px;
     margin-right: 0px;
     margin-bottom:1px;
+
 }
 
 .var_nav:hover {
     width: 120px;
     background: black;
+    
 }
 .content{
 
     padding: 0;
     margin-left:15%;
     width:70%;
-    height:600px;
-    margin-top:-600px;
+    height:700px;
+    margin-top:-550px;
     margin-right: 10%;
+
+
 
 
 }
@@ -106,6 +118,8 @@ div.form{
 table{
   width:100%;
   table-layout: fixed;
+
+
 }
 .tbl-header{
   background-color:#808080;
@@ -121,13 +135,20 @@ table{
   border: 1px solid #c2c2a3;
   margin-left: 90px;
   margin-right: 90px;
+
 }
 th{
   padding: 15px 15px;
-  text-align:left;
+  text-align:center;
   font-weight: 500;
   font-size: 20px;
   color: black;
+
+
+
+
+
+
   
   font-family: arial;
 
@@ -141,5 +162,4 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
-
 
