@@ -9,17 +9,17 @@
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
-        .ad{
+         .ad{
             font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
             background:#e0e0d1;
             margin: 0 auto;
             padding: 0px;
-            width: 114.5%;
+            width: 130%;
             color:black;
             font-size: 18px;
             line-height: 1em;
             margin-top:5px;
-            margin-left: -4%;
+            margin-left: -8.5%;
             height: 700px;
         }
 .ad td{
@@ -155,6 +155,15 @@ th{
   font-size: 20px;
   color: black;
 
+}
+
+h1  {
+    font-family:arial;
+    font-size: 35px;
+    
+    text-align: center;
+}
+
 
 
 
@@ -176,7 +185,9 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 
 
+       
          </style>
+
   
 </head>
 
@@ -252,7 +263,11 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 
                     <div class="ad">
-                     <div class="ad">
+                    </br>
+                     
+                     <h1><b> Defect Types Of Batteries</b></h1>
+                     </br>
+
                     <table width="70%">
   <tr>
     <th>Area</th>
