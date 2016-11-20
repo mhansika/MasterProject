@@ -5,36 +5,12 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+        <link rel="stylesheet" href="css/style1.css" media="screen" type="text/css" />
+
        
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
-        th{
-                 padding: 15px 15px;
-                 text-align:center;
-                 font-weight: 1000;
-                 font-size: 20px;
-                 color: black;
-                 margin-left: 80px;
-
-}
-
-      .ad input,.ad select,.ad option{
-            font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
-            font-size: 14px;
-            border: 0;
-            background:  #fff ;
-            margin: 0 0 20px;
-            padding: 8px 10px;
-            display: block;
-            width: 60% ;
-            color:black;
-            text-align: center;
-            margin-left: 75px;
-
-            
-        }
-        
        
          </style>
 
