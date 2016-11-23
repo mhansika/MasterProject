@@ -132,11 +132,20 @@
 
 </table>
 
+<?php
+ require "../core/database/connect.php";
+
+$sql = "SELECT batch_num, battery_num FROM released_batteries WHERE battery_status = '3' ";
+$result = $conn->query($sql);
 
 
 
-<div  class="tbl-header">
-<table cellpadding="0" cellspacing="0" border="0">
+if ($result->num_rows > 0) {
+
+
+echo "
+<div  class='tbl-header'>
+<table cellpadding='0' cellspacing='0' border='0'>
   <thead>
     <tr>
       <th>All Replacements</th>
@@ -148,24 +157,12 @@
   </thead>
 </table>
 </div>
-<div  class="tbl-content">
-<table cellpadding="0" cellspacing="0" border="0"> 
+<div  class='tbl-content'>
+<table cellpadding='0' cellspacing='0'border='0'> ";
 
 
 
 
-
-
-
-<?php
- require "../core/database/connect.php";
-
-$sql = "SELECT batch_num, battery_num FROM released_batteries WHERE battery_status = '3' ";
-$result = $conn->query($sql);
-
-
-
-if ($result->num_rows > 0) {
 
 
 
@@ -184,7 +181,7 @@ if ($result->num_rows > 0) {
       $check_replace = check_replacement ($conn,$valid,$final_valid, $defected) ;
            $row["replacement"] = $check_replace;
 
-      count_invalids($conn, $batch_num, $battery_num, $check_replace) ; 
+      //count_invalids($conn, $batch_num, $battery_num, $check_replace) ; 
 
              echo "
           
