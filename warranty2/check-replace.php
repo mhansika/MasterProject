@@ -131,11 +131,15 @@
  
 
 </table>
+
+
+
+
 <div  class="tbl-header">
 <table cellpadding="0" cellspacing="0" border="0">
   <thead>
     <tr>
-      <th>All Reeplacements</th>
+      <th>All Replacements</th>
       <th>Within Warranty Period</th>
       <th>Defect Type Ok/Not</th>
       <th>Valid replacement</th>
@@ -145,89 +149,167 @@
 </table>
 </div>
 <div  class="tbl-content">
-<table cellpadding="0" cellspacing="0" border="0">
+<table cellpadding="0" cellspacing="0" border="0"> 
+
+
+
+
+
+
+
+<?php
+ require "../core/database/connect.php";
+
+$sql = "SELECT batch_num, battery_num FROM released_batteries WHERE battery_status = '3' ";
+$result = $conn->query($sql);
+
+
+
+if ($result->num_rows > 0) {
+
+
+
+                 // output data of each row
+    while($row = $result->fetch_assoc()) {
+      $batch_num = $row["batch_num"] ;
+      $battery_num = $row["battery_num"] ;
+      $valid = warranty_calculation( $conn, $batch_num , $battery_num );
+      //print_r($valid);
+      $final_valid =  warranty_validation( $conn, $valid) ;
+      //print_r($final_valid);
+      $row["validity"] = $final_valid ;
+      $defected = check_defect ($conn, $valid);
+       $row["defected"] = $defected;
+
+      $check_replace = check_replacement ($conn,$valid,$final_valid, $defected) ;
+           $row["replacement"] = $check_replace;
+
+      count_invalids($conn, $batch_num, $battery_num, $check_replace) ; 
+
+             echo "
+          
   <tbody>
     <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      
-    </tr>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      
-    </tr>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+                    <tr><th><td>".$row["batch_num"].$row["battery_num"]."</td></th><th><td>".$row["validity"]."</td></th><th><td>".$row["defected"]."</td></th><th><td>".$row["replacement"]."</td></th></tr>"; }
+    echo "
+                </tbody></table></table>
 
-      </tr>
-    <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+
+
     
-   
-    
-  </tbody>
-</table>
-</div>
+</body>
+</html>";
+} else {
+    echo "0 results";
+}
+$conn->close();
+
+ //$start = new DateTime();
+       // $start = strtotime('$start');
+
+        
+        //$my_date = strtotime($date);
+        //$warrantyPeriod = ceil(abs($my_date - $start) / 86400);
+       
+
+       
+
+
+
+function warranty_calculation ($conn, $batchNum , $batteryNum) {
+ 
+      $data= array();
+      $conn= mysqli_connect('localhost','root','','warranty_management');
+        $query=mysqli_query($conn,"SELECT * FROM released_batteries WHERE battery_status = '3' AND batch_num= '$batchNum' AND battery_num = '$batteryNum' ");
+        $data=mysqli_fetch_assoc($query);
+        return $data ; 
+
+
+       die();
+
+}
+
+ function warranty_validation ($conn, $data)   {
+
+    $get_date1= $data["replaced_date"];
+    $start = strtotime("$get_date1");
+
+    $get_date2 = $data["warranty_period"];
+     $end = strtotime("$get_date2");
+    //$datediff = $end - $start;
+      //$warrantyPeriod =   floor($datediff / (60 * 60 * 24));
+    //$warrantyPeriod = ceil(abs($end - $start) / 86400);
+
+     if ($end > $start) {
+        return "YES";
+     
+     }else{
+      return "NO" ;
+     }
+
+
+      die();
+
+}
+
+function check_defect ($conn, $data) {
+
+$defect =  $data["defect_description"];
+if (isset($defect)) {
+   return "Defected";
+} else {
+  return "Not Defected";
+}
+
+
+
+}
+
+
+function check_replacement ($conn,$data, $final_valid, $defected) {
+
+if ($final_valid == "YES" AND $defected == "Defected") {
+return "VALID";
+
+}
+else {
+  return "INVALID" ; 
+}
+
+
+
+
+}
+
+
+
+function count_invalids($conn, $batchNum,$batteryNum, $check_replace){
+
+if ($check_replace == "VALID") {
+  mysqli_query($conn,"UPDATE released_batteries SET battery_status = '5' WHERE battery_status = '3' AND batch_num = '$batchNum' AND battery_num = '$batteryNum' ");
+} else {
+ mysqli_query($conn,"UPDATE released_batteries SET battery_status = '6' WHERE battery_status = '3' AND batch_num = '$batchNum' AND battery_num = '$batteryNum' ");
+
+}
+
+    $query=mysqli_query($conn,"SELECT * FROM released_batteries where battery_status='5' ");
+    $result=mysqli_num_rows($query);
+    return $result ; 
+
+}
+
+
+
+
+
+
+
+
+
+?>
+               
+
+ 
 
 </div>
 
@@ -253,7 +335,6 @@
 </div>
 
 <div>
-
 
 
 
