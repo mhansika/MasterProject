@@ -13,6 +13,9 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
         
+
+  
+
        
          </style>
 
@@ -393,23 +396,16 @@ if ($check_replace == "VALID") {
 
 
 ?>
-               
-
- 
 
 </div>
+<div class="bottom">
+</br>
 
 
 
                    
 </form>
-
-
- 
-
-</div>
-<div class = "bottom">
-        <form>
+<form>
     <table>
             <tr>
                       
@@ -448,6 +444,17 @@ if ($check_replace == "VALID") {
                       </tr>
     </table>
     </form> 
+               
+
+ 
+
+
+
+ 
+
+</div>
+<div class = "bottom">
+      
        
 </div>
 </div>

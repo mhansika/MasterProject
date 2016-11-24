@@ -72,6 +72,41 @@
                                 text-align:center;"><img class= "pic" src="img/d.png" align="middle" width="80px"><span>Misused </br> Dealers</span></a>
                 </div>
             </li>
+            <li class="var_nav">
+                <div class="link_bg"></div>
+                <div class="link_title" >
+
+                    <a href= "" id="cr" style="top: 10px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                margin-top: 10px;
+                                text-align:center;"><img class= "pic" src="img/f.png" align="middle" width="80px"><span>View All Replacements</span></a>
+                </div>
+            </li>
+             <li class="var_nav">
+                <div class="link_bg"></div>
+                <div class="link_title" >
+
+                    <a href= "" id="cr" style="top: 10px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                margin-top: 10px;
+                                text-align:center;"><img class= "pic" src="img/g.png" align="middle" width="80px"><span>Enter New Defect</span></a>
+                </div>
+            </li>
+
             
 
     </nav>

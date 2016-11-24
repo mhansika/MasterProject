@@ -7,9 +7,9 @@
             color:black;
             font-size: 18px;
             line-height: 1em;
-            margin-top:5px;
+            margin-top:10px;
             margin-left: -8.5%;
-            height: 700px;
+            height: 800px;
         }
 
 
@@ -61,7 +61,7 @@ th, td {
 
 nav{
     background-color:black;
-    margin-top:80px;
+    margin-top:1px;
     width: 125px;
     
 }
@@ -99,7 +99,7 @@ ul
     margin-left:15%;
     width:70%;
     height:700px;
-    margin-top:-550px;
+    margin-top:-780px;
     margin-right: 10%;
 
 
@@ -151,9 +151,26 @@ h1  {
 
 .bottom{
 
-  margin-left: 60%;
-  margin-top :  ;
+  margin-left: 20%;
+  width: 500px;
+  text-align: center;
 }
+
+.bottom input,.bottom select,.bottom option{
+            font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
+            font-size: 14px;
+            border: 0;
+            background:  #fff ;
+            margin: 0 0 20px;
+            padding: 8px 10px;
+            display: block;
+            width: 100% ;
+            color:black;
+            text-align: center;
+            margin-left: 50px;
+
+            
+        }
 
 
 
@@ -173,6 +190,3 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 
 
-
-
-  
