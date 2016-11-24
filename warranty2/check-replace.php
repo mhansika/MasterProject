@@ -1,3 +1,6 @@
+<?php
+     require "../database/connect.php"; 
+?>
 <!DOCTYPE html>
 
 
@@ -12,6 +15,32 @@
         
        
          </style>
+
+         <script>
+
+$( document ).ready(function() {
+     $("select#cap").click( function(){
+            //var id = this.id;
+            var id = $(this).children(":selected").attr("id");
+            console.log(id);
+
+            $.ajax({
+
+                url:'getdrop2.php?data='+id,
+                type:"get",
+                success:function(data){
+
+                   $("tr#trow>th#second").html("");
+                $("tr#trow>th#second").html(data);
+                }
+
+
+            });
+    });
+    
+});
+
+</script>
 
   
 </head>
@@ -100,19 +129,37 @@
     <th>Date</th>
   </tr>
   <tr></tr>
-  <tr>
-    <th><select id="area" style="font-color:black;">
-                                        <option value="">----Select----</option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        </select></th>
-    <th><select id="dealer" style="font-color:black;">
-                                        <option value="">----Select----</option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        </select></th>
+  <tr id= "trow">
+                <th>
+                    <?php 
+                        
+                        echo '<select name="area" id="cap">';
+                        echo '<option>     -------ALL--------   </option>';
+                        
+                        $sql1 = "Select DISTINCT area_no,area from area";
+                        $result1= mysqli_query($connection, $sql1);
+                             while($r=mysqli_fetch_row($result1))
+                             { 
+                                   echo '<option id=' .$r[0].'> ' . $r[1] . '</option>';
+
+                             }
+                        
+                        echo "</select>";
+
+                    ?>
+                </th>
+                <th id="second">
+
+              
+                       <select name="dealer_id">
+                        
+                        <option> -------ALL--------</option>
+
+                        </select>
+                       
+
+                </th>
+            
     <th><div class="form-group input-group">
                         <input class="form-control" id="datepicker" name="from" type="date"  size="9" value=""/>
 
