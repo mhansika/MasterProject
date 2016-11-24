@@ -139,12 +139,7 @@ $arr3 = str_split($arr1);
     }
 
 
-        //$start = new DateTime();
-       // $start = strtotime('$start');
-
-        
-        //$my_date = strtotime($date);
-        //$warrantyPeriod = ceil(abs($my_date - $start) / 86400);
+       
 if ($arr3[0]=='D'){
         $days= 365;
 

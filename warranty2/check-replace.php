@@ -101,7 +101,40 @@ $( document ).ready(function() {
                                 text-align:center;"><img class= "pic" src="img/d.png" align="middle" width="80px"><span>Misused </br> Dealers</span></a>
                 </div>
             </li>
-            
+               <li class="var_nav">
+                <div class="link_bg"></div>
+                <div class="link_title" >
+
+                    <a href= "" id="cr" style="top: 10px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                margin-top: 10px;
+                                text-align:center;"><img class= "pic" src="img/f.png" align="middle" width="80px"><span>View All Replacements</span></a>
+                </div>
+            </li>
+             <li class="var_nav">
+                <div class="link_bg"></div>
+                <div class="link_title" >
+
+                    <a href= "" id="cr" style="top: 10px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                margin-top: 10px;
+                                text-align:center;"><img class= "pic" src="img/g.png" align="middle" width="80px"><span>Enter New Defect</span></a>
+                </div>
+            </li>
 
     </nav>
 
@@ -149,14 +182,15 @@ $( document ).ready(function() {
                     ?>
                 </th>
                 <th id="second">
-
-              
-                       <select name="dealer_id">
+             
+              <form action= "" method="post">
+                       <select name= "dealer_id"  >
                         
                         <option> -------ALL--------</option>
 
                         </select>
-                       
+             </form>      
+
 
                 </th>
             
@@ -181,8 +215,13 @@ $( document ).ready(function() {
 
 <?php
  require "../core/database/connect.php";
+ 
+if (isset($r)){
+$dealer_name = $_POST['dealer_id'];
 
-$sql = "SELECT batch_num, battery_num FROM released_batteries WHERE battery_status = '3' ";
+}
+
+$sql = "SELECT * FROM released_batteries WHERE battery_status = '3'";
 $result = $conn->query($sql);
 
 
@@ -196,6 +235,8 @@ echo "
   <thead>
     <tr>
       <th>All Replacements</th>
+	   <th>Replacement - Date</th>
+      <th>Warranty Expiry - Date</th>
       <th>Within Warranty Period</th>
       <th>Defect Type Ok/Not</th>
       <th>Valid replacement</th>
@@ -234,7 +275,8 @@ echo "
           
   <tbody>
     <tr>
-                    <tr><th><td>".$row["batch_num"].$row["battery_num"]."</td></th><th><td>".$row["validity"]."</td></th><th><td>".$row["defected"]."</td></th><th><td>".$row["replacement"]."</td></th></tr>"; }
+                     <tr><td>".$row["batch_num"].$row["battery_num"]."</td><form action='' method='post'>
+<input type='hidden' name='replaced' value= '<td>".$row['replaced_date']."</td>'<td>".$row['warranty_period']."</td><td>".$row["validity"]."</td><td>".$row["defected"]."</td><td>".$row["replacement"]."</td></tr>"; }
     echo "
                 </tbody></table></table>
 
@@ -366,11 +408,51 @@ if ($check_replace == "VALID") {
  
 
 </div>
+<div class = "bottom">
+        <form>
+    <table>
+            <tr>
+                      
+                        <?php
+                        $mysqli = new mysqli("localhost", "root", "", "warranty_management");
+
+    /* check connection */
+    if (mysqli_connect_errno()) {
+        printf("Connect failed: %s\n", mysqli_connect_error());
+        exit();
+    }
+
+                          $result = $mysqli->query("SELECT * FROM released_batteries where battery_status='5' ");
+            
+
+        /* determine number of rows result set */
+        $row_cnt = $result->num_rows;
+        $res = $mysqli->query("SELECT * FROM released_batteries where battery_status='6' ");
+            
+
+        /* determine number of rows result set */
+        $row_count = $result->num_rows;
+        echo " <tr><td>Valid replacements:</td><td>$row_cnt</td></tr>
+        <tr><td>Invalid Replacements : </td><td>$row_count</td></tr>";
+
+
+
+      for ( $i = 1 ; $i <= $row_cnt; $i++ )  {
+
+    $sql = "UPDATE released_batteries set battery_status = '4' WHERE battery_status = '0'" ;
+
+    }
+
+        ?> 
+                      <td><button class="submit" name="submit" value="send">Submit</button>
+                      </tr>
+    </table>
+    </form> 
+       
+</div>
 </div>
 
  
-       
-
                         
                         
                             
