@@ -71,7 +71,7 @@ $date="";
                 <form action="" id="loginForm" name="loginForm" method="POST" onsubmit="return validation()">
                     <label class="control-label" for="date">Select Date</label>
                     <div class="form-group input-group">
-                        <input class="form-control" id="datepicker" name="from" type="date" size="9" value=""/>
+                        <input class="form-control" id="datepicker" name="date" type="date" size="9" value=""/>
                         <script>
                         $(function()
                         {
@@ -91,10 +91,10 @@ $date="";
                         <span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> </div>
                     </div>
                     <div class="form-group">
-                        <button type="button" class="btn btn-primary btn-lg outline" style="width: 100%">Done</button>
+                        <button type="submit" class="btn btn-primary btn-lg outline" style="width: 100%">Done</button>
                     </div>
                     <div class="form-group">
-                        <button type="button" class="btn btn-primary btn-lg outline" style="width: 100%">Cancel</button>
+                        <button type="clear" class="btn btn-primary btn-lg outline" style="width: 100%">Reset</button>
                     </div>
                 </form>
             </div>

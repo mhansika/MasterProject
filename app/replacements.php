@@ -1,5 +1,4 @@
-<?php
-?>
+
 <head>
     <title>Enter</title>
     <meta charset="utf-8">
@@ -104,13 +103,13 @@
                     <label 
                     class="control-label" for="barcode">Enter Replace Battery Barcode</label>
                     <div class="form-group input-group">
-                        <input class="form-control" id="barcode1" name="oldcode" type="text" onblur="validation()"/>
+                        <input class="form-control" id="barcode1" name="oldname" type="text" onblur="validation()"/>
                         <span style="color:red" id="bcd1"></span>
                         <div class="input-group-addon"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> </div>
                     </div>
                     <label class="control-label" for="barcode">Enter Issued Battery Barcode</label>
                     <div class="form-group input-group">
-                        <input class="form-control" id="barcode2" name="newcode" type="text" onblur="validation()"/>
+                        <input class="form-control" id="barcode2" name="newname" type="text" onblur="validation()"/>
                         <span style="color:red" id="bcd2"></span>
                         <div class="input-group-addon"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> </div>
                     </div>
@@ -118,7 +117,7 @@
                         <button type="submit" class="btn btn-primary btn-lg outline" style="width: 100%">Done</button>
                     </div>
                     <div class="form-group">
-                        <button type="button" class="btn btn-primary btn-lg outline" style="width: 100%">Cancel</button>
+                        <button type="clear" class="btn btn-primary btn-lg outline" style="width: 100%">Reset</button>
                     </div>
                 </form>
             </div>
@@ -155,7 +154,7 @@ $arr22 = substr($newname, 4);
         $date=$_POST['date'];
         
 }
-$sql = "UPDATE released_batteries SET battery_status=3,cus_sold_date='$date' WHERE  batch_num='$arr1'  AND battery_num='$arr2'";
+$sql = "UPDATE released_batteries SET battery_status=3,replaced_date='$date' WHERE  batch_num='$arr1'  AND battery_num='$arr2'";
 
  
 if ($conn->query($sql) === TRUE) {
@@ -163,7 +162,7 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error updating record: " . $conn->error;
 }
-$sql2 = "UPDATE released_batteries SET battery_status=4,replaced_date='$date' WHERE  batch_num='$arr12'  AND battery_num='$arr22'";
+$sql2 = "UPDATE released_batteries SET battery_status=4,cus_sold_date='$date' WHERE  batch_num='$arr12'  AND battery_num='$arr22'";
 
 if ($conn->query($sql2) === TRUE) {
     echo "";
