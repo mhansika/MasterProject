@@ -1,3 +1,7 @@
+<?php
+  require "../database/connect.php";
+  $sql="SELECT dealer_id,coalesce(count(case when battery_status =1  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL GROUP BY dealer_id ";
+?>
 <!DOCTYPE html>
 
 
@@ -170,81 +174,26 @@
 <div  class="tbl-content">
 <table cellpadding="0" cellspacing="0" border="0">
   <tbody>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      
-      
-    </tr>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      
-      
-    </tr>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      
+    <?php 
+      $query=(mysqli_query($connection,$sql));
+      while($res = mysqli_fetch_assoc($query)){ 
+            $sql5 = "SELECT dealer_name FROM dealer WHERE dealer_id = '$res[dealer_id]'";
+            $query5=(mysqli_query($connection,$sql5));
+            while($res5 = mysqli_fetch_assoc($query5)){ 
+        echo "<tr>";
+      echo "<th>".$res5['dealer_name']."</th>";
+            }
+      echo "<th>".$res['count']."</th>";
 
-      </tr>
-    <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      
-    </tr>
+      if ($res['count']<10 ){
+                echo "<th>"."good"."</th>";
+            }else{
+                echo "<th>"."bad"."</th>";
+            }           
+        echo "</tr>";
+
+      }
+  ?>
     
    
     
