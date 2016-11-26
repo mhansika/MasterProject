@@ -1,8 +1,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<?php include 'core/init.php';
+      protect_page(); 
+      ?>
 <html>
 <head>
-    <title>Select</title>
+    <title>WELCOME</title>
     <link type="text/css" media="screen" href="css/select.css" rel="stylesheet"></link>
     <style>
         .button{
@@ -30,10 +32,10 @@
 </head>
 <body>
 <div class="wrapper">
-    <a class="button" href="mainlogout.php" style="float: right">LogOut</a>
+    <a class="button" href="mainLogout.php" style="float: right">LogOut</a>
 <div class="main-content">
     <div class="container">
-        <a href="WarrantyManager/index2.php">
+        <a href="WarrantyManager/enterDefect.php">
                     <span style="margin-top: -15%; margin-right: 50%">Warranty Management</span>
         </a>
         <div class="ObjectContainer" style="margin-top: 20%">
@@ -43,7 +45,7 @@
         </div>
     </div>
     <div class="aside">
-        <a href="inventory.php">
+        <a href="InventoryManager/inventory.php">
                     <span style="margin-top: -40%; margin-right: 45%">Inventory Management</span>
         </a>
         <div class="ObjectContainer">
