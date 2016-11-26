@@ -1,7 +1,3 @@
-<?php
-  require "../database/connect.php";
-  $sql="SELECT dealer_id,coalesce(count(case when battery_status =1  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL GROUP BY dealer_id ";
-?>
 <!DOCTYPE html>
 
 
@@ -9,12 +5,11 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-        
-
        
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
+        
        
          </style>
 
@@ -30,7 +25,7 @@
                 <div class="link_bg"></div>
                 <div class="link_title" id="dt">
 
-                    <a href="enterDefect.php" id="dt" style="top: 1px;
+                    <a href="#" id="dt" style="top: 1px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -77,7 +72,6 @@
                                 text-align:center;"><img class= "pic" src="img/d.png" align="middle" width="80px"><span>Misused </br> Dealers</span></a>
                 </div>
             </li>
-
             <li class="var_nav">
                 <div class="link_bg"></div>
                 <div class="link_title" >
@@ -131,28 +125,32 @@
                     <div class="ad">
                     </br>
                      
-                     <h1><b> Misused Dealers</b></h1>
+                     <h1><b> View All Replacements</b></h1>
                      </br>
 
                     <table width="70%">
   <tr>
-    <th>Area</th>
+    
+    <th>Date</th>
     <th></th>
     <th></th>
-    
-    
-    
-  
   </tr>
   <tr></tr>
   <tr>
-    <th><select id="area" style="font-color:black;">
-                                        <option value="">----Select----</option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        </select></th>
-     </tr>
+    
+    <th><div class="form-group input-group">
+                        <input class="form-control" id="datepicker" name="from" type="date"  size="9" value=""/>
+
+                        <script>
+                        $(function()
+                        {
+                        $( "#datepicker" ).datepicker();
+                        $("#").click(function() { $("#datepicker").datepicker( "show" );})
+                        });
+                        </script>
+                        <div class="input-group-addon" ><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> </div>
+                    </div></th>
+  </tr>
   
 
  
@@ -162,10 +160,10 @@
 <table cellpadding="0" cellspacing="0" border="0">
   <thead>
     <tr>
+      <th>Battery Number</th>
       <th>Dealer Name</th>
-      <th>No of Invalid Replacements</th>
-      <th>Status</th>
-      
+      <th>Valid Status</th>
+      <th>Defect Type</th>
       
     </tr>
   </thead>
@@ -174,26 +172,79 @@
 <div  class="tbl-content">
 <table cellpadding="0" cellspacing="0" border="0">
   <tbody>
-    <?php 
-      $query=(mysqli_query($connection,$sql));
-      while($res = mysqli_fetch_assoc($query)){ 
-            $sql5 = "SELECT dealer_name FROM dealer WHERE dealer_id = '$res[dealer_id]'";
-            $query5=(mysqli_query($connection,$sql5));
-            while($res5 = mysqli_fetch_assoc($query5)){ 
-        echo "<tr>";
-      echo "<th>".$res5['dealer_name']."</th>";
-            }
-      echo "<th>".$res['count']."</th>";
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
 
-      if ($res['count']<10 ){
-                echo "<th>"."good"."</th>";
-            }else{
-                echo "<th>"."bad"."</th>";
-            }           
-        echo "</tr>";
-
-      }
-  ?>
+      </tr>
+    <tr>
+       <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+     <tr>
+       <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+     <tr>
+       <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+     <tr>
+       <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+     <tr>
+       <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+     <tr>
+       <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+     <tr>
+       <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+     <tr>
+       <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+     <tr>
+       <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
     
    
     

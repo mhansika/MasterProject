@@ -3,7 +3,7 @@
             background:#e0e0d1;
             margin: 0 auto;
             padding: 0px;
-            width: 130%;
+            width: 132.5%;
             color:black;
             font-size: 18px;
             line-height: 1em;
@@ -25,9 +25,13 @@ span
     display:block;
 
 }
-th, td {
-    padding: 7px;
-    text-align: center;
+td {
+    padding: 7px 7px;
+  text-align:center;
+  font-weight: 1000;
+  font-size: 18px;
+  color: black;
+  text-align: center;
 
 }
 
@@ -40,10 +44,10 @@ th, td {
             margin: 0 0 20px;
             padding: 8px 10px;
             display: block;
-            width: 50% ;
+            width: 65% ;
             color:black;
             text-align: center;
-            margin-left: 100px;
+            margin-left: 60px;
 
             
         }
@@ -131,6 +135,7 @@ table{
   margin-left: 90px;
   margin-right: 90px;
 
+
 }
 th{
   padding: 15px 15px;
@@ -151,36 +156,42 @@ h1  {
 
 .bottom{
 
-  margin-left: 20%;
+  margin-left: 60%;
   width: 500px;
   text-align: center;
+  font-family: arial;
+
 }
 
-.bottom input,.bottom select,.bottom option{
-            font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
-            font-size: 14px;
-            border: 0;
-            background:  #fff ;
-            margin: 0 0 20px;
-            padding: 8px 10px;
-            display: block;
-            width: 100% ;
-            color:black;
-            text-align: center;
-            margin-left: 50px;
-
-            
-        }
 
 
 
+
+ button {
+    
+    border: none;
+
+    
+    text-align: center;
+    text-decoration: none;
+    
+    font-size: 20px;
   
+    margin-top: 20px;
+    border-radius: 0px;
+    font-family: Calibri;
+    font-weight: bold;
+    margin-left: 15px;
+    background-color: #808080;
+}
+     button:hover {
+            background-color: #0f0f0f ;
+            color: white;
+        }    
 
 
 
 
-
-tr:nth-child(even){background-color: #f2f2f2}
 
 
 

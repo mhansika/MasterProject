@@ -109,7 +109,7 @@ $( document ).ready(function() {
 					<div class="link_bg"></div>
 					<div class="link_title" >
 
-						<a href= "" id="cr" style="top: 10px;
+						<a href= "viewAllReplace.php" id="cr" style="top: 10px;
 									display:block;
 									position:absolute;
 									float:left;
@@ -239,8 +239,11 @@ echo "
   <thead>
     <tr>
       <th>Replacement</th>
-	   <th>Replacement Date</th>
-	    <th></th>
+      <th></th>
+	   <th>Replacement Date<th></th>
+     
+     
+	    
       <th>Warranty Expiry - Date</th>
 	 
       <th>Within Warranty Period</th>
@@ -288,7 +291,7 @@ if (isset($final_valid)) {
   <tbody>
     <tr>
                      <tr><td>".$row["batch_num"].$row["battery_num"]."</td><td><form action='' method='post'>
-<input type='date' name='replaced_date' size='20' value= " .$row['replaced_date']. " </td><td><input type='submit' name='submit' value='Update'></td><td>".$row['warranty_period']."</td><td>".$row["validity"]."</td><td>".$row["defected"]."</td><td>".$row["replacement"]."</td></tr>"; }
+<input type='date' name='replaced_date' size='20' value= " .$row['replaced_date']. "</td><td><input type='submit' name='submit' value='Update'></td><td></td><td>".$row['warranty_period']."</td><td>".$row["validity"]."</td><td>".$row["defected"]."</td><td>".$row["replacement"]."</td></tr>"; }
     echo "
                 </tbody></table></table>
 
@@ -410,7 +413,7 @@ if ($check_replace == "VALID") {
 
 
                    
-</form>
+
 <form>
     <table>
             <tr>
@@ -492,7 +495,7 @@ $res = $mysqli->query("SELECT * FROM released_batteries where battery_status='6'
 
  echo " <tr><td>Valid replacements:</td><td>$row_cnt</td></tr>
         <tr><td>Invalid Replacements : </td><td>$row_count</td></tr>";
-echo "<tr><button class='submit' name='submit' value='send'>Submit</button></tr> "; 
+
 
                     
         ?> 
@@ -503,9 +506,11 @@ echo "<tr><button class='submit' name='submit' value='send'>Submit</button></tr>
 
  
 
+</br>
 
+ <button class='submit' name='submit' value='confirm' onclick()>Confirm</button>
+ <button class='submit' name='submit' value='submit' onclick()>Submit</button>
 
- <button class='submit' name='submit' value='confirm' onclick()>confirm</button>
 
 </div>
 
