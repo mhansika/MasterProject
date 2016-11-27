@@ -41,17 +41,16 @@ function user_id_from_username($username) {
 
 
 
-//
+
 function login($username,$password) {
     $conn= mysqli_connect('localhost','root','','warranty_management');
     $user_id=user_id_from_username($username);
-    $role=role_from_username($username);
-    echo $role;
+  
 
 
     $username=sanitize($username);
     $password=md5($password);
-    $role=sanitize($role);
+ 
 
 
 
@@ -66,12 +65,15 @@ function login($username,$password) {
 
 
 
-function role_from_username($username){
+function role_from_username($username,$password){
     $conn= mysqli_connect('localhost','root','','warranty_management');
     $username=sanitize($username);
-    $query=mysqli_query($conn,"SELECT role FROM users WHERE username='$username'");
+	$password=md5($password);
+    $query=mysqli_query($conn,"SELECT role FROM users WHERE username='$username' AND password = $password");
     $fetcharray=mysqli_fetch_array($query,MYSQLI_NUM);
+	$role = $fetcharray[0];
     return $fetcharray[0];
+	
 }
 
 
@@ -80,4 +82,21 @@ function role_from_username($username){
 }
 
 
+/*function restrict_pages ($role){
+	if (isset($role) {
+      if ($role == 'admin') {
+          if (!session_id())
+              session_start();
+          $_SESSION['logon'] = true;
+
+          header('Location: .php');
+          die();
+      }
+	
+	
+	
+}
+
+}
+*/
  ?>

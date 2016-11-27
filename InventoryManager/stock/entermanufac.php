@@ -245,7 +245,7 @@ if (isset($_POST["submit"]))
 	// Uses multiple values at the VALUES clause.
 	
 	$lastEntry = getLatestBatteryNumber( $conn, $str );
-    $WarrantyPeriod = getWarrantyPeriod ($conn, $battery_type) ;
+    //$WarrantyPeriod = getWarrantyPeriod ($conn, $battery_type) ;
 	
 	$sql = "INSERT INTO released_batteries(batch_num, battery_num,battery_status) VALUES ";
 	
@@ -316,22 +316,6 @@ if (isset($_POST["submit"]))
 		}
 	 }
 
-function getWarrantyPeriod ($conn, $batteryType)
-{
-
-$result= mysqli_query($conn, "SELECT warranty_period FROM battery_description WHERE battery_type='$batteryType'");
-    
-        if ( mysqli_num_rows($result) > 0) {
-            if($row = mysqli_fetch_array($result)) {
-                return (int)($row["warranty_period"]);
-            }
-            else{
-                return 0;
-            }
-        } else {
-            return 0;
-        }
-     }
 
 
 
