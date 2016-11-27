@@ -409,7 +409,7 @@ if ($check_replace == "VALID") {
 
 ?>
 
-</div>
+</table>
 <div class="bottom" align="center">
 </br>
 
