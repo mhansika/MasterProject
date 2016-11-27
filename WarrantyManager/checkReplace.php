@@ -158,7 +158,7 @@ $( document ).ready(function() {
 							 
 							 <h1><b>Replacement Inspection</b></h1>
 							 </br>
-
+<form action= "" method="post">
 							<table width="70%">
 		  <tr>
 			<th>Area :</th>
@@ -166,6 +166,7 @@ $( document ).ready(function() {
 			<th>Date :</th>
 		  </tr>
 		  <tr></tr>
+
 		  <tr id= "trow">
 						<th>
                     <?php 
@@ -187,13 +188,14 @@ $( document ).ready(function() {
                 </th>
                 <th id="second">
              
-              <form action= "" method="post">
+              
                        <select name= "dealer_id"  >
                         
                         <option> -------ALL--------</option>
 
                         </select>
-             </form>      
+                        
+               
 
 
                 </th>
@@ -211,21 +213,22 @@ $( document ).ready(function() {
                         <div class="input-group-addon" ><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> </div>
                     </div></th>
   </tr>
-  
-
- 
+  <tr>
+  <th></th>
+  <th></th>
+  <th>
+<button type="submit" name="submit" value="submit">search</button>
+</th>
+ </tr>
 
 </table>
-
+</form>    
 <?php
  require "../core/database/connect.php";
- 
-if (isset($r)){
+ $dealer_name ="";
+if (isset($_POST['dealer_id'])){
 $dealer_name = $_POST['dealer_id'];
-
-}
-
-$sql = "SELECT * FROM released_batteries WHERE battery_status = '3'";
+$sql = "SELECT * FROM released_batteries WHERE battery_status = '3' AND dealer_id = '$_POST[dealer_id]'";
 $result = $conn->query($sql);
 
 
@@ -257,7 +260,7 @@ echo "
 <div  class='tbl-content'>
 <table cellpadding='0' cellspacing='0'border='0'> ";
 
-
+}
 
 
 
@@ -407,14 +410,14 @@ if ($check_replace == "VALID") {
 ?>
 
 </div>
-<div class="bottom">
+<div class="bottom" align="center">
 </br>
 
 
 
                    
 
-<form>
+<form >
     <table>
             <tr>
                       
@@ -501,7 +504,7 @@ $res = $mysqli->query("SELECT * FROM released_batteries where battery_status='6'
         ?> 
                       
     </table>
-    </form> 
+
                
 
  
@@ -516,7 +519,7 @@ $res = $mysqli->query("SELECT * FROM released_batteries where battery_status='6'
 
 </div>
 
- 
+</form> 
                         
                         
                             
