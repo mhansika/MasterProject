@@ -5,9 +5,9 @@ body{
     font-family: 'Open Sans';
 }
 #header{
-    height:90px;
+    height:80px;
     width: 100%;
-    margin-top: -1px;
+    margin-top: -80px;
     color:white;
     position: absolute;
     text-align: center;
@@ -48,10 +48,8 @@ h1 a {
 
 ul
 {
-    width: 170px;
     margin:0px;
     padding:0px;
-    list-style-type:none;
     -webkit-backface-visibility: hidden; backface-visibility: hidden;
 }
 .var_nav

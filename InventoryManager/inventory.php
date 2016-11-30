@@ -1,30 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
- <?php include '../core/init.php';
-      protect_page(); 
-      ?>
-
-
+<?php include '../core/init.php';
+  protect_page();
+  ?>
 <?php
 $role= $user_data['role'];
-
-
-?> 
-
-
-
-
-     
-
+?>
+<?php
+include '../include/header.php';
+?>
 <head>
   <meta charset="utf-8">
-
-        <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-        <link rel="stylesheet" href="css/m.css" media="screen" type="text/css" />
-
-
+        <link rel="stylesheet" href="../css/style.css" media="screen" type="text/css" />
+        <link rel="stylesheet" href="../css/m.css" media="screen" type="text/css" />
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -33,30 +21,16 @@ $role= $user_data['role'];
     <script src="../js/jquery.bxslider.js"></script>
     <!-- bxSlider CSS file -->
     <link href="css/jquery.bxslider.css" rel="stylesheet" />
-
-    
-
-
-
-
- 
 </head>
 <body>
-
-
-
-
-<div id="body">
     <div id="navigation"></div>
-
-
-    <nav>
+ <nav>
         <ul id="mainsidebar">
             <li class="var_nav">
                 <div class="link_bg"></div>
                 <div class="link_title" id="pd">
                    
-                    <a href="" id="pd" style="top: 1px;
+                    <a href="battery/product.php" id="pd" style="top: 1px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -88,7 +62,7 @@ $role= $user_data['role'];
                 <div class="link_bg"></div>
                 <div class="link_title" id="dealer_title" >
                     
-                    <a href="" id="dealer" style="top: 10px;
+                    <a href="dealer/viewdealer.php" id="dealer" style="top: 10px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -104,7 +78,7 @@ $role= $user_data['role'];
                 <div class="link_bg"></div>
                 <div class="link_title" >
                     
-                    <a href="#" id="salep" style="top: 10px;
+                    <a href="salesperson/salep.php" id="salep" style="top: 10px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -120,7 +94,7 @@ $role= $user_data['role'];
                 <div class="link_bg"></div>
                 <div class="link_title" >
                    
-                    <a href="#" id="report" style="top: 10px;
+                    <a href="../report/report.php" id="report" style="top: 10px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -135,35 +109,23 @@ $role= $user_data['role'];
             </li>
         </ul>
     </nav>
-
-    
-      </nav>
-
-   
     <div class="content">
         <h5 style="float:right;">   Logged in as : (<?php echo $user_data['role']; ?>)</h5>
 
         <h2 style="margin-top: 5%; margin-left: 5%; font-size: xx-large; color:black">Hello, <?php echo $user_data['f_name'] .'  ' .$user_data['l_name'];?></h2>
 
         <div class="form">
-          
                 <div class= "this" style="margin-left: 5%;margin-top: 5%">
-
-
-                                 <ul class="bxslider">
-                                    <li><img src="img/img/a.png" /></li>
-                                     <li><img src="img/img/b.png" /></li>
-                                     <li><img src="img/img/c.png" /></li>
-                                     <li><img src="img/img/d.png" /></li>
-                    </ul>
-                  
+                     <ul class="bxslider">
+                        <li><img src="img/img/a.png" /></li>
+                         <li><img src="img/img/b.png" /></li>
+                         <li><img src="img/img/c.png" /></li>
+                         <li><img src="img/img/d.png" /></li>
+                     </ul>
                 </div>
         </div>
-
-    </div>  
-</div>
- <div>
-     
+    </div>
+<div>
 <script>
  $(document).ready(function(){
   $('.bxslider').bxSlider();
