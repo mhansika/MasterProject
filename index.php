@@ -5,7 +5,7 @@
 <html>
 <head>
     <title>WELCOME</title>
-    <link type="text/css" media="screen" href="/../css/select.css" rel="stylesheet"></link>
+    <link type="text/css" media="screen" href="css/select.css" rel="stylesheet"></link>
     <style>
         .button{
             background-color: #6f6f6e;

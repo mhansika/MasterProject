@@ -2,7 +2,7 @@
 
  function protect_page() {
   if (logged_in() === false) {
-    header('Location:protected.php');
+    header('Location:http://localhost/MasterProject/protected.php');
     exit();
   }
 
