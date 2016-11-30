@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<?php 
-session_start();
-?>
 <html>
 
   <head>
@@ -67,7 +64,7 @@ session_start();
             <h1>Welcome</h1>
             <h2 style="font-size: xx-large">Inventory and Warranty Management System</h2>
 
-            <form class="form" action="log.php" method="post">
+            <form class="form" action="login.php" method="post">
                 <input type="text" name="username" placeholder="Username" />
                 <input type="password" name="password" placeholder="Password" />
                 <button class="submit" name="submit" value="Login">Login</button>
