@@ -16,7 +16,9 @@ $role= $user_data['role'];
     <!-- bxSlider CSS file -->
     <link href="css/jquery.bxslider.css" rel="stylesheet" />
     <style>
-        
+        nav{
+            float: left;
+        }
     </style>
 </head>
 <body>
@@ -24,87 +26,42 @@ $role= $user_data['role'];
 include '../../include/header.php';
 ?>
 <div id="body">
-    <div id="navigation"></div>
+
     <nav>
         <ul id="mainsidebar">
             <li class="var_nav">
                 <div class="link_bg"></div>
                 <div class="link_title" id="pd">
 
-                    <a href="battery/product.php" id="pd" style="top: 1px;
-                                display:block;
-                                position:absolute;
-                                float:left;
-                                font-family:arial;
-                                color:#1C1C1C;
-                                text-decoration:none;
-                                width:100%;
-                                height:70px;
-                                text-align:center;"><img class= "pic" src="../img/a.png" align="middle"><span>Product Details</span></a>
+                    <a href="../battery/product.php" id="pd"><img class= "pic" src="../img/a.png" align="middle"><span>Product Details</span></a>
                 </div>
             </li>
             <li class="var_nav">
                 <div class="link_bg"></div>
                 <div class="link_title" >
 
-                    <a href= "stock/stock.php" id="stock" style="top: 10px;
-                                display:block;
-                                position:absolute;
-                                float:left;
-                                font-family:arial;
-                                color:#1C1C1C;
-                                text-decoration:none;
-                                width:100%;
-                                height:70px;
-                                text-align:center;"><img class= "pic" src="../img/b.png" align="middle"><span>Stock</span></a>
+                    <a href= "../stock/stock.php" id="stock"><img class= "pic" src="../img/b.png" align="middle"><span>Stock</span></a>
                 </div>
             </li>
             <li class="var_nav">
                 <div class="link_bg"></div>
                 <div class="link_title" id="dealer_title" >
 
-                    <a href="dealer/viewdealer.php" id="dealer" style="top: 10px;
-                                display:block;
-                                position:absolute;
-                                float:left;
-                                font-family:arial;
-                                color:#1C1C1C;
-                                text-decoration:none;
-                                width:100%;
-                                height:70px;
-                                text-align:center;"><img class= "pic" src="../img/c.png" align="middle"><span>Dealer</span></a>
+                    <a href="../dealer/viewdealer.php" id="dealer"><img class= "pic" src="../img/c.png" align="middle"><span>Dealer</span></a>
                 </div>
             </li>
             <li class="var_nav">
                 <div class="link_bg"></div>
                 <div class="link_title" >
 
-                    <a href="salesperson/salep.php" id="salep" style="top: 10px;
-                                display:block;
-                                position:absolute;
-                                float:left;
-                                font-family:arial;
-                                color:#1C1C1C;
-                                text-decoration:none;
-                                width:100%;
-                                height:70px;
-                                text-align:center;"><img class= "pic" src="../img/d.png" align="middle"><span>Salesperson</span></a>
+                    <a href="../salesperson/salep.php" id="salep" ><img class= "pic" src="../img/d.png" align="middle"><span>Salesperson</span></a>
                 </div>
             </li>
             <li class="var_nav">
                 <div class="link_bg"></div>
                 <div class="link_title" >
 
-                    <a href="../report/report.php" id="report" style="top: 10px;
-                                display:block;
-                                position:absolute;
-                                float:left;
-                                font-family:arial;
-                                color:#1C1C1C;
-                                text-decoration:none;
-                                width:100%;
-                                height:70px;
-                                text-align:center;"><img class= "pic" src="../img/e.png" align="middle"><span>Reports</span></a>
+                    <a href="../../report/report.php" id="report"><img class= "pic" src="../img/e.png" align="middle"><span>Reports</span></a>
 
                 </div>
             </li>
@@ -112,29 +69,29 @@ include '../../include/header.php';
     </nav>
     <div class="content">
         <ul id="top">
-            <li class="topn"><a href="#home">View</a></li>
-            <li class="topn"><a href="#news">Add</a></li>
-            <li class="topn"><a href="#contact">Search</a></li>
+            <li class="topn"><a style="width: 300px" href="product.php"><img src="../img/Add.png"><span class="bar">View</span></a></li>
+            <li class="topn"><a style="width: 300px" href="addbattery.php"><img src="../img/View.png"><span class="bar">Add</span></a></li>
+            <li class="topn"><a style="width: 300px" href="searchbattery.php"><img src="../img/Search.png"><span class="bar">Search</span></a></li>
         </ul>
-            <div class="form">
-                <div class="seperate">
-                    <?php
-                    $servername = "localhost";
-                    $username = "root";
-                    $password = "";
-                    $dbname = "warranty_management";
+        <div class="form">
+            <div class="seperate">
+                <?php
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "warranty_management";
 
-                    // Create connection
-                    $conn = mysqli_connect($servername, $username, $password, $dbname);
-                    // Check connection
-                    if (!$conn) {
-                        die("Connection failed: " . mysqli_connect_error());
-                    }
-                    $sql = "SELECT battery_type, battery_name, warranty_period,amperehour_Value,voltage_Value,item_Type,imageUpload FROM battery_description";
-                    $result = $conn->query($sql);
+                // Create connection
+                $conn = mysqli_connect($servername, $username, $password, $dbname);
+                // Check connection
+                if (!$conn) {
+                    die("Connection failed: " . mysqli_connect_error());
+                }
+                $sql = "SELECT battery_type, battery_name, warranty_period,amperehour_Value,voltage_Value,item_Type,imageUpload FROM battery_description";
+                $result = $conn->query($sql);
 
-                    if ($result->num_rows > 0) {
-                        echo "<style>
+                if ($result->num_rows > 0) {
+                    echo "<style>
 table {
     border-collapse: collapse;
     width: 100%;
@@ -169,94 +126,66 @@ tbody {
 <th>Voltage Value</th>
 <th>Item Type</th>
 <th>Image</th></tr>";
-                        // output data of each row
-                        while($row = $result->fetch_assoc()) {
-                            echo "<tr><td>".$row["battery_type"]."</td><td>".$row["battery_name"]." </td><td>".$row["warranty_period"]."</td><td>".$row["amperehour_Value"]."</td><td>".$row["voltage_Value"]."</td><td>".$row["item_Type"]."</td><td><img src='uploads/$row[imageUpload].png' height='75px' width='100px'></td></tr>";
-                        }
-                        echo "</table></body>
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo "<tr><td>".$row["battery_type"]."</td><td>".$row["battery_name"]." </td><td>".$row["warranty_period"]."</td><td>".$row["amperehour_Value"]."</td><td>".$row["voltage_Value"]."</td><td>".$row["item_Type"]."</td><td><img src='uploads/$row[imageUpload].png' height='75px' width='100px'></td></tr>";
+                    }
+                    echo "</table></body>
 </html>";
-                    } else {
-                        echo "0 results";
-                    }
-                    $conn->close();
-
-
-                    ?>
-
-
-                </div>
-            </div>
-
-        </div>
-        <script>
-
-            $("div.content>ul#topnavi>li>a").click( function(e){
-
-                e.preventDefault();
-
-            });
-
-
-            $("ul#topnavi>li>a").click( function(){
-                var id = this.id;
-                console.log(id);
-
-                $('div.content > div.form').html("");
-
-                if (id == "addbattery"){
-
-                    url = "addbattery.php";
-
-                } else if (id == "searchbattery"){
-
-                    url = "searchbattery.php";
-
-
-
+                } else {
+                    echo "0 results";
                 }
+                $conn->close();
 
 
-                $.ajax({
+                ?>
 
 
+            </div>
+        </div>
 
-                    type:"post",
-                    url:url,
-                    success:function(data){
+    </div>
+    <script>
 
-                        $("div.content> div.form").html(data);
+        $("div.content>ul#topnavi>li>a").click( function(e){
 
-                    }
+            e.preventDefault();
 
-
-
-                });
-
+        });
 
 
+        $("ul#topnavi>li>a").click( function(){
+            var id = this.id;
+            console.log(id);
 
+            $('div.content > div.form').html("");
 
+            if (id == "addbattery"){
+
+                url = "addbattery.php";
+
+            } else if (id == "searchbattery"){
+
+                url = "searchbattery.php";
+            }
+            $.ajax({
+                type:"post",
+                url:url,
+                success:function(data){
+                    $("div.content> div.form").html(data);
+                }
             });
-
-
-
-
-
-
-
+        });
+    </script>
+    <div>
+        <script>
+            $(document).ready(function(){
+                $('.bxslider').bxSlider();
+            })
         </script>
 
+        <?php
 
-
-        <div>
-    <script>
-        $(document).ready(function(){
-            $('.bxslider').bxSlider();
-        })
-    </script>
-
-    <?php
-
-    include '../../include/footer.php';
-    ?>
+        include '../../include/footer.php';
+        ?>
 

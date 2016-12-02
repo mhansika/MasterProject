@@ -1,132 +1,154 @@
-<ul id="topnavi">
-            <li id="top"><a  href="" id="viewbattery">View</a></li>
-            <li id="top"><a  href="" id="addbattery">Add</a></li>
-            <li id="top"><a  href="" id="searchbattery">Search</a></li>
-</ul>
+<html>
+	<head>
+		<style>
+			.error {color: #FF0000;}
+		</style>
+		<link type="text/css" rel="stylesheet" href="css/m.css"/>
 
-<div class="content">
+		<title>search salesperson</title>
+	</head>
+	<body>
 
+		<?php
+			require "database/connect.php";
+			session_start();
+			$error=FALSE;
+			$salesPerson_iderr = "";
+			$v0=$v1=$v2=$v3=$v4=$v5=$v6=$v7=$v8=$v9="";
+			if ($_SERVER["REQUEST_METHOD"] == "POST") {
+				if(empty($_POST['salesPerson_id'])){
+                $salesPerson_iderr = "required";
+                $error = TRUE;
+				}else{
+					$salesPerson_id = $_POST['salesPerson_id'];
+				}
+				if ($error==FALSE){
+					$sql = "SELECT * FROM `sales_person` WHERE salesPerson_id = '$_POST[salesPerson_id]'";
 
-        <div class="form">
-            <div class="seperate">
-                 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "warranty_management";
+					$result= mysqli_query($connection, $sql);
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-$sql = "SELECT battery_type, battery_name, warranty_period,amperehour_Value,voltage_Value,item_Type,imageUpload FROM battery_description";
-$result = $conn->query($sql);
+					if(mysqli_num_rows($result) > 0){
+						while($row = mysqli_fetch_assoc($result)){
+						/*	echo "id: ".$row["dealer_id"]. "Name: ".$row["dealer_name"]. "NIC: ".$row["NIC"]."<br/>";*/
+						$v0=$row["salesPerson_id"];
+						$_SESSION['salesPerson_id']=$v0;
+						$v1=$row["F_name"];
+						$v2=$row["L_name"];
+						$v3=$row["area_no"];
+						$v4=$row["NIC"];
+						$v5=$row["address"];
+						$v6=$row["DOB"];
+						$v7=$row["mobileNo"];
+						$v8=$row["telephoneNo"];
+						$v9=$row["email"];
+						}
+					}else{
+						echo '<script>';
+						echo 'alert("Zero Result")';
+						echo '</script>';
+					}
+				}
+			}
 
-if ($result->num_rows > 0) {
-    echo "<style>
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
+		?>
 
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-    background-color:#990000;
+		<div class="ad">
+			<h1 style= "font-size: 20px;
+    background-color: #990000;
     color: white;
-}
-tbody {
-    height: 100px;       /* Just for the demo          */
-    overflow-y: auto;    /* Trigger vertical scroll    */
-    overflow-x: hidden;  /* Hide the horizontal scroll */
-}
-</style>
-</head>
-<body>
-
-<table><tr><th>Battery type</th><th>Battery name</th><th>Warranty period</th><th>Ampere-hour Value</th><th>Voltage Value</th><th>Item Type</th><th>Image</th></tr>";
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["battery_type"]."</td><td>".$row["battery_name"]." </td><td>".$row["warranty_period"]."</td><td>".$row["amperehour_Value"]."</td><td>".$row["voltage_Value"]."</td><td>".$row["item_Type"]."</td><td><img src='uploads/$row[imageUpload].png' height='75px' width='100px'></td></tr>";
-    }
-    echo "</table></body>
-</html>";
-} else {
-    echo "0 results";
-}
-$conn->close();
+    width:100%;
+    padding: 10px;
+    font-family: Calibri;
+    line-height: 30px;
+    margin:0 0 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;">Search Salesperson</h1>
 
 
-?>
-
-
-            </div>
-        </div>
-
-    </div>
-	<script>
-
-    $("div.content>ul#topnavi>li>a").click( function(e){
-
-        e.preventDefault();
-
-    });
-
-
-    $("ul#topnavi>li>a").click( function(){
-    var id = this.id;
-    console.log(id);
-
-    $('div.content > div.form').html("");
-
-     if (id == "addbattery"){
-
-        url = "addbattery.php";
-
-    } else if (id == "searchbattery"){
-
-        url = "searchbattery.php";
-
-
-
-    }
-
-
-     $.ajax({
-
-
-
-        type:"post",
-        url:url,
-        success:function(data){
-
-            $("div.content> div.form").html(data);
-
-        }
-
-
-
-    });
-
-
-
-
-
-});
+			<table class='tbl'>
+				<form action="" method="POST">
+					<tr>
+						<td><b>Salesperson ID<span class="error">* <?php echo $salesPerson_iderr;?></span></b></td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type=text name=salesPerson_id size="30" maxlength="25" style="width: 300px">
+						<input type="submit" class="button" value="Search" ></td>
+					</tr>
+					<tr>
+							<td><b>Salesperson Id : </b></td>
+							<td><span> <?php echo $v0;?><br/></span></td>
+					</tr>
+					<tr>
+							<td>
+							<b>First Name :</b>
+							</td>
+							<td><span> <?php echo $v1;?><br/></span></td>
+					</tr>
+					<tr>
+						<td>
+							<b>Last Name: </b>
+						</td>
+						<td><span> <?php echo $v2;?><br/></span></td>
+					</tr>
+					<tr>
+						<td>
+							<b>Area: </b>
+						</td>
+						<td><span> <?php echo $v3;?><br/></span></td>
+					</tr>
+					<tr>
+							<td>
+							<b>NIC : </b>
+							</td>
+							<td><span> <?php echo $v4;?><br/></span></td>
+					</tr>
+					<tr>
+							<td>
+							<b>Address : </b>
+							</td>
+							<td><span> <?php echo $v5;?><br/></span></td>
+					</tr>
+					<tr>
+							<td>
+							<b>DOB : </b>
+							</td>
+							<td><span> <?php echo $v6;?><br/></span></td>
+					</tr>
+					<tr>
+							<td>
+							<b>Mobile No : </b>
+							</td>
+							<td><span> <?php echo $v7;?><br/></span></td>
+					</tr>
+					<tr>
+							<td>
+							<b>Telephone No : </b>
+							</td>
+							<td><span> <?php echo $v8;?><br/></span></td>
+					</tr>
+					<tr>
+							<td>
+							<b>Email : </b>
+							</td>
+							<td><span> <?php echo $v9;?><br/></span></td>
+					</tr>
 
 
 
 
+				</form>
+
+			</table>
+
+			<a class="link" href="delsalep.php?" onclick="return confirm('Are you sure you wish to delete this Record?');">DELETE</a>
+			<a class="link" href="upsalep.php?">UPDATE</a>
 
 
 
-</script>
 
 
+
+		</div>
+
+	</body>
+</html>

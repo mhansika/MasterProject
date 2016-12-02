@@ -16,9 +16,36 @@ $role= $user_data['role'];
     <!-- bxSlider CSS file -->
     <link href="css/jquery.bxslider.css" rel="stylesheet" />
     <style>
+        #body{
+            float: left;
+            position:relative ;
+            width: 100%;
+        }
         nav{
             float: left;
+            position: relative;
         }
+        content{
+            float: right;
+            position: relative;
+        }
+
+        div.form{
+            position: relative;
+        }
+        ul#top {
+            float: left;
+            position: relative;
+
+        }
+
+        li.topn {
+            float: left;
+            border:1px solid #bbb;
+
+        }
+
+        
     </style>
 </head>
 <body>
@@ -33,7 +60,7 @@ include '../../include/header.php';
                 <div class="link_bg"></div>
                 <div class="link_title" id="pd">
 
-                    <a href="../battery/product.php" id="pd" style="top: 1px;
+                    <a href="battery/product.php" id="pd" style="top: 1px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -49,7 +76,7 @@ include '../../include/header.php';
                 <div class="link_bg"></div>
                 <div class="link_title" >
 
-                    <a href= "../stock/stock.php" id="stock" style="top: 10px;
+                    <a href= "stock/stock.php" id="stock" style="top: 10px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -65,7 +92,7 @@ include '../../include/header.php';
                 <div class="link_bg"></div>
                 <div class="link_title" id="dealer_title" >
 
-                    <a href="../dealer/viewdealer.php" id="dealer" style="top: 10px;
+                    <a href="dealer/viewdealer.php" id="dealer" style="top: 10px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -81,7 +108,7 @@ include '../../include/header.php';
                 <div class="link_bg"></div>
                 <div class="link_title" >
 
-                    <a href="../salesperson/salep.php" id="salep" style="top: 10px;
+                    <a href="salesperson/salep.php" id="salep" style="top: 10px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -97,7 +124,7 @@ include '../../include/header.php';
                 <div class="link_bg"></div>
                 <div class="link_title" >
 
-                    <a href="../../report/report.php" id="report" style="top: 10px;
+                    <a href="../report/report.php" id="report" style="top: 10px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -114,27 +141,29 @@ include '../../include/header.php';
     </nav>
     <div class="content">
         <ul id="top">
-            <li class="topn"><a style="width: 300px" href="viewdealer.php"><img src="../img/Add.png"><span class="bar">View</span></a></li>
-            <li class="topn"><a style="width: 300px" href="adddealer.php"><img src="../img/View.png"><span class="bar">Add</span></a></li>
-            <li class="topn"><a style="width: 300px" href="searchdealer.php"><img src="../img/Search.png"><span class="bar">Search</span></a></li>
+            <li class="topn"><a style="width: 300px" href="product.php"><img src="../img/Add.png"><span class="bar">View</span></a></li>
+            <li class="topn"><a style="width: 300px" href="addbattery.php"><img src="../img/View.png"><span class="bar">Add</span></a></li>
+            <li class="topn"><a style="width: 300px" href="searchbattery.php"><img src="../img/Search.png"><span class="bar">Search</span></a></li>
         </ul>
-        <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "warranty_management";
+        <div class="form">
+            <div class="seperate">
+                <?php
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "warranty_management";
 
-        // Create connection
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
-        // Check connection
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
-        $sql = "SELECT dealer_id, dealer_name, area_no,salesPerson_id, NIC,address,mobileNo,telephoneNo,email,fax FROM dealer";
-        $result = $conn->query($sql);
+                // Create connection
+                $conn = mysqli_connect($servername, $username, $password, $dbname);
+                // Check connection
+                if (!$conn) {
+                    die("Connection failed: " . mysqli_connect_error());
+                }
+                $sql = "SELECT battery_type, battery_name, warranty_period,amperehour_Value,voltage_Value,item_Type,imageUpload FROM battery_description";
+                $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-            echo "<style>
+                if ($result->num_rows > 0) {
+                    echo "<style>
 table {
     border-collapse: collapse;
     width: 100%;
@@ -148,7 +177,7 @@ th, td {
 tr:nth-child(even){background-color: #f2f2f2}
 
 th {
-    background-color: #990000;
+    background-color:#990000;
     color: white;
 }
 tbody {
@@ -160,20 +189,72 @@ tbody {
 </head>
 <body>
 
-<table><tr><th>ID</th><th>Name</th><th>Area </th><th>Salesperson</th><th>NIC</th><th>Address</th><th>Mobile No</th><th>Tel No</th><th>E mail</th><th>Fax</th></tr>";
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "<tr><td>".$row["dealer_id"]."</td><td>".$row["dealer_name"]." </td><td>".$row["area_no"]." </td><td>".$row["salesPerson_id"]." </td><td>".$row["NIC"]." </td><td>".$row["address"]." </td><td>".$row["mobileNo"]." </td><td>".$row["telephoneNo"]." </td><td>".$row["email"]." </td><td>".$row["fax"]." </td></tr>";
-            }
-            echo "</table></body>
+<table>
+<tr>
+<th>Battery type</th>
+<th>Battery name</th>
+<th>Warranty period</th>
+<th>Ampere-hour Value</th>
+<th>Voltage Value</th>
+<th>Item Type</th>
+<th>Image</th></tr>";
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo "<tr><td>".$row["battery_type"]."</td><td>".$row["battery_name"]." </td><td>".$row["warranty_period"]."</td><td>".$row["amperehour_Value"]."</td><td>".$row["voltage_Value"]."</td><td>".$row["item_Type"]."</td><td><img src='uploads/$row[imageUpload].png' height='75px' width='100px'></td></tr>";
+                    }
+                    echo "</table></body>
 </html>";
-        } else {
-            echo "0 results";
-        }
-        $conn->close();
+                } else {
+                    echo "0 results";
+                }
+                $conn->close();
 
 
-        ?>
+                ?>
+
+
+            </div>
+        </div>
+
+    </div>
+    <script>
+
+        $("div.content>ul#topnavi>li>a").click( function(e){
+
+            e.preventDefault();
+
+        });
+
+
+        $("ul#topnavi>li>a").click( function(){
+            var id = this.id;
+            console.log(id);
+
+            $('div.content > div.form').html("");
+
+            if (id == "addbattery"){
+
+                url = "addbattery.php";
+
+            } else if (id == "searchbattery"){
+
+                url = "searchbattery.php";
+            }
+            $.ajax({
+                type:"post",
+                url:url,
+                success:function(data){
+                    $("div.content> div.form").html(data);
+                }
+            });
+        });
+    </script>
+    <div>
+        <script>
+            $(document).ready(function(){
+                $('.bxslider').bxSlider();
+            })
+        </script>
 
         <?php
 
