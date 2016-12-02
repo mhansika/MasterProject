@@ -2,7 +2,7 @@
 <html lang="en">
 <?php include '../core/init.php';
   protect_page();
-
+  include '../include/header.php';
   ?>
 <?php
 $role= $user_data['role'];
@@ -20,59 +20,95 @@ $role= $user_data['role'];
     <script src="../js/jquery.bxslider.js"></script>
     <!-- bxSlider CSS file -->
     <link href="css/jquery.bxslider.css" rel="stylesheet" />
-
-    <style>
-
-
-    </style>
 </head>
 <body>
-<?php
-include '../include/header.php';
-?>
-<div id="body">
-
-    <nav>
+    <div id="navigation"></div>
+ <nav>
         <ul id="mainsidebar">
             <li class="var_nav">
                 <div class="link_bg"></div>
                 <div class="link_title" id="pd">
                    
-                    <a href="battery/product.php" id="pd"><img class= "pic" src="img/a.png" align="middle"><span>Product Details</span></a>
+                    <a href="battery/product.php" id="pd" style="top: 1px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                text-align:center;"><img class= "pic" src="img/a.png" align="middle"><span>Product Details</span></a>
                 </div>
             </li>
             <li class="var_nav">
                 <div class="link_bg"></div>
                 <div class="link_title" >
                    
-                    <a href= "stock/stock.php" id="stock" ><img class= "pic" src="img/b.png" align="middle"><span>Stock</span></a>
+                    <a href= "stock/stock.php" id="stock" style="top: 10px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                text-align:center;"><img class= "pic" src="img/b.png" align="middle"><span>Stock</span></a>
                 </div>
             </li>
             <li class="var_nav">
                 <div class="link_bg"></div>
                 <div class="link_title" id="dealer_title" >
                     
-                    <a href="dealer/viewdealer.php" id="dealer"><img class= "pic" src="img/c.png" align="middle"><span>Dealer</span></a>
+                    <a href="dealer/viewdealer.php" id="dealer" style="top: 10px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                text-align:center;"><img class= "pic" src="img/c.png" align="middle"><span>Dealer</span></a>
                 </div>
             </li>
             <li class="var_nav">
                 <div class="link_bg"></div>
                 <div class="link_title" >
                     
-                    <a href="salesperson/salep.php" id="salep" ><img class= "pic" src="img/d.png" align="middle"><span>Salesperson</span></a>
+                    <a href="salesperson/salep.php" id="salep" style="top: 10px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                text-align:center;"><img class= "pic" src="img/d.png" align="middle"><span>Salesperson</span></a>
                 </div>
             </li>
             <li class="var_nav">
                 <div class="link_bg"></div>
                 <div class="link_title" >
                    
-                    <a href="../report/report.php" id="report" ><img class= "pic" src="img/e.png" align="middle"><span>Reports</span></a>
+                    <a href="../report/report.php" id="report" style="top: 10px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                text-align:center;"><img class= "pic" src="img/e.png" align="middle"><span>Reports</span></a>
 
                 </div>
             </li>
         </ul>
     </nav>
-    <div class="content" >
+    <div class="content">
         <h5 style="float:right;">   Logged in as : (<?php echo $user_data['role']; ?>)</h5>
 
         <h2 style="margin-top: 5%; margin-left: 5%; font-size: xx-large; color:black">Hello, <?php echo $user_data['f_name'] .'  ' .$user_data['l_name'];?></h2>

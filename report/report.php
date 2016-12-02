@@ -1,112 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php include '../core/init.php';
-protect_page();
-?>
-<?php
-$role= $user_data['role'];
-?>
+<html>
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/style.css" media="screen" type="text/css" />
-    <link rel="stylesheet" href="../css/m.css" media="screen" type="text/css" />
-    <link rel="stylesheet" href="css/report.css" media="screen" type="text/css" /> <!-- middle icon styles -->
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-    <!-- bxSlider Javascript file -->
-    <script src="../js/jquery.bxslider.js"></script>
-    <!-- bxSlider CSS file -->
-    <link href="css/jquery.bxslider.css" rel="stylesheet" />
     <style>
-        nav{
-            float: left;
+        .ca-menu li{
+            width: 500px;
+            height: 100px;
+            overflow: hidden;
+            display: block;
+            background: #e0e0e0;
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            margin-bottom: 4px;
+            border-left: 10px solid #000;
+            transition: all 300ms ease-in-out;
         }
+        .ca-menu li:last-child{
+            margin-bottom: 0px;
+        }
+        .ca-menu li a{
+            text-align: left;
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: #333;
+            position:relative;
+        }
+        .ca-icon{
+            font-family: Arial;
+            font-size: 30px;
+            text-shadow: 0px 0px 1px #333;
+            line-height: 90px;
+            position: absolute;
+            width: 90px;
+            left: 20px;
+            text-align: center;
+            transition: all 300ms linear;
+            margin-top: 20px;
+        }
+        .ca-content{
+            position: absolute;
+            left: 120px;
+            width: 370px;
+            height: 60px;
+            top: 20px;
+        }
+        .ca-main{
+            font-size: 30px;
+            transition: all 300ms linear;
+        }
+        .ca-sub{
+            font-size: 20px;
+            color: #000000;
+            transition: all 300ms linear;
+        }
+        .ca-menu li:hover{
+            border-color: #990000;
+            background: #000;
+        }
+        .ca-menu li:hover .ca-icon{
+            color: #990000;
+            text-shadow: 0px 0px 1px #990000;
+            font-size: 50px;
+        }
+        .ca-menu li:hover .ca-main{
+            color: #990000;
+            font-size: 14px;
+        }
+        .ca-menu li:hover .ca-sub{
+            color: #fff;
+            font-size: 30px;
+        }
+
     </style>
 </head>
 <body>
-<?php
-include '../include/header.php';
-?>
-<div id="body">
+<ul class="ca-menu" style="margin-top: 5%;margin-left: 30%">
+    <li>
+        <a href="report/salesp-report.php">
+            <span class="ca-icon"><img src="img/sm.png"> </span>
+            <div class="ca-content">
+                <h3 class="ca-sub">Salesperson</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="report/dealer-report.php">
+            <span class="ca-icon"><img src="img/dd.png"> </span>
+            <div class="ca-content">
+                <h3 class="ca-sub">Dealer</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="">
+            <span class="ca-icon"><img src="img/w.png"></span>
+            <div class="ca-content">
+                <h3 class="ca-sub">Warranty</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="report/production_line1.php">
+            <span class="ca-icon"><img src="img/st.png"></span>
+            <div class="ca-content">
+                <h3 class="ca-sub">Stock</h3>
+            </div>
+        </a>
+    </li>
 
-    <nav>
-        <ul id="mainsidebar">
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" id="pd">
+</ul>
 
-                    <a href="../InventoryManager/battery/product.php" id="pd"><img class= "pic" src="../img/a.png" align="middle"><span>Product Details</span></a>
-                </div>
-            </li>
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" >
+</body>
 
-                    <a href= "../InventoryManager/stock/stock.php" id="stock" ><img class= "pic" src="../img/b.png" align="middle"><span>Stock</span></a>
-                </div>
-            </li>
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" id="dealer_title" >
+</html>
 
-                    <a href="../InventoryManager/dealer/viewdealer.php" id="dealer" ><img class= "pic" src="../img/c.png" align="middle"><span>Dealer</span></a>
-                </div>
-            </li>
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" >
 
-                    <a href="../InventoryManager/salesperson/salep.php" id="salep" ><img class= "pic" src="../img/d.png" align="middle"><span>Salesperson</span></a>
-                </div>
-            </li>
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" >
 
-                    <a href="../report/report.php" id="report"><img class= "pic" src="../img/e.png" align="middle"><span>Reports</span></a>
 
-                </div>
-            </li>
-        </ul>
-    </nav>
-    <div class="content" style="margin-top: 5%">
-        <ul class="ca-menu" style="margin-top: 5%;margin-left: 30%">
-            <li>
-                <a href="../report/salesp-report.php">
-                    <span class="ca-icon"><img src="../img/sm.png"> </span>
-                    <div class="ca-content">
-                        <h3 class="ca-sub">Salesperson</h3>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="../report/dealer-report.php">
-                    <span class="ca-icon"><img src="../img/dd.png"> </span>
-                    <div class="ca-content">
-                        <h3 class="ca-sub">Dealer</h3>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <span class="ca-icon"><img src="../img/w.png"></span>
-                    <div class="ca-content">
-                        <h3 class="ca-sub">Warranty</h3>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="../report/production_line1.php">
-                    <span class="ca-icon"><img src="../img/st.png"></span>
-                    <div class="ca-content">
-                        <h3 class="ca-sub">Stock</h3>
-                    </div>
-                </a>
-            </li>
 
-        </ul>
 
-        <?php
 
-        include '../include/footer.php';
-        ?>
+
+
+
 

@@ -3,25 +3,16 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Open Sans';
-
-}
-/* made the body float to manage position  */
-#body{
-    float: left;
-    position:relative ;
-    width: 100%;
-
 }
 #header{
-    height:30px;
+    height:100px;
     width: 100%;
     margin-top: 0px;
     color:white;
     position: relative;
     text-align: center;
     font-family:arial;
-    float: left;
-
+	
 
 }
 
@@ -37,7 +28,7 @@ body{
 nav{
     background-color:black;
     margin-top:0px;
-    width: 115px;
+    width: 125px;
 }
 h2{
     margin:inherit;
@@ -66,8 +57,8 @@ ul
 {
     position:relative;
     background:#B40404;
-    width:110px;
-    height:110px;
+    width:120px;
+    height:125px;
     margin-top:5px;
     margin-right: 0px;
     margin-bottom:1px;
@@ -95,7 +86,7 @@ ul
     transform:rotate(360deg);
 }
 .var_nav:hover {
-    width: 110px;
+    width: 120px;
     background: black;
 }
 .var_nav:hover a
@@ -124,7 +115,7 @@ ul
 }
 .icon i{top:25px;position:relative;}
 ul#mainsidebar {
-    margin-top: -5px;
+    margin-top: 0px;
     padding-top: 0;
     margin-right: 0px;
 }
@@ -141,9 +132,8 @@ span
     margin-left:15%;
     width:70%;
     height:600px;
-    margin-top:-40%;
+    margin-top:-644px;
     margin-right: 10%;
-
 
 
 }
@@ -153,9 +143,8 @@ span
     margin-left:600px;
     margin-top:50px;
     display:block;
-    float:right;
-    margin-right:45px;
-    margin-top:40px;
+    float:right;margin-right:
+        45px;margin-top:40px;
     color: white;
     font-size:18px;
     margin-bottom:10px;
@@ -166,8 +155,10 @@ span
     position: absolute;
     color:black;
     margin-left:150px;
-    width:120px;
+    width:1200px;
     height:400px;
+    margin-top:-500px;
+    margin-left:150px;
 }
 .wrap{
     max-width:100%;
@@ -189,7 +180,7 @@ span
 }
 
 div.form{
-    position: relative;
+    position: absolute;
 }
 div.seperate{
     margin-top: 100px;
@@ -200,6 +191,7 @@ div.seperate{
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
 
 .icon-bar {
+    width: 723%;
     text-align: center;
     background-color: #000;
     overflow: auto;
@@ -223,16 +215,4 @@ div.seperate{
 .logout{
     margin-top: -60%;
     margin-right: -50%;
-}
-div#pd,#stock,#dealer,#salep,#report{
-    top: 10px;
-    display:block;
-    position:absolute;
-    float:left;
-    font-family:arial;
-    color:#1C1C1C;
-    text-decoration:none;
-    width:100%;
-    height:70px;
-    text-align:center;
 }

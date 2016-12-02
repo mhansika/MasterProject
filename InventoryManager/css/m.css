@@ -1,25 +1,29 @@
 ul#top {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
     background-color: #000;
-    margin-left: -9.5%;
-    width:115%;
-    height: 9.5%;
-    padding-left: 16%;
-    float: left;
-    position: relative;
+    margin-left: -7%;
+    width:128.5%;
+    margin-top: -10%;
 }
 
 li.topn {
     float: left;
-    border:1px solid #bbb;
+    border-right:1px solid #bbb;
+    width:50;
+}
 
+li.topn:last-child {
+    border-right: none;
 }
 
 li.topn a {
     display: block;
     color: white;
     text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
 
 }
@@ -27,6 +31,4 @@ li.topn a {
 li.topn a:hover:not(.active) {
     background-color: #B40404;
 }
-.bar{
-    margin-top: -2px;
-}
+
