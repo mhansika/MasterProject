@@ -1,6 +1,6 @@
 <?php
   require "../database/connect.php";
-  $sql="SELECT dealer_id,coalesce(count(case when battery_status =1  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL GROUP BY dealer_id ";
+  $sql="SELECT dealer_id,coalesce(count(case when battery_status =3  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL GROUP BY dealer_id ";
 ?>
 <!DOCTYPE html>
 
@@ -146,13 +146,27 @@
   </tr>
   <tr></tr>
   <tr>
-    <th><select id="area" style="font-color:black;">
-                                        <option value="">----Select----</option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        </select></th>
-     </tr>
+    <th><?php 
+                        
+                        echo '<select name="area" id="cap" style="font-color:black;">';
+                        echo '<option>     -------ALL--------   </option>';
+                        
+                        $sql1 = "Select DISTINCT area_no,area from area";
+                        $result1= mysqli_query($connection, $sql1);
+                             while($r=mysqli_fetch_row($result1))
+                             { 
+                                   echo '<option id=' .$r[0].'> ' . $r[1] . '</option>';
+
+                             }
+                        
+                        echo "</select>";
+
+                    ?></th>
+
+    <th>
+        <button type="submit" name="submit" value="submit">search</button>
+    </th>
+    </tr>
   
 
  
@@ -164,7 +178,7 @@
     <tr>
       <th>Dealer Name</th>
       <th>No of Invalid Replacements</th>
-      <th>Status</th>
+      <th>Battery Details</th>
       
       
     </tr>
@@ -185,12 +199,7 @@
             }
       echo "<th>".$res['count']."</th>";
 
-      if ($res['count']<10 ){
-                echo "<th>"."good"."</th>";
-            }else{
-                echo "<th>"."bad"."</th>";
-            }           
-        echo "</tr>";
+      
 
       }
   ?>
