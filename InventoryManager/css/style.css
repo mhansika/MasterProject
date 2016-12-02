@@ -21,12 +21,7 @@ body{
     text-align: center;
     font-family:arial;
     float: left;
-
-
 }
-
-
-
 #footer{
     background:#B40404;
     position:fixed;
@@ -143,15 +138,10 @@ span
     height:600px;
     margin-top:-40%;
     margin-right: 10%;
-
-
-
 }
 #logout{
-    color:white;
     font-family:arial;
     margin-left:600px;
-    margin-top:50px;
     display:block;
     float:right;
     margin-right:45px;

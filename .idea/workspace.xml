@@ -42,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/InventoryManager/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="34" column="14" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
+            <state relative-caret-position="250">
+              <caret line="151" column="24" selection-start-line="151" selection-start-column="24" selection-end-line="151" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -68,17 +68,17 @@
             <state relative-caret-position="442">
               <caret line="116" column="59" selection-start-line="116" selection-start-column="59" selection-end-line="116" selection-end-column="59" />
               <folding>
-                <marker date="1480659617483" expanded="true" signature="6861:6914" ph="SELECT batte... stock_in_hand" />
-                <marker date="1480659617483" expanded="true" signature="7114:8100" ph="..." />
-                <marker date="1480659617483" expanded="true" signature="7129:7231" ph="{...}" />
-                <marker date="1480659617483" expanded="true" signature="7251:7354" ph="{...}" />
-                <marker date="1480659617483" expanded="true" signature="7365:7660" ph="{...}" />
-                <marker date="1480659617483" expanded="true" signature="7671:7903" ph="{...}" />
-                <marker date="1480659617483" expanded="true" signature="8029:8087" ph="{...}" />
-                <marker date="1480659617483" expanded="true" signature="8117:8398" ph="..." />
-                <marker date="1480659617483" expanded="true" signature="8150:8375" ph="..." />
-                <marker date="1480659617483" expanded="true" signature="8179:8312" ph="..." />
-                <marker date="1480659617483" expanded="true" signature="8608:8701" ph="..." />
+                <marker date="1480677045716" expanded="true" signature="6861:6914" ph="SELECT batte... stock_in_hand" />
+                <marker date="1480677045716" expanded="true" signature="7114:8100" ph="..." />
+                <marker date="1480677045716" expanded="true" signature="7129:7231" ph="{...}" />
+                <marker date="1480677045716" expanded="true" signature="7251:7354" ph="{...}" />
+                <marker date="1480677045716" expanded="true" signature="7365:7660" ph="{...}" />
+                <marker date="1480677045716" expanded="true" signature="7671:7903" ph="{...}" />
+                <marker date="1480677045716" expanded="true" signature="8029:8087" ph="{...}" />
+                <marker date="1480677045716" expanded="true" signature="8117:8398" ph="..." />
+                <marker date="1480677045716" expanded="true" signature="8150:8375" ph="..." />
+                <marker date="1480677045716" expanded="true" signature="8179:8312" ph="..." />
+                <marker date="1480677045716" expanded="true" signature="8608:8701" ph="..." />
               </folding>
             </state>
           </provider>
@@ -102,13 +102,13 @@
             <state relative-caret-position="-1610">
               <caret line="67" column="43" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
               <folding>
-                <marker date="1480652786181" expanded="true" signature="5724:5833" ph="SELECT sales... sales_person" />
-                <marker date="1480652786181" expanded="true" signature="5960:6367" ph="..." />
-                <marker date="1480652786181" expanded="true" signature="5968:6019" ph="{...}" />
-                <marker date="1480652786181" expanded="true" signature="6028:6071" ph="{...}" />
-                <marker date="1480652786181" expanded="true" signature="6123:6175" ph="{...}" />
-                <marker date="1480652786181" expanded="true" signature="6182:6359" ph="{...}" />
-                <marker date="1480652786181" expanded="true" signature="6382:6550" ph="..." />
+                <marker date="1480677045713" expanded="true" signature="5724:5833" ph="SELECT sales... sales_person" />
+                <marker date="1480677045713" expanded="true" signature="5960:6367" ph="..." />
+                <marker date="1480677045713" expanded="true" signature="5968:6019" ph="{...}" />
+                <marker date="1480677045713" expanded="true" signature="6028:6071" ph="{...}" />
+                <marker date="1480677045713" expanded="true" signature="6123:6175" ph="{...}" />
+                <marker date="1480677045713" expanded="true" signature="6182:6359" ph="{...}" />
+                <marker date="1480677045713" expanded="true" signature="6382:6550" ph="..." />
               </folding>
             </state>
           </provider>
@@ -124,13 +124,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="searchsalep.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="searchsalep.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/InventoryManager/salesperson/searchsalep.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="283">
               <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
               <folding>
-                <marker date="1480663053972" expanded="true" signature="5143:5219" ph="SELECT * FRO... sales_person" />
+                <marker date="1480677045714" expanded="true" signature="5143:5219" ph="SELECT * FRO... sales_person" />
               </folding>
             </state>
           </provider>
@@ -201,8 +201,8 @@
         <option value="$PROJECT_DIR$/InventoryManager/dealer/viewdealer.php" />
         <option value="$PROJECT_DIR$/InventoryManager/salesperson/addsalep.php" />
         <option value="$PROJECT_DIR$/include/header.php" />
-        <option value="$PROJECT_DIR$/InventoryManager/css/style.css" />
         <option value="$PROJECT_DIR$/InventoryManager/salesperson/searchsalep.php" />
+        <option value="$PROJECT_DIR$/InventoryManager/css/style.css" />
       </list>
     </option>
   </component>
@@ -408,12 +408,12 @@
       <workItem from="1478593330670" duration="12072000" />
       <workItem from="1480417736422" duration="4836000" />
       <workItem from="1480440268100" duration="15994000" />
-      <workItem from="1480527250602" duration="24940000" />
+      <workItem from="1480527250602" duration="25144000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108848000" />
+    <option name="totallyTimeSpent" value="109052000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -580,15 +580,15 @@
         <state relative-caret-position="799">
           <caret line="47" column="8" selection-start-line="0" selection-start-column="0" selection-end-line="263" selection-end-column="0" />
           <folding>
-            <marker date="1480584042711" expanded="true" signature="6182:6310" ph="SELECT batte... battery_description" />
-            <marker date="1480584042711" expanded="true" signature="6437:6843" ph="..." />
-            <marker date="1480584042711" expanded="true" signature="6445:6496" ph="{...}" />
-            <marker date="1480584042711" expanded="true" signature="6505:6548" ph="{...}" />
-            <marker date="1480584042711" expanded="true" signature="6600:6651" ph="{...}" />
-            <marker date="1480584042711" expanded="true" signature="6658:6835" ph="{...}" />
-            <marker date="1480584042711" expanded="true" signature="6858:7030" ph="..." />
-            <marker date="1480584042711" expanded="true" signature="6867:7030" ph="..." />
-            <marker date="1480584042711" expanded="true" signature="6872:7030" ph="..." />
+            <marker date="1480677045699" expanded="true" signature="6182:6310" ph="SELECT batte... battery_description" />
+            <marker date="1480677045699" expanded="true" signature="6437:6843" ph="..." />
+            <marker date="1480677045699" expanded="true" signature="6445:6496" ph="{...}" />
+            <marker date="1480677045699" expanded="true" signature="6505:6548" ph="{...}" />
+            <marker date="1480677045699" expanded="true" signature="6600:6651" ph="{...}" />
+            <marker date="1480677045699" expanded="true" signature="6658:6835" ph="{...}" />
+            <marker date="1480677045699" expanded="true" signature="6858:7030" ph="..." />
+            <marker date="1480677045699" expanded="true" signature="6867:7030" ph="..." />
+            <marker date="1480677045699" expanded="true" signature="6872:7030" ph="..." />
           </folding>
         </state>
       </provider>
@@ -646,15 +646,15 @@
         <state relative-caret-position="368">
           <caret line="58" column="17" selection-start-line="58" selection-start-column="17" selection-end-line="58" selection-end-column="17" />
           <folding>
-            <marker date="1480652452638" expanded="true" signature="3464:3592" ph="SELECT batte... battery_description" />
-            <marker date="1480652452638" expanded="true" signature="3719:4125" ph="..." />
-            <marker date="1480652452638" expanded="true" signature="3727:3778" ph="{...}" />
-            <marker date="1480652452638" expanded="true" signature="3787:3830" ph="{...}" />
-            <marker date="1480652452638" expanded="true" signature="3882:3933" ph="{...}" />
-            <marker date="1480652452638" expanded="true" signature="3940:4117" ph="{...}" />
-            <marker date="1480652452638" expanded="true" signature="4140:4312" ph="..." />
-            <marker date="1480652452638" expanded="true" signature="4149:4312" ph="..." />
-            <marker date="1480652452638" expanded="true" signature="4154:4312" ph="..." />
+            <marker date="1480677045700" expanded="true" signature="3464:3592" ph="SELECT batte... battery_description" />
+            <marker date="1480677045700" expanded="true" signature="3719:4125" ph="..." />
+            <marker date="1480677045700" expanded="true" signature="3727:3778" ph="{...}" />
+            <marker date="1480677045700" expanded="true" signature="3787:3830" ph="{...}" />
+            <marker date="1480677045700" expanded="true" signature="3882:3933" ph="{...}" />
+            <marker date="1480677045700" expanded="true" signature="3940:4117" ph="{...}" />
+            <marker date="1480677045700" expanded="true" signature="4140:4312" ph="..." />
+            <marker date="1480677045700" expanded="true" signature="4149:4312" ph="..." />
+            <marker date="1480677045700" expanded="true" signature="4154:4312" ph="..." />
           </folding>
         </state>
       </provider>
@@ -688,7 +688,7 @@
         <state relative-caret-position="419">
           <caret line="63" column="32" selection-start-line="63" selection-start-column="32" selection-end-line="63" selection-end-column="32" />
           <folding>
-            <marker date="1480659681435" expanded="true" signature="7144:7391" ph="INSERT INTO battery_description... " />
+            <marker date="1480677045697" expanded="true" signature="7144:7391" ph="INSERT INTO battery_description... " />
           </folding>
         </state>
       </provider>
@@ -698,7 +698,7 @@
         <state relative-caret-position="303">
           <caret line="72" column="32" selection-start-line="72" selection-start-column="32" selection-end-line="72" selection-end-column="32" />
           <folding>
-            <marker date="1480659718546" expanded="true" signature="4214:4282" ph="SELECT * FRO... battery_description" />
+            <marker date="1480677045702" expanded="true" signature="4214:4282" ph="SELECT * FRO... battery_description" />
           </folding>
         </state>
       </provider>
@@ -708,9 +708,9 @@
         <state relative-caret-position="286">
           <caret line="200" column="32" selection-start-line="200" selection-start-column="32" selection-end-line="200" selection-end-column="32" />
           <folding>
-            <marker date="1480659804997" expanded="true" signature="6399:6440" ph="Select DISTI... area" />
-            <marker date="1480659804997" expanded="true" signature="8621:8943" ph="INSERT INTO `warranty_management`.`dealer`... " />
-            <marker date="1480659804997" expanded="true" signature="12019:12057" ph="Select DISTI... area" />
+            <marker date="1480677045707" expanded="true" signature="6399:6440" ph="Select DISTI... area" />
+            <marker date="1480677045707" expanded="true" signature="8621:8943" ph="INSERT INTO `warranty_management`.`dealer`... " />
+            <marker date="1480677045707" expanded="true" signature="12019:12057" ph="Select DISTI... area" />
           </folding>
         </state>
       </provider>
@@ -720,13 +720,13 @@
         <state relative-caret-position="413">
           <caret line="124" column="40" selection-start-line="124" selection-start-column="40" selection-end-line="124" selection-end-column="40" />
           <folding>
-            <marker date="1480659867749" expanded="true" signature="5570:5679" ph="SELECT deale... dealer" />
-            <marker date="1480659867749" expanded="true" signature="5782:6189" ph="..." />
-            <marker date="1480659867749" expanded="true" signature="5790:5841" ph="{...}" />
-            <marker date="1480659867749" expanded="true" signature="5850:5893" ph="{...}" />
-            <marker date="1480659867749" expanded="true" signature="5945:5997" ph="{...}" />
-            <marker date="1480659867749" expanded="true" signature="6004:6181" ph="{...}" />
-            <marker date="1480659867749" expanded="true" signature="6204:6368" ph="..." />
+            <marker date="1480677045710" expanded="true" signature="5570:5679" ph="SELECT deale... dealer" />
+            <marker date="1480677045710" expanded="true" signature="5782:6189" ph="..." />
+            <marker date="1480677045710" expanded="true" signature="5790:5841" ph="{...}" />
+            <marker date="1480677045710" expanded="true" signature="5850:5893" ph="{...}" />
+            <marker date="1480677045710" expanded="true" signature="5945:5997" ph="{...}" />
+            <marker date="1480677045710" expanded="true" signature="6004:6181" ph="{...}" />
+            <marker date="1480677045710" expanded="true" signature="6204:6368" ph="..." />
           </folding>
         </state>
       </provider>
@@ -744,7 +744,7 @@
         <state relative-caret-position="442">
           <caret line="149" column="32" selection-start-line="149" selection-start-column="32" selection-end-line="149" selection-end-column="32" />
           <folding>
-            <marker date="1480659951526" expanded="true" signature="8136:8419" ph="INSERT INTO `sales_person`... " />
+            <marker date="1480677045712" expanded="true" signature="8136:8419" ph="INSERT INTO `sales_person`... " />
           </folding>
         </state>
       </provider>
@@ -754,17 +754,17 @@
         <state relative-caret-position="442">
           <caret line="116" column="59" selection-start-line="116" selection-start-column="59" selection-end-line="116" selection-end-column="59" />
           <folding>
-            <marker date="1480659617483" expanded="true" signature="6861:6914" ph="SELECT batte... stock_in_hand" />
-            <marker date="1480659617483" expanded="true" signature="7114:8100" ph="..." />
-            <marker date="1480659617483" expanded="true" signature="7129:7231" ph="{...}" />
-            <marker date="1480659617483" expanded="true" signature="7251:7354" ph="{...}" />
-            <marker date="1480659617483" expanded="true" signature="7365:7660" ph="{...}" />
-            <marker date="1480659617483" expanded="true" signature="7671:7903" ph="{...}" />
-            <marker date="1480659617483" expanded="true" signature="8029:8087" ph="{...}" />
-            <marker date="1480659617483" expanded="true" signature="8117:8398" ph="..." />
-            <marker date="1480659617483" expanded="true" signature="8150:8375" ph="..." />
-            <marker date="1480659617483" expanded="true" signature="8179:8312" ph="..." />
-            <marker date="1480659617483" expanded="true" signature="8608:8701" ph="..." />
+            <marker date="1480677045716" expanded="true" signature="6861:6914" ph="SELECT batte... stock_in_hand" />
+            <marker date="1480677045716" expanded="true" signature="7114:8100" ph="..." />
+            <marker date="1480677045716" expanded="true" signature="7129:7231" ph="{...}" />
+            <marker date="1480677045716" expanded="true" signature="7251:7354" ph="{...}" />
+            <marker date="1480677045716" expanded="true" signature="7365:7660" ph="{...}" />
+            <marker date="1480677045716" expanded="true" signature="7671:7903" ph="{...}" />
+            <marker date="1480677045716" expanded="true" signature="8029:8087" ph="{...}" />
+            <marker date="1480677045716" expanded="true" signature="8117:8398" ph="..." />
+            <marker date="1480677045716" expanded="true" signature="8150:8375" ph="..." />
+            <marker date="1480677045716" expanded="true" signature="8179:8312" ph="..." />
+            <marker date="1480677045716" expanded="true" signature="8608:8701" ph="..." />
           </folding>
         </state>
       </provider>
@@ -779,34 +779,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/InventoryManager/salesperson/salep.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1610">
-          <caret line="67" column="43" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
-          <folding>
-            <marker date="1480652786181" expanded="true" signature="5724:5833" ph="SELECT sales... sales_person" />
-            <marker date="1480652786181" expanded="true" signature="5960:6367" ph="..." />
-            <marker date="1480652786181" expanded="true" signature="5968:6019" ph="{...}" />
-            <marker date="1480652786181" expanded="true" signature="6028:6071" ph="{...}" />
-            <marker date="1480652786181" expanded="true" signature="6123:6175" ph="{...}" />
-            <marker date="1480652786181" expanded="true" signature="6182:6359" ph="{...}" />
-            <marker date="1480652786181" expanded="true" signature="6382:6550" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/InventoryManager/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="34" column="14" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -816,8 +792,32 @@
         <state relative-caret-position="283">
           <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
           <folding>
-            <marker date="1480663053972" expanded="true" signature="5143:5219" ph="SELECT * FRO... sales_person" />
+            <marker date="1480677045714" expanded="true" signature="5143:5219" ph="SELECT * FRO... sales_person" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/salesperson/salep.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1610">
+          <caret line="67" column="43" selection-start-line="67" selection-start-column="43" selection-end-line="67" selection-end-column="43" />
+          <folding>
+            <marker date="1480677045713" expanded="true" signature="5724:5833" ph="SELECT sales... sales_person" />
+            <marker date="1480677045713" expanded="true" signature="5960:6367" ph="..." />
+            <marker date="1480677045713" expanded="true" signature="5968:6019" ph="{...}" />
+            <marker date="1480677045713" expanded="true" signature="6028:6071" ph="{...}" />
+            <marker date="1480677045713" expanded="true" signature="6123:6175" ph="{...}" />
+            <marker date="1480677045713" expanded="true" signature="6182:6359" ph="{...}" />
+            <marker date="1480677045713" expanded="true" signature="6382:6550" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="151" column="24" selection-start-line="151" selection-start-column="24" selection-end-line="151" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
