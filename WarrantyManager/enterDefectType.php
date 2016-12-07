@@ -1,20 +1,18 @@
-<?php
-  require "../database/connect.php";
-  $sql="SELECT dealer_id,coalesce(count(case when battery_status =6  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL GROUP BY dealer_id ";
-?>
 <!DOCTYPE html>
-
+ <?php include '../core/init.php';
+      protect_page(); 
+	
+      ?>
 
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-        
-
        
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
+        
        
          </style>
 
@@ -77,7 +75,6 @@
                                 text-align:center;"><img class= "pic" src="img/d.png" align="middle" width="80px"><span>Misused </br> Dealers</span></a>
                 </div>
             </li>
-
             <li class="var_nav">
                 <div class="link_bg"></div>
                 <div class="link_title" >
@@ -99,7 +96,7 @@
                 <div class="link_bg"></div>
                 <div class="link_title" >
 
-                    <a href= "enterDefectType.php" id="cr" style="top: 10px;
+                    <a href= "" id="cr" style="top: 10px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -129,147 +126,76 @@
 
 
                     <div class="ad">
-										<a href="../index.php"  style="display:block;float:right;margin-right:45px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" src="../img/lgout.png" ></a>
+					<a href="../index.php"  style="display:block;float:right;margin-right:45px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" src="../img/lgout.png" ></a> 
                     </br>
-       
-                     <h1><b> Misused Dealers</b></h1>
+                    
+                     <h1><b>Enter New Defect Type</b></h1>
                      </br>
 
                     <table width="70%">
   <tr>
-    <th>Area</th>
-    <th></th>
-    <th></th>
     
     
-    
+  </tr>
+      </br>    </br>    </br>    </br>    </br>    </br>    </br>    </br>    </br>    </br>
+  <tr>
+	<form action = "POST">
+	<style>
+	label {
+float: left;
+width: 100px;
+margin-right: 1em;
+margin-left :20em;
+ display: inline-block;
+   text-align: right;
+}
+left-aligned-labels.css (excerpt)
+fieldset li {
+float: left;
+clear: left;
+width: 100%;
+padding-bottom: 1em;
+}
+
+</style>
+	  <label for="defect"> Add to the list :</label> <br>
+		 <input style="font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
+            font-size: 14px;
+            border: 0;
+            background:  #fff ;
+            margin: 0 0 20px;
+            padding: 8px 10px;
+            display: block;
+            width: 25% ;
+            color:black;
+            text-align: center;
+            margin-left: 60px;" type="text"  name="defect" required>
   
   </tr>
-  <tr></tr>
   <tr>
-    <th><?php 
-                        
-                        echo '<select name="area" id="cap" style="font-color:black;">';
-                        echo '<option>     -------ALL--------   </option>';
-                        
-                        $sql1 = "Select DISTINCT area_no,area from area";
-                        $result1= mysqli_query($connection, $sql1);
-                             while($r=mysqli_fetch_row($result1))
-                             { 
-                                   echo '<option id=' .$r[0].'> ' . $r[1] . '</option>';
-
-                             }
-                        
-                        echo "</select>";
-
-                    ?></th>
-
-    <th>
-        <button type="submit" name="submit" value="submit">search</button>
-    </th>
-    </tr>
   
-
+      <td><button type="submit" name="submit" value="submit">Submit</button>  </td>
+  </tr>
  
-
 </table>
-<div  class="tbl-header">
-<table cellpadding="0" cellspacing="0" border="0">
-  <thead>
-    <tr>
-      <th>Dealer Name</th>
-      <th>No of Invalid Replacements</th>
-	  <th>Set Dealer Inactive</th>
 
-      
-      
-    </tr>
-  </thead>
-</table>
-</div>
-<div  class="tbl-content">
-<table cellpadding="0" cellspacing="0" border="0">
-  <tbody>
-    <?php 
-      $query=(mysqli_query($connection,$sql));
-      while($res = mysqli_fetch_assoc($query)){ 
-            $sql5 = "SELECT dealer_name FROM dealer WHERE dealer_id = '$res[dealer_id]'";
-            $query5=(mysqli_query($connection,$sql5));
-            while($res5 = mysqli_fetch_assoc($query5)){ 
-        echo "<tr>";
-      echo "<th>".$res5['dealer_name']."</th>";
-            }
-      echo "<th>".$res['count']."</th>";
-	  
-	 echo"
-	 <form  method='POST' >
-	 <style>
-	 .btn
-	 {
-	
-   border: none;
 
-  
-    text-align: center;
-    text-decoration: none;
-
-    font-size: 20px;
-     padding: 15px 32px;
-    margin-top: 0px;
-    border-radius: 0px;
-    font-family: Calibri;
-    font-weight: bold;
-    margin-left: 15px;
-	    display: inline-block;
-	
-	
-		 
-	 }
-	 </style>
-	 <td><button class= 'btn' type='submit' name='Enter' value='Set'/>";
-	
-	if(isset($_POST['Enter']))
-{ 
+<?php
 require "../core/database/connect.php";
 
- mysqli_query($conn,"UPDATE dealer SET active = '0'");
-}
- echo'</form>';     
+if(isset($_POST['submit']))
+{   
 
-      }
-  ?>
-    
-   
-    
-  </tbody>
-</table>
-</div>
-
-</div>
-
-
-
-                   
-</form>
-
+    $defect_type=mysqli_real_escape_string($conn,$_POST['defect']);
 
  
 
-</div>
-</div>
+    mysqli_query($conn,"INSERT INTO defect_types (defect) VALUES ('$defect_type')");
+	
+	}
 
- 
-       
 
-                        
-                        
-                            
-
-</div>
-</div>
-
-<div>
-
+?>
 
 
 

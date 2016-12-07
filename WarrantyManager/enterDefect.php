@@ -96,7 +96,7 @@
                 <div class="link_bg"></div>
                 <div class="link_title" >
 
-                    <a href= "" id="cr" style="top: 10px;
+                    <a href= "enterDefectType.php" id="cr" style="top: 10px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -126,7 +126,7 @@
 
 
                     <div class="ad">
-					<a href="../index.php"  style="display:block;float:right;margin-right:45px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" src="../img/logout.png" ><br><b>Logout</b></a> 
+										<a href="../index.php"  style="display:block;float:right;margin-right:45px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" src="../img/lgout.png" ></a>
                     </br>
                     
                      <h1><b> Defect Types Of Batteries</b></h1>
@@ -135,22 +135,24 @@
                     <table width="70%">
   <tr>
     
+    
     <th>Date:</th>
+   <th></th>
+    <th></th>
   </tr>
   <tr></tr>
   <tr>
-        <th><div class="form-group input-group">
-                        <input class="form-control" id="datepicker" name="from" type="date"  size="9" value=""/>
+    
+    <th><div class="form-group input-group">
+                        <input name="date" type="date"  size="9" value=""/>
+						
+				
 
-                        <script>
-                        $(function()
-                        {
-                        $( "#datepicker" ).datepicker();
-                        $("#").click(function() { $("#datepicker").datepicker( "show" );})
-                        });
-                        </script>
-                        <div class="input-group-addon" ><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> </div>
-                    </div></th>
+                        
+                    </div>
+					</th>
+					
+					 <th><button type="submit" name="submit" value="submit">Submit</button> </th>
   </tr>
   
   
@@ -161,26 +163,15 @@
 <?php
 require "../core/database/connect.php";
 
-/* 
-$date="";
 
-	
-if (isset($_POST['from'])) {
-	$date = $_POST['from'];	
+if (isset($_POST['submit'])) {
+        $from_date = strtotime($_POST['date']);
+		$to_date = strtotime('-3 day',$from_date);
 
-$data= array();
-$sql = mysqli_query($conn,"SELECT replaced_date FROM released_batteries WHERE battery_status = '3'");
-$data=mysqli_fetch_assoc($query);
+$First_Date = date('Y-m-d',$from_date);
+$Next_Date =  date('Y-m-d',$to_date);
 
-/* $get_date1= $data["replaced_date"];
-$start = strtotime("$get_date1");
-$get_date2 = $_POST['from'];
-$end = strtotime("$get_date2"); */ 
-
-
-
-
-$sql="SELECT battery_status,replaced_date,batch_num,battery_num FROM released_batteries WHERE battery_status = '3'";
+$sql="SELECT battery_status,replaced_date,batch_num,battery_num FROM released_batteries WHERE battery_status = '3' AND replaced_date BETWEEN '" . $Next_Date . "' AND  '" . $First_Date . "'";
 
 $defect="";
 $batch_num="";
@@ -291,7 +282,7 @@ if(isset($_POST['defect_type'])){
 
 
 
-
+}
 
 mysqli_close($conn);
 

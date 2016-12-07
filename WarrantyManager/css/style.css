@@ -1,23 +1,16 @@
  .ad{
-            font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
-            background:#e0e0d1;
-            margin: 0 auto;
-            padding: 0px;
-            width: 132.5%;
-            color:black;
-            font-size: 18px;
-            line-height: 1em;
-            margin-top:10px;
-            margin-left: -8.5%;
-            height: 800px;
-        }
-
-
-       
-
-
-
-
+	font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
+	background:#e0e0d1;
+	margin: 0 auto;
+	padding: 0px;
+	width: 132.5%;
+	color:black;
+	font-size: 18px;
+	line-height: 1em;
+	margin-top:10px;
+	margin-left: -8.5%;
+	height: 800px;
+}
 span
 {
     color:white;
@@ -106,9 +99,6 @@ ul
     margin-top:-780px;
     margin-right: 10%;
 
-
-
-
 }
 
 div.form{
@@ -177,7 +167,7 @@ h1  {
     
     font-size: 20px;
   
-    margin-top: 20px;
+    margin-top: 0px;
     border-radius: 0px;
     font-family: Calibri;
     font-weight: bold;

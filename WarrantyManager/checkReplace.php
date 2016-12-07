@@ -10,7 +10,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
        
-        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script>
 
@@ -35,6 +35,58 @@
 			});
 			
 		});
+
+		function updateDate(id){
+			var vals = id.split("|");
+			var batteryID = vals[0] + vals[1];
+			var idIn = "date_" + batteryID;
+			var dateVal = document.getElementById(idIn).value;
+			
+			$.ajax({
+
+				type: "POST",
+				url	: 'updateDate.php',
+				data: {updatedDate: dateVal, groupID:vals[0], batteryID:vals[1]},
+				success: function(result)
+				{
+					alert("Replaced Date of "+ batteryID +" was updated to : " + result);
+				}
+
+			});
+		}
+		<?php if (isset($_POST['dealer_id']) ){ ?>
+		function confirmValids(){
+			
+			var dealer  = <?php echo $_POST['dealer_id'] ?>;
+			$.ajax({
+				type: "POST",
+				url	: 'confirmData.php',
+				data: {action: 'confirm', dealer_id : dealer},
+				success: function(result)
+				{
+					document.getElementById("validCount").innerHTML = result;
+				}
+
+			});
+		}
+		
+		function submit(){
+			
+			var dealer  = <?php echo $_POST['dealer_id'] ?>;
+			$.ajax({
+				type: "POST",
+				url	: 'confirmData.php',
+				data: {action: 'submit', dealer_id : dealer},
+				success: function(result)
+				{
+					alert(result);
+					location.reload();
+				}
+
+			});
+		}
+		
+		<?php } ?>
 
 	</script>
 
@@ -116,7 +168,7 @@
 					<div class="link_bg"></div>
 					<div class="link_title" >
 
-						<a href= "" id="cr" style="top: 10px;
+						<a href= "enterDefectType.php" id="cr" style="top: 10px;
 									display:block;
 									position:absolute;
 									float:left;
@@ -138,7 +190,7 @@
 	<div class="content">
 		<div class="table">
 			<div id="content">
-				<form action="#" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
+				<!--form action="#" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());"-->
 					<div class="ad">
 						<br/>
 						<h1><b>Replacement Inspection</b></h1>
@@ -148,7 +200,7 @@
 							<tr>
 								<th>Area :</th>
 								<th>Dealer :</th>
-								<th>Date :</th>
+								<th></th>
 							</tr>
 							<tr id= "trow">
 								<th>
@@ -171,20 +223,7 @@
 									</select>
 								</th>
 
-								<th>
-									<div class="form-group input-group">
-										<input class="form-control" id="datepicker" name="from" type="date"  size="9" value=""/>
-
-										<script>
-											$(function()
-											{
-											$( "#datepicker" ).datepicker();
-											$("#").click(function() { $("#datepicker").datepicker( "show" );})
-											});
-										</script>
-										<div class="input-group-addon" >
-											<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
-										</div>
+								
 									</div>
 								</th>
 							</tr>
@@ -197,7 +236,8 @@
 							</tr>
 
 					</table>
-				</form> 
+				<!--/form-->
+				</form>
    
 <?php
 	require "../core/database/connect.php";
@@ -215,24 +255,20 @@
 		<table cellpadding='0' cellspacing='0' border='0'>
 		  <thead>
 			<tr>
-			  <th>Replacement</th>
-			  <th></th>
-			   <th>Replacement Date<th></th>
-			 
-			 
-				
-			  <th>Warranty Expiry - Date</th>
-			 
-			  <th>Within Warranty Period</th>
-			  <th>Defect Type Ok/Not</th>
-			  <th>Valid replacement</th>
+				<th >Replacement</th>
+				<th colspan=2>Replacement Date</th>
+				<th>Warranty Expiry - Date</th>
+				<th>Within Warranty Period</th>
+				<th>Defect Type Ok/Not</th>
+				<th>Valid replacement</th>
 			  
 			</tr>
 		  </thead>
 		</table>
 		</div>
 		<div  class='tbl-content'>
-		<table cellpadding='0' cellspacing='0'border='0'> ";
+		<table cellpadding='0' cellspacing='0'border='0'> 
+			<tbody>";
 
 	}
 
@@ -249,49 +285,47 @@
 		$row["defected"] = $defected;
 
 		if (isset($final_valid)) {
-			 
-
-			  $check_replace = check_replacement ($conn,$valid,$final_valid, $defected) ;
-				   $row["replacement"] = $check_replace;
-
+			$check_replace = check_replacement ($conn,$valid,$final_valid, $defected) ;
+			$row["replacement"] = $check_replace;
 		}
-				  
+		/*		  
 		if (isset($_POST['action'])) {
 			switch ($_POST['action']) {
 				case 'confirm':
-				   count_invalids($conn, $batch_num, $battery_num, $check_replace);
+					count_invalids($conn, $batch_num, $battery_num, $check_replace);
 					break;
 				case 'submit':
 					set_status($conn, $batch_num, $battery_num, $check_replace);
 					break;
 			  
 			}
-		}		  
+		}*/
+		$id = "".$row["batch_num"]."|".$row["battery_num"];
+		$idIn = "".$row["batch_num"].$row["battery_num"];
 		 echo "
-	  
-			<tbody>
 			<tr>
-				<td>".$row["batch_num"].$row["battery_num"]."</td>
+				<td>".$idIn."</td>
 				<td>
-					<form action='' method='post'>
-					<input type='date' name='replaced_date' size='20' value= ".$row['replaced_date'].">
+					
+					<input type='date' id='date_".$idIn."' name='replaced_date' size='20' value= ".$row['replaced_date'].">
 				</td>
 				<td>
-					<input type='submit' name='submit' value='Update'/>
+					<button type='submit' id='submit_".$idIn."' onClick=updateDate('".$id."')>Update</button>
 				</td>
-				<td></td>
 				<td>".$row['warranty_period']."</td>
 				<td>".$row["validity"]."</td>
 				<td>".$row["defected"]."</td>
 				<td>".$row["replacement"]."</td>
-			</tr>";
+			</tr>"
+		;
 	}
 	echo "
+		
 		</tbody></table>
 		</body>
 	</html>";
 } else {
-	echo "No results to dispaly";
+	echo "<div>No results to dispaly</div>";
 }
 
 $conn->close();
@@ -330,16 +364,16 @@ function warranty_calculation ($conn, $batchNum , $batteryNum) {
 // this check the defect type
 function check_defect ($conn, $data) {
 
-	$defect =  $data["defect_type"];
-	if (isset($defect)) {
-		if ($defect != "{NONE}"){
-			return "Defected";
+		$defect =  $data["defect_type"];
+		if (isset($defect)) {
+			if ($defect != "{NONE}"){
+		   return "Defected";
+		   
 		} else {
-			return "Not Defected";
+		  return "Not Defected";
+		}
 	}
 	}
-}
-
 
 // check the validity of the replacement using returned value from above two functions
 function check_replacement ($conn,$data, $final_valid, $defected) {
@@ -351,9 +385,6 @@ function check_replacement ($conn,$data, $final_valid, $defected) {
 	  return "INVALID" ; 
 	}
 }
-
-
-
 
 //change the status of the battery acoording to the validity and count the number of valid and invalid batteries
 function count_invalids($conn, $batchNum,$batteryNum, $check_replace){
@@ -371,10 +402,9 @@ function count_invalids($conn, $batchNum,$batteryNum, $check_replace){
 			$invalids[] = $key;
 		}
 		$sum_invalids = count($invalids);
-		
-		echo " <tr><td>Valid replacements:</td><td>$sum_valids</td></tr>
+	}		
+	echo " <tr><td>Valid replacements:</td><td>$sum_valids</td></tr>
 			<tr><td>Invalid Replacements : </td><td>$sum_invalids</td></tr>";
-	}
 }
 
 function set_status($conn, $batchNum,$batteryNum, $check_replace){
@@ -389,26 +419,11 @@ function set_status($conn, $batchNum,$batteryNum, $check_replace){
 
 </div>
 <div class="bottom" align="center">
+	<div style='text-align:right;color:black' id='validCount'></div>
 
-	<form >
-		<button class='submit' name='confirm' value='confirm'>Confirm</button>
-		<button class='submit' name='send' value='send'>Submit</button>
-		<script>
-		$(document).ready(function(){
-			$('.button').click(function(){
-				var clickBtnValue = $(this).val();
-				var ajaxurl = 'checkReplace.php',
-				data =  {'action': clickBtnValue};
-				$.post(ajaxurl, data, function (response) {
-					// Response div goes here.
-					alert("action performed successfully");
-				});
-			});
+	<button class='submit' name='confirm' value='confirm' onClick="confirmValids()">Confirm</button>
+	<button class='submit' name='send' value='send' onClick="submit()">Submit</button>
 
-		});
-
-		</script>
-	</form> 
 </div>
 
 </div>

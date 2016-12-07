@@ -93,7 +93,7 @@
                 <div class="link_bg"></div>
                 <div class="link_title" >
 
-                    <a href= "" id="cr" style="top: 10px;
+                    <a href= "enterDefectType.php" id="cr" style="top: 10px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -123,6 +123,7 @@
 
 
                     <div class="ad">
+										<a href="../index.php"  style="display:block;float:right;margin-right:45px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" src="../img/lgout.png" ></a>
                     </br>
                      
                      <h1><b> View All Replacements</b></h1>
@@ -131,7 +132,7 @@
                     <table width="70%">
   <tr>
     
-    <th>Date:</th>
+      <th>Date:</th>
     <th></th>
     <th></th>
   </tr>
@@ -139,17 +140,14 @@
   <tr>
     
     <th><div class="form-group input-group">
-                        <input class="form-control" id="datepicker" name="from" type="date"  size="9" value=""/>
+                        <input name="date" type="date"  size="9" value=""/>
+						
+				
 
-                        <script>
-                        $(function()
-                        {
-                        $( "#datepicker" ).datepicker();
-                        $("#").click(function() { $("#datepicker").datepicker( "show" );})
-                        });
-                        </script>
-                        <div class="input-group-addon" ><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> </div>
+                        
                     </div></th>
+					
+						 <th><button type="submit" name="submit" value="submit">Submit</button> </th>
   </tr>
   
 
@@ -160,14 +158,14 @@
 <?php
 	 require "../database/connect.php"; 
 	 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "warranty_management";
+require "../core/database/connect.php";
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-	 
+if (isset($_POST['submit'])) {
+        $from_date = strtotime($_POST['date']);
+		$to_date = strtotime('-30 day',$from_date);
+
+$First_Date = date('Y-m-d',$from_date);
+$Next_Date =  date('Y-m-d',$to_date);	 
 	 
   $sql="SELECT dealer_id FROM released_batteries WHERE dealer_id IS NOT NULL GROUP BY dealer_id ";
   
@@ -181,7 +179,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 			
             while($res5 = mysqli_fetch_assoc($query5)){
 						$dealer_name = $res5['dealer_name'];
-						$sql = "SELECT * FROM released_batteries WHERE battery_status = '5' OR battery_status = '6'";
+						$sql = "SELECT * FROM released_batteries WHERE battery_status = '5' OR battery_status = '6' AND replaced_date BETWEEN '" . $Next_Date . "' AND  '" . $First_Date . "' ";
 						$result = $conn->query($sql);
 
 						if ($result->num_rows > 0) {
@@ -239,7 +237,8 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 	  }
 	  
 			}	
-	  }			
+	  }	
+}	  
 ?>
 
       <th></th>
