@@ -25,7 +25,7 @@
                 <div class="link_bg"></div>
                 <div class="link_title" id="dt">
 
-                    <a href="#" id="dt" style="top: 1px;
+                    <a href="enterDefect.php" id="dt" style="top: 1px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -131,7 +131,7 @@
                     <table width="70%">
   <tr>
     
-    <th>Date</th>
+    <th>Date:</th>
     <th></th>
     <th></th>
   </tr>
@@ -156,23 +156,92 @@
  
 
 </table>
-<div  class="tbl-header">
-<table cellpadding="0" cellspacing="0" border="0">
+
+<?php
+	 require "../database/connect.php"; 
+	 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "warranty_management";
+
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+	 
+	 
+  $sql="SELECT dealer_id FROM released_batteries WHERE dealer_id IS NOT NULL GROUP BY dealer_id ";
+  
+   $query=(mysqli_query($connection,$sql));
+   
+      while($res = mysqli_fetch_assoc($query)){ 
+	  
+            $sql5 = "SELECT dealer_name FROM dealer WHERE dealer_id = '$res[dealer_id]'";
+            $query5=(mysqli_query($connection,$sql5));
+		
+			
+            while($res5 = mysqli_fetch_assoc($query5)){
+						$dealer_name = $res5['dealer_name'];
+						$sql = "SELECT * FROM released_batteries WHERE battery_status = '5' OR battery_status = '6'";
+						$result = $conn->query($sql);
+
+						if ($result->num_rows > 0) {
+							
+							echo "
+							<div  class='tbl-header'>
+<table cellpadding='0' cellspacing='0' border='0'>
   <thead>
     <tr>
       <th>Battery Number</th>
       <th>Dealer Name</th>
-      <th>Valid Status</th>
+      <th>Validity Status</th>
       <th>Defect Type</th>
       
     </tr>
   </thead>
 </table>
 </div>
-<div  class="tbl-content">
-<table cellpadding="0" cellspacing="0" border="0">
+<div  class='tbl-content'>
+<table cellpadding='0' cellspacing='0' border='0'>
   <tbody>
-    <tr>
+    <tr> " ;
+	
+	
+		while($row = $result->fetch_assoc()) {
+			//print_r ($row);
+		$batch_num = $row["batch_num"] ;
+		$battery_num = $row["battery_num"] ;
+		
+		foreach (array($row['battery_status']) as $key){
+		if ($key ==  '5' ){		
+			$battery_status = "VALID";
+				
+				
+		}elseif ($key == '6' ){
+			$battery_status = "INVALID";
+		}
+		}
+		 echo "
+	  
+			<tbody>
+			<tr>
+				<td>".$row["batch_num"].$row["battery_num"]."</td>
+				<td>".$res5['dealer_name']."</td>
+				<td>$battery_status</td>
+				<td>".$row["defect_type"]."</td>
+			
+			</tr>";
+		
+	  
+	  
+	  }
+	  
+	  
+	  }
+	  
+			}	
+	  }			
+?>
+
       <th></th>
       <th></th>
       <th></th>

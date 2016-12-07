@@ -1,6 +1,6 @@
 <?php
   require "../database/connect.php";
-  $sql="SELECT dealer_id,coalesce(count(case when battery_status =3  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL GROUP BY dealer_id ";
+  $sql="SELECT dealer_id,coalesce(count(case when battery_status =6  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL GROUP BY dealer_id ";
 ?>
 <!DOCTYPE html>
 
@@ -178,7 +178,8 @@
     <tr>
       <th>Dealer Name</th>
       <th>No of Invalid Replacements</th>
-      <th>Battery Details</th>
+	  <th>Dealer inactive</th>
+
       
       
     </tr>
@@ -198,8 +199,41 @@
       echo "<th>".$res5['dealer_name']."</th>";
             }
       echo "<th>".$res['count']."</th>";
+	  
+	 echo"
+	 <form  method='POST' >
+	 <style>
+	 .btn
+	 {
+	
+   border: none;
 
-      
+  
+    text-align: center;
+    text-decoration: none;
+
+    font-size: 20px;
+     padding: 15px 32px;
+    margin-top: 0px;
+    border-radius: 0px;
+    font-family: Calibri;
+    font-weight: bold;
+    margin-left: 15px;
+	    display: inline-block;
+	
+	
+		 
+	 }
+	 </style>
+	 <td><button class= 'btn' type='submit' name='Enter' value='Set'/>";
+	
+	if(isset($_POST['Enter']))
+{ 
+require "../core/database/connect.php";
+
+ mysqli_query($conn,"UPDATE dealer SET active = '0'");
+}
+ echo'</form>';     
 
       }
   ?>

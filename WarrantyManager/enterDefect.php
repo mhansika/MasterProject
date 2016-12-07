@@ -79,7 +79,7 @@
                 <div class="link_bg"></div>
                 <div class="link_title" >
 
-                    <a href= "" id="cr" style="top: 10px;
+                    <a href= "viewAllReplace.php" id="cr" style="top: 10px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -126,32 +126,20 @@
 
 
                     <div class="ad">
+					<a href="../index.php"  style="display:block;float:right;margin-right:45px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" src="../img/logout.png" ><br><b>Logout</b></a> 
                     </br>
-                     
+                    
                      <h1><b> Defect Types Of Batteries</b></h1>
                      </br>
 
                     <table width="70%">
   <tr>
-    <th>Area</th>
-    <th>Dealer</th>
-    <th>Date</th>
+    
+    <th>Date:</th>
   </tr>
   <tr></tr>
   <tr>
-    <th><select id="area" style="font-color:black;">
-                                        <option value="">----Select----</option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        </select></th>
-    <th><select id="dealer" style="font-color:black;">
-                                        <option value="">----Select----</option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        <option value=""></option>
-                                        </select></th>
-    <th><div class="form-group input-group">
+        <th><div class="form-group input-group">
                         <input class="form-control" id="datepicker" name="from" type="date"  size="9" value=""/>
 
                         <script>
@@ -165,25 +153,157 @@
                     </div></th>
   </tr>
   
+  
 
  
 
 </table>
-<div  class="tbl-header">
-<table cellpadding="0" cellspacing="0" border="0">
+<?php
+require "../core/database/connect.php";
+
+/* 
+$date="";
+
+	
+if (isset($_POST['from'])) {
+	$date = $_POST['from'];	
+
+$data= array();
+$sql = mysqli_query($conn,"SELECT replaced_date FROM released_batteries WHERE battery_status = '3'");
+$data=mysqli_fetch_assoc($query);
+
+/* $get_date1= $data["replaced_date"];
+$start = strtotime("$get_date1");
+$get_date2 = $_POST['from'];
+$end = strtotime("$get_date2"); */ 
+
+
+
+
+$sql="SELECT battery_status,replaced_date,batch_num,battery_num FROM released_batteries WHERE battery_status = '3'";
+
+$defect="";
+$batch_num="";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+    
+echo "
+<div  class='tbl-header'>
+<table cellpadding='0' cellspacing='0' border='0'>
   <thead>
     <tr>
-      <th>Replace Battery Number</th>
+      <th>Replaced Batch Number</th>
+	  <th>Battery Number</th>
+	  <th>Replaced Date</th>
       <th>Defect Type</th>
+	  <th></th>
       
     </tr>
   </thead>
 </table>
 </div>
-<div  class="tbl-content">
-<table cellpadding="0" cellspacing="0" border="0">
+<div  class='tbl-content'>
+<table cellpadding='0' cellspacing='0' border='0'>
   <tbody>
-    <tr>
+    <tr></tr>";
+
+
+/* 
+        $date = $_POST['date'];
+    }
+ */
+if(isset($_POST['Enter']))
+{   
+    $batch_num=mysqli_real_escape_string($conn,$_POST['batch_num']);
+    $battery_num=mysqli_real_escape_string($conn,$_POST['battery_num']);
+    //$date=mysqli_real_escape_string($conn,$_POST['replaced_date']);
+    $defect_type=mysqli_real_escape_string($conn,$_POST['defect_type']);
+
+ 
+
+    mysqli_query($conn,"UPDATE released_batteries SET defect_type='$defect_type' WHERE batch_num='$batch_num' AND battery_num='$battery_num' ");
+	
+	}
+
+
+        
+
+while($row1 = $result->fetch_assoc() ){
+    
+/* if($row1['replaced_date']==$date ){ */
+       if($row1['battery_status']==3){
+       echo"
+	  <form  method='POST' >
+      <tr><td><input type='text'  name='batch_num'  value=".$row1['batch_num']."></td>  
+      <td><input type='number'  name='battery_num'  value=".$row1['battery_num']."></td>  
+      <td><input type='text' name='replaced_date'  value=".$row1['replaced_date']."></td>   
+     "; 
+	   
+//getting data to a drop down
+    
+
+    echo"<td><select name='defect_type'>
+    <option value = ''>---Select---</option>";
+    
+    $query= "SELECT defect FROM defect_types ";
+    $db = mysqli_query($conn, $query);
+    while ( $d=mysqli_fetch_assoc($db)) {
+  echo "<option value='{".$d['defect']."}'>".$d['defect']."</option>";
+}
+    
+    ?>
+    </select></td>
+    <?php
+    echo"<td><input type='submit' name='Enter' value='UPDATE'/>";}
+    echo'</form>';
+
+
+
+if(isset($_POST['defect_type'])){
+    $defect=mysqli_real_escape_string($conn,$_POST['defect_type']);
+	}
+
+
+
+
+    "</td>";
+
+        
+
+
+    
+
+
+
+
+
+ 
+
+
+}
+  echo "</table>";
+} else {
+    echo "0 results";
+}echo"</form>";
+
+
+
+
+
+
+
+
+mysqli_close($conn);
+
+?>
+
+
+
+
+
+
+
+
       <th></th>
       <th></th>
       
