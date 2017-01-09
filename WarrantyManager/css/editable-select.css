@@ -1,17 +1,11 @@
-/*
- * jQuery Editable Select
- * https://github.com/shaoyun/jquery-editable-select
- *
- * Copyright (c) 2016 Shaoyun
- * Licensed under the GPL license.
- */
+
  .ui-select-wrap {
-    border: 1px solid #E5E5E5;
+    border: 1px solid black;
     height: 50px;
     width: 70%;
     min-width: 150px;
     outline: none;
-    color:#444;
+    color:black;
     position: relative;
     margin-bottom: 10px;
 }
@@ -26,6 +20,7 @@
 
 .ui-select-wrap > .selected span {
     display: table-cell;
+	color: black;
     vertical-align: middle;
     padding: 0 13px;
     -webkit-user-select:none;
@@ -36,7 +31,7 @@
 }
 
 .ui-select-wrap .dropdown-box {
-    border: 1px solid #E5E5E5;
+    border: 1px solid black;
     border-top: none;
     display: none;
     position: absolute;
@@ -46,6 +41,7 @@
     padding: 5px 0;
     left: -1px;
 }
+
 
 .ui-select-wrap .inputbox {
     clear: both;
@@ -81,38 +77,6 @@
     
 }
 .ui-select-wrap ul li.over {
-    background-color: #EEEEEE;
+    background-color: black;
     color: #333;
-}
-.ui-select-wrap .ui-button {
-    border-left: 1px solid #E5E5E5;
-    float: right;
-    display: table-cell;
-    cursor: pointer;
-    height: 100%;
-    color: #999999;
-    width: 40px;
-    text-align: center;
-}
-.ui-select-wrap .ui-button i {
-    margin-top: 7px;
-}
-.ui-select-wrap:focus {
-    border-color: #999999;
-}
-.ui-select-wrap:focus .dropdown-box {
-    border-color: #999999;
-}
-.ui-select-wrap:focus .ui-button {
-    border-left: none;
-}
-
-.ui-select-wrap.focus {
-    border-color: #999999;
-}
-.ui-select-wrap.focus .dropdown-box {
-    border-color: #999999;
-}
-.ui-select-wrap.focus .ui-button {
-    border-left: none;
 }

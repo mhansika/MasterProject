@@ -14,17 +14,38 @@
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
-        
+        .ui-select-wrap > .selected span {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 13px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 14px;
+    color: black;
        
          </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/jquery-editable-select.js"></script>
 <script>
-	// JQUERY: Plugin "autoSumbit"
+	
+	$(function(){
+ 
+		$('select').editableSelect();
+ 
+});
+
+
+
+		// JQUERY: Plugin "autoSumbit"
 	(function($) {
 		$.fn.autoSubmit = function(options) {
 			return $.each(this, function() {
 				// VARIABLES: Input-specific
-				var input = $(this);
-				var column = input.attr('name');
+				var select = $(this);
+				var column = select.attr('name');
 	
 				// VARIABLES: Form-specific
 				var form = input.parents('form');
@@ -74,27 +95,38 @@
 			});
 		}
 	})(jQuery);
-	// JQUERY: Run .autoSubmit() on all INPUT fields within form
+	// JQUERY: Run .autoSubmit() on all select fields within form
 	$(function(){
-		$('#ajax-form INPUT').autoSubmit();
+		$('#ajax-form SELECT').autoSubmit();
 	});
-	
-	$(function(){
- 
-$('select').editableSelect();
- 
-});
-	
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="js/jquery-editable-select.js"></script>
 
-<script>
-$(function(){
-    $('select').editableSelect();
-});
+		
+	//multiple dropdown selection	
+		$( document ).ready(function() {
+			 $("select#cap").click( function(){
+					//var id = this.id;
+					var id = $(this).children(":selected").attr("id");
+					console.log(id);
+
+					$.ajax({
+
+						url:'getdrop2.php?data='+id,
+						type:"get",
+						success:function(data){
+
+						   $("tr#trow>th#second").html("");
+						$("tr#trow>th#second").html(data);
+						}
+
+
+					});
+			});
+			
+		});
+
+	
 </script>
-  
+
 </head>
 
 
@@ -258,7 +290,7 @@ if (isset($_POST['submit'])) {
 $First_Date = date('Y-m-d',$from_date);
 $Next_Date =  date('Y-m-d',$to_date);
 
-$sql="SELECT battery_status,replaced_date,batch_num,battery_num FROM released_batteries WHERE battery_status = '3' AND replaced_date BETWEEN '" . $Next_Date . "' AND  '" . $First_Date . "' ";
+$sql="SELECT battery_status,replaced_date,batch_num,battery_num,defect_type FROM released_batteries WHERE battery_status = '3' AND replaced_date BETWEEN '" . $Next_Date . "' AND  '" . $First_Date . "' ";
 
 /* $defect="";
 $batch_num=""; */
@@ -327,7 +359,8 @@ if(isset($_POST['Enter']))
 //getting data to a drop down
     
 
-    echo"<td><select name='defect_type'>
+    echo"<form>
+	<td><select name='defect_type' onchange='this.form.submit()'>
     <option value = ''>---Select---</option>";
     
     $query= "SELECT defect FROM defect_types ";
@@ -337,7 +370,8 @@ if(isset($_POST['Enter']))
 }
     
     ?>
-    </select></td>
+    </select>
+	<noscript><input type="submit" value="Submit"></noscript></td></form>
     <?php
     echo"<td><input type='submit' name='Enter' value='UPDATE'/>";
     echo'</form>';

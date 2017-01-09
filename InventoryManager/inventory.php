@@ -21,7 +21,7 @@ include 'include/header.php'
         </li>
         <li class="sidenav">
             <div id="product">
-                <a href="battery/product.php"><img src="img/b.png" class="pic"></a>
+                <a href="stock/entermanufac.php"><img src="img/b.png" class="pic"></a>
                 <span>Stock</span>
             </div>
         </li>
