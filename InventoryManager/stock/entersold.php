@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
  <?php include '../../core/init.php';
@@ -19,54 +18,90 @@
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
-        .widget {
-        vertical-align: top ;
-        margin-left: 1rem;
-        font-size: 2rem;
-        display: inline-block;
-        position: relative;
+		
+#form-align{
+	   padding: 0;
+    margin-left:30%;
+    width:100%;
+    height:600px;
+    margin-top:-600px;
+    margin-right: 10%;
+	
+	
+}
+	
+.form-style-2{
+    max-width: 500px;
+    padding: 20px 12px 10px 20px;
+    font: 13px Arial, Helvetica, sans-serif;
+}
+.form-style-2-heading{
+    font-weight: bold;
+	border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+    font-size: 15px;
+    padding-bottom: 3px;
+	color: #ff4411; 
+	font-size: 24px; 
+	font-family: 'Signika', sans-serif;
+}
+.form-style-2 label{
+    display: block;
+    margin: 0px 0px 15px 0px;
+}
+.form-style-2 label > span{
+    width: 100px;
+    font-weight: bold;
+    float: left;
+    padding-top: 8px;
+    padding-right: 5px;
+	color:black;
+	
+}
+.form-style-2 span.required{
+    color:red;
+}
+.form-style-2 .batch-number-field{
+    width: 60px;
+    text-align: center;
+}
+.form-style-2 input.input-field{
+    width: 48%;
+    
+}
 
-    }
+.form-style-2 input.input-field, 
+.form-style-2 .batch-number-field,  
+ .form-style-2 .select-field{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid #C2C2C2;
+    box-shadow: 1px 1px 4px #EBEBEB;
+    -moz-box-shadow: 1px 1px 4px #EBEBEB;
+    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 7px;
+    outline: none;
+}
+.form-style-2 .input-field:focus, 
+.form-style-2 .batch-number-field:focus,  
+.form-style-2 .select-field:focus{
+    border: 1px solid #0C0;
+}
 
-    .widget .len {
-        width: 20rem;
-        font-size: inherit;
-        font-family: inherit;
-        letter-spacing: 20px;
-        background-color: transparent;
-        color: white;
-        border: solid white;
+.container { /* To clear contained floats */
+  width: 100%;
+  overflow: hidden;
+}
 
-        -moz-appearance: textfield;
-    }
-
-    .widget .len::-webkit-inner-spin-button,
-    .widget .len::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-
-    .widget .digit-background {
-        position: absolute;
-        top: 1px;
-        left: 0;
-        z-index: -1;
-    }
-
-    .widget .digit-background .digit {
-        display: inline-block;
-        float: left;
-    }
-
-    .widget .digit-background .digit::before {
-        content: '0';
-        color: gray;
-        background-color: ;
-        display: inline-block;
-        padding: 3px;
-        margin: -1px 5px 0 -1px;
-    }
-      </style>
+.container label {
+  width: 300px;
+  float: left;
+}
+</style>
 
 
       
@@ -248,60 +283,57 @@
                         }
         }
     ?>
-    <div id="content">
+	
+<div class="content">
+
+		
+				<div id="form-align">
+				
+
+						<div class="form-style-2"> 
+								<div class="form-style-2-heading">Sold Batteries</div>
+								<br/><br/>
 	<form action="entersold.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
 
 
-        <div class="ad">
-       <h1>Sold Batteries</h1>
-       <br>
-     <table>
-        <tr>
-                                        <td>Batch No :</td>
-                                        <td>
-                                        <div class="widget">
-                                           <input type="text" class="len" value="D2D6" name="batch_num" maxlength="4">
-                                           <div class="digit-background">
-                                                     <div class="digit"></div>
-                                                     <div class="digit"></div>
-                                                     <div class="digit"></div>
-                                                     <div class="digit"></div>
-                                           </div>
-                                        </div>
-                                    </td>
-                                    </tr>
-                                    <tr>
-                                    <td>Battery Type:</td>
-                                    <td> <select id="battery" name="battery_type" onchange="ChangebatteryList()" style="font-color:black;">
+       
+                                        <label><span>Batch No :</span><input type="text" class="batch-number-field" name="batch_num1" value="D" maxlength="1" />-
+										<input type="number" class="batch-number-field" name="batch_num2" value="2" maxlength="1" />-
+										<input type="text" class="batch-number-field" name="batch_num3" value="D" maxlength="1"  />-
+										<input type="number" class="batch-number-field" name="batch_num4" value="6" maxlength="1"  /></label>
+                                       
+                                  
+                                    <label for="field2"><span>Battery Type:<span class="required">*</span></span>
+                                    <select id="battery" name="battery_type" class="select-field" onchange="ChangebatteryList()" style="font-color:black;">
                                         <option value="">------SELECT------</option>
                                         <option value="Exide">Exide</option>
                                         <option value="Lucas">Lucas</option>
                                         <option value="Deganite">Deganite</option>
                                         </select>
-                                    </tr>
-                                    <tr>
+									</label>
                                     
-                                    <td>Battery Name:</td>
-                                    <td> <select id="batterysubtype" name="battery_name">
+                                  
+                                    
+                                    <label for="field2"><span>Battery Name:<span class="required">*</span></span>
+                                    <select id="batterysubtype" class="select-field" name="battery_name">
                                         <option value="">------SELECT------</option>
                                         <option value="MF105D31R/L">MF105D31R/L</option>
                                         <option value="65D31R/L">65D31R/L</option>
                                         <option value="MFS65R/L">MFS65R/L</option>
 
                                     </select>
-                                    </tr>
-                                     <tr>
-                                        <td>Amount:</td>
-                                        <td><input type="number" name="amount" style="width: 70px" required></td>
-                                    </tr>
-                                     
-            </tr>
-            <tr><td>Area:</td></tr>
+									</label>
+                                    
+                                     <label for="field3"><span>Amount:<span class="required">*</span></span>
+                                       <input type="number" class="input-field"  name="amount" style="width: 70px" required>
+                                    </label>
+            <tr><td> 
+                                     <label for="field3"><span>Area:</td></tr><span class="required">*</span></span>
             <tr id= "trow">
                 <td>
                     <?php 
                         
-                        echo '<select name="area" id="cap">';
+                        echo '<select name="area" id="cap" class="select-field">';
                         echo '<option>    ------SELECT------   </option>';
                         
                         $sql1 = "Select DISTINCT area_no,area from area";
@@ -314,13 +346,14 @@
                         echo "</select>";
 
                     ?>
-                </td>
+                </label></td>
                 <tr id="trow">
-                    <td>Salesperson Name:</td>
+				   <p class="container">
+                    <td> <label for="field3"><span>Salesperson Name:<span class="required">*</span></span></td>
                 <td id="second">
 
-              
-                       <select name="salesPerson_id">
+           
+                       <select name="salesPerson_id" class="select-field">
                         
                         <option> ------SELECT------</option>
 
@@ -330,27 +363,30 @@
                 </td>
                 </tr>
                 <tr id="trow">
-                <td> Dealer Name:</td>
+                <td><label for="field3"><span> Dealer Name:<span class="required">*</span></span></td>
                 <td id="second1">
 
               
-                       <select name="dealer_id" >
+                       <select name="dealer_id" class="select-field">
                         
                         <option> ------SELECT------</option>
 
                         </select>
-                       
+              	</p>         
 
                 </td>
             </tr>
-              <tr>
-                <td></td>
-           <td><button class="submit" name="submit" value="send">Submit</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="reset" name="reset" value="reset">Reset</button></td>
-            </tr>
-
+			      
+             
+								<p class="container">
+								<tr>
+									<td><button style= "border: 2px solid #4CAF50; margin-right:80px;" class="submit" name="submit" value="send">Submit</button></td>
+									<td><button style= "border: 2px solid red;" class="reset" name="reset" value="reset">Reset</button></td>
+								</p>
+						</table>
         </form>
         
-        </table>
+  
 
     </div>
 

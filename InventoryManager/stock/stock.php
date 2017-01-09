@@ -40,7 +40,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$sql = "SELECT battery_type, current_stock FROM stock_in_hand";
+$sql = "SELECT battery_type,battery_name,current_stock FROM stock_in_hand";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -95,6 +95,7 @@ if ($result->num_rows > 0) {
                         <thead>
                         <tr>
                             <th>Battery Type</th>
+							<th>Battery Nmae</th>
                             <th>Available Stock</th>
                         </tr>
                         </tr>
@@ -103,7 +104,7 @@ if ($result->num_rows > 0) {
                  // output data of each row
     while($row = $result->fetch_assoc()) {
              echo "    <tbody>
-                <tr><td>".$row["battery_type"]."</td><td>".$row["current_stock"]."</td></tr>"; }
+                <tr><td>".$row["battery_type"]."</td><td>".$row["battery_name"]."</td><td>".$row["current_stock"]."</td></tr>"; }
     echo "
                 </tbody></table></table>
         </div>

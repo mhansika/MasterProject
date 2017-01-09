@@ -8,6 +8,8 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+		<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/editable-select.css">
        
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -15,7 +17,83 @@
         
        
          </style>
+<script>
+	// JQUERY: Plugin "autoSumbit"
+	(function($) {
+		$.fn.autoSubmit = function(options) {
+			return $.each(this, function() {
+				// VARIABLES: Input-specific
+				var input = $(this);
+				var column = input.attr('name');
+	
+				// VARIABLES: Form-specific
+				var form = input.parents('form');
+				var method = form.attr('method');
+				var action = form.attr('action');
 
+				// VARIABLES: Where to update in database
+				var where_val1 = form.find('#where1').val();
+				var where_col1 = form.find('#where1').attr('name');
+				var where_val2 = form.find('#where2').val();
+				var where_col2 = form.find('#where2').attr('name');
+	
+				// ONBLUR: Dynamic value send through Ajax
+				input.bind('blur', function(event) {
+					// Get latest value
+					var value = input.val();
+					// AJAX: Send values
+					$.ajax({
+						url: "ajax-update1.php",
+						type: "POST", 
+						data: {
+							val: value,
+							col: column,
+							w_col1: where_col1,
+							w_val1: where_val1,
+							w_col2: where_col2,
+							w_val2: where_val2
+							
+						},
+						cache: false,
+						timeout: 10000,
+						success: function(data) {
+							// Alert if update failed
+							if (data) {
+								alert(data);
+							}
+							// Load output into a P
+							else {
+								$('#notice').text('Field updated');
+								$('#notice').fadeOut().fadeIn();
+							}
+						}
+					});
+					// Prevent normal submission of form
+					return false;
+				})
+			});
+		}
+	})(jQuery);
+	// JQUERY: Run .autoSubmit() on all INPUT fields within form
+	$(function(){
+		$('#ajax-form INPUT').autoSubmit();
+	});
+	
+	$(function(){
+ 
+$('select').editableSelect();
+ 
+});
+	
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/jquery-editable-select.js"></script>
+
+<script>
+$(function(){
+    $('select').editableSelect();
+});
+</script>
   
 </head>
 
@@ -136,15 +214,17 @@
   <tr>
     
     
-    <th>Date:</th>
+    <th>From : </th>
+	<th>To : </th>
    <th></th>
     <th></th>
   </tr>
   <tr></tr>
   <tr>
-    
-    <th><div class="form-group input-group">
-                        <input name="date" type="date"  size="9" value=""/>
+    <form>
+    <div class="form-group input-group">
+                        <th><input name="date_1" type="date"  size="9" value=""/></th>
+						  <th> <input name="date_2" type="date"  size="9" value=""/></th>
 						
 				
 
@@ -153,6 +233,7 @@
 					</th>
 					
 					 <th><button type="submit" name="submit" value="submit">Submit</button> </th>
+					 </form>
   </tr>
   
   
@@ -165,16 +246,22 @@ require "../core/database/connect.php";
 
 
 if (isset($_POST['submit'])) {
-        $from_date = strtotime($_POST['date']);
-		$to_date = strtotime('-3 day',$from_date);
+        //$from_date = $_POST['date1'];
+		//$to_date = $_POST['date2'];
+		//$from_date = strtotime($from_date);
+		//$to_date = strtotime($to_date);
+		      $from_date = strtotime($_POST['date_1']);
+		$to_date = strtotime('-30 day',$from_date);
+
+		
 
 $First_Date = date('Y-m-d',$from_date);
 $Next_Date =  date('Y-m-d',$to_date);
 
-$sql="SELECT battery_status,replaced_date,batch_num,battery_num FROM released_batteries WHERE battery_status = '3' AND replaced_date BETWEEN '" . $Next_Date . "' AND  '" . $First_Date . "'";
+$sql="SELECT battery_status,replaced_date,batch_num,battery_num FROM released_batteries WHERE battery_status = '3' AND replaced_date BETWEEN '" . $Next_Date . "' AND  '" . $First_Date . "' ";
 
-$defect="";
-$batch_num="";
+/* $defect="";
+$batch_num=""; */
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     
@@ -185,7 +272,6 @@ echo "
     <tr>
       <th>Replaced Batch Number</th>
 	  <th>Battery Number</th>
-	  <th>Replaced Date</th>
       <th>Defect Type</th>
 	  <th></th>
       
@@ -197,7 +283,15 @@ echo "
 <table cellpadding='0' cellspacing='0' border='0'>
   <tbody>
     <tr></tr>";
-
+	
+while($row1 = $result->fetch_assoc() ){
+	echo"
+		<tr>
+		<td>".$row1["batch_num"]."</td>  
+		<td>".$row1["battery_num"]."</td> 
+		
+		";
+}
 
 /* 
         $date = $_POST['date'];
@@ -219,16 +313,16 @@ if(isset($_POST['Enter']))
 
         
 
-while($row1 = $result->fetch_assoc() ){
+
     
 /* if($row1['replaced_date']==$date ){ */
-       if($row1['battery_status']==3){
+     /*   if($row1['battery_status']==3){
        echo"
 	  <form  method='POST' >
       <tr><td><input type='text'  name='batch_num'  value=".$row1['batch_num']."></td>  
       <td><input type='number'  name='battery_num'  value=".$row1['battery_num']."></td>  
       <td><input type='text' name='replaced_date'  value=".$row1['replaced_date']."></td>   
-     "; 
+     ";  */
 	   
 //getting data to a drop down
     
@@ -245,7 +339,7 @@ while($row1 = $result->fetch_assoc() ){
     ?>
     </select></td>
     <?php
-    echo"<td><input type='submit' name='Enter' value='UPDATE'/>";}
+    echo"<td><input type='submit' name='Enter' value='UPDATE'/>";
     echo'</form>';
 
 
@@ -282,7 +376,7 @@ if(isset($_POST['defect_type'])){
 
 
 
-}
+
 
 mysqli_close($conn);
 

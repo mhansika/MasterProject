@@ -13,7 +13,69 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script>
+	
+		// JQUERY: Plugin "autoSumbit"
+	(function($) {
+		$.fn.autoSubmit = function(options) {
+			return $.each(this, function() {
+				// VARIABLES: Input-specific
+				var input = $(this);
+				var column = input.attr('name');
+	
+				// VARIABLES: Form-specific
+				var form = input.parents('form');
+				var method = form.attr('method');
+				var action = form.attr('action');
 
+				// VARIABLES: Where to update in database
+				var where_val1 = form.find('#where1').val();
+				var where_col1 = form.find('#where1').attr('name');
+				var where_val2 = form.find('#where2').val();
+				var where_col2 = form.find('#where2').attr('name');
+	
+				// ONBLUR: Dynamic value send through Ajax
+				input.bind('blur', function(event) {
+					// Get latest value
+					var value = input.val();
+					// AJAX: Send values
+					$.ajax({
+						url: "ajax-update.php",
+						type: "POST", 
+						data: {
+							val: value,
+							col: column,
+							w_col1: where_col1,
+							w_val1: where_val1,
+							w_col2: where_col2,
+							w_val2: where_val2
+							
+						},
+						cache: false,
+						timeout: 10000,
+						success: function(data) {
+							// Alert if update failed
+							if (data) {
+								alert(data);
+							}
+							// Load output into a P
+							else {
+								$('#notice').text('Field updated');
+								$('#notice').fadeOut().fadeIn();
+							}
+						}
+					});
+					// Prevent normal submission of form
+					return false;
+				})
+			});
+		}
+	})(jQuery);
+	// JQUERY: Run .autoSubmit() on all INPUT fields within form
+	$(function(){
+		$('#ajax-form INPUT').autoSubmit();
+	});
+		
+	//multiple dropdown selection	
 		$( document ).ready(function() {
 			 $("select#cap").click( function(){
 					//var id = this.id;
@@ -35,25 +97,9 @@
 			});
 			
 		});
-
-		function updateDate(id){
-			var vals = id.split("|");
-			var batteryID = vals[0] + vals[1];
-			var idIn = "date_" + batteryID;
-			var dateVal = document.getElementById(idIn).value;
+		
+	
 			
-			$.ajax({
-
-				type: "POST",
-				url	: 'updateDate.php',
-				data: {updatedDate: dateVal, groupID:vals[0], batteryID:vals[1]},
-				success: function(result)
-				{
-					alert("Replaced Date of "+ batteryID +" was updated to : " + result);
-				}
-
-			});
-		}
 		<?php if (isset($_POST['dealer_id']) ){ ?>
 		function confirmValids(){
 			
@@ -69,6 +115,8 @@
 
 			});
 		}
+		
+		
 		
 		function submit(){
 			
@@ -87,6 +135,7 @@
 		}
 		
 		<?php } ?>
+
 
 	</script>
 
@@ -190,12 +239,13 @@
 	<div class="content">
 		<div class="table">
 			<div id="content">
-				<!--form action="#" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());"-->
+				<form action="#" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
 					<div class="ad">
+					<a href="../index.php"  style="display:block;float:right;margin-right:45px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" src="../img/lgout.png" ></a>
 						<br/>
 						<h1><b>Replacement Inspection</b></h1>
 						<br/>
-					<form action= "" method="post">
+					<form action= "" method="post" id= "formID">
 						<table width="70%">
 							<tr>
 								<th>Area :</th>
@@ -218,25 +268,23 @@
 										</select>
 								</th>
 								<th id="second">
-									<select name= "dealer_id"  >
+									<select name= "dealer_id" id = "hat">
 										<option> -------ALL--------</option>
 									</select>
 								</th>
 
 								
 									</div>
-								</th>
-							</tr>
-							<tr>
-							<th></th>
-							<th></th>
+								
+						
+							
 							<th>
 								<button type="submit" name="submit" value="submit">search</button>
 							</th>
 							</tr>
 
 					</table>
-				<!--/form-->
+				</form>
 				</form>
    
 <?php
@@ -256,7 +304,7 @@
 		  <thead>
 			<tr>
 				<th >Replacement</th>
-				<th colspan=2>Replacement Date</th>
+				<th>Replacement Date</th>
 				<th>Warranty Expiry - Date</th>
 				<th>Within Warranty Period</th>
 				<th>Defect Type Ok/Not</th>
@@ -306,11 +354,15 @@
 			<tr>
 				<td>".$idIn."</td>
 				<td>
-					
+					<form id='ajax-form' class='autosubmit' method='POST' action='ajax-update.php'>
 					<input type='date' id='date_".$idIn."' name='replaced_date' size='20' value= ".$row['replaced_date'].">
-				</td>
-				<td>
-					<button type='submit' id='submit_".$idIn."' onClick=updateDate('".$id."')>Update</button>
+				
+				
+					<input id='where1' type='hidden' name='batch_num' value=".$row['batch_num']."  />
+					<input id='where2' type='hidden' name='battery_num' value=".$row['battery_num']."  />
+				</form>
+							
+					
 				</td>
 				<td>".$row['warranty_period']."</td>
 				<td>".$row["validity"]."</td>

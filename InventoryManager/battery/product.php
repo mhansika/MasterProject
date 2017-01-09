@@ -1,262 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php include '../../core/init.php';
-protect_page();
-?>
-<?php
-$role= $user_data['role'];
-?>
+
+<html>
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/style.css" media="screen" type="text/css" />
-    <link rel="stylesheet" href="../css/m.css" media="screen" type="text/css" />
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-    <!-- bxSlider Javascript file -->
-    <script src="../js/jquery.bxslider.js"></script>
-    <!-- bxSlider CSS file -->
-    <link href="css/jquery.bxslider.css" rel="stylesheet" />
-    <style>
-        
-    </style>
+    <link rel="stylesheet" href="../css/malawade.css" type="text/css"/>
 </head>
 <body>
 <?php
-include '../../include/header.php';
+include '../include/header.php'
 ?>
-<div id="body">
-    <div id="navigation"></div>
-    <nav>
-        <ul id="mainsidebar">
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" id="pd">
-
-                    <a href="battery/product.php" id="pd" style="top: 1px;
-                                display:block;
-                                position:absolute;
-                                float:left;
-                                font-family:arial;
-                                color:#1C1C1C;
-                                text-decoration:none;
-                                width:100%;
-                                height:70px;
-                                text-align:center;"><img class= "pic" src="../img/a.png" align="middle"><span>Product Details</span></a>
-                </div>
-            </li>
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" >
-
-                    <a href= "stock/stock.php" id="stock" style="top: 10px;
-                                display:block;
-                                position:absolute;
-                                float:left;
-                                font-family:arial;
-                                color:#1C1C1C;
-                                text-decoration:none;
-                                width:100%;
-                                height:70px;
-                                text-align:center;"><img class= "pic" src="../img/b.png" align="middle"><span>Stock</span></a>
-                </div>
-            </li>
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" id="dealer_title" >
-
-                    <a href="dealer/viewdealer.php" id="dealer" style="top: 10px;
-                                display:block;
-                                position:absolute;
-                                float:left;
-                                font-family:arial;
-                                color:#1C1C1C;
-                                text-decoration:none;
-                                width:100%;
-                                height:70px;
-                                text-align:center;"><img class= "pic" src="../img/c.png" align="middle"><span>Dealer</span></a>
-                </div>
-            </li>
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" >
-
-                    <a href="salesperson/salep.php" id="salep" style="top: 10px;
-                                display:block;
-                                position:absolute;
-                                float:left;
-                                font-family:arial;
-                                color:#1C1C1C;
-                                text-decoration:none;
-                                width:100%;
-                                height:70px;
-                                text-align:center;"><img class= "pic" src="../img/d.png" align="middle"><span>Salesperson</span></a>
-                </div>
-            </li>
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" >
-
-                    <a href="../report/report.php" id="report" style="top: 10px;
-                                display:block;
-                                position:absolute;
-                                float:left;
-                                font-family:arial;
-                                color:#1C1C1C;
-                                text-decoration:none;
-                                width:100%;
-                                height:70px;
-                                text-align:center;"><img class= "pic" src="../img/e.png" align="middle"><span>Reports</span></a>
-
-                </div>
-            </li>
-        </ul>
-    </nav>
-    <div class="content">
-        <ul id="top">
-            <li class="topn"><a href="#home">View</a></li>
-            <li class="topn"><a href="#news">Add</a></li>
-            <li class="topn"><a href="#contact">Search</a></li>
-        </ul>
-            <div class="form">
-                <div class="seperate">
-                    <?php
-                    $servername = "localhost";
-                    $username = "root";
-                    $password = "";
-                    $dbname = "warranty_management";
-
-                    // Create connection
-                    $conn = mysqli_connect($servername, $username, $password, $dbname);
-                    // Check connection
-                    if (!$conn) {
-                        die("Connection failed: " . mysqli_connect_error());
-                    }
-                    $sql = "SELECT battery_type, battery_name, warranty_period,amperehour_Value,voltage_Value,item_Type,imageUpload FROM battery_description";
-                    $result = $conn->query($sql);
-
-                    if ($result->num_rows > 0) {
-                        echo "<style>
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-    background-color:#990000;
-    color: white;
-}
-tbody {
-    height: 100px;       /* Just for the demo          */
-    overflow-y: auto;    /* Trigger vertical scroll    */
-    overflow-x: hidden;  /* Hide the horizontal scroll */
-}
-</style>
-</head>
-<body>
-
-<table>
-<tr>
-<th>Battery type</th>
-<th>Battery name</th>
-<th>Warranty period</th>
-<th>Ampere-hour Value</th>
-<th>Voltage Value</th>
-<th>Item Type</th>
-<th>Image</th></tr>";
-                        // output data of each row
-                        while($row = $result->fetch_assoc()) {
-                            echo "<tr><td>".$row["battery_type"]."</td><td>".$row["battery_name"]." </td><td>".$row["warranty_period"]."</td><td>".$row["amperehour_Value"]."</td><td>".$row["voltage_Value"]."</td><td>".$row["item_Type"]."</td><td><img src='uploads/$row[imageUpload].png' height='75px' width='100px'></td></tr>";
-                        }
-                        echo "</table></body>
-</html>";
-                    } else {
-                        echo "0 results";
-                    }
-                    $conn->close();
-
-
-                    ?>
-
-
-                </div>
-            </div>
-
-        </div>
-        <script>
-
-            $("div.content>ul#topnavi>li>a").click( function(e){
-
-                e.preventDefault();
-
-            });
-
-
-            $("ul#topnavi>li>a").click( function(){
-                var id = this.id;
-                console.log(id);
-
-                $('div.content > div.form').html("");
-
-                if (id == "addbattery"){
-
-                    url = "addbattery.php";
-
-                } else if (id == "searchbattery"){
-
-                    url = "searchbattery.php";
-
-
-
-                }
-
-
-                $.ajax({
-
-
-
-                    type:"post",
-                    url:url,
-                    success:function(data){
-
-                        $("div.content> div.form").html(data);
-
-                    }
-
-
-
-                });
-
-
-
-
-
-            });
-
-
-
-
-
-
-
-        </script>
-
-
-
-        <div>
-    <script>
-        $(document).ready(function(){
-            $('.bxslider').bxSlider();
-        })
-    </script>
+<?php
+include '../include/sidenav.php';
+?>
+<div id="content">
+    <ul id="top"">
+    <li class="topn"><a class="icon_nav" href="product.php"><img src="../img/Add.png"><span class="bar">View</span></a></li>
+    <li class="topn"><a class="icon_nav" href="addbattery.php"><img src="../img/View.png"><span class="bar">Add</span></a></li>
+    <li class="topn"><a class="icon_nav" href="searchbattery.php"><img src="../img/Search.png"><span class="bar">Search</span></a></li>
+    </ul>
 
     <?php
+    require "../../core/database/connect.php";
 
-    include '../../include/footer.php';
+    if (isset($_POST["submit"])) {
+
+        $battery_type = $_POST['battery_type'];
+        $battery_name =$_POST['battery_name'];
+        $warranty_period=$_POST['warranty_period'];
+        $amperehour_Value=$_POST['amperehour_Value'];
+        $VoltageValue=$_POST['voltage_Value'];
+        $item_Type=$_POST['item_Type'];
+
+
+
+        //Process the image that is uploaded by the user
+
+        $target_dir = "uploads/";
+        $target_file = $target_dir . basename($_FILES["imageUpload"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+        if (move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file)) {
+            echo "The file ". basename( $_FILES["imageUpload"]["name"]). " has been uploaded.";
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+
+        $image=basename( $_FILES["imageUpload"]["name"],".png"); // used to store the filename in a variable
+
+
+        $sql = "INSERT INTO battery_description (battery_type,battery_name,warranty_period,amperehour_Value,voltage_Value,item_Type,imageUpload) VALUES ('$battery_type','$battery_name','$warranty_period','$amperehour_Value','$VoltageValue',' $item_Type','$image')";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "";
+        }
+
+        else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
+
+
+        header("Location:inventory.php");
+
+
+
+    }
     ?>
-
+    <div class="ad">
+        <form action="addbattery.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
+            <h1  style= "font-size: 20px;
+    background-color: #990000;
+    color: white;
+    width:100%;
+    padding: 10px;
+    font-family: Calibri;
+    line-height: 30px;
+    margin:0 0 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;">Add Product</h1>
+            <table>
+                <tr>
+                    <td>Product type:</td>
+                    <td> <select name="battery_type">
+                            <option value="Exide">Exide</option>
+                            <option value="Lucas">Lucas</option>
+                            <option value="Dagenite">Dagenite</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Product Name:</td>
+                    <td><input type="text" name="battery_name" style="width: 200px" required></td>
+                </tr>
+                <tr>
+                    <td>Warranty period:</td>
+                    <td><select name="warranty_period">
+                            <option value="1year">1 year</option>
+                            <option value="2year">2 year</option>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ampere-hour Value:</td>
+                    <td><input type="text" name="amperehour_Value" style="width: 200px" required></td>
+                </tr>
+                <tr>
+                    <td>Voltage Value:</td>
+                    <td><input type="text" name="voltage_Value" style="width: 200px" required></td>
+                </tr>
+                <tr>
+                    <td>Item Type:</td>
+                    <td><input type="text" name="item_Type" style="width: 200px" required></td>
+                </tr>
+                <tr>
+                    <td>Insert a image here: </td>
+                    <td><input type="file" name="imageUpload" id="imageUpload">
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button class="submit" name="submit" value="send">Submit</button></td>
+                    <td> <button type="reset">RESET</button></td>
+                </tr>
+            </table>
+    </div>
+    </form>
+</div>
+<?php
+include '../include/footer.php';
+?>
+</body>
+</html>

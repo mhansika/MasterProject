@@ -1,0 +1,118 @@
+body{
+    margin: 0 0 0 0;
+}
+#nav{
+    float: left;
+    width: 8%;
+    height: 100%;
+    background-color: black;
+    padding: 0 0 0 0;
+}
+#content{
+    height: 100%;
+    width: 100%;
+    background-color:#c2c2a3 ;
+}
+.sidenav{
+    position: relative;
+    background-color: #B40404;
+    height: 15%;
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
+#mainsidebar{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+.sidenav:hover{
+    height: 15%;
+    background-color: black;
+}
+span{
+    font-family: Calibri;
+    color: white;
+    text-align: center;
+    display: block;
+}
+#product{
+    text-decoration: none;
+    margin-left: 5%;
+}
+.pic{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15%;
+}
+#header{
+    background-image: url("../img/head.png");
+    height: 12%;
+    width: auto;
+}
+#logo{
+    height: 60px;
+    width: 60px;
+    alignment: left;
+    margin-left: 2%;
+    margin-top: -5.5%;
+}
+#logout{
+    float: right;
+    margin-right: 3%;
+    margin-top: -3.5%;
+}
+#abm{
+    font-weight: bolder;
+    font-size: larger;
+    font-family: Calibri;
+    margin-top: inherit;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 0;
+}
+#im{
+    font-weight: bold;
+    font-size: large;
+    color: white;
+    text-decoration: none;
+    font-family: Calibri;
+    text-align: center;
+}
+#footer{
+    background-color: #B40404;
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+    height: 2%;
+}
+ul#top {
+    list-style-type: none;
+    background-color: #000;
+    height: 8%;
+    position: relative;
+    margin-left: 8%;
+    padding-left: 15%;
+    margin-top: 0%;
+}
+li.topn {
+    float: left;
+    border:1px solid #bbb;
+}
+li.topn a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+li.topn a:hover:not(.active) {
+    background-color: #B40404;
+}
+.bar{
+    margin-top: -2px;
+}
+.icon_nav{
+    width: 300px;
+}

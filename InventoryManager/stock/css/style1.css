@@ -139,6 +139,17 @@ span
 
 
 }
+#form-align{
+	   padding: 0;
+    margin-left:30%;
+    width:70%;
+    height:600px;
+    margin-top:-600px;
+    margin-right: 10%;
+	
+	
+}
+
 #logout{
     color:white;
     font-family:arial;

@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<html lang="en">
+    <head>
+		<meta charset="utf-8">
+		 <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" /> 
+		<link rel="stylesheet" href="css/style1.css" media="screen" type="text/css" />
+		
+		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
  <?php include '../../core/init.php';
       protect_page(); 
@@ -7,63 +15,93 @@
 
 
 
-<html lang="en">
-    <head>
-		<meta charset="utf-8">
-	   
-		<link rel="stylesheet" href="css/style1.css" media="screen" type="text/css" />
-		 <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 		<style>
-		.widget {
-		vertical-align: top ;
-		margin-left: 1rem;
-		font-size: 2rem;
-		display: inline-block;
-		position: relative;
+		
+#form-align{
+	   padding: 0;
+    margin-left:30%;
+    width:70%;
+    height:600px;
+    margin-top:-600px;
+    margin-right: 10%;
+	
+	
+}
+	
+.form-style-2{
+    max-width: 500px;
+    padding: 20px 12px 10px 20px;
+    font: 13px Arial, Helvetica, sans-serif;
+}
+.form-style-2-heading{
+    font-weight: bold;
+	border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+    font-size: 15px;
+    padding-bottom: 3px;
+	color: #ff4411; 
+	font-size: 24px; 
+	font-family: 'Signika', sans-serif;
 
-	}
+}
+.form-style-2 label{
+    display: block;
+    margin: 0px 0px 15px 0px;
+}
+.form-style-2 label > span{
+    width: 100px;
+    font-weight: bold;
+    float: left;
+    padding-top: 8px;
+    padding-right: 5px;
+	color:black;
+}
+.form-style-2 span.required{
+    color:red;
+}
+.form-style-2 .batch-number-field{
+    width: 60px;
+    text-align: center;
+}
+.form-style-2 input.input-field{
+    width: 48%;
+    
+}
 
-	.widget .len {
-		width: 18rem;
-		font-size: inherit;
-		font-family: inherit;
-		letter-spacing: 20px;
-		background-color: transparent;
-		color: white;
-		border: solid black;
+.form-style-2 input.input-field, 
+.form-style-2 .batch-number-field,  
+ .form-style-2 .select-field{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid #C2C2C2;
+    box-shadow: 1px 1px 4px #EBEBEB;
+    -moz-box-shadow: 1px 1px 4px #EBEBEB;
+    -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    padding: 7px;
+    outline: none;
+}
+.form-style-2 .input-field:focus, 
+.form-style-2 .batch-number-field:focus,  
+.form-style-2 .select-field:focus{
+    border: 1px solid #0C0;
+}
 
-		-moz-appearance: textfield;
-	}
+.container { /* To clear contained floats */
+  width: 100%;
+  overflow: hidden;
+}
 
-	.widget .len::-webkit-inner-spin-button,
-	.widget .len::-webkit-outer-spin-button {
-		-webkit-appearance: none;
-		margin: 0;
-	}
-
-	.widget .digit-background {
-		position: absolute;
-		top: 1px;
-		left: 0;
-		z-index: -1;
-	}
-
-	.widget .digit-background .digit {
-		display: inline-block;
-		float: left;
-	}
-
-	.widget .digit-background .digit::before {
-		content: '0';
-		color: gray;
-		background-color: ;
-		display: inline-block;
-		padding: 3px;
-		margin: -1px 5px 0 -1px;
-	}
-	  </style>
+.container label {
+  width: 250px;
+  float: left;
+}
+</style>
+	 
 
     
        
@@ -153,7 +191,8 @@
 
 if (isset($_POST["submit"]))
 {
-	$str =$_POST['batch_num'];
+	$str =$_POST['batch_num1'].$_POST['batch_num2'].$_POST['batch_num3'].$_POST['batch_num4'];
+	$str = mysqli_real_escape_string($conn,$str);
 
 	$arr1 = substr($str, 0,4);
 	$arr2 = substr($str, 4);
@@ -197,7 +236,7 @@ if (isset($_POST["submit"]))
 	elseif ($arr3[2]=='B') {
 		$manufacture_month='February';
 	}
-	elseif ($arr3[2]=='2') {
+	elseif ($arr3[2]=='C') {
 	  $manufacture_month='March';
 	}
 	elseif ($arr3[2]=='D') {
@@ -323,45 +362,40 @@ if (isset($_POST["submit"]))
 
 		<div class="content">
 
-			<div class="table">
-				<div id="content">
-				<form action="entermanufac.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
+		
+				<div id="form-align">
+				
+
+						<div class="form-style-2">
+							<div class="form-style-2-heading">Manufactured Batteries</div>
+							<br/><br/>
+								<form action="entermanufac.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
+					
+							
+								
+										
+										
+										 
+											<label><span>Batch No :</span><input type="text" class="batch-number-field" name="batch_num1" value="D" maxlength="1" required />-<input type="number" class="batch-number-field" name="batch_num2" value="2" maxlength="1" required />-<input type="text" class="batch-number-field" name="batch_num3" value="D" maxlength="1" required />-<input type="number" class="batch-number-field" name="batch_num4" value="6" maxlength="1" required /></label>
+										
+										
+									
+
+										
+										<label for="field2"><span>Battery Type: <span class="required">*</span></span>
 
 
-						<div class="ad">
-							<h1><b>Manufactured Batteries</b></h1>
-							<br><br>
-								 <table>
-
-										 <tr>
-											<td>Batch No :
-											<div class="widget">
-											   <input type="text" class="len" value="D2D6" name="batch_num" required>
-											   <div class="digit-background">
-														 <div class="digit"></div>
-														 <div class="digit"></div>
-														 <div class="digit"></div>
-														 <div class="digit"></div>
-											   </div>
-											</div>
-										</td>
-										</tr>
-										<tr>
-										<td>Battery Type:</td>
-
-
-										<td> <select id="battery" style="font-color:black;" name="battery" required>
+										<select id="battery" class="select-field" name="battery" required>
 											<option value="">----Select----</option>
 											<option value="Exide">Exide</option>
 											<option value="Lucas">Lucas</option>
 											<option value="Dagenite">Dagenite</option>
 											</select>
-										</td>
+											</label>
 
-										</tr>
-										<tr>
-										<td>Battery Name:</td>
-										<td> <select id="batterysubtype" name="battery_name" required>
+										
+										<label for="field3"><span>Battery Name: <span class="required">*</span></span>
+										 <select class="select-field" id="batterysubtype" name="battery_name" required>
 											<option value="">----Select----</option>
 											<option value="MF105D31R/L">MF105D31R/L</option>
 											<option value="65D31R/L">65D31R/L</option>
@@ -369,29 +403,33 @@ if (isset($_POST["submit"]))
 
 										</select>
 
-										</td>
-										</tr>
+										</label>
 							 
 
 									   
-										 <tr>
-											<td>Amount:</td>
-											<td><input type="number" name="amount" style="width: 70px" required></td>
-										</tr>
-									 <tr>
-										<td><button class="submit" name="submit" value="send">Submit</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="reset" name="reset" value="reset">Reset</button></td>
-									 </tr>
+										
+											<label for="field4"><span>Amount:<span class="required">*</span></span>
+											<input type="number" class="input-field" name="amount" style="width: 70px ;" required>
+									
+											</label>
+											
+									
+									 <br><br>
+									 <p class="container">
+									<label><button style= "border: 2px solid #4CAF50;" class="submit" name="submit" value="send">Submit</button></label> 
+									<label><button style= "border: 2px solid red;" class="reset" name="reset" value="reset">Reset</button></label>
+									 </p>
 
 									</form>
 
-									</table>
+									
 
 								</div>
 			</div>
 		   
 
 	</div>
-	</div>
+	
 <?php
 include '../../include/footer.php';
 ?>
