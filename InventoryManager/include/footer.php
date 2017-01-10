@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" href="../css/malawade.css" type="text/css">
+        <link rel="stylesheet" href="../css/IM.css" type="text/css">
     </head>
     <body>
         <div id="footer"></div>

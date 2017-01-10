@@ -1,0 +1,153 @@
+body{
+    margin: 0 0 0 0;
+    font-family: Calibri;
+}
+#nav {
+    float: left;
+    width: 8%;
+    height: auto;
+    background-color: black;
+    padding: 0 0 0 0;
+}
+#content{
+    height: 100%;
+    width: 100%;
+    background-image: url("../img/2.png");
+}
+.sidenav{
+    position: relative;
+    background-color: #B40404;
+    height: 17%;
+    margin-top: 0%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    padding-top: 0%;
+}
+#mainsidebar{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+.sidenav:hover{
+    height: 15%;
+    background-color: black;
+}
+span{
+    font-family: Calibri;
+    color: white;
+    text-align: center;
+    display: block;
+}
+#side{
+    text-decoration: none;
+    margin-left: 5%;
+}
+.pic{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 15%;
+}
+#header{
+    background-color: #0f0f0f;
+    height: 10%;
+    width: 100%;
+    position: relative;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+}
+#logo{
+    height: 60px;
+    width: 60px;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+    margin-top: -6%;
+    margin-left: 2%;
+}
+#logout{
+    margin-top: -6%;
+    height: 40%;
+    width: 8%;
+    margin-left: 90%;
+}
+#abm{
+    font-weight: bolder;
+    font-size: larger;
+    font-family: Calibri;
+    margin-top: inherit;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 0 0 0 0;
+    margin-bottom: 0%;
+}
+#im{
+    font-weight: bold;
+    font-size: large;
+    color: white;
+    text-decoration: none;
+    font-family: Calibri;
+    text-align: center;
+}
+#footer{
+    background-color: black;
+    position: fixed;
+    bottom: 0%;
+    width: 100%;
+    height: 2%;
+}
+.add{
+    font-size: 20px;
+    background-color: #990000;
+    color: white;
+    width:70%;
+    padding: 10px;
+    line-height: 30px;
+    margin:0 0 0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.AddPro{
+    margin-left: 25%;
+    margin-top: 2%;
+}
+.topnav {
+    width: 30%;
+    text-align: center;
+    background-color: #000;
+    overflow: auto;
+    padding-left: 7%;
+    margin-left: 30%;
+}
+
+.topnav a {
+    width: 25%;
+    padding: 12px 0;
+    float: left;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 36px;
+}
+
+.topnav a:hover {
+    background-color: #B40404;
+}
+#ad{
+    margin-left: 10%;
+}
+td{
+    padding-bottom: 2%;
+    padding-top: 2%;
+}
+.submit, .reset, .update, .delete, .save{
+    border-radius: 4px;
+    padding: 5 5 5 5;
+    background-color: #5e5e5e;
+    color: white;
+    font-size: large;
+
+}
+.submit .update .delete .save .reset:hover{
+    background-color: #B40404;
+}
