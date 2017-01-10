@@ -1,0 +1,203 @@
+ .ad{
+            font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
+            background:white;
+            margin: 0 auto;
+            padding: 0px;
+            width: 132.5%;
+            color:black;
+            font-size: 18px;
+            line-height: 1em;
+            margin-top:10px;
+            margin-left: -8.5%;
+            height: 800px;
+        }
+
+
+       
+
+
+
+
+span
+{
+    color:white;
+    margin-top:5px;
+    display:block;
+
+}
+td {
+    padding: 7px 7px;
+  text-align:center;
+  font-weight: 1000;
+  font-size: 18px;
+  color: black;
+  text-align: center;
+
+}
+
+
+.ad input,.ad select,.ad option{
+            font-family: 'Segoe UI Light', 'Segoe UI', 'Open sans', Arial, Sans;
+            font-size: 14px;
+            border: 0;
+            background:  #fff ;
+            margin: 0 0 20px;
+            padding: 8px 10px;
+            display: block;
+            width: 65% ;
+            color:black;
+            text-align: center;
+            margin-left: 60px;
+
+            
+        }
+
+        body{
+    
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans';
+    margin-bottom: 0;
+    background-color:#B40404;
+
+}
+
+
+nav{
+    background-color:black;
+    margin-top:1px;
+    width: 125px;
+    
+}
+
+
+ul
+{
+    width: 170px;
+    margin-top:0px;
+    padding:0px;
+    list-style-type:none;
+    -webkit-backface-visibility: hidden; backface-visibility: hidden;
+    
+}
+.var_nav
+{
+    position:relative;
+    background:#B40404;
+    width:120px;
+    height:150px;
+    margin-top:0px;
+    margin-right: 0px;
+    margin-bottom:1px;
+
+}
+
+.var_nav:hover {
+    width: 120px;
+    background: black;
+    
+}
+.content{
+
+    padding: 0;
+    margin-left:15%;
+    width:70%;
+    height:700px;
+    margin-top:-780px;
+    margin-right: 10%;
+
+
+
+
+}
+
+div.form{
+    position: absolute;
+}
+table{
+  width:100%;
+  table-layout: fixed;
+
+
+}
+.tbl-header{
+  background-color:#808080;
+  border: 1px solid #c2c2a3;
+  font-color: black;
+  margin-left: 90px;
+  margin-right: 90px;
+ }
+.tbl-content{
+  height:300px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid #c2c2a3;
+  margin-left: 90px;
+  margin-right: 90px;
+
+
+}
+th{
+  padding: 15px 15px;
+  text-align:center;
+  font-weight: 1000;
+  font-size: 20px;
+  color: black;
+
+}
+
+h1  {
+    font-family:arial;
+    font-size: 35px;
+    
+    text-align: center;
+}
+
+
+.bottom{
+
+  margin-left: 60%;
+  width: 500px;
+  text-align: center;
+  font-family: arial;
+
+}
+
+
+
+
+
+ button {
+    
+    border: none;
+
+    
+    text-align: center;
+    text-decoration: none;
+    
+    font-size: 20px;
+  
+    margin-top: 20px;
+    border-radius: 0px;
+    font-family: Calibri;
+    font-weight: bold;
+    margin-left: 15px;
+    background-color: #808080;
+}
+     button:hover {
+            background-color: #0f0f0f ;
+            color: white;
+        }    
+
+
+
+
+
+
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
+
+
+
