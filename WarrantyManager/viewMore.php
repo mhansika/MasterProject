@@ -9,11 +9,39 @@
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
-        
+        body { font-family:Arial, Helvetica, Sans-Serif; font-size:0.8em;}
+				.container {
+			 max-width: 600px;
+			padding: 20px 12px 10px 20px;
+			background-color : gray;
+	
+		}
+        #report { border-collapse:collapse;}
+        #report h4 { margin:0px; padding:0px;}
+        #report img { float:right;}
+        #report ul { margin:10px 0 10px 40px; padding:0px;}
+        #report th { background:#7CB8E2 url(img/header_bkg.png) repeat-x scroll center left; color:#fff; padding:7px 15px; text-align:left;}
+        #report td { background:#C7DDEE none repeat-x scroll center left; color:#000; padding:7px 15px; }
+        #report tr.odd td { background:#fff url(img/row_bkg.png) repeat-x scroll center left; cursor:pointer; }
+        #report div.arrow { background:transparent url(img/arrows.png) no-repeat scroll 0px -16px; width:16px; height:16px; display:block;}
+        #report div.up { background-position:0px 0px;}
        
          </style>
 
-  
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">  
+        $(document).ready(function(){
+            $("#report tr:odd").addClass("odd");
+            $("#report tr:not(.odd)").hide();
+            $("#report tr:first-child").show();
+            
+            $("#report tr.odd").click(function(){
+                $(this).next("tr").toggle();
+                $(this).find(".arrow").toggleClass("up");
+            });
+            //$("#report").jExpand();
+        });
+    </script>              
 </head>
 
 
@@ -57,7 +85,7 @@
             </li>
             <li class="var_nav">
                 <div class="link_bg"></div>
-                <div class="link_title" id="md">
+                <div class="link_title" id="md" >
 
                     <a href="misDealer.php" id="mis" style="top: 10px;
                                 display:block;
@@ -74,7 +102,7 @@
             </li>
             <li class="var_nav">
                 <div class="link_bg"></div>
-                <div class="link_title">
+                <div class="link_title" >
 
                     <a href= "viewAllReplace.php" id="cr" style="top: 10px;
                                 display:block;
@@ -91,7 +119,7 @@
             </li>
              <li class="var_nav">
                 <div class="link_bg"></div>
-                <div class="link_title">
+                <div class="link_title" >
 
                     <a href= "enterDefectType.php" id="cr" style="top: 10px;
                                 display:block;
@@ -128,89 +156,38 @@
                      
                      <h1><b> View All Replacements</b></h1>
                      </br>
-
-                    <table width="70%">
-                      <tr>
-    
-    
-                        <th>From : </th>
-                      	<th>To : </th>
-                        <th></th>
-                        <th></th>
-                        </tr>
-                        <tr></tr>
-                      <tr>
-                          <form>
-                            <div class="form-group input-group">
-                                      <th><input name="date_1" type="date"  size="9" value=""/></th>
-                        			  <th> <input name="date_2" type="date"  size="9" value=""/></th>
-                        						
-				
-
-                        
-                            </div>
-					            
-					                  <th><button type="submit" name="submit" value="submit">Search</button> </th>
-					       </form>
-                      </tr>
-  
-  
-
- 
-
-				</table>
+					 
+					 
 <?php
 
 require "../core/database/connect.php";
 
-
-if (isset($_POST['submit'])) {
-     
-		$from_date = strtotime($_POST['date_1']);
-		$to_date = strtotime('-30 day',$from_date);
-
-		
-
-    $First_Date = date('Y-m-d',$from_date);
-    $Next_Date =  date('Y-m-d',$to_date);
-
 $sql="SELECT battery_status,replaced_date,batch_num,battery_num,defect_type,dealer_id
 FROM released_batteries
-WHERE battery_status = '3' OR  battery_status = '4' OR  battery_status = '5' OR  battery_status = '6'  AND replaced_date BETWEEN '" . $Next_Date . "' AND  '" . $First_Date . "'
-ORDER BY battery_status ";
+WHERE battery_status = '3' OR  battery_status = '4' OR  battery_status = '5' OR  battery_status = '6' 
+ORDER BY dealer_id ";
 
 
-   
-    $result = $conn->query($sql);
+ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
-	  echo "
-<div  class='tbl-header'>
-<table cellpadding='0' cellspacing='0' border='0'>
-  <thead>
-    <tr>
-      <th>Battery Number</th>
-      <th>Validity Status</th>
-      <th>Defect Type</th>
-	  <th></th>
-      
-    </tr>
-  </thead>
-</table>
-</div>
-<div  class='tbl-content'>
-<table cellpadding='0' cellspacing='0' border='0'>
-  <tbody>
-    <tr> " ;
+	?>
+	<table id="report">
+        <tr>
+			<th>Battery Number</th>
+			<th>Validity Status</th>
+			<th>Defect Type</th>
+			<th></th>
+        </tr>
 	
-	
-		while($row = $result->fetch_assoc()) {
+	<?php
+	while($row = $result->fetch_assoc()) {
 			//print_r ($row);
 		$batch_num = $row["batch_num"] ;
 		$battery_num = $row["battery_num"] ;
 		$battery_status = $row["battery_status"] ;
 		$defect_type = $row["defect_type"] ;
 		
-		if ($battery_status ==  '5' ){		
+			if ($battery_status ==  '5' ){		
 			$battery_status = "VALID";
 		}
 		elseif ($battery_status == '6' ){
@@ -222,172 +199,52 @@ if ($result->num_rows > 0) {
 			elseif ($battery_status == '4' ){
 			$battery_status = "PENDING";
 		}
-		/* foreach (array($row['battery_status']) as $key){
-		if ($key ==  '5' ){		
-			$battery_status = "VALID";
-				
-				
-		}elseif ($key == '6' ){
-			$battery_status = "INVALID";
-		}
-		} */
 		
-		if ($defect_type == ''){		
-			$defect_type= "PENDING";
-		}
-		else{
-			$defect_type = $row["defect_type"];
-		}	
+		$sql5 = "SELECT dealer_name FROM dealer WHERE dealer_id = '$row[dealer_id]'";
+            $query5=(mysqli_query($conn,$sql5));
+            while($res5 = mysqli_fetch_assoc($query5)){ 
 		
-		 echo "
-	  
-			<tbody>
-			<tr>
-				<td>".$row["batch_num"].$row["battery_num"]."</td>
-				<td>$battery_status</td>
-				<td>$defect_type</td>
-				<td><a href ='viewMore.php'>View More</a></td>
-			
-			</tr>";
 		
-	  
-	  
-	  }
-	  
-	  
-	  }
-	  
-}		  
-	  
+	  ?>
 
-
-
-
-
+        <tr>
+            <td><?php echo $row["batch_num"].$row["battery_num"]?></td>
+            <td><?php echo $battery_status ?></td>
+            <td><?php echo $defect_type?></td>
+            <td><div class="arrow"></div></td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <img src="125px-Flag_of_the_United_States.svg.png" alt="Flag of USA" />
+                <h4>Additional information</h4>
+                <ul>
+                    <li>Dealer Name : <?php echo $res5['dealer_name'] ?></li>
+                    <li></li>
+                    <li></li>
+                 </ul>   
+            </td>
+        </tr>
 	 
-  /* $sql="SELECT dealer_id FROM released_batteries WHERE dealer_id IS NOT NULL GROUP BY dealer_id ";
-  
-   $query=(mysqli_query($connection,$sql));
-   
-      while($res = mysqli_fetch_assoc($query)){ 
-	  
-            $sql5 = "SELECT dealer_name FROM dealer WHERE dealer_id = '$res[dealer_id]'";
-            $query5=(mysqli_query($connection,$sql5));
-		
-			
-            while($res5 = mysqli_fetch_assoc($query5)){
-						$dealer_name = $res5['dealer_name'];
-						$sql = "SELECT * FROM released_batteries WHERE battery_status = '5' OR battery_status = '6' AND replaced_date BETWEEN '" . $Next_Date . "' AND  '" . $First_Date . "' ";
-						$result = $conn->query($sql);
 
-						if ($result->num_rows > 0) { */
-							
-							
+<?php
+			}
+	}
+}
 ?>
 
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-    <tr>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-
-      </tr>
-    <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-    
-   
-    
-  </tbody>
-</table>
-</div>
-
-</div>
 
 
 
-                   
-</form>
+
+<script
+$(#report").jExpand(); 
+</script>
 
 
- 
 
-</div>
-</div>
 
- 
-       
 
-                        
-                        
-                            
 
-</div>
-</div>
-
-<div>
 
 
 

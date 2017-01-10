@@ -1,6 +1,8 @@
 <?php
   require "../database/connect.php";
-  $sql="SELECT dealer_id,coalesce(count(case when battery_status =6  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL GROUP BY dealer_id ";
+  $sql="SELECT dealer_id,coalesce(count(case when battery_status =6  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL AND dealer_id= ANY (SELECT dealer_id
+	FROM dealer
+	WHERE active ='1')  GROUP BY dealer_id ";
 ?>
 <!DOCTYPE html>
 
@@ -15,6 +17,30 @@
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
+		
+	.inactive_btn {
+	border-radius:6px;
+	border:1px solid #d02718;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:14px 35px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #810e05;
+}
+.inactive_btn:hover {
+	background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24537',GradientType=0);
+	background-color:#c62d1f;
+}
+.inactive_btn:active {
+	position:relative;
+	top:1px;
+}
+
        
          </style>
 
@@ -203,31 +229,11 @@
 	  
 	 echo"
 	 <form  method='POST' >
-	 <style>
-	 .btn
-	 {
+	";
+	?>
+	 <td><button class="inactive_btn" type="submit" name="Enter" value="Set"/></td>
 	
-   border: none;
-
-  
-    text-align: center;
-    text-decoration: none;
-
-    font-size: 20px;
-     padding: 15px 32px;
-    margin-top: 0px;
-    border-radius: 0px;
-    font-family: Calibri;
-    font-weight: bold;
-    margin-left: 15px;
-	    display: inline-block;
-	
-	
-		 
-	 }
-	 </style>
-	 <td><button class= 'btn' type='submit' name='Enter' value='Set'/>";
-	
+<?php	
 	if(isset($_POST['Enter']))
 { 
 require "../core/database/connect.php";

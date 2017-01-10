@@ -20,15 +20,28 @@ function clean($value)
 // FORM: Variables were posted
 if (count($_POST))
 {
-
+	$query= "SELECT defect_type FROM released_batteries WHERE ".$w_col1."='".$w_val1."' AND ".$w_col2."='".$w_val2."' ";
+    $sql = mysqli_query($conn, $query);
+	while ( $result = mysqli_fetch_assoc($sql)) 
+	{
+	 if  (is_null($result["defect_type"])) {
+		$query = mysqli_query($conn,"INSERT INTO released_batteries (defect_type) VALUES ('".$val."') ")
+	 		or die ('Unable to insert data.'); 
+	 }
+	 else {
 	// Prepare form variables for database
 	foreach($_POST as $column => $value)
 		${$column} = clean($value);
+	
+	
 
 	// Perform MySQL UPDATE
 	$result = mysqli_query($conn,"UPDATE released_batteries SET ".$col."='".$val."'
 		WHERE ".$w_col1."='".$w_val1."' AND ".$w_col2."='".$w_val2."' ")
 		or die ('Unable to update row.');
+}
+	 }
+	}
 }
 
 ?>

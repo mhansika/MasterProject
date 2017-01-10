@@ -318,7 +318,7 @@
 		<table cellpadding='0' cellspacing='0'border='0'> 
 			<tbody>";
 
-	}
+	
 
 	// output data of each row
 	while($row = $result->fetch_assoc()) {
@@ -331,12 +331,13 @@
 		$row["validity"] = $final_valid ;
 		$defected = check_defect ($conn, $valid);
 		$row["defected"] = $defected;
-
+		
+//check valid
 		if (isset($final_valid)) {
 			$check_replace = check_replacement ($conn,$valid,$final_valid, $defected) ;
 			$row["replacement"] = $check_replace;
-		}
-		/*		  
+		
+//count invalid batteries and set staus			  
 		if (isset($_POST['action'])) {
 			switch ($_POST['action']) {
 				case 'confirm':
@@ -347,7 +348,7 @@
 					break;
 			  
 			}
-		}*/
+		}
 		$id = "".$row["batch_num"]."|".$row["battery_num"];
 		$idIn = "".$row["batch_num"].$row["battery_num"];
 		 echo "
@@ -370,6 +371,8 @@
 				<td>".$row["replacement"]."</td>
 			</tr>"
 		;
+	}
+	}
 	}
 	echo "
 		

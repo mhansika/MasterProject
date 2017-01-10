@@ -79,16 +79,14 @@
 	// this check the defect type
 	function check_defect ($conn, $data) {
 
-		$defect =  $data["defect_type"];
+		$defect =  $data["defect_description"];
 		if (isset($defect)) {
-			if($defect != "{NONE}"){
 		   return "Defected";
-		   
 		} else {
 		  return "Not Defected";
 		}
 	}
-	}
+
 	// check the validity of the replacement using returned value from above two functions
 	function check_replacement ($conn,$data, $final_valid, $defected) {
 

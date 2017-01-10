@@ -1,34 +1,45 @@
 <!DOCTYPE html>
+
+
  <?php include '../core/init.php';
       protect_page(); 
 	
-      ?>
+?>
 
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
 		<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/editable-select.css">
+        <link rel="stylesheet" href="css/editable-select.css">
        
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <style>
-        .ui-select-wrap > .selected span {
-    display: table-cell;
-    vertical-align: middle;
-    padding: 0 13px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    font-size: 14px;
-    color: black;
-       
-         </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="js/jquery-editable-select.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="js/jquery-editable-select.js"></script>
+        <style>
+
+          .ui-select-wrap > .selected span {
+          display: table-cell;
+          vertical-align: middle;
+          padding: 0 13px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          font-size: 14px;
+          color: black;
+			}
+      	
+		.ui-select-wrap ul li.over {
+         background-color: #E5E5E5;
+         color: #333;
+		}
+       
+		</style>
+
+
 <script>
 	
 	$(function(){
@@ -37,68 +48,18 @@
  
 });
 
+function submitIfFormComplete()
+{
+  // Check the select has something selected
+  if (document.getElementById('selectOne').selectedIndex > 0)
+  {
+      document.getElementById('formID').submit();
+  }
+}
 
-
-		// JQUERY: Plugin "autoSumbit"
-	(function($) {
-		$.fn.autoSubmit = function(options) {
-			return $.each(this, function() {
-				// VARIABLES: Input-specific
-				var select = $(this);
-				var column = select.attr('name');
 	
-				// VARIABLES: Form-specific
-				var form = input.parents('form');
-				var method = form.attr('method');
-				var action = form.attr('action');
 
-				// VARIABLES: Where to update in database
-				var where_val1 = form.find('#where1').val();
-				var where_col1 = form.find('#where1').attr('name');
-				var where_val2 = form.find('#where2').val();
-				var where_col2 = form.find('#where2').attr('name');
-	
-				// ONBLUR: Dynamic value send through Ajax
-				input.bind('blur', function(event) {
-					// Get latest value
-					var value = input.val();
-					// AJAX: Send values
-					$.ajax({
-						url: "ajax-update1.php",
-						type: "POST", 
-						data: {
-							val: value,
-							col: column,
-							w_col1: where_col1,
-							w_val1: where_val1,
-							w_col2: where_col2,
-							w_val2: where_val2
-							
-						},
-						cache: false,
-						timeout: 10000,
-						success: function(data) {
-							// Alert if update failed
-							if (data) {
-								alert(data);
-							}
-							// Load output into a P
-							else {
-								$('#notice').text('Field updated');
-								$('#notice').fadeOut().fadeIn();
-							}
-						}
-					});
-					// Prevent normal submission of form
-					return false;
-				})
-			});
-		}
-	})(jQuery);
-	// JQUERY: Run .autoSubmit() on all select fields within form
-	$(function(){
-		$('#ajax-form SELECT').autoSubmit();
-	});
+
 
 		
 	//multiple dropdown selection	
@@ -123,6 +84,8 @@
 			});
 			
 		});
+		
+		
 
 	
 </script>
@@ -236,59 +199,56 @@
 
 
                     <div class="ad">
-										<a href="../index.php"  style="display:block;float:right;margin-right:45px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" src="../img/lgout.png" ></a>
+							<a href="../index.php"  style="display:block;float:right;margin-right:45px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" src="../img/lgout.png" ></a>
                     </br>
                     
                      <h1><b> Defect Types Of Batteries</b></h1>
                      </br>
 
                     <table width="70%">
-  <tr>
+                      <tr>
     
     
-    <th>From : </th>
-	<th>To : </th>
-   <th></th>
-    <th></th>
-  </tr>
-  <tr></tr>
-  <tr>
-    <form>
-    <div class="form-group input-group">
-                        <th><input name="date_1" type="date"  size="9" value=""/></th>
-						  <th> <input name="date_2" type="date"  size="9" value=""/></th>
-						
+                        <th>From : </th>
+                      	<th>To : </th>
+                        <th></th>
+                        <th></th>
+                        </tr>
+                        <tr></tr>
+                      <tr>
+                          <form>
+                            <div class="form-group input-group">
+                                      <th><input name="date_1" type="date"  size="9" value=""/></th>
+                        			  <th> <input name="date_2" type="date"  size="9" value=""/></th>
+                        						
 				
 
                         
-                    </div>
-					</th>
-					
-					 <th><button type="submit" name="submit" value="submit">Submit</button> </th>
-					 </form>
-  </tr>
+                            </div>
+					            
+					                  <th><button type="submit" name="submit" value="submit">Search</button> </th>
+					       </form>
+                      </tr>
   
   
 
  
 
-</table>
+				</table>
 <?php
+
 require "../core/database/connect.php";
 
 
 if (isset($_POST['submit'])) {
-        //$from_date = $_POST['date1'];
-		//$to_date = $_POST['date2'];
-		//$from_date = strtotime($from_date);
-		//$to_date = strtotime($to_date);
-		      $from_date = strtotime($_POST['date_1']);
+     
+		$from_date = strtotime($_POST['date_1']);
 		$to_date = strtotime('-30 day',$from_date);
 
 		
 
-$First_Date = date('Y-m-d',$from_date);
-$Next_Date =  date('Y-m-d',$to_date);
+    $First_Date = date('Y-m-d',$from_date);
+    $Next_Date =  date('Y-m-d',$to_date);
 
 $sql="SELECT battery_status,replaced_date,batch_num,battery_num,defect_type FROM released_batteries WHERE battery_status = '3' AND replaced_date BETWEEN '" . $Next_Date . "' AND  '" . $First_Date . "' ";
 
@@ -303,9 +263,10 @@ echo "
   <thead>
     <tr>
       <th>Replaced Batch Number</th>
-	  <th>Battery Number</th>
+	     <th>Battery Number</th>
       <th>Defect Type</th>
-	  <th></th>
+
+	     
       
     </tr>
   </thead>
@@ -320,65 +281,67 @@ while($row1 = $result->fetch_assoc() ){
 	echo"
 		<tr>
 		<td>".$row1["batch_num"]."</td>  
-		<td>".$row1["battery_num"]."</td> 
-		
-		";
-}
+		<td>".$row1["battery_num"]."</td> ";
 
-/* 
-        $date = $_POST['date'];
-    }
- */
-if(isset($_POST['Enter']))
+
+
+
+/* if(isset($_POST['Enter']))
 {   
-    $batch_num=mysqli_real_escape_string($conn,$_POST['batch_num']);
-    $battery_num=mysqli_real_escape_string($conn,$_POST['battery_num']);
-    //$date=mysqli_real_escape_string($conn,$_POST['replaced_date']);
+
     $defect_type=mysqli_real_escape_string($conn,$_POST['defect_type']);
 
  
 
     mysqli_query($conn,"UPDATE released_batteries SET defect_type='$defect_type' WHERE batch_num='$batch_num' AND battery_num='$battery_num' ");
 	
-	}
+	} */
 
 
-        
+  
+	
 
-
-    
-/* if($row1['replaced_date']==$date ){ */
-     /*   if($row1['battery_status']==3){
-       echo"
-	  <form  method='POST' >
-      <tr><td><input type='text'  name='batch_num'  value=".$row1['batch_num']."></td>  
-      <td><input type='number'  name='battery_num'  value=".$row1['battery_num']."></td>  
-      <td><input type='text' name='replaced_date'  value=".$row1['replaced_date']."></td>   
-     ";  */
-	   
+	
 //getting data to a drop down
     
 
-    echo"<form>
-	<td><select name='defect_type' onchange='this.form.submit()'>
-    <option value = ''>---Select---</option>";
+    echo"
+	<td>
+	
+	<form id='ajax-form' class='autosubmit' method='POST' action='ajax-update1.php'>
+	<select name='defect_type' id= 'selectOne' onchange='submitIfFormComplete()'>
+     <option value = ".$row1["defect_type"]."></option>
+	<option value = ''>--SELECT--</option>
+	";
     
     $query= "SELECT defect FROM defect_types ";
     $db = mysqli_query($conn, $query);
     while ( $d=mysqli_fetch_assoc($db)) {
-  echo "<option value='{".$d['defect']."}'>".$d['defect']."</option>";
+		
+	
+	/* $query= "SELECT defect_type FROM released_batteries WHERE batch_num = ".$row1["batch_num"]." AND battery_num = ".$row1["battery_num"]." ";
+    $sql = mysqli_query($conn, $query);
+    while ( $options=mysqli_fetch_assoc($sql)) {
+	foreach ($options as $option):
+       echo " <option value="$option" , $option === $selectOne , ' selected="selected"' : '' ><$option</option>";
+    endforeach
+	 */
+	
+  echo "
+  
+  <option value='{".$d['defect']."}'>".$d['defect']."</option>";
 }
     
     ?>
+	
     </select>
-	<noscript><input type="submit" value="Submit"></noscript></td></form>
+
     <?php
-    echo"<td><input type='submit' name='Enter' value='UPDATE'/>";
-    echo'</form>';
+ 
 
 
 
-if(isset($_POST['defect_type'])){
+/* if(isset($_POST['defect_type'])){
     $defect=mysqli_real_escape_string($conn,$_POST['defect_type']);
 	}
 
@@ -387,7 +350,7 @@ if(isset($_POST['defect_type'])){
 
     "</td>";
 
-        
+         */
 
 
     
@@ -407,7 +370,7 @@ if(isset($_POST['defect_type'])){
 
 
 
-
+}
 
 
 

@@ -20,7 +20,7 @@
 
 .ui-select-wrap > .selected span {
     display: table-cell;
-	color: black;
+	color :#E5E5E5;
     vertical-align: middle;
     padding: 0 13px;
     -webkit-user-select:none;
@@ -31,7 +31,7 @@
 }
 
 .ui-select-wrap .dropdown-box {
-    border: 1px solid black;
+    border: 1px solid #E5E5E5;
     border-top: none;
     display: none;
     position: absolute;
@@ -77,6 +77,6 @@
     
 }
 .ui-select-wrap ul li.over {
-    background-color: black;
+    background-color: #E5E5E5;
     color: #333;
 }
