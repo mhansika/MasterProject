@@ -26,7 +26,7 @@
         </li>
         <li class="sidenav">
             <div id="side">
-                <a href="../../report/report.php"><img src="../img/e.png" class="pic"></a>
+                <a href="../report/report.php"><img src="../img/e.png" class="pic"></a>
                 <span>Reports</span>
             </div>
         </li>

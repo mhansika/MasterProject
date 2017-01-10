@@ -35,7 +35,6 @@
 	-webkit-box-shadow: 0 0 5px #ccc;
 	box-shadow: 0 0 5px #ccc;
 	border:  5px solid #fff;
-	left: -5px;
 	background: #fff;
 	
 	/*fix other elements on the page moving (on Chrome)*/
@@ -46,13 +45,6 @@
     	transform: translatez(0);
 }
 
-.bx-wrapper .bx-pager,
-.bx-wrapper .bx-controls-auto {
-	position: absolute;
-	bottom: -30px;
-	width: 80%;
-}
-
 /* LOADER */
 
 .bx-wrapper .bx-loading {
@@ -60,7 +52,6 @@
 	background: url(../images/bx_loader.gif) center center no-repeat #fff;
 	height: 100%;
 	width: 80%;
-	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 2000;
@@ -71,10 +62,9 @@
 .bx-wrapper .bx-pager {
 	text-align: center;
 	font-size: .85em;
-	font-family: Arial;
+	font-family: Calibri;
 	font-weight: bold;
 	color: #666;
-	padding-top: 20px;
 }
 
 .bx-wrapper .bx-pager .bx-pager-item,
@@ -198,7 +188,7 @@
 
 .bx-wrapper .bx-caption span {
 	color: #fff;
-	font-family: Arial;
+	font-family: Calibri;
 	display: block;
 	font-size: .85em;
 	padding: 10px;

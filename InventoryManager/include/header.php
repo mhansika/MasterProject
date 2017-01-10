@@ -9,7 +9,7 @@
                 <a href="../inventory.php">
                     <img src="../img/logo.png" id="logo">
                 </a>
-                <a href="">
+                <a href="../../index.php">
                     <img src="../img/logout.png" id="logout">
                 </a>
         </div>
