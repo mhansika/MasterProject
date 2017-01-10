@@ -1,6 +1,7 @@
 <?php
   require "../database/connect.php";
-  $sql="SELECT dealer_id,coalesce(count(case when battery_status =6  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL AND dealer_id= ANY (SELECT dealer_id
+  $sql="SELECT dealer_id,coalesce(count(case when battery_status =6  then 1 end), 0) as count FROM released_batteries 
+  WHERE dealer_id IS NOT NULL AND dealer_id= ANY (SELECT dealer_id
 	FROM dealer
 	WHERE active ='1')  GROUP BY dealer_id ";
 ?>
@@ -125,7 +126,7 @@
                 <div class="link_bg"></div>
                 <div class="link_title" >
 
-                    <a href= "enterDefectType.php" id="cr" style="top: 10px;
+                      <a href= "searchProduct.php" id="cr" style="top: 10px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -135,7 +136,7 @@
                                 width:100%;
                                 height:70px;
                                 margin-top: 10px;
-                                text-align:center;"><img class= "pic" src="img/g.png" align="middle" width="80px"><span>Enter New Defect</span></a>
+                                text-align:center;"><img class= "pic" src="img/g.png" align="middle" width="80px"><span>Search Product</span></a>
                 </div>
             </li>
 
@@ -149,7 +150,7 @@
 
     <div class="content">
 
-        <div class="table">
+        <div class="tbl">
             <div id="content">
             <form action="#" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
 
@@ -247,7 +248,7 @@ require "../core/database/connect.php";
     
    
     
-  </tbody>
+ </tbody>
 </table>
 </div>
 

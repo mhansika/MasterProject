@@ -11,7 +11,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
 		<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/editable-select.css">
+   
        
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -20,33 +20,13 @@
 
         <style>
 
-          .ui-select-wrap > .selected span {
-          display: table-cell;
-          vertical-align: middle;
-          padding: 0 13px;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
-          font-size: 14px;
-          color: black;
-			}
-      	
-		.ui-select-wrap ul li.over {
-         background-color: #E5E5E5;
-         color: #333;
-		}
+
        
 		</style>
 
 
 <script>
-	
-	$(function(){
- 
-		$('select').editableSelect();
- 
-});
+
 
 function submitIfFormComplete()
 {
@@ -169,7 +149,7 @@ function submitIfFormComplete()
                 <div class="link_bg"></div>
                 <div class="link_title" >
 
-                    <a href= "enterDefectType.php" id="cr" style="top: 10px;
+                    <a href= "searchProduct.php" id="cr" style="top: 10px;
                                 display:block;
                                 position:absolute;
                                 float:left;
@@ -179,7 +159,7 @@ function submitIfFormComplete()
                                 width:100%;
                                 height:70px;
                                 margin-top: 10px;
-                                text-align:center;"><img class= "pic" src="img/g.png" align="middle" width="80px"><span>Enter New Defect</span></a>
+                                text-align:center;"><img class= "pic" src="img/g.png" align="middle" width="80px"><span>Search Product</span></a>
                 </div>
             </li>
 
@@ -227,6 +207,7 @@ function submitIfFormComplete()
                             </div>
 					            
 					                  <th><button type="submit" name="submit" value="submit">Search</button> </th>
+									    <th><a href = "enterDefectType.php"><img src="img/400.jpg" width="50px" height= "50px"></a></th>
 					       </form>
                       </tr>
   
@@ -249,11 +230,12 @@ if (isset($_POST['submit'])) {
 
     $First_Date = date('Y-m-d',$from_date);
     $Next_Date =  date('Y-m-d',$to_date);
+	
 
-$sql="SELECT battery_status,replaced_date,batch_num,battery_num,defect_type FROM released_batteries WHERE battery_status = '3' AND replaced_date BETWEEN '" . $Next_Date . "' AND  '" . $First_Date . "' ";
+$sql="SELECT battery_status,replaced_date,batch_num,battery_num,defect_type FROM released_batteries 
+WHERE battery_status = '3' AND replaced_date BETWEEN '" . $Next_Date . "' AND  '" . $First_Date . "' ";
 
-/* $defect="";
-$batch_num=""; */
+
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     
@@ -262,9 +244,11 @@ echo "
 <table cellpadding='0' cellspacing='0' border='0'>
   <thead>
     <tr>
-      <th>Replaced Batch Number</th>
-	     <th>Battery Number</th>
+      <th>Replaced Battery Number</th>
+	   
       <th>Defect Type</th>
+	  <th>Enter/Update Defect Type</th>
+
 
 	     
       
@@ -280,8 +264,8 @@ echo "
 while($row1 = $result->fetch_assoc() ){
 	echo"
 		<tr>
-		<td>".$row1["batch_num"]."</td>  
-		<td>".$row1["battery_num"]."</td> ";
+		<td>".$row1["batch_num"].$row1["battery_num"]."</td>  
+		<td>".$row1["defect_type"]."</td> ";
 
 
 
@@ -302,7 +286,7 @@ while($row1 = $result->fetch_assoc() ){
 	
 
 	
-//getting data to a drop down
+
     
 
     echo"
@@ -310,22 +294,16 @@ while($row1 = $result->fetch_assoc() ){
 	
 	<form id='ajax-form' class='autosubmit' method='POST' action='ajax-update1.php'>
 	<select name='defect_type' id= 'selectOne' onchange='submitIfFormComplete()'>
-     <option value = ".$row1["defect_type"]."></option>
 	<option value = ''>--SELECT--</option>
 	";
-    
+ 
+ //getting data to a drop down
+ 
     $query= "SELECT defect FROM defect_types ";
     $db = mysqli_query($conn, $query);
     while ( $d=mysqli_fetch_assoc($db)) {
 		
 	
-	/* $query= "SELECT defect_type FROM released_batteries WHERE batch_num = ".$row1["batch_num"]." AND battery_num = ".$row1["battery_num"]." ";
-    $sql = mysqli_query($conn, $query);
-    while ( $options=mysqli_fetch_assoc($sql)) {
-	foreach ($options as $option):
-       echo " <option value="$option" , $option === $selectOne , ' selected="selected"' : '' ><$option</option>";
-    endforeach
-	 */
 	
   echo "
   
@@ -335,29 +313,10 @@ while($row1 = $result->fetch_assoc() ){
     ?>
 	
     </select>
+		
 
     <?php
  
-
-
-
-/* if(isset($_POST['defect_type'])){
-    $defect=mysqli_real_escape_string($conn,$_POST['defect_type']);
-	}
-
-
-
-
-    "</td>";
-
-         */
-
-
-    
-
-
-
-
 
  
 
@@ -466,7 +425,7 @@ mysqli_close($conn);
 
 <div>
 
-
+</html>
 
 
 

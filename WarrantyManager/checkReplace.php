@@ -217,18 +217,18 @@
 					<div class="link_bg"></div>
 					<div class="link_title" >
 
-						<a href= "enterDefectType.php" id="cr" style="top: 10px;
-									display:block;
-									position:absolute;
-									float:left;
-									font-family:arial;
-									color:#1C1C1C;
-									text-decoration:none;
-									width:100%;
-									height:70px;
-									margin-top: 10px;
-									text-align:center;"><img class= "pic" src="img/g.png" align="middle" width="80px"><span>Enter New Defect</span></a>
-					</div>
+						  <a href= "searchProduct.php" id="cr" style="top: 10px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                margin-top: 10px;
+                                text-align:center;"><img class= "pic" src="img/g.png" align="middle" width="80px"><span>Search Product</span></a>
+                </div>
 				</li>
 
 		</nav>
@@ -390,7 +390,8 @@ function warranty_calculation ($conn, $batchNum , $batteryNum) {
  
 	$data= array();
 	$conn= mysqli_connect('localhost','root','','warranty_management');
-	$query=mysqli_query($conn,"SELECT * FROM released_batteries WHERE battery_status = '3' AND batch_num= '$batchNum' AND battery_num = '$batteryNum' ");
+	$query=mysqli_query($conn,"SELECT * FROM released_batteries 
+	WHERE battery_status = '3' AND batch_num= '$batchNum' AND battery_num = '$batteryNum' ");
 	$data=mysqli_fetch_assoc($query);
 	return $data ; 
 
@@ -465,9 +466,11 @@ function count_invalids($conn, $batchNum,$batteryNum, $check_replace){
 function set_status($conn, $batchNum,$batteryNum, $check_replace){
 
 	if ($check_replace == "VALID") {
-		mysqli_query($conn,"UPDATE released_batteries SET battery_status = '5' WHERE battery_status = '3' AND batch_num = '$batchNum' AND battery_num = '$batteryNum' ");
+		mysqli_query($conn,"UPDATE released_batteries SET battery_status = '5'
+		WHERE battery_status = '3' AND batch_num = '$batchNum' AND battery_num = '$batteryNum' ");
 	} else {
-		mysqli_query($conn,"UPDATE released_batteries SET battery_status = '6' WHERE battery_status = '3' AND batch_num = '$batchNum' AND battery_num = '$batteryNum' ");
+		mysqli_query($conn,"UPDATE released_batteries SET battery_status = '6'
+		WHERE battery_status = '3' AND batch_num = '$batchNum' AND battery_num = '$batteryNum' ");
 	}
 }
 ?>
@@ -483,3 +486,4 @@ function set_status($conn, $batchNum,$batteryNum, $check_replace){
 
 </div>
 </div>
+<html>

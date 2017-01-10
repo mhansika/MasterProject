@@ -19,50 +19,27 @@
 		<style>
 		
 #form-align{
-	   padding: 0;
-    margin-left:30%;
-    width:70%;
-    height:600px;
-    margin-top:-600px;
-    margin-right: 10%;
-	
-	
+	   padding: 0;margin-left:30%;width:70%;height:600px;margin-top:-600px;margin-right: 10%;	
 }
 	
 .form-style-2{
-    max-width: 500px;
-    padding: 20px 12px 10px 20px;
-    font: 13px Arial, Helvetica, sans-serif;
+    max-width: 500px;padding: 20px 12px 10px 20px;font: 13px Arial, Helvetica, sans-serif;
 }
 .form-style-2-heading{
-    font-weight: bold;
-	border-bottom: 2px solid #ddd;
-    margin-bottom: 20px;
-    font-size: 15px;
-    padding-bottom: 3px;
-	color: #ff4411; 
-	font-size: 24px; 
-	font-family: 'Signika', sans-serif;
+	font-weight: bold;border-bottom: 2px solid #ddd;margin-bottom: 20px;font-size: 15px;padding-bottom: 3px;color: #ff4411; font-size: 24px; font-family: 'Signika', sans-serif;
 
 }
 .form-style-2 label{
-    display: block;
-    margin: 0px 0px 15px 0px;
+    display: block;margin: 0px 0px 15px 0px;
 }
 .form-style-2 label > span{
-    width: 100px;
-    font-weight: bold;
-    float: left;
-    padding-top: 8px;
-    padding-right: 5px;
-	color:black;
+    width: 100px;font-weight: bold;float: left;padding-top: 8px;padding-right: 5px;color:black;
 }
 .form-style-2 span.required{
     color:red;
 }
 .form-style-2 .batch-number-field{
-    width: 60px;
-    text-align: center;
+    width: 60px;text-align: center;
 }
 .form-style-2 input.input-field{
     width: 48%;
