@@ -1,6 +1,6 @@
 <?php
  error_reporting(0);
-require 'database/connect.php';
+require '../../database/connect.php';
 
 
 	if (isset($_GET['data'])) {

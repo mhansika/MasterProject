@@ -36,18 +36,25 @@ $role= $user_data['role'];
         <table id="ad">
             <h1 class="add">Search Product</h1>
                 <tr>
-                    <td><b>Product Name:</b></td>
+                    <td id="data">
+                        <b>Product Name:</b>
+                    </td>
                 </tr>
-                <td></td>
+                <td id="data"></td>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="2" id="data">
                         <input name="name" size="30" maxlength="25" style="width: 300px" required>
                         <input type="submit" class="button" value="Search" name="submit" >
                     </td>
                 </tr>
             </form>
-            <tr><td><b>Battery Type:</td><td></td></tr>
-            <tr><td><b>Warranty Period:</td></tr>
+            <tr>
+                <td id="data"><b>Battery Type:</td>
+                <td id="data"></td>
+            </tr>
+            <tr>
+                <td id="data"><b>Warranty Period:</td>
+            </tr>
             <?php
             require "../../core/database/connect.php";
             if(isset($_POST['submit'])){
@@ -64,12 +71,12 @@ $role= $user_data['role'];
             mysqli_close($conn);
             ?>
         <tr>
-            <td></td>
-            <td>
+            <td id="data"></td>
+            <td id="data">
         <a class="link" id="delbattery" href="delbattery.php?" onclick="return confirm('Are you sure you wish to delete this Record?');">
             <button class="delete"> Delete</button></a>
             </td>
-            <td>
+            <td id="data">
         <a class="link" id="upbattery" href="upbattery.php">
             <button class="update">Update</button> </a>
             </td>

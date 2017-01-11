@@ -99,45 +99,45 @@ $role= $user_data['role'];
             <table id="ad">
                 <h1 class="add">Add Product</h1>
                     <tr>
-                        <td>Product type:</td>
-                        <td> <select name="battery_type">
+                        <td id="data">Product type:</td>
+                        <td id="data"> <select name="battery_type">
                                 <option value="Exide">Exide</option>
                                 <option value="Lucas">Lucas</option>
                                 <option value="Dagenite">Dagenite</option>
                         </td>
                     </tr>
                     <tr>
-                        <td>Product Name:</td>
-                        <td><input type="text" name="battery_name" style="width: 200px" required></td>
+                        <td id="data">Product Name:</td>
+                        <td id="data"><input type="text" name="battery_name" style="width: 200px" required></td>
                     </tr>
                     <tr>
-                        <td>Warranty period:</td>
-                        <td><select name="warranty_period">
+                        <td id="data">Warranty period:</td>
+                        <td id="data"><select name="warranty_period">
                                 <option value="1year">1 year</option>
                                 <option value="2year">2 year</option>
                         </td>
                     </tr>
                     <tr>
-                        <td>Ampere-hour Value:</td>
-                        <td><input type="text" name="amperehour_Value" style="width: 200px" required></td>
+                        <td id="data">Ampere-hour Value:</td>
+                        <td id="data"><input type="text" name="amperehour_Value" style="width: 200px" required></td>
                     </tr>
 
                     <tr>
-                        <td>Voltage Value:</td>
-                        <td><input type="text" name="voltage_Value" style="width: 200px" required></td>
+                        <td id="data">Voltage Value:</td>
+                        <td id="data"><input type="text" name="voltage_Value" style="width: 200px" required></td>
                     </tr>
                     <tr>
-                        <td>Item Type:</td>
-                        <td><input type="text" name="item_Type" style="width: 200px" required></td>
+                        <td id="data">Item Type:</td>
+                        <td id="data"><input type="text" name="item_Type" style="width: 200px" required></td>
                     </tr>
                     <tr>
-                        <td>Insert a image here: </td>
-                        <td><input type="file" name="imageUpload" id="imageUpload">
+                        <td id="data">Insert a image here: </td>
+                        <td id="data"><input type="file" name="imageUpload" id="imageUpload">
                     </tr>
                     <tr>
-                        <td></td>
-                        <td><button class="submit" name="submit" value="send">Submit</button></td>
-                        <td> <button class="reset" type="reset">Reset</button></td>
+                        <td id="data"></td>
+                        <td id="data"><button class="submit" name="submit" value="send">Submit</button></td>
+                        <td id="data"><button class="reset" type="reset">Reset</button></td>
                     </tr>
         </form>
         </table>

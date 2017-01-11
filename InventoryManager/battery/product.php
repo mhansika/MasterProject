@@ -90,7 +90,7 @@ include '../include/header.php'
                         </style>
                     </head>
                     <body>
-                        <table>
+                        <table >
                         <tr>
                         <th>Battery type</th>
                         <th>Battery name</th>

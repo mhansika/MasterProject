@@ -134,28 +134,6 @@ $role= $user_data['role'];
                     ?>
                 </div>
             </div>
-            <script>
-                $("div.content>ul#topnavi>li>a").click( function(e){
-                    e.preventDefault();
-                });
-                $("ul#topnavi>li>a").click( function(){
-                    var id = this.id;
-                    console.log(id);
-                    $('div.content > div.form').html("");
-                    if (id == "addsalep"){
-                        url = "addsalep.php";
-                    } else if (id == "searchsalep"){
-                        url = "searchsalep.php";
-                    }
-                    $.ajax({
-                        type:"post",
-                        url:url,
-                        success:function(data){
-                            $("div.content> div.form").html(data);
-                        }
-                    });
-                });
-            </script>
 </div>
     <?php
     include '../include/footer.php';

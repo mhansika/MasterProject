@@ -194,9 +194,13 @@ span{
 #ad{
     margin-left: 10%;
 }
-td{
+/*td{
     padding-bottom: 2%;
     padding-top: 2%;
+}*/
+#data{
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 #product{
     margin-left: 20%;
