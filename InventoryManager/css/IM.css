@@ -1,5 +1,5 @@
 .container {
-    width: 1400px; /*Set the width of the entire website here */
+    width: 100%; /*Set the width of the entire website here */
     margin-right: auto;
     margin-left: auto; /* Margin-left and right are set to auto to center the container */
 }

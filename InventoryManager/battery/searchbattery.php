@@ -78,29 +78,6 @@ $role= $user_data['role'];
         </form>
     </div>
 </div>
-<script>
-    $("div.content>ul#topnavi>li>a>a.link>a").click( function(e){
-        e.preventDefault();
-    });
-    $("a.link>a").click( function(){
-        var id = this.id;
-        console.log(id);
-        $('div.content > div.form').html("");
-        if (id == "upbattery"){
-            url = "upbattery.php";
-        } else if (id == "delbattery"){
-            url = "delbattery.php";
-        }
-        $.ajax({
-            type:"post",
-            url:url,
-            success:function(data){
-                $('div.content > div.form').html("");
-                $("div.content> div.form").html(data);
-            }
-        });
-    });
-</script>
 <?php
 include '../include/footer.php';
 ?>
