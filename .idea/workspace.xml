@@ -22,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="adddealer.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="adddealer.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/InventoryManager/dealer/adddealer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="330" column="28" selection-start-line="330" selection-start-column="28" selection-end-line="330" selection-end-column="28" />
+            <state relative-caret-position="2300">
+              <caret line="325" column="29" selection-start-line="325" selection-start-column="29" selection-end-line="325" selection-end-column="29" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -35,9 +35,9 @@
                 <element signature="n#style#0;n#input#0;n#td#0;n#tr#5;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#1;n#tr#5;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#2;n#tr#7;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1484161344741" expanded="true" signature="5272:5313" ph="Select DISTI... area" />
-                <marker date="1484161344741" expanded="true" signature="7484:7806" ph="INSERT INTO `warranty_management`.`dealer`... " />
-                <marker date="1484161344741" expanded="true" signature="11426:11464" ph="Select DISTI... area" />
+                <marker date="1484162005298" expanded="true" signature="5272:5313" ph="Select DISTI... area" />
+                <marker date="1484162005298" expanded="true" signature="7484:7806" ph="INSERT INTO `warranty_management`.`dealer`... " />
+                <marker date="1484162005298" expanded="true" signature="11426:11464" ph="Select DISTI... area" />
               </folding>
             </state>
           </provider>
@@ -65,15 +65,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dealerSearch.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dealerSearch.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/InventoryManager/dealer/dealerSearch.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="876">
-              <caret line="141" column="28" selection-start-line="141" selection-start-column="28" selection-end-line="141" selection-end-column="28" />
+            <state relative-caret-position="2154">
+              <caret line="263" column="0" selection-start-line="263" selection-start-column="0" selection-end-line="263" selection-end-column="0" />
               <folding>
-                <marker date="1484160856563" expanded="true" signature="4256:4302" ph="SELECT * FRO... dealer" />
-                <marker date="1484160856563" expanded="true" signature="4941:4976" ph="SELECT * FRO... area" />
-                <marker date="1484160856563" expanded="true" signature="5341:5391" ph="SELECT * FRO... sales_person" />
+                <marker date="1484164158859" expanded="true" signature="4256:4302" ph="SELECT * FRO... dealer" />
+                <marker date="1484164158859" expanded="true" signature="4941:4976" ph="SELECT * FRO... area" />
+                <marker date="1484164158859" expanded="true" signature="5341:5391" ph="SELECT * FRO... sales_person" />
               </folding>
             </state>
           </provider>
@@ -228,9 +228,9 @@
         <option value="$PROJECT_DIR$/InventoryManager/dealer/getdrop.php" />
         <option value="$PROJECT_DIR$/InventoryManager/css/IM.css" />
         <option value="$PROJECT_DIR$/code" />
-        <option value="$PROJECT_DIR$/InventoryManager/dealer/dealerSearch.php" />
         <option value="$PROJECT_DIR$/InventoryManager/battery/addbattery.php" />
         <option value="$PROJECT_DIR$/InventoryManager/dealer/adddealer.php" />
+        <option value="$PROJECT_DIR$/InventoryManager/dealer/dealerSearch.php" />
       </list>
     </option>
   </component>
@@ -358,12 +358,12 @@
       <workItem from="1478593330670" duration="12072000" />
       <workItem from="1480417736422" duration="4836000" />
       <workItem from="1480440268100" duration="15994000" />
-      <workItem from="1483943515624" duration="62420000" />
+      <workItem from="1483943515624" duration="64069000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146328000" />
+    <option name="totallyTimeSpent" value="147977000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -838,18 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/InventoryManager/dealer/dealerSearch.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="876">
-          <caret line="141" column="28" selection-start-line="141" selection-start-column="28" selection-end-line="141" selection-end-column="28" />
-          <folding>
-            <marker date="1484160856563" expanded="true" signature="4256:4302" ph="SELECT * FRO... dealer" />
-            <marker date="1484160856563" expanded="true" signature="4941:4976" ph="SELECT * FRO... area" />
-            <marker date="1484160856563" expanded="true" signature="5341:5391" ph="SELECT * FRO... sales_person" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/InventoryManager/battery/searchbattery.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
@@ -872,8 +860,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/InventoryManager/dealer/adddealer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="330" column="28" selection-start-line="330" selection-start-column="28" selection-end-line="330" selection-end-column="28" />
+        <state relative-caret-position="2300">
+          <caret line="325" column="29" selection-start-line="325" selection-start-column="29" selection-end-line="325" selection-end-column="29" />
           <folding>
             <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -882,9 +870,21 @@
             <element signature="n#style#0;n#input#0;n#td#0;n#tr#5;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#1;n#tr#5;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#2;n#tr#7;n#table#0;n#form#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1484161344741" expanded="true" signature="5272:5313" ph="Select DISTI... area" />
-            <marker date="1484161344741" expanded="true" signature="7484:7806" ph="INSERT INTO `warranty_management`.`dealer`... " />
-            <marker date="1484161344741" expanded="true" signature="11426:11464" ph="Select DISTI... area" />
+            <marker date="1484162005298" expanded="true" signature="5272:5313" ph="Select DISTI... area" />
+            <marker date="1484162005298" expanded="true" signature="7484:7806" ph="INSERT INTO `warranty_management`.`dealer`... " />
+            <marker date="1484162005298" expanded="true" signature="11426:11464" ph="Select DISTI... area" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/dealer/dealerSearch.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2154">
+          <caret line="263" column="0" selection-start-line="263" selection-start-column="0" selection-end-line="263" selection-end-column="0" />
+          <folding>
+            <marker date="1484164158859" expanded="true" signature="4256:4302" ph="SELECT * FRO... dealer" />
+            <marker date="1484164158859" expanded="true" signature="4941:4976" ph="SELECT * FRO... area" />
+            <marker date="1484164158859" expanded="true" signature="5341:5391" ph="SELECT * FRO... sales_person" />
           </folding>
         </state>
       </provider>

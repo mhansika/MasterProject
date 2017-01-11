@@ -212,10 +212,6 @@ $role= $user_data['role'];
 			echo 'alert("Sales Person result")';
 			echo '</script>';
 		}
-
-
-		/*
-    }*/
 		?>
 		<div class="AddPro">
 			<h1 class="add">Search Dealer</h1>
@@ -223,52 +219,52 @@ $role= $user_data['role'];
 				<form action="" method="POST">
 					<tr>
 						<td><b>Dealer ID : </b></td>
-						<td><span> <?php echo $v0;?><br/></span></td>
+						<td> <?php echo $v0;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Name : </b></td>
-						<td><span> <?php echo $v1;?><br/></span></td>
+						<td> <?php echo $v1;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>NIC: </b></td>
-						<td><span> <?php echo $v2;?><br/></span></td>
+						<td> <?php echo $v2;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Area: </b></td>
-						<td><span> <?php echo $v10;?><br/></span></td>
+						<td> <?php echo $v10;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Address : </b></td>
-						<td><span> <?php echo $v4;?><br/></span></td>
+						<td><?php echo $v4;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Relevant Salesperson Name: </b></td>
-						<td><span> <?php echo $v11 ." ". $v12;?><br/></span></td>
+						<td><?php echo $v11 ." ". $v12;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Mobile No : </b></td>
-						<td><span> <?php echo $v6;?><br/></span></td>
+						<td> <?php echo $v6;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Telephone No : </b></td>
-						<td><span> <?php echo $v7;?><br/></span></td>
+						<td> <?php echo $v7;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Email : </b></td>
-						<td><span> <?php echo $v8;?><br/></span></td>
+						<td><?php echo $v8;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Fax : </b></td>
-						<td><span> <?php echo $v9;?><br/></span></td>
+						<td><?php echo $v9;?><br/></td>
 					</tr>
 					<tr>
 						<td></td>

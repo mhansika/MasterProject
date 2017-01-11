@@ -324,10 +324,6 @@ $role= $user_data['role'];
                                 <button  class="reset" type="reset">Reset</button>
                             </td>
                         </tr>
-                        <div id="required">
-                            <p><span class="error">* Required Fields.</span><br/>
-                            </p>
-                        </div>
                     </table>
             </form>
         <?php
