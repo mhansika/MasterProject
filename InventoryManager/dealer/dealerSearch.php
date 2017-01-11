@@ -214,9 +214,9 @@ $role= $user_data['role'];
 		}
 		?>
 		<div class="AddPro">
-			<h1 class="add">Search Dealer</h1>
-			<table id="ad">
 				<form action="" method="POST">
+					<h1 class="add">Search Dealer</h1>
+					<table id="ad">
 					<tr>
 						<td><b>Dealer ID : </b></td>
 						<td> <?php echo $v0;?><br/></td>
@@ -271,7 +271,7 @@ $role= $user_data['role'];
 						<td>
 							<button class="save"  value="send" <a class="link" href="dealerDelete.php?" onclick="return confirm('Are you sure you wish to delete this Record?');">Delete</button></a>
 						</td>
-						<td> <button class="reset" type="reset" <a class="link" href="dealerUpdate.php?">Update</button></a>
+						<td>  <a class="link" href="dealerUpdate.php?">Update</a>
 						</td>
 					</tr>
 			</table>

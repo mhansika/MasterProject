@@ -1,6 +1,6 @@
 <?php 
 
-	require "core/init.php";
+	require "../../database/connect.php";
 	session_start();
 	$v = $_SESSION['dealer_name'];
 		

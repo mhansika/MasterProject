@@ -7,9 +7,7 @@
     <script>
 function validate(){
      //Dealer name
-        var a= document.myForm.dealer_name.value;  
-       
-          
+        var a= document.myForm.dealer_name.value;
        //  var a = document.form.name.value;
         if(a=="")
         {
@@ -23,7 +21,6 @@ function validate(){
         document.form.name.select();
         return false;
         }
-
          //Mobile no
           if( document.myForm.mobileNo.value == "" ||
          isNaN( document.myForm.mobileNo.value ) ||
@@ -33,7 +30,6 @@ function validate(){
             document.myForm.telephoneNo.focus() ;
             return false;
          }
-
          //TP nomber
         if( document.myForm.telephoneNo.value == "" ||
          isNaN( document.myForm.telephoneNo.value ) ||
@@ -63,7 +59,6 @@ function validate(){
             document.myForm.fax.focus() ;
             return false;
          }
-
     //Email Validation
      var emailID = document.myForm.email.value;
          atpos = emailID.indexOf("@");
@@ -75,28 +70,12 @@ function validate(){
             document.myForm.email.focus() ;
             return false;
          }
-        
-
-
-    
           return( true );
-}
 </script>
-
-
-
-
-
-
-
-
-
-
-
 </head>
     <body>
     <!--<?php
-        require "core/init.php";
+        require "../../database/connect.php";
         session_start();
         $v = $_SESSION['dealer_name'];
         //echo $v;
@@ -241,70 +220,70 @@ function validate(){
 
     ?>-->
     <div class="ad">
-    <h1>Update Dealer</h1>
-        <table>
         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" id="hello" name= "myForm" onsubmit="return(validate());">
-            <tr>
-                <td><b>Dealer ID: <?php echo $h0; ?></b></td>
-            </tr>
-            
-            <tr>
-                <td><b>Dealer Name:</b></td>
-                <td><b>Mobile No:</b></td>
-            </tr>
-            
-            <tr>
-                <td width="400px"><input type="text" name="dealer_name" style="width: 300px" value="<?php echo $h1; ?>"></td>
-                <td><input type="text" name="mobileNo" style="width: 200px" value="<?php echo $h6; ?>"></td>
-            </tr>
-            
-            <tr>
-                <td><b>Dealer Address:</b></td>
-                <td><b>Telephone No:</b></td>
-            </tr>
-            
-            <tr>
-                <td><input type="text" name="address" style="width: 300px" value="<?php echo $h4; ?>"></td>
-                <td><input type="text" name="telephoneNo" style="width: 200px" value="<?php echo $h7; ?>"></td>
-            </tr>
-            
-            <tr>
-                <td><b>NIC:</b></td>
-                <td><b>Fax No:</b></td>
-            </tr>
-            
-            <tr>
-                <td><input type="text" name="NIC" style="width: 200px" value="<?php echo $h2; ?>"></td>
-                <td><input type="text" name="fax" style="width: 200px" value="<?php echo $h9; ?>"></td>
-            </tr>
-            
-            <tr>
-                <td><b>Area:</b></td>
-                <td><b>E mail:</b></td>
-            </tr>
-            
-            <tr>
-                <td>
-                <?php echo $h10; ?>
-                </td>
-                <td><input type="text" name="email" style="width: 200px" value="<?php echo $h8; ?>"></td>
-            </tr>
-            
-            <tr>
+            <h1>Update Dealer</h1>
+                <table>
+                <tr>
+                    <td><b>Dealer ID: <?php echo $h0; ?></b></td>
+                </tr>
 
-                <td><b>Relevant Salesperson Name:</b></td>
-            </tr>
-            
-            <tr>
-                <td ><?php echo $h11 ." ". $h12; ?></td>
-            </tr>
-            <tr>
-                <td></td>
-           <td> <button type="submit">SAVE</button></td>
-            </tr>
+                <tr>
+                    <td><b>Dealer Name:</b></td>
+                    <td><b>Mobile No:</b></td>
+                </tr>
 
-        </form>
-        
+                <tr>
+                    <td width="400px"><input type="text" name="dealer_name" style="width: 300px" value="<?php echo $h1; ?>"></td>
+                    <td><input type="text" name="mobileNo" style="width: 200px" value="<?php echo $h6; ?>"></td>
+                </tr>
+
+                <tr>
+                    <td><b>Dealer Address:</b></td>
+                    <td><b>Telephone No:</b></td>
+                </tr>
+
+                <tr>
+                    <td><input type="text" name="address" style="width: 300px" value="<?php echo $h4; ?>"></td>
+                    <td><input type="text" name="telephoneNo" style="width: 200px" value="<?php echo $h7; ?>"></td>
+                </tr>
+
+                <tr>
+                    <td><b>NIC:</b></td>
+                    <td><b>Fax No:</b></td>
+                </tr>
+
+                <tr>
+                    <td><input type="text" name="NIC" style="width: 200px" value="<?php echo $h2; ?>"></td>
+                    <td><input type="text" name="fax" style="width: 200px" value="<?php echo $h9; ?>"></td>
+                </tr>
+
+                <tr>
+                    <td><b>Area:</b></td>
+                    <td><b>E mail:</b></td>
+                </tr>
+
+                <tr>
+                    <td>
+                    <?php echo $h10; ?>
+                    </td>
+                    <td><input type="text" name="email" style="width: 200px" value="<?php echo $h8; ?>"></td>
+                </tr>
+
+                <tr>
+
+                    <td><b>Relevant Salesperson Name:</b></td>
+                </tr>
+
+                <tr>
+                    <td ><?php echo $h11 ." ". $h12; ?></td>
+                </tr>
+                <tr>
+                    <td></td>
+               <td> <button type="submit">SAVE</button></td>
+                </tr>
+
+            </form>
+
         </table>
 
     </div>
