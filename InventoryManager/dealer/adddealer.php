@@ -137,7 +137,7 @@ $role= $user_data['role'];
             <a href="../dealer/view.php"><img src="../img/Search.png"></a>
         </div>
         <?php
-        require "../../core/init.php";
+        require "../../database/connect.php";
         $error=FALSE;
         $dealer_nameerr = $area_noerr =  $NICerr = $addresserr = $salesPerson_iderr = $mobileNoerr = $telephoneNoerr = $emailerr = $faxerr = $dog =  "";
         if ($_SERVER["REQUEST_METHOD"] == "POST") {

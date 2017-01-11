@@ -93,18 +93,6 @@ $role= $user_data['role'];
                         overflow-y: auto;  
                         overflow-x: hidden;  
                     }
-                   .add{
-                        font-size: 20px;
-                        background-color: #990000;
-                        color: white;
-                        width:70%;
-                        padding: 10px;
-                        line-height: 30px;
-                        margin:0 0 0;
-                        margin-bottom: 20px;
-                        padding-bottom: 10px;
-                        text-align: center;
-                    }
                     .dealer{
                         margin-left: 15%;
                         padding-top: 5%;

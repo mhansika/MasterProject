@@ -6,76 +6,11 @@
 		<link type="text/css" rel="stylesheet" href="css/m.css"/>
 
 		<title>search dealer</title>
-
-<script>
-        
-    $("div.content>ul#topnavi>li>a").click( function(e){
-
-        e.preventDefault();
-
-    });
-
-
-    $("ul#topnavi>li>a").click( function(){
-    var id = this.id;
-    console.log(id);
-
-    $('div.content > div.form').html("");
-
-     if (id == "viewdealer"){
-
-        url = "dd.php";
-
-    } else if (id == "adddealer"){
-
-        url = "adddealer.php";
-
-    }
-
-
-     $.ajax({
-
-
-            
-        type:"post",
-        url:url,
-        success:function(data){
-            $('div.content > div.form').html("");            
-            $("div.content> div.form").html(data);
-
-        }
-
-
-
-    });
-
-    
-
-
-
-});
-
-
-
-
-
-
-
-</script>
-
-
-
-
-
-
-
-
-
 	</head>
 	<body>
 
-	<!--<?php
-		require "database/connect.php";
+	<?php
+		require "../../database/connect.php";
 		
 		session_start();
 		$v1 = $_SESSION['dealer_name'];
@@ -155,66 +90,58 @@
 			/*
 		}*/
 	?>
-	-->
+
+	
 		
 	<div class="ad">
-		 <h1 style= "font-size: 20px;
-        background-color: #990000;
-        color: white;
-        width:100%;
-        padding: 10px;
-        font-family: Calibri;
-        line-height: 30px;
-        margin:0 0 0;
-        margin-bottom: 20px;
-        padding-bottom: 10px;">Add Dealer</h1>
+		<h1>Search Dealer</h1>
 			
 			
 		<table class="tbl">
 			<form action="" method="POST">
 				<tr>
 					<td><b>Dealer ID : </b></td>
-					<td><span> <br/></span></td>
+					<td><span> <?php echo $v0;?><br/></span></td>
 				</tr>
 					
 				<tr>
 					<td><b>Name : </b></td>
-					<td><span> <br/></span></td>
+					<td><span> <?php echo $v1;?><br/></span></td>
 				</tr>
 					
 				<tr>
 					<td><b>NIC: </b></td>
-					<td><span> <br/></span></td>
+					<td><span> <?php echo $v2;?><br/></span></td>
 				</tr>
 					
 				<tr>
 					<td><b>Area: </b></td>
-					<td><span> <br/></span></td>
+					<td><span> <?php echo $v10;?><br/></span></td>
 				</tr>
 					
 				<tr>
 					<td><b>Address : </b></td>
-					<td><span> <br/></span></td>
+					<td><span> <?php echo $v4;?><br/></span></td>
 				</tr>
 					
 				<tr>
 					<td><b>Relevant Salesperson Name: </b></td>
-					<td><span><br/></span></td>
+					<td><span> <?php echo $v11 ." ". $v12;?><br/></span></td>
 				</tr>
 					
 				<tr>
 					<td><b>Mobile No : </b></td>
-					<td><span> <br/></span></td>
+					<td><span> <?php echo $v6;?><br/></span></td>
 				</tr>
 					
 				<tr>
 					<td><b>Telephone No : </b></td>
-					<td><span><br/></span></td>
+					<td><span> <?php echo $v7;?><br/></span></td>
 				</tr>
 					
 				<tr>
 					<td><b>Email : </b></td>
-					<td><span> <br/></span></td>
+					<td><span> <?php echo $v8;?><br/></span></td>
 				</tr>
 					
 				<tr>
@@ -222,8 +149,8 @@
 					<td><span> <?php echo $v9;?><br/></span></td>
 				</tr>
 		</table>
-		<a class="link" href="dealerDelete.php" onclick="return confirm('Are you sure you wish to delete this Record?');">DELETE</a>
-		<a class="link" href="dealerUpdate.php">UPDATE</a>
+		<a class="link" href="dealerDelete.php?" onclick="return confirm('Are you sure you wish to delete this Record?');">DELETE</a>
+		<a class="link" href="dealerUpdate.php?">UPDATE</a>
 	</form>
 	</div>
 	</body>

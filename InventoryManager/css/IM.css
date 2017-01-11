@@ -198,6 +198,10 @@ td{
     padding-bottom: 2%;
     padding-top: 2%;
 }
+#product{
+    margin-left: 20%;
+    margin-top: 2%;
+}
 .submit, .reset, .update, .delete, .save{
     border-radius: 4px;
     padding: 10 10 10 10;

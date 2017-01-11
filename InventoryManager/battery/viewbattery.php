@@ -1,6 +1,4 @@
-<?php
-?>
-<html xmlns="http://www.w3.org/1999/html">
+
 <?php include '../../core/init.php';
 protect_page();
 ?>

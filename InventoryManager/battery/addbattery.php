@@ -95,7 +95,7 @@ $role= $user_data['role'];
             header("Location:inventory.php");
         }
         ?>
-        <form class="AddPro" action="addbattery.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
+        <form class="AddPro" action="" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
             <table id="ad">
                 <h1 class="add">Add Product</h1>
                     <tr>
