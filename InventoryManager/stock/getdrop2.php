@@ -10,7 +10,7 @@ require '../../database/connect.php';
 
         $res = mysqli_query($connection,$sql);
 
-         echo '<select name="dealer_id">';
+         echo '<select name="dealer_id" class="select-field">';
                        
                              while($r=mysqli_fetch_assoc($res)){ 
                                     
