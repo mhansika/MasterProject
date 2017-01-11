@@ -218,16 +218,14 @@ $role= $user_data['role'];
                 $sql="INSERT INTO `warranty_management`.`dealer` (`dealer_name`, `area_no`, `salesPerson_id`, `NIC`, `address`, `mobileNo`, `telephoneNo`, `email`, `fax`) VALUES ('$_POST[dealer_name]', $a_no , '$_POST[salesPerson_id]', '$_POST[NIC]', '$_POST[address]', '$_POST[mobileNo]', '$_POST[telephoneNo]', '$_POST[email]', '$_POST[fax]')";
                 if(mysqli_query($connection,$sql)){
                     //die();
-                    header("Location: adddealer.php");
+                    /*header("Location: adddealer.php");*/
                 } else{echo "error";}
             }
         }
         ?>
-        <div class="form">
             <form class="AddPro" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" id="hello" name= "myForm" onsubmit="return(validate());">
-                <div class="ad">
                     <h1  class="add">Add Dealer</h1>
-                    <table>
+                    <table id="ad">
                         <tr>
                             <td colspan="2">
                                 <b>Dealer Name:</b>
@@ -320,10 +318,10 @@ $role= $user_data['role'];
                             <td></td>
                             <td></td>
                             <td>
-                                <button type="submit">SAVE</button>
+                                <button class="save" type="submit">Save</button>
                             </td>
                             <td>
-                                <button type="reset">RESET</button>
+                                <button  class="reset" type="reset">Reset</button>
                             </td>
                         </tr>
                         <div id="required">
@@ -331,7 +329,6 @@ $role= $user_data['role'];
                             </p>
                         </div>
                     </table>
-                </div>
             </form>
         <?php
         include '../include/footer.php';
