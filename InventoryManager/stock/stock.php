@@ -13,7 +13,6 @@ $role= $user_data['role'];
 
 </head>
 <body>
-<div class="row">
     <?php
     include '../include/header.php'
     ?>
@@ -21,33 +20,29 @@ $role= $user_data['role'];
     include '../include/sidenav.php'
     ?>
     <div id="content">
-        <div class="form">
-            <div class="this">
-                <div>
-                    <a href="entermanufac.php">
-                        <img id="more" src="../images/more.png">
-                    </a>
-                </div>
-                <section>
-                    <div  class="tbl-header">
-                        <table cellpadding="0" cellspacing="0" border="0">
-                            <?php
-                            $servername = "localhost";
-                            $username = "root";
-                            $password = "";
-                            $dbname = "warranty_management";
+            <a href="entermanufac.php">
+                <button class="enter">Enter For More</button>
+            </a>
+        <section>
+            <div  class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <?php
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "warranty_management";
 
-                            // Create connection
-                            $conn = mysqli_connect($servername, $username, $password, $dbname);
-                            // Check connection
-                            if (!$conn) {
-                                die("Connection failed: " . mysqli_connect_error());
-                            }
-                            $sql = "SELECT battery_type,battery_name,current_stock FROM stock_in_hand";
-                            $result = $conn->query($sql);
+                    // Create connection
+                    $conn = mysqli_connect($servername, $username, $password, $dbname);
+                    // Check connection
+                    if (!$conn) {
+                        die("Connection failed: " . mysqli_connect_error());
+                    }
+                    $sql = "SELECT battery_type,battery_name,current_stock FROM stock_in_hand";
+                    $result = $conn->query($sql);
 
-                            if ($result->num_rows > 0) {
-                                echo "
+                    if ($result->num_rows > 0) {
+                        echo "
             <style>
         table{
               width:50%;
@@ -116,9 +111,6 @@ echo "
 </table>
         </div>
 </section>
-</div>
-</div>
-</div>
 </body>
 </html>";
         } else {
@@ -126,8 +118,6 @@ echo "
         }
         $conn->close();
         ?>
-                    </div>
-    </div>
     <?php
     include '../include/footer.php';
     ?>

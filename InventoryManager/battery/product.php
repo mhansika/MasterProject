@@ -43,11 +43,10 @@ include '../include/sidenav.php';
         else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }
-        header("Location:inventory.php");
     }
     ?>
     <div class="ad">
-        <form class="AddPro" action="addbattery.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
+        <form class="AddPro" action="" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
             <h1 class="add">Add Product</h1>
             <table id="ad">
                 <tbody>

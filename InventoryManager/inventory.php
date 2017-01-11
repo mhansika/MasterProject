@@ -1,5 +1,3 @@
-<?php
-?>
 <html>
 <?php include '../core/init.php';
 protect_page();
@@ -10,7 +8,6 @@ $role= $user_data['role'];
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/IM.css" type="text/css"/>
-
 </head>
 <body>
 <div class="row">
@@ -23,7 +20,6 @@ include 'include/sidenav.php'
     <div id="content">
 
     </div>
-
 <?php
 include 'include/footer.php';
 ?>

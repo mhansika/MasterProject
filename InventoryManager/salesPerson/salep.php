@@ -1,130 +1,134 @@
-<ul id="topnavi">
-            <li id="top"><a href="" id="viewsalep">View</a></li>
-            <li id="top"><a href="" id="addsalep">Add New</a></li>
-            <li id="top"><a href="" id="searchsalep">Search</a></li>
-          
-        </ul>
-
-
-<div class="content">
-
-
-        <div class="form">
-			<div class="seperate">
-
-
-
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "warranty_management";
+?>
+<html>
+<?php include '../../core/init.php';
+protect_page();
+?>
+<?php
+$role= $user_data['role'];
+?>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/IM.css" type="text/css"/>
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-$sql = "SELECT salesPerson_id, F_name, L_name, area_no, NIC, address,DOB,mobileNo,telephoneNo,email FROM sales_person";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    echo "<style>
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-    background-color: #990000;
-    color: white;
-}
-tbody {
-    height: 100px;       /* Just for the demo          */
-    overflow-y: auto;    /* Trigger vertical scroll    */
-    overflow-x: hidden;  /* Hide the horizontal scroll */
-}
-</style>
 </head>
 <body>
+<div class="row">
+    <?php
+    include '../include/header.php'
+    ?>
+    <?php
+    include '../include/sidenav.php'
+    ?>
+    <div id="content">
+        <div class="topnav">
+            <a href="../salesperson/salep.php"><img src="../img/View.png"></a>
+            <a href="../salesperson/addsalep.php."><img src="../img/Add.png"></a>
+            <a href="../salesperson/searchsalep.php."><img src="../img/Search.png"></a>
+        </div>
+            <div class="form">
+                <div class="seperate">
+                    <?php
+                    $servername = "localhost";
+                    $username = "root";
+                    $password = "";
+                    $dbname = "warranty_management";
 
-<table><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Area </th><th>NIC</th><th>Address</th><th>DOB</th><th>Mobile No</th><th>Tel No</th><th>E mail</th></tr>";
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["salesPerson_id"]."</td><td>".$row["F_name"]." </td><td>".$row["L_name"]." </td><td>".$row["area_no"]." </td><td>".$row["NIC"]." </td><td>".$row["address"]." </td><td>".$row["DOB"]." </td><td>".$row["mobileNo"]." </td><td>".$row["telephoneNo"]." </td><td>".$row["email"]." </td></tr>";
-    }
-    echo "</table></body>
-</html>";
-} else {
-    echo "0 results";
-}
-$conn->close();
-
-
-?>
+                    // Create connection
+                    $conn = mysqli_connect($servername, $username, $password, $dbname);
+                    // Check connection
+                    if (!$conn) {
+                        die("Connection failed: " . mysqli_connect_error());
+                    }
+                    $sql = "SELECT salesPerson_id, F_name, L_name, area_no, NIC, address,DOB,mobileNo,telephoneNo,email FROM sales_person";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        echo "<head>
+                        <style>
+                            table {
+                                border-collapse: collapse;
+                                width: 100%;
+                                }
+                            th, td {
+                                text-align: left;
+                                padding: 8px;
+                                }
+                            tr:nth-child(even){
+                                background-color: #f2f2f2
+                                }
+                            
+                            th {
+                                background-color: #990000;
+                                color: white;
+                                }
+                            tbody {
+                                height: 100px;        
+                                }
+                            </style>
+                        </head>
+                        <body>
+                            <table>
+                            <tr>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Area </th>
+                            <th>NIC</th>
+                            <th>Address</th>
+                            <th>DOB</th>
+                            <th>Mobile No</th>
+                            <th>Tel No</th>
+                            <th>E mail</th>
+                            </tr>";
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                            echo "<tr>
+                                        <td>".$row["salesPerson_id"]."</td>
+                                        <td>".$row["F_name"]." </td>
+                                        <td>".$row["L_name"]." </td>
+                                        <td>".$row["area_no"]." </td>
+                                        <td>".$row["NIC"]." </td>
+                                        <td>".$row["address"]." </td>
+                                        <td>".$row["DOB"]." </td>
+                                        <td>".$row["mobileNo"]." </td>
+                                        <td>".$row["telephoneNo"]." </td>
+                                        <td>".$row["email"]." </td> 
+                                    </tr>";
+                        }
+                        echo "</table></body></html>";
+                    } else {
+                        echo "0 results";
+                    }
+                    $conn->close();
+                    ?>
+                </div>
             </div>
-    </div>
-
-<script>
-        
-    $("div.content>ul#topnavi>li>a").click( function(e){
-
-        e.preventDefault();
-
-    });
-
-
-    $("ul#topnavi>li>a").click( function(){
-    var id = this.id;
-    console.log(id);
-
-    $('div.content > div.form').html("");
-
-     if (id == "addsalep"){
-
-        url = "addsalep.php";
-
-    } else if (id == "searchsalep"){
-
-        url = "searchsalep.php";
-
-    }
-
-     $.ajax({
-
-
-            
-        type:"post",
-        url:url,
-        success:function(data){
-
-            $("div.content> div.form").html(data);
-
-        }
-
-
-
-    });
-
-    
-
-
-
-});
-
-
-
-
-
-
-
-</script>
-
+            <script>
+                $("div.content>ul#topnavi>li>a").click( function(e){
+                    e.preventDefault();
+                });
+                $("ul#topnavi>li>a").click( function(){
+                    var id = this.id;
+                    console.log(id);
+                    $('div.content > div.form').html("");
+                    if (id == "addsalep"){
+                        url = "addsalep.php";
+                    } else if (id == "searchsalep"){
+                        url = "searchsalep.php";
+                    }
+                    $.ajax({
+                        type:"post",
+                        url:url,
+                        success:function(data){
+                            $("div.content> div.form").html(data);
+                        }
+                    });
+                });
+            </script>
+</div>
+    <?php
+    include '../include/footer.php';
+    ?>
+</div>
+</body>
+</html>
