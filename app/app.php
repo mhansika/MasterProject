@@ -16,50 +16,59 @@
     .signout{
     display:block;
     float:right;
-    margin-right:15px;
+    margin-right:10px;
     margin-top:10px;
     color: white;
     font-size:18px;
 }
 
-.col > div{
-        
+    
 
 }
 .header{
-  min-height: 90px;
+  min-height: 100px;
   margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
 
 }
 .header{
     background: #2d2f32;
+    min-height: 90px;
+    margin-left: 0px;
+  margin-right: 0px;
+
 }
 
 .intro-left{
     background: #c84646;
-    min-height: 540px;
+    min-height: 100px;
     margin-top: -5px;
     margin-right: 5px;
-    margin-left: -10px;
+    margin-left: 5px;
     margin-bottom: -1px;
+    padding: 25px;
     
     
 
 }
 .intro-right{
     background: #e2e2d8;
-    min-height: 540px;
-    margin-top: -5px;
-    margin-left: -25px;
-    margin-right: -10px;
+    min-height: 100px;
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 25px;
 
 }
 .section{
-    min-height: 540px;
+    min-height: 100px;
     background: #363636;
-    margin-top: -5px;
-    margin-left: -30px;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
     margin-bottom: -5px;
+    padding: 25px;
 }
 body {
     text-align:center;
@@ -74,10 +83,15 @@ a {
     color: black;
     text-decoration: none;
 
+
+}
+a:hover{
+    color:#737373;
 }
 
+
 .pic{
-    margin-top: 8px;
+    margin-top: 10px;
     width: 90px;
     height: 60px;
     margin-left: 2%;
@@ -94,7 +108,13 @@ h1  {
 
 .main_app{
     margin-left: 0%;
+    margin-top: 1%;
+    align-content: middle;
+    padding: 0px;
 }
+
+
+
 .logo{
     float: left;
     height: 80px;
@@ -123,41 +143,46 @@ h1  {
         </div>
      </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-14">
                 <div class="intro-left">
-                    <a  href="sold.php">
+                    <a  href="sold.php" class="sold">
                     
-                    </br></br></br></br></br>
+                    
                         <span>Sold Batteries</span>
-                         </br></br><img class= "main_app" src="img2/m.png" align="middle" >
+                        </br>  <img class= "main_app" src="img2/m.png" align="middle">
                     </a>
+                 </div>
                  </div>
                  </div>
             
         
 
-        
-            <div class="col-md-4">
+        <div class="row">
+       
+            <div class="col-md-14">
                 <div class="section">
 
                     <a href="replacements.php">
-                        </br></br></br></br></br><span>Replacements</span>
-                         </br></br>   <img class= "main_app" src="img2/c.png" align="middle">
+                        <span>Replacements</span>
+                         </br>   <img class= "main_app" src="img2/c.png" align="middle">
                     </a>
                 </div>
+            </div>
             </div>
         
 
-        
-            <div class="col-md-4">
+        <div class="row">
+       
+            <div class="col-md-14">
                 <div class="intro-right">
                     <a href="return_inwards.php">
-                    </br></br></br></br></br>
+                    
                         <span>Return Inwards</span>
-                        </br></br>   <img class= "main_app" src="img2/a.png" align="middle">
+                        </br>  <img class= "main_app" src="img2/a.png" align="middle">
                     </a>
                 </div>
             </div>
+        </div>
         </div>
 </body>
 </html>                                      
