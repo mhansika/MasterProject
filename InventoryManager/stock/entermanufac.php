@@ -353,7 +353,7 @@ if (isset($_POST["submit"]))
 										
 										
 										 
-											<label><span>Batch No :</span><input type="text" class="batch-number-field" name="batch_num1" value="D" maxlength="1" required />-<input type="number" class="batch-number-field" name="batch_num2" value="2" maxlength="1" required />-<input type="text" class="batch-number-field" name="batch_num3" value="D" maxlength="1" required />-<input type="number" class="batch-number-field" name="batch_num4" value="6" maxlength="1" required /></label>
+											<label for ="field1"><span>Batch No :</span><input type="text" class="batch-number-field" name="batch_num1" value="D" maxlength="1" required />-<input type="number" class="batch-number-field" name="batch_num2" value="2" maxlength="1" required />-<input type="text" class="batch-number-field" name="batch_num3" value="D" maxlength="1" required />-<input type="number" class="batch-number-field" name="batch_num4" value="6" maxlength="1" required /></label>
 										
 										
 									

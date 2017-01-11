@@ -14,66 +14,56 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script>
 	
-		// JQUERY: Plugin "autoSumbit"
-	(function($) {
-		$.fn.autoSubmit = function(options) {
-			return $.each(this, function() {
-				// VARIABLES: Input-specific
+		$(function(){
+			$(".autosubmit").change(function(){
 				var input = $(this);
+				var value = input.val();
 				var column = input.attr('name');
-	
-				// VARIABLES: Form-specific
+				var id = input.attr('id');
+				
+				if ( value == "" )
+					return;
+			
 				var form = input.parents('form');
-				var method = form.attr('method');
-				var action = form.attr('action');
 
-				// VARIABLES: Where to update in database
-				var where_val1 = form.find('#where1').val();
-				var where_col1 = form.find('#where1').attr('name');
-				var where_val2 = form.find('#where2').val();
-				var where_col2 = form.find('#where2').attr('name');
-	
-				// ONBLUR: Dynamic value send through Ajax
-				input.bind('blur', function(event) {
-					// Get latest value
-					var value = input.val();
-					// AJAX: Send values
-					$.ajax({
-						url: "ajax-update.php",
-						type: "POST", 
-						data: {
-							val: value,
-							col: column,
-							w_col1: where_col1,
-							w_val1: where_val1,
-							w_col2: where_col2,
-							w_val2: where_val2
-							
-						},
-						cache: false,
-						timeout: 10000,
-						success: function(data) {
-							// Alert if update failed
-							if (data) {
-								alert(data);
-							}
-							// Load output into a P
-							else {
-								$('#notice').text('Field updated');
-								$('#notice').fadeOut().fadeIn();
-							}
+				id = id.split('_')[1];
+				
+				var batch = ('#batch_').concat(id);
+				var battery = ('#battery_').concat(id);
+				
+				var where_val1 = form.find(batch).val();
+				var where_col1 = form.find(batch).attr('name');
+				var where_val2 = form.find(battery).val();
+				var where_col2 = form.find(battery).attr('name');
+				
+				$.ajax({
+					url: "ajax-update.php",
+					type: "POST", 
+					data: {
+						val: value,
+						col: column,
+						w_col1: where_col1,
+						w_val1: where_val1,
+						w_col2: where_col2,
+						w_val2: where_val2
+						
+					},
+					cache: false,
+					timeout: 10000,
+					success: function(data) {
+						// Alert if update failed
+						if (data) {
+							alert(data);
 						}
-					});
-					// Prevent normal submission of form
-					return false;
-				})
+						// Load output into a P
+						else {
+							$('#notice').text('Field updated');
+							$('#notice').fadeOut().fadeIn();
+						}
+					}
+				});
 			});
-		}
-	})(jQuery);
-	// JQUERY: Run .autoSubmit() on all INPUT fields within form
-	$(function(){
-		$('#ajax-form INPUT').autoSubmit();
-	});
+		});
 		
 	//multiple dropdown selection	
 		$( document ).ready(function() {
@@ -97,12 +87,11 @@
 			});
 			
 		});
-		
-	
+			
 			
 		<?php if (isset($_POST['dealer_id']) ){ ?>
 		function confirmValids(){
-			
+			alert("DEMO");
 			var dealer  = <?php echo $_POST['dealer_id'] ?>;
 			$.ajax({
 				type: "POST",
@@ -355,15 +344,11 @@
 			<tr>
 				<td>".$idIn."</td>
 				<td>
-					<form id='ajax-form' class='autosubmit' method='POST' action='ajax-update.php'>
-					<input type='date' id='date_".$idIn."' name='replaced_date' size='20' value= ".$row['replaced_date'].">
-				
-				
-					<input id='where1' type='hidden' name='batch_num' value=".$row['batch_num']."  />
-					<input id='where2' type='hidden' name='battery_num' value=".$row['battery_num']."  />
-				</form>
-							
-					
+					<form id='dateform_".$idIn."' class='autosubmit' method='POST' action='ajax-update.php'>
+						<input id='date_".$idIn."' type='date' id='date_".$idIn."' name='replaced_date' size='20' value= '".$row['replaced_date']."' class='autosubmit'>
+						<input id='batch_".$idIn."' type='hidden' name='batch_num' value=".$row['batch_num']."  />
+						<input id='battery_".$idIn."' type='hidden' name='battery_num' value=".$row['battery_num']."  />
+					</form>
 				</td>
 				<td>".$row['warranty_period']."</td>
 				<td>".$row["validity"]."</td>

@@ -1,7 +1,27 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <?php include 'core/init.php';
-      protect_page(); 
-      ?>
+protect_page();
+?>
+<?php
+$role = $user_data['role'];
+if ($role=="admin") {
+?>
+	
+
+</script>
+<?php
+	}elseif ($role=="deo"){
+		
+		
+		
+	}?>
+	
+	
+
+
+
+
+
 <html>
 <head>
     <title>WELCOME</title>
