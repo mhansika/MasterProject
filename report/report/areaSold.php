@@ -61,8 +61,72 @@ include_once "connection.php";
     <link href="rpt/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+<!--pdf-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.0-beta.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.1.135/jspdf.min.js"></script>
+<script type="text/javascript" src="http://cdn.uriit.ru/jsPDF/libs/adler32cs.js/adler32cs.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js
+"></script>
+<script type="text/javascript" src="libs/Blob.js/BlobBuilder.js"></script>
+<script type="text/javascript" src="http://cdn.immex1.com/js/jspdf/plugins/jspdf.plugin.addimage.js"></script>
+<script type="text/javascript" src="http://cdn.immex1.com/js/jspdf/plugins/jspdf.plugin.standard_fonts_metrics.js"></script>
+<script type="text/javascript" src="http://cdn.immex1.com/js/jspdf/plugins/jspdf.plugin.split_text_to_size.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.2.3/jspdf.plugin.autotable.js"></script>
+
+<script type="text/javascript" src="http://cdn.immex1.com/js/jspdf/plugins/jspdf.plugin.from_html.js"></script>
+<script type="text/javascript" src="http://dataurl.net/#dataurlmaker"></script>
+<script type="text/javascript" src="js/basic.js"></script>
+
+<script lang="javascript" type="text/javascript">
+
+
+function run()
+ {
+    
+    var pdf = new jsPDF('p', 'pt', 'letter'),
+    source = $('#content')[0],
+    specialElementHandlers = {
+        'bypassme':function(element,renderer){
+            return true;
+        }
+    };
+    
+    margins = {
+        top: 40,
+        //yata idan tynna ona ida tika
+        bottom: 20,
+        left: 40,
+        right: 40,
+        width: 522
+    };
+    
+    
+
+
+pdf.fromHTML(
+        source,
+        margins.left,
+        margins.top,
+        {
+        'width': margins.width 
+        },
+        function (dispose) {
+            pdf.save('Test.pdf');
+        },
+        margins
+   );
+   
+};
+
+
+</script>
+
+
 </head>
-<body>
+<body id="content">
     
             <div id="page-inner">
                 <div class="row">
@@ -78,7 +142,7 @@ include_once "connection.php";
      
       <div class="row pad-top-botm ">
          <div class="col-lg-6 col-md-6 col-sm-6 ">
-            <img src="assets/img/logo.png" width="25%" height="15%" style="padding-bottom:20px;" /> 
+            <img src="rpt/img/logo.png" width="25%" height="15%" style="padding-bottom:20px;" /> 
          </div>
           <div class="col-lg-6 col-md-6 col-sm-6">
             
@@ -100,9 +164,11 @@ include_once "connection.php";
              <span>
                  <strong>Email : </strong>  info@abmlanka.com
              </span>
+             <p>
              <span>
-                 <strong>Call : </strong>  0094 11 2713111 – 3
+                 <strong>Call : </strong>  0094 11 2713111
              </span>
+           </p>
               <span>
                  <strong>Fax : </strong>  0094 11 2734139
              </span>
@@ -167,15 +233,18 @@ $conn->close();
 
 ?>
 </div>
-             <hr/>
+             <br>
+             <hr>
              <div class="ttl-amts">
                   <h5>  Year : <?php echo $str1;?> Month : <?php echo $str2;?> </h5>
              </div>
-             <hr />
+             <br>
+             <hr>
               <div class="ttl-amts">
                   <h5>  Date : <?php echo date("Y/m/d"); ?></h5>
              </div>
-             <hr />
+             <br>
+             <hr>
               <div class="ttl-amts">
                   <h4> <strong>Signature</strong> </h4>
              </div>
@@ -186,8 +255,7 @@ $conn->close();
          <div class="col-lg-12 col-md-12 col-sm-12">
              <hr />
              
-              <a href="#" class="btn btn-success btn-lg" >Download In Pdf</a>
-
+              <button onclick="run()" class="btn btn-success btn-lg">Download In Pdf</button>
              </div>
          </div>
  </div>
