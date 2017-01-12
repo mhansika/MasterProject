@@ -4,12 +4,70 @@ include_once "../../database/connect.php";
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
- <form action="sales_report.php " method="post">
-  <a href="chart.php">back</a>   
+ <form action="sales_report.php" method="post">
+                                              Area:
+                                              <?php 
+                                                      
+                                                        echo '<select name="area" id="cap" style="font-color:black;">';
+                                                        //echo '<option>     -------Area--------   </option>';
+                                                      
+                                                        $sql1 = "Select DISTINCT area_no,area from area";
+                                                        $query1= mysqli_query($connection, $sql1);
+                                                          while($r=mysqli_fetch_row($query1)){ 
+                                                                 echo '<option id=' .$r[0].'> ' . $r[1] . '</option>';
+
+                                                          }
+                                                      
+                                                        echo "</select>";
+                                                        ?>
+                                                        Year:
+                                                        <?php
+
+                                                        echo '<select name="year">';
+                                                        
+                                                        $year = date("Y") - 3; 
+                                                        for ($i = 0; $i <= 3; $i++) {
+                                                          echo "<option>$year</option>"; 
+                                                          $year++;
+                                                        }
+                                                        
+                                                        echo '</select>';
+                                                        ?>
+                                                        Month:
+                                                        <?php
+
+                                                        echo '<select name="month">';
+
+                                                        echo '<option value="1">January</option>';
+                                                        echo '<option value="2">February</option>';
+                                                        echo '<option value="3">March</option>';
+                                                        echo '<option value="4">April</option>';
+                                                        echo '<option value="5">May</option>';
+                                                        echo '<option value="6">June</option>';
+                                                        echo '<option value="7">July</option>';
+                                                        echo '<option value="8">August</option>';
+                                                        echo '<option value="9">September</option>';
+                                                        echo '<option value="10">October</option>';
+                                                        echo '<option value="11">November</option>';
+                                                        echo '<option value="12">December</option>';
+
+                                                        echo '</select>';
+
+                                            ?>
+                                                        
+                                                     
+
+                                        <th>
+                                            
+                                            <button type="submit" name="submit" value="submit">search</button>
+
+                                        </th>
+                                        </form>
+     
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Report</title>
+    <title></title>
 
     <!-- BOOTSTRAP STYLES-->
     <link href="rpt/css/bootstrap.css" rel="stylesheet" />
@@ -23,61 +81,127 @@ include_once "../../database/connect.php";
     <link href="rpt/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+    <!--pdf-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/ui/1.12.0-beta.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.1.135/jspdf.min.js"></script>
+<script type="text/javascript" src="http://cdn.uriit.ru/jsPDF/libs/adler32cs.js/adler32cs.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2014-11-29/FileSaver.min.js
+"></script>
+<script type="text/javascript" src="libs/Blob.js/BlobBuilder.js"></script>
+<script type="text/javascript" src="http://cdn.immex1.com/js/jspdf/plugins/jspdf.plugin.addimage.js"></script>
+<script type="text/javascript" src="http://cdn.immex1.com/js/jspdf/plugins/jspdf.plugin.standard_fonts_metrics.js"></script>
+<script type="text/javascript" src="http://cdn.immex1.com/js/jspdf/plugins/jspdf.plugin.split_text_to_size.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.2.3/jspdf.plugin.autotable.js"></script>
+
+<script type="text/javascript" src="http://cdn.immex1.com/js/jspdf/plugins/jspdf.plugin.from_html.js"></script>
+<script type="text/javascript" src="http://dataurl.net/#dataurlmaker"></script>
+<script type="text/javascript" src="js/basic.js"></script>
+
+<script lang="javascript" type="text/javascript">
+
+
+function run()
+ {
+    
+    var pdf = new jsPDF('p', 'pt', 'letter'),
+    source = $('#content')[0],
+    specialElementHandlers = {
+        'bypassme':function(element,renderer){
+            return true;
+        }
+    };
+    
+    margins = {
+        top: 40,
+        //yata idan tynna ona ida tika
+        bottom: 20,
+        left: 40,
+        right: 40,
+        width: 522
+    };
+    
+    
+
+
+pdf.fromHTML(
+        source,
+        margins.left,
+        margins.top,
+        {
+        'width': margins.width 
+        },
+        function (dispose) {
+            pdf.save('Test.pdf');
+        },
+        margins
+   );
+   
+};
+
+
+</script>
     
 </head>
-<body>
+<body id="content">
     
-    <div id="page-inner">
-        <div class="row">
-          <div class="col-md-12">
-              <h1 class="page-head-line">Sales Report</h1>
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                      <!-- header-->
+                        <h1 class="page-head-line">Sales Report</h1>
 
-          </div>
-          </div>
-            <!-- /. ROW  -->
-          <div class="row">
-              <div class="col-md-12">
-                  <div >
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                       <div >
      
-                    <div class="row pad-top-botm ">
-                       <div class="col-lg-6 col-md-6 col-sm-6 ">
-                          <img src="rpt/img/logo.png" width="25%" height="15%" style="padding-bottom:20px;" /> 
-                       </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                          
-                             <strong>   Associated Battery Manufactures</strong>
-                            <br />
-                                <i>Address :</i> No. 31, 
-                                    Katukurunduwatte Road,
+      <div class="row pad-top-botm ">
+         <div class="col-lg-6 col-md-6 col-sm-6 ">
+            <img src="rpt/img/logo.png" width="25%" height="15%" style="padding-bottom:20px;" /> 
+         </div>
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            <!-- Address-->
+               <strong>   Sales Report</strong>
+              <br />
+                  <i>Address :</i> No. 31, 
+                      Katukurunduwatte Road,
 
-                            <br />
-                                off Attidiya Road, 
-                            <br />
-                                Ratmalana.
-                            
-                        </div>
-                    </div>
-                    <div  class="row text-center contact-info">
-                         <div class="col-lg-12 col-md-12 col-sm-12">
-                             <hr />
-                             <span>
-                                 <strong>Email : </strong>  info@abmlanka.com
-                             </span>
-                             <span>
-                                 <strong>Call : </strong>  0094 11 2713111 – 3
-                             </span>
-                              <span>
-                                 <strong>Fax : </strong>  0094 11 2734139
-                             </span>
-                             <hr />
-                         </div>
-                    </div>
+              <br />
+                  off Attidiya Road, 
+              <br />
+                  Ratmalana.
+              
+         </div>
+     </div>
+     <div  class="row text-center contact-info" style="text-align:center;">
+         <div class="col-lg-12 col-md-12 col-sm-12">
+             <hr />
+             <span>
+                 <strong>Email : </strong>  info@abmlanka.com
+             </span>
+             <p>
+             <span>
+                 <strong>Call : </strong>  0094 11 2713111/3
+             </span>
+           </p>
+
+              <span>
+                 <strong>Fax : </strong>  0094 11 2734139
+             </span>
+             <hr />
+         </div>
+     </div>
     
 
 
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12">
-                            <div class="table-responsive">
+     <div class="row">
+         <div class="col-lg-12 col-md-12 col-sm-12">
+           <div class="table-responsive">
 
 
 
@@ -116,7 +240,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
               
               echo "$_POST[year] ";
-              echo "$_POST[month]";
+              $monthNum  = $_POST['month'];
+              $dateObj   = DateTime::createFromFormat('!m', $monthNum);
+              $monthName = $dateObj->format('F');
+              echo $monthName;
               $sql2="SELECT dealer_id FROM dealer WHERE area_no=$a_no";
               $query2=(mysqli_query($connection,$sql2));
               while ($res2 = mysqli_fetch_assoc($query2)) {
@@ -153,10 +280,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
              
              
              
-              <div class="ttl-amts">
+              <div  style="float:left">
+                <!--give current date-->
                   <h5>  Date : <?php echo date("Y/m/d"); ?></h5>
              </div>
-             <hr />
+             <br>
+             <hr>
               <div class="ttl-amts">
                   <h4> <strong>Signature</strong> </h4>
              </div>
@@ -168,7 +297,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
          <div class="col-lg-12 col-md-12 col-sm-12">
              <hr />
              
-              <a href="#" class="btn btn-success btn-lg" >Download In Pdf</a>
+              <button onclick="run()" class="btn btn-success btn-lg">Download In Pdf</button>
 
              </div>
          </div>
