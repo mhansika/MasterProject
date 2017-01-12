@@ -224,8 +224,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                         $error = TRUE;
                     }else{
                         $area_no = $_POST['area'];
-                        echo $area_no;
-                        echo " ";
+                        echo "<b>".$area_no."</b>";
+                        echo "</br>";
                         $sql2 = "Select DISTINCT area_no,area from area = $area_no";
                         $result2= mysqli_query($connection, $sql2);
                         if (mysqli_query($connection, $sql2)){
@@ -239,11 +239,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
               
-              echo "$_POST[year] ";
+              echo "<b>"."$_POST[year] "."</b>";
               $monthNum  = $_POST['month'];
               $dateObj   = DateTime::createFromFormat('!m', $monthNum);
               $monthName = $dateObj->format('F');
-              echo $monthName;
+              echo "<b>".$monthName."</b>";
               $sql2="SELECT dealer_id FROM dealer WHERE area_no=$a_no";
               $query2=(mysqli_query($connection,$sql2));
               while ($res2 = mysqli_fetch_assoc($query2)) {
