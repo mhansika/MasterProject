@@ -169,7 +169,7 @@ require "../core/database/connect.php";
 
                     <table width="70%">
   <tr>
-    <th>Area</th>
+    <!--<th>Area</th>-->
     <th></th>
     <th></th>
     
@@ -179,26 +179,7 @@ require "../core/database/connect.php";
   </tr>
   <tr></tr>
   <tr>
-    <th><?php 
-                        
-                        echo '<select name="area" id="cap" style="font-color:black;">';
-                        echo '<option>     -------ALL--------   </option>';
-                        
-                        $sql1 = "Select DISTINCT area_no,area from area";
-                        $result1= mysqli_query($connection, $sql1);
-                             while($r=mysqli_fetch_row($result1))
-                             { 
-                                   echo '<option id=' .$r[0].'> ' . $r[1] . '</option>';
-
-                             }
-                        
-                        echo "</select>";
-
-                    ?></th>
-
-    <th>
-        <button type="submit" name="submit" value="submit">search</button>
-    </th>
+   
     </tr>
   
 
@@ -224,10 +205,14 @@ require "../core/database/connect.php";
   <tbody>
     <?php 
 
+    
+
 
     
-      
-      $sql="SELECT battery_num,dealer_id,coalesce(count(case when battery_status =3  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL AND dealer_id = ANY (SELECT dealer_id FROM released_batteries WHERE battery_status=3) GROUP BY dealer_id";
+      $sql2="SELECT dealer_id FROM dealer WHERE active=1";
+      $query2=(mysqli_query($connection,$sql2));
+      while ($res2 = mysqli_fetch_assoc($query2)){
+      $sql="SELECT battery_num,dealer_id,coalesce(count(case when battery_status =3  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL AND dealer_id = ANY (SELECT dealer_id FROM released_batteries WHERE battery_status=3)  AND dealer_id = '$res2[dealer_id]' GROUP BY dealer_id";
       $query=(mysqli_query($connection,$sql));
       while($res = mysqli_fetch_assoc($query)){ 
             $sql5 = "SELECT dealer_name FROM dealer WHERE dealer_id = '$res[dealer_id]'";
@@ -241,16 +226,17 @@ require "../core/database/connect.php";
             echo"
      <form  method='POST' >";
     ?>
-    <td><button class="inactive_btn" type="submit" name="Enter" value="<?php echo "$res[dealer_id]"?>">Inactive</button></td>
+    <td><button class="inactive_btn" type="submit" name="Enter" value="<?php echo "$res[dealer_id]"?>" onclick="return confirm('Are you sure you wish to inactive this dealer?');">Inactive</button></td>
     
     <?php   
   
     echo'</form>'; 
             
 
-    }
-    
-    ?>
+         }
+     
+}
+?>
 
     
    
