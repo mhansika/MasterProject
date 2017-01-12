@@ -311,3 +311,51 @@ span{
     color: white;
     font-size: large;
 }
+.index-logout {
+    background-color: #B40404;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    float: right;
+    margin-right: 5%;
+    margin-top: 2%;
+}
+.index-logout1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #B40404;
+}
+
+.index-logout1:hover {
+    background-color: #B40404;
+    color: white;
+}
+.index{
+    height: 50%;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 10%;
+    border: dotted;
+    float: left;
+}
+.index-im{
+    height: 100%;
+    width: 40%;
+    border: solid;
+}
+.index-wm{
+    height: 100%;
+    width: 40%;
+    border: solid;
+    margin-left: 60%;
+    margin-top: -29.5%;
+
+}
+
