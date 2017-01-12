@@ -32,7 +32,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="entermanufac.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="entermanufac.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/InventoryManager/stock/entermanufac.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="495">
@@ -68,11 +68,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="report.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="report.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/InventoryManager/report/report.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="986">
-              <caret line="58" column="10" selection-start-line="25" selection-start-column="4" selection-end-line="58" selection-end-column="10" />
+            <state relative-caret-position="274">
+              <caret line="73" column="66" selection-start-line="73" selection-start-column="66" selection-end-line="73" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -81,8 +81,8 @@
       <file leaf-file-name="IM.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/InventoryManager/css/IM.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="308" column="22" selection-start-line="308" selection-start-column="22" selection-end-line="308" selection-end-column="29" />
+            <state relative-caret-position="172">
+              <caret line="236" column="18" selection-start-line="236" selection-start-column="18" selection-end-line="236" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -118,7 +118,6 @@
         <option value="$PROJECT_DIR$/InventoryManager/battery/uploads/viewbattery.php" />
         <option value="$PROJECT_DIR$/InventoryManager/include/sidenav.php" />
         <option value="$USER_HOME$/Downloads/product.php" />
-        <option value="$PROJECT_DIR$/InventoryManager/report/report.php" />
         <option value="$PROJECT_DIR$/InventoryManager/inventory.php" />
         <option value="$PROJECT_DIR$/InventoryManager/stock/stock.php" />
         <option value="$PROJECT_DIR$/InventoryManager/battery/delbattery.php" />
@@ -152,9 +151,10 @@
         <option value="$PROJECT_DIR$/InventoryManager/deo/report/report.php" />
         <option value="$PROJECT_DIR$/InventoryManager/deo/battery/upbattery.php" />
         <option value="$PROJECT_DIR$/InventoryManager/dealer/dealerUpdate.php" />
-        <option value="$PROJECT_DIR$/InventoryManager/css/IM.css" />
         <option value="$PROJECT_DIR$/code" />
         <option value="$PROJECT_DIR$/InventoryManager/stock/entermanufac.php" />
+        <option value="$PROJECT_DIR$/InventoryManager/css/IM.css" />
+        <option value="$PROJECT_DIR$/InventoryManager/report/report.php" />
       </list>
     </option>
   </component>
@@ -283,12 +283,12 @@
       <workItem from="1480417736422" duration="4836000" />
       <workItem from="1480440268100" duration="15994000" />
       <workItem from="1483943515624" duration="72851000" />
-      <workItem from="1484199599573" duration="881000" />
+      <workItem from="1484199599573" duration="2229000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157640000" />
+    <option name="totallyTimeSpent" value="158988000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -614,14 +614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/InventoryManager/report/report.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" column="10" selection-start-line="25" selection-start-column="4" selection-end-line="58" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/InventoryManager/stock/stock.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2601">
@@ -654,18 +646,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/InventoryManager/css/IM.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="308" column="22" selection-start-line="308" selection-start-column="22" selection-end-line="308" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/InventoryManager/stock/entermanufac.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="495">
           <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/css/IM.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="236" column="18" selection-start-line="236" selection-start-column="18" selection-end-line="236" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/report/report.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="73" column="66" selection-start-line="73" selection-start-column="66" selection-end-line="73" selection-end-column="66" />
           <folding />
         </state>
       </provider>

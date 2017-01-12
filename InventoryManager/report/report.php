@@ -69,7 +69,7 @@ $role= $user_data['role'];
             </li>
             <li>
                 <a href="../report/dealer-report.php">
-                    <span class="re-icon"><img src="../img/dd.png"> </span>
+                    <span class="re-icon"><img src="../img/manu.png"> </span>
                     <div class="re-content">
                         <h3 class="re-sub">Manufacture Report</h3>
                     </div>
