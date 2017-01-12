@@ -50,7 +50,81 @@ include 'include/header.php'
         </ul>
     </div>
     <div id="content">
+        <div id="product">
+            <div class="seperate">
+                <?php
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "warranty_management";
 
+                // Create connection
+                $conn = mysqli_connect($servername, $username, $password, $dbname);
+                // Check connection
+                if (!$conn) {
+                    die("Connection failed: " . mysqli_connect_error());
+                }
+                $sql = "SELECT f_name,l_name,email,role FROM users";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    echo "<style>
+                        table {
+                            border-collapse: collapse;
+                            width: 80%;
+                        }
+                        
+                        th, td {
+                            text-align: center;
+                            padding: 8px;
+                        }
+                        
+                        tr:nth-child(even){background-color: #f2f2f2}
+                        
+                        th {
+                            background-color:#990000;
+                            color: white;
+                        }
+                        tbody {
+                            height: 100px;      
+                            overflow-y: auto;   
+                            overflow-x: hidden;  
+                        }
+                        .tbl-content{
+                          
+                        }
+                        </style>
+                    </head>
+                    <body>
+                        <table >
+                        <tr>
+                        <th>Battery type</th>
+                        <th>Battery name</th>
+                        <th>Warranty period</th>
+                        <th>Ampere-hour Value</th>
+                        <th>Voltage Value</th>
+                        <th>Item Type</th>
+                        <th>Image</th>
+                        </tr>";
+                    // output data of each row
+                    while($row = $result->fetch_assoc()) {
+                        echo "<div class='tbl-content'>
+                           <tr>
+                                <td>".$row["f_name"]."</td>
+                                <td>".$row["l_name"]."</td>
+                                <td>".$row["email"]."</td>
+                                <td>".$row["role"]."</td>
+                                <td><img src='uploads/$row[imageUpload].png' height='75px' width='100px'></td>
+                          </tr>";
+                    }
+                    echo "</div></table></body></html>";
+                } else {
+                    echo "0 results";
+                }
+                $conn->close();
+                ?>
+            </div>
+        </div>
     </div>
 <?php
 include 'include/footer.php';
