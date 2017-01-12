@@ -147,7 +147,7 @@ $role= $user_data['role'];
                 $error = TRUE;
             }else{
                 $area_no = $_POST['area'];
-                echo $area_no;
+                //echo $area_no;
                 $sql2 = "Select DISTINCT area_no,area from area = $area_no";
                 $result2= mysqli_query($connection, $sql2);
                 if (mysqli_query($connection, $sql2)){
@@ -163,21 +163,21 @@ $role= $user_data['role'];
                 $error = TRUE;
             }else{
                 $NIC = $_POST['NIC'];
-                echo $NIC;
+                
             }
             if(empty($_POST['address'])){
                 $addresserr = "";
                 $error = TRUE;
             }else{
                 $address = $_POST['address'];
-                echo $address;
+                
             }
             if(empty($_POST['salesPerson_id'])){
                 $salesPerson_iderr = "";
                 $error = TRUE;
             }else{
                 $salesPerson_id = $_POST['salesPerson_id'];
-                echo $salesPerson_id;
+                
             }
             /*
              if(empty($_POST['mobileNo'])){
@@ -201,7 +201,7 @@ $role= $user_data['role'];
                 $error = TRUE;
             }else{
                 $email = $_POST['email'];
-                echo $email;
+                
                 if (strpos($email, '@') == FALSE) {
                     $emailerr =  "Invalid email address";
                     $error = TRUE;
@@ -212,10 +212,10 @@ $role= $user_data['role'];
                 $error = TRUE;
             }else{
                 $fax = $_POST['fax'];
-                echo $fax;
+                
             }
             if ($error==FALSE){
-                $sql="INSERT INTO `warranty_management`.`dealer` (`dealer_name`, `area_no`, `salesPerson_id`, `NIC`, `address`, `mobileNo`, `telephoneNo`, `email`, `fax`) VALUES ('$_POST[dealer_name]', $a_no , '$_POST[salesPerson_id]', '$_POST[NIC]', '$_POST[address]', '$_POST[mobileNo]', '$_POST[telephoneNo]', '$_POST[email]', '$_POST[fax]')";
+                $sql="INSERT INTO `warranty_management`.`dealer` (`dealer_name`, `area_no`, `salesPerson_id`, `NIC`, `address`, `mobileNo`, `telephoneNo`, `email`, `fax`,`active`) VALUES ('$_POST[dealer_name]', $a_no , '$_POST[salesPerson_id]', '$_POST[NIC]', '$_POST[address]', '$_POST[mobileNo]', '$_POST[telephoneNo]', '$_POST[email]', '$_POST[fax]',1)";
                 if(mysqli_query($connection,$sql)){
                     //die();
                     /*header("Location: adddealer.php");*/
@@ -276,7 +276,7 @@ $role= $user_data['role'];
                                 <b>Area: <span class="error">* <?php echo $area_noerr;?></span></b>
                             </td>
                             <td>
-                                <b>Salesperson ID: <span class="error">* <?php echo $area_noerr;?></span></b>
+                                <b>Salesperson Name: <span class="error">* <?php echo $area_noerr;?></span></b>
                             </td>
                             <td>
                                 <b>E mail: <span class="error">* <?php echo $emailerr;?></span></b>
