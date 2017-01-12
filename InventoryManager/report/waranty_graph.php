@@ -4,9 +4,28 @@ include_once "connection.php";
 <!DOCTYPE html>
 <html>
 <head>
+  <style> 
+select {
+    width: 25%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+input[type=submit] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style>
 <link href="rpt/css/graph.css" rel="stylesheet" />
 </head>
 <body>
+  <div class="graphContainer">
     <form action="waranty_graph.php " method="post">
      Year:
     <select id="selectElementId" name='year'></select>
@@ -42,6 +61,7 @@ include_once "connection.php";
 
    <input type="submit" value="Submit" name="submit">
     </form>
+  </div>
  <?php
 $sum1=$sum2=$sum3=0;
 $Year=$Month="";
