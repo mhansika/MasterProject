@@ -1,9 +1,6 @@
 <?php
   require "../database/connect.php";
-  $sql="SELECT dealer_id,coalesce(count(case when battery_status =6  then 1 end), 0) as count FROM released_batteries 
-  WHERE dealer_id IS NOT NULL AND dealer_id= ANY (SELECT dealer_id
-	FROM dealer
-	WHERE active ='1')  GROUP BY dealer_id ";
+  
 ?>
 <!DOCTYPE html>
 
@@ -48,7 +45,15 @@
   
 </head>
 
+<body>
+<?php   
+    if(isset($_POST['Enter']))
+{ 
+require "../core/database/connect.php";
 
+ mysqli_query($conn,"UPDATE dealer SET active = 0 WHERE dealer_id = '$_POST[Enter]'");
+}
+?>
 <div id="body">
     <div id="navigation"></div>
     <nav>
@@ -218,33 +223,35 @@
 <table cellpadding="0" cellspacing="0" border="0">
   <tbody>
     <?php 
+
+
+    
+      
+      $sql="SELECT battery_num,dealer_id,coalesce(count(case when battery_status =3  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL AND dealer_id = ANY (SELECT dealer_id FROM released_batteries WHERE battery_status=3) GROUP BY dealer_id";
       $query=(mysqli_query($connection,$sql));
       while($res = mysqli_fetch_assoc($query)){ 
             $sql5 = "SELECT dealer_name FROM dealer WHERE dealer_id = '$res[dealer_id]'";
             $query5=(mysqli_query($connection,$sql5));
             while($res5 = mysqli_fetch_assoc($query5)){ 
-        echo "<tr>";
-      echo "<th>".$res5['dealer_name']."</th>";
-            }
-      echo "<th>".$res['count']."</th>";
-	  
-	 echo"
-	 <form  method='POST' >
-	";
-	?>
-	 <td><button class="inactive_btn" type="submit" name="Enter" value="Set"/></td>
-	
-<?php	
-	if(isset($_POST['Enter']))
-{ 
-require "../core/database/connect.php";
+            echo "<tr>";
+            echo "<th>".$res5['dealer_name']."</th>";
+                    }
+            echo "<th>".$res['count']."</th>";
 
- mysqli_query($conn,"UPDATE dealer SET active = '0'");
-}
- echo'</form>';     
+            echo"
+     <form  method='POST' >";
+    ?>
+    <td><button class="inactive_btn" type="submit" name="Enter" value="<?php echo "$res[dealer_id]"?>">Inactive</button></td>
+    
+    <?php   
+  
+    echo'</form>'; 
+            
 
-      }
-  ?>
+    }
+    
+    ?>
+
     
    
     
@@ -275,7 +282,9 @@ require "../core/database/connect.php";
 </div>
 </div>
 
-<div>
+
+</body>
+</html>
 
 
 
