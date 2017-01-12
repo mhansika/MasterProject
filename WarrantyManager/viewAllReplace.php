@@ -264,7 +264,7 @@ if ($result->num_rows > 0) {
 
 		
 		
-			} ?>
+			 ?>
 
 
         <tr>
@@ -290,12 +290,13 @@ if ($result->num_rows > 0) {
 		echo "<img src='img/IMG-2926.jpg' width= '30%' height='50%' alt='Image of Battery' />";
 
 	}
+	
 ?>
 		
               
                 <h4>Additional information</h4>
                 <ul>
-                    <li>Dealer Name : <?php echo $res5['dealer_name'] ?></li>
+                    <li>Dealer Name : <?php echo $res5['dealer_name']; ?></li>
                     <li>Remaining Warranty Period : <?php echo $warranty_status ?></li>
                     <li></li>
                  </ul>   
@@ -304,6 +305,7 @@ if ($result->num_rows > 0) {
 	 
 
 <?php
+			}
 			}
 	}
 }

@@ -122,7 +122,7 @@
     <div class="content">
 	<div class="table">
             <div id="content">
-            <form action="#" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
+  
 
 
                     <div class="ad">
@@ -134,15 +134,15 @@
 	<div class="form-style-2">
 	
 				<br/><br/>
-					<form action="searchProduct.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
+					<form action="searchProduct1.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
 					
 					<label><span>Batch No :</span><input type="text" class="input-field" name="batch_num" style="width: 150px" required />
 
 					<label for="field2"><span>Battery Number:</span>
-					<input type="number" class="input-field" name="amount" style="width: 150px ;" required>
+					<input type="number" class="input-field" name="battery_num" style="width: 150px ;" required>
 					</label>
 					
-					<label><button style= "border: 2px solid #4CAF50;" class="submit" name="submit" value="send">Search</button></label>
+					<label><button style= "border: 2px solid #4CAF50; margin-left:30%;" class="submit" name="submit" value="send">Search</button></label>
 					
 					
 </div>
