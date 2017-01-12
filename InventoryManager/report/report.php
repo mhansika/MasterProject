@@ -63,7 +63,7 @@ $role= $user_data['role'];
                 <a href="../report/salesp-report.php">
                     <span class="re-icon"><img src="../img/sm.png"> </span>
                     <div class="re-content">
-                        <h3 class="re-sub">Salesperson</h3>
+                        <h3 class="re-sub">Sales Report</h3>
                     </div>
                 </a>
             </li>
@@ -71,7 +71,15 @@ $role= $user_data['role'];
                 <a href="../report/dealer-report.php">
                     <span class="re-icon"><img src="../img/dd.png"> </span>
                     <div class="re-content">
-                        <h3 class="re-sub">Dealer</h3>
+                        <h3 class="re-sub">Manufacture Report</h3>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="../report/dealer-report.php">
+                    <span class="re-icon"><img src="../img/dd.png"> </span>
+                    <div class="re-content">
+                        <h3 class="re-sub">Replacemant Report</h3>
                     </div>
                 </a>
             </li>
@@ -79,7 +87,7 @@ $role= $user_data['role'];
                 <a href="">
                     <span class="re-icon"><img src="../img/w.png"></span>
                     <div class="re-content">
-                        <h3 class="re-sub">Warranty</h3>
+                        <h3 class="re-sub">Defect Report</h3>
                     </div>
                 </a>
             </li>
@@ -87,7 +95,7 @@ $role= $user_data['role'];
                 <a href="../report/production_line1.php">
                     <span class="re-icon"><img src="../img/st.png"></span>
                     <div class="re-content">
-                        <h3 class="re-sub">Stock</h3>
+                        <h3 class="re-sub">Graphs</h3>
                     </div>
                 </a>
             </li>
