@@ -4,10 +4,30 @@ include_once "connection.php";
 ?>
 <html>
 <head>
-    <title></title>
 <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
-<head>
+<link href="rpt/css/graph.css" rel="stylesheet" />
+ <style> 
+select {
+    width: 25%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+input[type=submit] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style>
+</head>
 <body>
+  <a href="reportnxt.php">image</a> 
+  <div class="graphContainer">
   <form action="areaSold_graph.php" method="post">
     Year:
     <select id="selectElementId" name='year'></select>
@@ -44,10 +64,8 @@ include_once "connection.php";
   <input type="submit" value="Submit" name="submit">
     
  </form>
-<head>
-   <link href="rpt/css/graph.css" rel="stylesheet" />
-</head>
-<body>
+</div>
+   
     
            
 <?php
@@ -84,7 +102,7 @@ if ($result->num_rows >0) {
     }?>
 <dl>
   <dt>
-    Sold Quantity of Areas
+    Sold Battery Quantity of Area
   </dt>
   <?php
   $sum=$sum1+$sum2;
@@ -105,7 +123,7 @@ if ($result->num_rows >0) {
 </dl>
 <?php
 } else {
-    echo "0 results";
+    echo "";
 }
 $conn->close();
 

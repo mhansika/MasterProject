@@ -59,46 +59,32 @@ $role= $user_data['role'];
     </div>
     <div id="content">
         <ul class="re-menu">
+            
             <li>
-                <a href="../report/salesp-report.php">
+                <a href="areaSold_graph.php">
                     <span class="re-icon"><img src="../img/sm.png"> </span>
                     <div class="re-content">
-                        <h3 class="re-sub">Sales Report</h3>
+                        <h3 class="re-sub">Sales Graph</h3>
                     </div>
                 </a>
             </li>
             <li>
-                <a href="../report/dealer-report.php">
+                <a href="manufacture_graph.php">
                     <span class="re-icon"><img src="../img/manu.png"> </span>
                     <div class="re-content">
-                        <h3 class="re-sub">Manufacture Report</h3>
+                        <h3 class="re-sub">Manufacture Graph</h3>
                     </div>
                 </a>
             </li>
             <li>
-                <a href="../report/dealer-report.php">
+                <a href="waranty_graph.php">
                     <span class="re-icon"><img src="../img/dd.png"> </span>
                     <div class="re-content">
-                        <h3 class="re-sub">Replacemant Report</h3>
+                        <h3 class="re-sub">Replacemant Graph</h3>
                     </div>
                 </a>
             </li>
-            <li>
-                <a href="">
-                    <span class="re-icon"><img src="../img/w.png"></span>
-                    <div class="re-content">
-                        <h3 class="re-sub">Defect Report</h3>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="reportnxt.php">
-                    <span class="re-icon"><img src="../img/st.png"></span>
-                    <div class="re-content">
-                        <h3 class="re-sub">Graphs</h3>
-                    </div>
-                </a>
-            </li>
+            
         </ul>
     </div>
     <?php

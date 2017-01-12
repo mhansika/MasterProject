@@ -25,6 +25,7 @@ input[type=submit] {
 <link href="rpt/css/graph.css" rel="stylesheet" />
 </head>
 <body>
+  <a href="reportnxt.php">image</a> 
   <div class="graphContainer">
     <form action="waranty_graph.php " method="post">
      Year:
@@ -118,12 +119,12 @@ while($row1 = $result->fetch_assoc() ){
  ?>
   <dd class="<?php echo 'percentage percentage-'.$psum11; echo'"'; ?>" ><span class="text">Exide <?php echo $sum1 ?></span></dd>
   <dd class="<?php echo 'percentage percentage-'.$psum12; echo'"'; ?>" ><span class="text">Lucas <?php echo $sum2 ?></span></dd>
-  <dd class="<?php echo 'percentage percentage-'.$psum13; echo'"'; ?>" ><span class="text">Gagenite <?php echo $sum3 ?></span></dd>
+  <dd class="<?php echo 'percentage percentage-'.$psum13; echo'"'; ?>" ><span class="text">Dagenite <?php echo $sum3 ?></span></dd>
   
 </dl>
 <?php
 } else {
-    echo "0 results";
+    echo "";
 }
 $conn->close();
 }

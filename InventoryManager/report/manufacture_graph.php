@@ -4,7 +4,31 @@ include_once "connection.php";
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
- 
+<head>
+<link href="rpt/css/graph.css" rel="stylesheet" />
+ <style> 
+select {
+    width: 15%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+input[type=submit] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+<a href="reportnxt.php">image</a> 
+<div class="graphContainer2">
+
 <form action="manufacture_graph.php " method="post">
      Year:
     <select id="selectElementId" name='year'></select>
@@ -45,10 +69,8 @@ include_once "connection.php";
    <input type="submit" value="Submit" name="submit">
   
  </form>
-<head>
-<link href="rpt/css/graph.css" rel="stylesheet" />
-</head>
-<body>
+</div>
+
 	<?php
 $year="";$str1="";$str2="";$line="";
 if (isset($_POST["submit"]))
@@ -141,7 +163,7 @@ while($row1 = $result->fetch_assoc() ){
  ?>
   <dd class="<?php echo 'percentage percentage-'.$psum11; echo'"'; ?>" ><span class="text">Exide <?php echo $sum1 ?></span></dd>
   <dd class="<?php echo 'percentage percentage-'.$psum12; echo'"'; ?>" ><span class="text">Lucas <?php echo $sum2 ?></span></dd>
-  <dd class="<?php echo 'percentage percentage-'.$psum13; echo'"'; ?>" ><span class="text">Gagenite <?php echo $sum3 ?></span></dd>
+  <dd class="<?php echo 'percentage percentage-'.$psum13; echo'"'; ?>" ><span class="text">Dagenite <?php echo $sum3 ?></span></dd>
   
 </dl>
 <?php
@@ -153,6 +175,6 @@ $conn->close();
 
 ?>
 
-</body>
 
+</body>
 </html>
