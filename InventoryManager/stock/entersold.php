@@ -259,11 +259,28 @@
         //$x = $sales[0]; 
         //$y = $sales[1];
         //    $sql = "INSERT INTO `sold` (`battery_type`, `battery_name`, `amount`, `salesPerson_id`, `dealer_id`, `sold_Date`) VALUES ('$_POST[batterytype]','$_POST[batteryname]',$_POST[amount],'$_POST[salespersonname]','$_POST[dealername]')";
+            $sql1="SELECT current_stock FROM stock_in_hand WHERE battery_type='$_POST[battery_type]' AND battery_name= '$_POST[battery_name]'";
+            $result1=mysqli_query($connection,$sql1);
+            $row1=mysqli_fetch_row($result1);
+            //echo $row1[0];
+            
 
+            if($row1[0]< 50){
+                echo "<script>alert('Not enough stock');
+                     window.location.href='http://localhost/MasterProject/InventoryManager/stock/entersold.php';</script>";
+            }
+
+            else{
+            
             $sql = "INSERT INTO `sold` (`battery_type`, `battery_name`, `amount`, `salesPerson_id`, `dealer_id`, `sold_Date`) VALUES ('$_POST[battery_type]', '$_POST[battery_name]', '$_POST[amount]', '$_POST[salesPerson_id]','$_POST[dealer_id]', now())";
             if(mysqli_query($connection,$sql)){
                 //die();
-            } else{echo "error";}
+            } 
+            else{
+                echo "error";
+            }
+
+
 
             $query="UPDATE stock_in_hand SET current_stock=current_stock -'$_POST[amount]' WHERE battery_type='$_POST[battery_type]' AND battery_name= '$_POST[battery_name]'";
                  if (mysqli_query($connection, $query)) {
@@ -273,6 +290,7 @@
                         else {
                         echo "Error: " . $query . "<br>" . mysqli_error($connection);
                         }
+
             $query1= "call updateRelease('$str','$_POST[amount]','$_POST[salesPerson_id]','$_POST[dealer_id]')";
                 if (mysqli_query($connection, $query1)) {
                         echo "";
@@ -282,6 +300,7 @@
                         echo "Error: " . $query1 . "<br>" . mysqli_error($connection);
                         }
         }
+    }
     ?>
     
 <div id="content">
