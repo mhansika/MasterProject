@@ -216,6 +216,7 @@ span{
     background-color: #5e5e5e;
     color: white;
     font-size: large;
+    text-decoration: none;
 
 }
 .submit:hover{

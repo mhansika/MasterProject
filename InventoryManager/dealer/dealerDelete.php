@@ -8,7 +8,7 @@
 
 	if (mysqli_query($connection, $sql)){
 		echo "Record deleted successfully";
-		header("Location: searchdealer.php");
+		header("Location: dealerSearch.php");
 	}else{
 		echo "Error deleting record: ";
 		}

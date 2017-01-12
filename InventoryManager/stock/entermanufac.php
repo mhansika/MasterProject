@@ -9,8 +9,7 @@ $role= $user_data['role'];
 ?>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../deo/css/IM2.css" type="text/css"/>
-
+	<link rel="stylesheet" href="../css/stock.css" type="text/css"/>
 </head>
 <body>
 <?php
@@ -205,7 +204,6 @@ include '../include/header.php'
 			return 0;
 		}
 	}
-
 	?>
 				<form class="AddPro" action="entermanufac.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
 					<h1 class="add">Manufactured Batteries</h1>

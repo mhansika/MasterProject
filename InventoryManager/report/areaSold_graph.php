@@ -23,15 +23,23 @@ input[type=submit] {
     margin: 4px 2px;
     cursor: pointer;
 }
+     .back{
+         background-color: #B40404;
+         border: none;
+         color: white;
+         padding: 16px 32px;
+         text-decoration: none;
+         cursor: pointer;
+     }
+
 </style>
 </head>
 <body>
-  <a href="reportnxt.php">image</a> 
   <div class="graphContainer">
   <form action="areaSold_graph.php" method="post">
+      <a class="back"  href="reportnxt.php">Back</a>
     Year:
     <select id="selectElementId" name='year'></select>
-   
       <script>
           var min = (new Date().getFullYear())-2,
           max = min + 9,
@@ -58,16 +66,10 @@ input[type=submit] {
       <option value='October'>October</option>
       <option value='November'>November</option>
       <option value='December'>December</option>
-    </select> 
-
-
+    </select>
   <input type="submit" value="Submit" name="submit">
-    
  </form>
 </div>
-   
-    
-           
 <?php
 $str1=$str2="";
  if (isset($_POST["submit"]))

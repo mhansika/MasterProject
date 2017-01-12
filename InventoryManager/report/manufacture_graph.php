@@ -23,13 +23,21 @@ input[type=submit] {
     margin: 4px 2px;
     cursor: pointer;
 }
+.back{
+    background-color: #B40404;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    cursor: pointer;
+}
 </style>
 </head>
 <body>
-<a href="reportnxt.php">image</a> 
 <div class="graphContainer2">
 
 <form action="manufacture_graph.php " method="post">
+    <a class="back" href="reportnxt.php">Back</a>
      Year:
     <select id="selectElementId" name='year'></select>
    
