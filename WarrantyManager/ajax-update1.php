@@ -18,29 +18,24 @@ function clean($value)
  */
 
 // FORM: Variables were posted
-if (count($_POST))
+if (isset($_POST))
 {
-	$query= "SELECT defect_type FROM released_batteries WHERE ".$w_col1."='".$w_val1."' AND ".$w_col2."='".$w_val2."' ";
-    $sql = mysqli_query($conn, $query);
-	while ( $result = mysqli_fetch_assoc($sql)) 
+	$batch_num 		= $_POST["batch_num"];
+	$battery_num 	= $_POST["battery_num"];
+	$val			= $_POST["val"];
+		
+	$query= "SELECT defect_type FROM released_batteries WHERE batch_num ='".$batch_num."' AND battery_num ='".$battery_num."' ";
+    $result = mysqli_query($conn, $query);
+	
+	if ( mysqli_num_rows ( $result ) > 0 ) // already exists, then update
 	{
-	 if  (is_null($result["defect_type"])) {
-		$query = mysqli_query($conn,"INSERT INTO released_batteries (defect_type) VALUES ('".$val."') ")
-	 		or die ('Unable to insert data.'); 
-	 }
-	 else {
-	// Prepare form variables for database
-	foreach($_POST as $column => $value)
-		${$column} = clean($value);
-	
-	
-
-	// Perform MySQL UPDATE
-	$result = mysqli_query($conn,"UPDATE released_batteries SET ".$col."='".$val."'
-		WHERE ".$w_col1."='".$w_val1."' AND ".$w_col2."='".$w_val2."' ")
-		or die ('Unable to update row.');
-}
-	 }
+		$sql = "UPDATE released_batteries SET defect_type ='".$val."' WHERE batch_num ='".$batch_num."' AND battery_num ='".$battery_num."'";
+		$result = mysqli_query($conn, $sql) or die ('Unable to update row.');
+		
+		echo "Defect type for ".$batch_num.$battery_num." was updated to ".$val;
+		
+	}else{
+		echo "No rows were updated";
 	}
 }
 

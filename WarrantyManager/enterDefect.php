@@ -27,43 +27,76 @@
 
 <script>
 
-
-function submitIfFormComplete()
-{
-  // Check the select has something selected
-  if (document.getElementById('selectOne').selectedIndex > 0)
-  {
-      document.getElementById('formID').submit();
-  }
-}
-
-	
-
-
-
-		
-	//multiple dropdown selection	
-		$( document ).ready(function() {
-			 $("select#cap").click( function(){
-					//var id = this.id;
-					var id = $(this).children(":selected").attr("id");
-					console.log(id);
-
-					$.ajax({
-
-						url:'getdrop2.php?data='+id,
-						type:"get",
-						success:function(data){
-
-						   $("tr#trow>th#second").html("");
-						$("tr#trow>th#second").html(data);
-						}
-
-
-					});
-			});
+	$(function(){
+		$(".AutoSubmitCombo").change(function(){
+			var input = $(this);
 			
+			if ( input.selectedIndex <= 0 )
+				return;
+			
+			var value = input.val();
+			var id = input.attr('id');
+			
+			if ( value == "" )
+				return;
+		
+			var form = input.parents('form');
+
+			id = id.split('_')[1];
+			
+			if ( id == "" )
+				return;
+			
+			var vals = id.split("|");
+			var batch = vals[0];
+			var num = vals[1];
+			
+			$.ajax({
+				url: "ajax-update1.php",
+				type: "POST", 
+				data: {
+					batch_num: batch,
+					battery_num: num,
+					val: value
+				},
+				cache: false,
+				timeout: 10000,
+				success: function(data) {
+					// Alert if update failed
+					if (data) {
+						alert(data);
+					}
+					// Load output into a P
+					else {
+						$('#notice').text('Field updated');
+						$('#notice').fadeOut().fadeIn();
+					}
+				}
+			});
 		});
+	});
+	//multiple dropdown selection	
+	$( document ).ready(function() {
+		 $("select#cap").click( function(){
+				//var id = this.id;
+				var id = $(this).children(":selected").attr("id");
+				console.log(id);
+
+				$.ajax({
+
+					url:'getdrop2.php?data='+id,
+					type:"get",
+					success:function(data){
+
+					   $("tr#trow>th#second").html("");
+					$("tr#trow>th#second").html(data);
+					}
+
+
+				});
+		});
+		
+	});
 		
 		
 
@@ -198,16 +231,11 @@ function submitIfFormComplete()
                       <tr>
                           <form>
                             <div class="form-group input-group">
-                                      <th><input name="date_1" type="date"  size="9" value=""/></th>
-                        			  <th> <input name="date_2" type="date"  size="9" value=""/></th>
-                        						
-				
-
-                        
+								<th><input name="date_1" type="date"  size="9" value=""/></th>
+								<th> <input name="date_2" type="date"  size="9" value=""/></th>
                             </div>
-					            
-					                  <th><button type="submit" name="submit" value="submit">Search</button> </th>
-									    <th><a href = "enterDefectType.php"><img src="img/400.jpg" width="50px" height= "50px"></a></th>
+								<th><button type="submit" name="submit" value="submit">Search</button> </th>
+								<th><a href = "enterDefectType.php"><img src="img/defect.png" width="200px" height= "57px"></a></th>
 					       </form>
                       </tr>
   
@@ -223,112 +251,71 @@ require "../core/database/connect.php";
 
 if (isset($_POST['submit'])) {
      
-		$from_date = strtotime($_POST['date_1']);
-		$to_date = strtotime('-30 day',$from_date);
+	$from_date = strtotime($_POST['date_1']);
+	$to_date = strtotime('-30 day',$from_date);
+	$First_Date = date('Y-m-d',$from_date);
+	$Next_Date =  date('Y-m-d',$to_date);
+	
 
+	$sql="SELECT battery_status,replaced_date,batch_num,battery_num,defect_type FROM released_batteries 
+	WHERE battery_status = '3' AND replaced_date BETWEEN '" . $Next_Date . "' AND  '" . $First_Date . "' ";
+
+
+	$result = $conn->query($sql);
+	if ($result->num_rows > 0) {
 		
-
-    $First_Date = date('Y-m-d',$from_date);
-    $Next_Date =  date('Y-m-d',$to_date);
-	
-
-$sql="SELECT battery_status,replaced_date,batch_num,battery_num,defect_type FROM released_batteries 
-WHERE battery_status = '3' AND replaced_date BETWEEN '" . $Next_Date . "' AND  '" . $First_Date . "' ";
-
-
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    
-echo "
-<div  class='tbl-header'>
-<table cellpadding='0' cellspacing='0' border='0'>
-  <thead>
-    <tr>
-      <th>Replaced Battery Number</th>
-	   
-      <th>Defect Type</th>
-	  <th>Enter/Update Defect Type</th>
+		echo "
+		<div  class='tbl-header'>
+		<table cellpadding='0' cellspacing='0' border='0'>
+		  <thead>
+			<tr>
+			  <th>Replaced Battery Number</th>
+			   
+			 
+			  <th>Enter/Update Defect Type</th>
 
 
-	     
-      
-    </tr>
-  </thead>
-</table>
-</div>
-<div  class='tbl-content'>
-<table cellpadding='0' cellspacing='0' border='0'>
-  <tbody>
-    <tr></tr>";
-	
-while($row1 = $result->fetch_assoc() ){
-	echo"
-		<tr>
-		<td>".$row1["batch_num"].$row1["battery_num"]."</td>  
-		<td>".$row1["defect_type"]."</td> ";
+				 
+			  
+			</tr>
+		  </thead>
+		</table>
+		</div>
+		<div  class='tbl-content'>
+		<table cellpadding='0' cellspacing='0' border='0'>
+		  <tbody>
+			<tr></tr>";
+			
+		while($row1 = $result->fetch_assoc() ){
+			$id = $row1["batch_num"]."|".$row1["battery_num"];
+			echo"
+				<tr>
+				<td>".$row1["batch_num"].$row1["battery_num"]."</td>  
+			";
 
-
-
-
-/* if(isset($_POST['Enter']))
-{   
-
-    $defect_type=mysqli_real_escape_string($conn,$_POST['defect_type']);
-
- 
-
-    mysqli_query($conn,"UPDATE released_batteries SET defect_type='$defect_type' WHERE batch_num='$batch_num' AND battery_num='$battery_num' ");
-	
-	} */
-
-
-  
-	
-
-	
-
-    
-
-    echo"
-	<td>
-	
-	<form id='ajax-form' class='autosubmit' method='POST' action='ajax-update1.php'>
-	<select name='defect_type' id= 'selectOne' onchange='submitIfFormComplete()'>
-	<option value = ''>--SELECT--</option>
-	";
- 
- //getting data to a drop down
- 
-    $query= "SELECT defect FROM defect_types ";
-    $db = mysqli_query($conn, $query);
-    while ( $d=mysqli_fetch_assoc($db)) {
-		
-	
-	
-  echo "
-  
-  <option value='{".$d['defect']."}'>".$d['defect']."</option>";
-}
-    
-    ?>
-	
-    </select>
-		
-
-    <?php
- 
-
- 
-
-
-}
-  echo "</table>";
-} else {
-    echo "0 results";
-}echo"</form>";
-
-
-
+			?>
+			<td>
+			
+			<form id='form_<?php echo $id; ?>' class='autosubmit' method='POST' action='ajax-update1.php'>
+				<select id ="dt_<?php echo $id; ?>" name='defect_type' class="AutoSubmitCombo">
+				<option value = ''>--SELECT--</option>
+				
+				<?php
+				//getting data to a drop down
+				$query= "SELECT defect FROM defect_types ";
+				$db = mysqli_query($conn, $query);
+				while ( $d=mysqli_fetch_assoc($db)) {
+					echo "<option value='".$d['defect']."' ". ( $d['defect'] == $row1["defect_type"]  ? "selected='selected'" : "" )." >".$d['defect']."</option>";
+				}   
+				?>
+				</select>
+			<?php
+		}
+		echo "</table>";
+	} else {
+		echo "0 results";
+	}
+	echo"</form>";
 }
 
 

@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
     <title>Login Screen</title>
-    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="../../css/login.css">
     <style>
             input[type=submit] {
     border-radius: 5px;
@@ -26,9 +26,9 @@
     /
 
 }
-    </style>
+   </style>
        
-    }
+ 
     <script>
         window.console = window.console || function(t) {};
         window.open = function(){ console.log('window.open is disabled.'); };
@@ -57,18 +57,76 @@
 
 </head>
 
+
+<?php
+
+include '../../core/init.php';
+
+
+if (isset($_POST['send'])) {
+$username = $_POST['username'];
+
+$sql = "SELECT password FROM users WHERE username = $username ";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+	while($row = $result->fetch_assoc() ){
+$current_password = $row['password'];
+ 
+
+  if (md5($_POST['current_password']) === $current_password) {
+
+     if (trim($_POST['password']) != trim($_POST['password_again']) ) {
+       $errors[]='Your new passwords do not match';
+     }
+	else {
+		change_password($user_id,$_POST['password']);
+		echo "password updated successfully";
+		
+	}
+
+  } else {
+    $errors[]='Your current password is incorrect';
+  }
+	
+	
+}	
+}
+}
+
+
+
+
+ /*    if (isset($_GET['success']) && empty($_GET['success'])) {
+      echo "Your password has been changed";
+    } else {
+
+
+      if (empty($_POST) === false && empty($errors) === true) {
+        change_password($session_user_id,$_POST['password']);
+        header('Location:');
+
+      } else if(empty($errors) === false) {
+        echo output_errors($errors);
+      }
+
+	}
+ */
+
+?>
 <body>
 
     <div class="wrapper">
         <div class="container">
-            <h1>Welcome</h1>
-            <h2 style="font-size: xx-large">Inventory and Warranty Management System</h2>
+     
+            <h2 style="font-size: xx-large">Change Password</h2>
 
-            <form class="form" action="login.php" method="post">
-                <input type="text" name="username" placeholder="Username" />
-                <input type="password" name="password" placeholder="Password" />
-                <button class="submit" name="submit" value="Login">Login</button><br/><br>
-				<a style = "color:white;" href  = "include/widgets/recovery.php" >Change Password</a>
+            <form class="form" action="" method="post">
+				     <input type="text" name="username" placeholder="Username" />
+					          <input type="password" name="current_password" placeholder="Current Password" />
+                <input type="password" name="password" placeholder="New Password" />
+				<input type="password" name="password_again" placeholder="Confirm Password" />
+                <button class="submit" name="send" value="Login">Update</button><br/><br>
+			
         </div>
 
 

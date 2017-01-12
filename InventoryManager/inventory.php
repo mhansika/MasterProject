@@ -4,6 +4,7 @@ protect_page();
 ?>
 <?php
 $role= $user_data['role'];
+echo $role;
 ?>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

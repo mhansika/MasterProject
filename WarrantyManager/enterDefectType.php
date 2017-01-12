@@ -3,6 +3,9 @@
       protect_page(); 
 	
       ?>
+	  					
+
+
 
 <html lang="en">
     <head>
@@ -107,7 +110,7 @@
                                 width:100%;
                                 height:70px;
                                 margin-top: 10px;
-                                text-align:center;"><img class= "pic" src="img/g.png" align="middle" width="80px"><span>Search Product</span></a>
+                                text-align:center;"><img class= "pic" src="img/search.png" align="middle" width="80px"><span>Search Product</span></a>
                 </div>
             </li>
 
@@ -123,7 +126,7 @@
 
         <div class="table">
             <div id="content">
-            <form action="#" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
+     
 
 
                     <div class="ad">
@@ -137,17 +140,45 @@
 <div id = "form-align">
   <div class="form-style-2">
 	
-			<form method = "POST">
+			<form method = "POST" id = "form1">
 					<label for="field1"><span>Add to the list : </span><input type="text" class="input-field" name="defect" value="" /></label>
 					<label><span>&nbsp;</span><button type="submit" name="submit" value="submit">ADD</button><label>
 					 
 					 <br> <br> <br> <br> <br>
 					 <hr> 
 					 <br><br> <br> <br>
-					 
-					<label for="field2"><span>Current Defect Types :</span>
 
-					<select name="testing" class="select-field">
+					 
+
+
+<?php
+require "../core/database/connect.php";
+
+
+if(isset($_POST['submit']))
+{   
+
+    $defect_type=mysqli_real_escape_string($conn,$_POST['defect']);
+
+ 
+
+    mysqli_query($conn,"INSERT INTO defect_types (defect) VALUES ('$defect_type')");
+	if ($conn->query($sql) === TRUE) {
+    echo "Added successfully";
+} else {
+    echo "Error Inserting record: " . $conn->error;
+}	
+
+	}
+   //header("Location:enterDefect.php");		
+?>
+</form>
+	
+	
+<form method = "POST" id = "form2">	
+<label for="field2"><span>Current Defect Types :</span>
+
+<select name="defect" class="select-field">
 
 <?php 
 $query= "SELECT defect FROM defect_types ";
@@ -160,35 +191,28 @@ $query= "SELECT defect FROM defect_types ";
 
   </select>
   
-  
-     <label><span>&nbsp;</span><button type="submit" name="delete" value="submit">Delete</button><label>
-  
-   
 
-
-
-
-<?php
-require "../core/database/connect.php";
-
-if(isset($_POST['submit']))
-{   
-
-    $defect_type=mysqli_real_escape_string($conn,$_POST['defect']);
-
- 
-
-    mysqli_query($conn,"INSERT INTO defect_types (defect) VALUES ('$defect_type')");
+    <label><span>&nbsp;</span><button type="submit" name="delete" value="submit" onclick="return confirm('Are you sure want to delete this record?')" >Delete</button><label>
 	
-	}
-
-	elseif (isset($_POST['delete']))
+	
+  <?php	
+	
+if (isset($_POST['delete']))
 		{
 
-   $defect_type=$_POST['testing'];
- mysqli_query($conn,"DELETE FROM defect_types WHERE defect= $defect_type " );
+   $defect_type = $_POST['defect'];
+	
+ 
+ $sql = mysqli_query($conn,"DELETE FROM defect_types WHERE defect= '$defect_type' ") ;
+ 
+if ($conn->query($sql) === TRUE) {
+    echo "Record deleted successfully";
+} else {
+    echo "Error deleting record: " . $conn->error;
+}	
+ 
 		}
-
+   //header("Location:enterDefect.php");	
 ?>
 
 

@@ -72,4 +72,13 @@ function login($username,$password) {
 }
 
 
+function change_password($user_id,$password) {
+  $user_id=user_id_from_username($username);
+  $password=md5($password);
+  $conn= mysqli_connect('localhost','root','','warranty_management');
+  mysqli_query($conn,"UPDATE users SET password = '$password' WHERE user_id = $user_id");
+}
+
+
+
  ?>

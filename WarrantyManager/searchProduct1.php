@@ -12,11 +12,71 @@
        
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <style>
-        
-       
-         </style>
+     <script>
+		 <script>
+	
+		// JQUERY: Plugin "autoSumbit"
+	(function($) {
+		$.fn.autoSubmit = function(options) {
+			return $.each(this, function() {
+				// VARIABLES: Input-specific
+				var input = $(this);
+				var column = input.attr('name');
+	
+				// VARIABLES: Form-specific
+				var form = input.parents('form');
+				var method = form.attr('method');
+				var action = form.attr('action');
 
+				// VARIABLES: Where to update in database
+				var where_val1 = form.find('#where1').val();
+				var where_col1 = form.find('#where1').attr('name');
+				var where_val2 = form.find('#where2').val();
+				var where_col2 = form.find('#where2').attr('name');
+	
+				// ONBLUR: Dynamic value send through Ajax
+				input.bind('blur', function(event) {
+					// Get latest value
+					var value = input.val();
+					// AJAX: Send values
+					$.ajax({
+						url: "ajax-update.php",
+						type: "POST", 
+						data: {
+							val: value,
+							col: column,
+							w_col1: where_col1,
+							w_val1: where_val1,
+							w_col2: where_col2,
+							w_val2: where_val2
+							
+						},
+						cache: false,
+						timeout: 10000,
+						success: function(data) {
+							// Alert if update failed
+							if (data) {
+								alert(data);
+							}
+							// Load output into a P
+							else {
+								$('#notice').text('Field updated');
+								$('#notice').fadeOut().fadeIn();
+							}
+						}
+					});
+					// Prevent normal submission of form
+					return false;
+				})
+			});
+		}
+	})(jQuery);
+	// JQUERY: Run .autoSubmit() on all INPUT fields within form
+	$(function(){
+		$('#ajax-form INPUT').autoSubmit();
+	});
+	 
+	 </script>
   
 </head>
 
@@ -122,7 +182,7 @@
     <div class="content">
 
             <div id="content">
-            <form action="searchProduct1.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
+            <form  class='autosubmit' method='POST' action='ajax-update2.php' method="POST" enctype="multipart/form-data" id='ajax-form' name="Form">
 
 
                     <div class="ad">
@@ -131,7 +191,7 @@
 					
 <div id = "form-align">
 	<div class="form-style-2">
-		<div class="form-style-2-heading">Results</div><hr>
+		<div class="form-style-2-heading">Results</div>
 				<br/>					
 
 <?php
@@ -225,53 +285,16 @@ echo "
 					<label for='field'><span>Customer Sold Date:</span>
 					<input type='date' class='input-field' name='cus_sold_date' style='width: 150px ;' value= ".$row['cus_sold_date'].">
 					</label>
-
-					<label><button style= 'border: 2px solid #4CAF50; margin-left:25%;' class='submit' name='send' value='send'>Update</button></label>	
-		
-		
-		"	;
-		
-
-if (isset($_POST['send']))
-{
-	$batch_num1 = $_POST['batch_num'];
-	$battery_num1 = $_POST['battery_num'];
-	$defect_type = $_POST['batch_num'];
-	$dealer_id = $_POST['dealer_id'];
-	$battery_status = $_POST['battery_status'];
-	$replaced_date = $_POST['replaced_date'];
-	$warranty_period = $_POST['warranty_period'];
-	$cus_sold_date = $_POST['cus_sold_date'];
-	
-	$sql = "UPDATE released_batteries
-	SET batch_num= '$batch_num1', battery_num = '$battery_num1', defect_type= '$defect_type', dealer_id= '$dealer_id', battery_status='$battery_status',
-	replaced_date= '$replaced_date' , warranty_period = '$warranty_period'; cus_sold_date ='$cus_sold_date'
-	WHERE batch_num = '$batch_num' AND battery_num= '$battery_num' ";
-	
-
-if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
-} else {
-    echo "Error updating record: " . $conn->error;
-}	
-	
-	
-	
-
-
-
-	
-}
-echo "</form>";		
-	
+					<input id='where1' type='hidden' name='batch_num' value=".$row['batch_num']."  />
+					<input id='where2' type='hidden' name='battery_num' value=".$row['battery_num']."  />
+					";
 	}
-}else {
-	echo "<div>No results to dispaly</div>";
-}	
-
-
-?>
-
+}
+}
+?>	
+					
+		
+		
 
 				
 					
@@ -288,9 +311,3 @@ echo "</form>";
 					
 </div>
 </div>
-<?php
- 
-	
-}
-
-?>

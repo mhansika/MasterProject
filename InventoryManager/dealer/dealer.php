@@ -4,6 +4,20 @@
 <?php include '../../core/init.php';
 protect_page();
 ?>
+<?Php
+
+	$role= $user_data['role'];
+	echo $role;
+/* function protectAdmin_page() { 
+ 	 if ($role === 'deo') {
+		 header('Location:../../core/init.php');
+    exit();
+  } 
+
+}
+protectAdmin_page(); */  
+ 
+?>
 <?php
 $role= $user_data['role'];
 ?>
