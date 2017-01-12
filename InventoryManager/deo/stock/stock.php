@@ -9,7 +9,7 @@ $role= $user_data['role'];
 ?>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/IM.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/IM2.css" type="text/css"/>
 
 </head>
 <body>

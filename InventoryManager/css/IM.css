@@ -1,3 +1,61 @@
+.container {
+    width: 100%; /*Set the width of the entire website here */
+    margin-right: auto;
+    margin-left: auto; /* Margin-left and right are set to auto to center the container */
+}
+.seven:first-child,.eight:first-child, .nine:first-child, .ten:first-child,.eleven:first-child,.five:first-child, .four:first-child, .three:first-child, .two:first-child, .one:first-child, .six:first-child {
+    margin-left: 0; /* This line of code makes the left-most column align to the left of the screen */
+}
+.eleven {
+    width: 91.5%;
+    float: left;
+}
+.ten {
+    width: 83%;
+    float: left;
+}
+.nine {
+    width: 74.5%;
+    float: left;
+}
+.eight {
+    width: 66%;
+    float: left;
+}
+.seven {
+    width: 57.5%;
+    float: left;
+}
+.six {
+    width: 49%; /* This div spans six columns (the entire row)*/
+    float: left;
+}
+.five {
+    width: 40.5%; /* This div spans five columns */
+    float:left;
+}
+.four {
+    width: 32%;
+    float:left;
+}
+.three {
+    width: 23.5%;
+    float:left;
+}
+.two {
+    width: 15%;
+    float:left;
+}
+.one {
+    width: 6.5%;
+    float:left;
+}
+.row {
+    width: 100%;
+    clear: both; /* Clear creates new styles for the next row */
+    padding: 0px;
+    margin: 0px;
+}
 body{
     margin: 0 0 0 0;
     font-family: Calibri;
@@ -5,7 +63,7 @@ body{
 #nav {
     float: left;
     width: 8%;
-    height: 90%;
+    height: auto;
     background-color: black;
     padding: 0 0 0 0;
 }
@@ -18,15 +76,15 @@ body{
     position: relative;
     background-color: #B40404;
     height: 17%;
+    margin-top: 0%;
     margin-left: 5%;
     margin-right: 5%;
     margin-bottom: 5%;
     padding-top: 0%;
 }
 #mainsidebar{
-    margin:  0 0 0;
+    margin: 0 0 0 0;
     padding: 0 0 0 0;
-    margin-top: 70%;
 }
 .sidenav:hover{
     height: 15%;
@@ -175,12 +233,15 @@ span{
 .reset:hover{
     background-color: #B40404;
 }
+.re-menu{
+    padding-top: 5%;
+    margin-top: 0%;
+}
 .re-menu li{
     width: 500px;
     height: 100px;
     overflow: hidden;
     background: #e0e0e0;
-    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
     margin-bottom: 4px;
     border-left: 10px solid #000;
     transition: all 300ms ease-in-out;
@@ -248,3 +309,4 @@ span{
     background-color: #5e5e5e;
     color: white;
     font-size: large;
+}

@@ -1,7 +1,7 @@
 <?php
 ?>
 <html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
-<?php include '../../core/init.php';
+<?php include '../../../core/init.php';
 protect_page();
 ?>
 <?php
@@ -9,7 +9,7 @@ $role= $user_data['role'];
 ?>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/IM.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/IM2.css" type="text/css"/>
     <!-- bxSlider Javascript file -->
     <script src="../js/jquery.bxslider.js"></script>
     <!-- bxSlider CSS file -->
@@ -19,7 +19,7 @@ $role= $user_data['role'];
 
 </head>
 <?php
-require "../../database/connect.php";
+require "../../../database/connect.php";
 session_start();
 $v = $_SESSION['type'];
 $sql = "SELECT * FROM battery_description WHERE battery_type = '$v'";
@@ -60,9 +60,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     <?php
     include '../include/header.php'
     ?>
-    <?php
-    include '../include/sidenav.php'
-    ?>
+    <div id="nav">
+        <ul id="mainsidebar">
+            <li class="sidenav">
+                <div id="side">
+                    <a href="../battery/product.php"><img src="../img/a.png" class="pic"></a>
+                    <span>Product Details</span>
+                </div>
+            </li>
+            <li class="sidenav">
+                <div id="side">
+                    <a href="../stock/stock.php"><img src="../img/b.png" class="pic"></a>
+                    <span>Stock</span>
+                </div>
+            </li>
+            <li class="sidenav">
+                <div id="side">
+                    <a href="../report/report.php"><img src="../img/e.png" class="pic"></a>
+                    <span>Reports</span>
+                </div>
+            </li>
+        </ul>
+    </div>
     <div id="content">
         <div class="topnav">
             <a href="product.php"><img src="../img/View.png"></a>
