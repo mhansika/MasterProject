@@ -244,7 +244,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
               $dateObj   = DateTime::createFromFormat('!m', $monthNum);
               $monthName = $dateObj->format('F');
               echo "<b>".$monthName."</b>";
-              $sql2="SELECT dealer_id FROM dealer WHERE area_no=$a_no";
+              $sql2="SELECT dealer_id FROM dealer WHERE area_no=$a_no and active=1";
               $query2=(mysqli_query($connection,$sql2));
               while ($res2 = mysqli_fetch_assoc($query2)) {
                 $sql="SELECT dealer_id,SUM(IF(battery_type = 'exide', Amount, 0)) AS 'Exide',SUM(IF(battery_type = 'lucas', Amount, 0)) AS 'Lucas',SUM(IF(battery_type = 'deganite', Amount, 0)) AS 'Dagenite',SUM(Amount) AS Total FROM sold WHERE YEAR(sold_date) ='$_POST[year]' AND MONTH(sold_date) = '$_POST[month]' AND dealer_id = '$res2[dealer_id]' GROUP BY dealer_id";

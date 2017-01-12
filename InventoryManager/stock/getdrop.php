@@ -6,7 +6,7 @@ require '../../database/connect.php';
 	if (isset($_GET['data'])) {
 
 		$id = $_GET['data'];
-		$sql = "SELECT * FROM sales_person WHERE area_no = $id";
+		$sql = "SELECT * FROM sales_person WHERE area_no = $id AND active=1";
 
 		$res = mysqli_query($connection,$sql);
 
