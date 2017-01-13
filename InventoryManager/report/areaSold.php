@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 include_once "connection.php";
 ?>
@@ -8,42 +8,7 @@ include_once "connection.php";
 <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 <head>
 <body>
-  <form action="areaSold.php" method="post">
-    Year:
-    <select id="selectElementId" name='year'></select>
-   
-      <script>
-          var min = (new Date().getFullYear())-2,
-          max = min + 9,
-          select = document.getElementById('selectElementId');
-
-          for (var i = min; i<=max; i++){
-             var opt = document.createElement('option');
-             opt.value = i;
-             opt.innerHTML = i;
-             select.appendChild(opt);
-          }
-      </script>
-    Month:
-    <select name="month">
-      <option value='January'>January</option>
-      <option value='February'>February</option>
-      <option value='March'>March</option>
-      <option value='April'>April</option>
-      <option value='May'>May</option>
-      <option value='June'>June</option>
-      <option value='July'>July</option>
-      <option value='August'>August</option>
-      <option value='September'>September</option>
-      <option value='October'>October</option>
-      <option value='November'>November</option>
-      <option value='December'>December</option>
-    </select> 
-
-
-  <input type="submit" value="Submit" name="submit">
-    
- </form>
+  
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -127,11 +92,11 @@ pdf.fromHTML(
 
 </head>
 <body id="content">
-    
+          <a href="salesnxt.php">back</a>
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">Manufacture Report</h1>
+                        <h1 class="page-head-line">Sales Report</h1>
 
                     </div>
                 </div>
@@ -142,7 +107,7 @@ pdf.fromHTML(
      
       <div class="row pad-top-botm ">
          <div class="col-lg-6 col-md-6 col-sm-6 ">
-            <img src="rpt/img/logo.png" width="25%" height="15%" style="padding-bottom:20px;" /> 
+            <img src="rpt/img/logo.png" width="25%" height="25%" style="padding-bottom:20px;" /> 
          </div>
           <div class="col-lg-6 col-md-6 col-sm-6">
             
@@ -226,7 +191,7 @@ echo "<tbody><tr><td>Colombo</td><td>".$sum1." </td></tr>";
 echo "<tr><td>Gampaha</td><td>".$sum2." </td></tr></tbody></table>";
 
 } else {
-    echo "0 results";
+    echo "";
 }
 $conn->close();
 

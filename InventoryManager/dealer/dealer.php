@@ -83,7 +83,8 @@ $role= $user_data['role'];
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
-        $sql = "SELECT dealer_id, dealer_name, area_no,salesPerson_id, NIC,address,mobileNo,telephoneNo,email,fax FROM dealer";
+       $sql = "SELECT * FROM dealer D join area A on (D.area_no = A.area_no) join sales_person S on(S.salesPerson_id = D.salesPerson_id)";
+
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -130,7 +131,10 @@ $role= $user_data['role'];
                 </tr>";
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
-                        echo "<tr><td>".$row["dealer_id"]."</td><td>".$row["dealer_name"]." </td><td>".$row["area_no"]." </td><td>".$row["salesPerson_id"]." </td><td>".$row["NIC"]." </td><td>".$row["address"]." </td><td>".$row["mobileNo"]." </td><td>".$row["telephoneNo"]." </td><td>".$row["email"]." </td><td>".$row["fax"]." </td></tr>";
+                        $f_name=$row["F_name"];
+                        $L_name=$row["L_name"];
+                        $name=$f_name." ".$L_name;
+                        echo "<tr><td>".$row["dealer_id"]."</td><td>".$row["dealer_name"]." </td><td>".$row["area"]." </td><td>".$name." </td><td>".$row["NIC"]." </td><td>".$row["address"]." </td><td>".$row["mobileNo"]." </td><td>".$row["telephoneNo"]." </td><td>".$row["email"]." </td><td>".$row["fax"]." </td></tr>";
                     }
                     echo "</table></body></html>";
                 } else {

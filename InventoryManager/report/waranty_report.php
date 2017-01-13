@@ -87,7 +87,7 @@ pdf.fromHTML(
 </head>
 <!-- give function name -->
 <body id="content">
-    
+    <a href="replacenxt.php">back</a>
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">

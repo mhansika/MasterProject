@@ -3,56 +3,7 @@ include_once "connection.php";
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<form action="defect_report.php" method="post">
-    Year:
-    <select id="selectElementId" name='year'></select>
-   
-      <script>
-          var min = (new Date().getFullYear())-2,
-          max = min + 9,
-          select = document.getElementById('selectElementId');
 
-          for (var i = min; i<=max; i++){
-             var opt = document.createElement('option');
-             opt.value = i;
-             opt.innerHTML = i;
-             select.appendChild(opt);
-          }
-      </script>
-    Month:
-    <select name="month">
-      <option value='January'>January</option>
-      <option value='February'>February</option>
-      <option value='March'>March</option>
-      <option value='April'>April</option>
-      <option value='May'>May</option>
-      <option value='June'>June</option>
-      <option value='July'>July</option>
-      <option value='August'>August</option>
-      <option value='September'>September</option>
-      <option value='October'>October</option>
-      <option value='November'>November</option>
-      <option value='December'>December</option>
-    </select> 
-    Defect Type:
-    
-    <?php
-    //get all defect types from data base
-    echo"<select name='defect_type'>
-    <option value = ''>---Select---</option>";
-    
-    $query= "SELECT defect FROM defect_types ";
-    $db = mysqli_query($conn, $query);
-    while ( $d=mysqli_fetch_assoc($db)) {
-  echo "<option value='{".$d['defect']."}'>".$d['defect']."</option>";
-}
-    
-    ?>
-    </select>
-   
-   <input type="submit" value="Submit" name="submit">
-    
- </form>
  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -136,7 +87,7 @@ pdf.fromHTML(
 
 </head>
 <body id="content">
-    
+    <a href="defectnxt.php">back</a>
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
