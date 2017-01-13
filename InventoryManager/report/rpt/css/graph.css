@@ -1,9 +1,15 @@
 .graphContainer{
-  margin-left:20%;
+  margin-left: 25%
 }
 .graphContainer2{
-  margin-left: 20%;
+  margin-left: 20%
 }
+
+
+
+
+
+
 dl {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -480,7 +486,7 @@ dt {
 }
 
 html, body {
-  height: auto;
+  height: 500px;
   font-family: "fira-sans-2",sans-serif;
   color: #333;
 }

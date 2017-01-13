@@ -12,7 +12,7 @@
        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script>
+        <script type="text/javascript">
 	
 		$(function(){
 			$(".autosubmit").change(function(){
@@ -64,10 +64,49 @@
 				});
 			});
 		});
-		
+		$(function(){
+			$("#btnConfirm").click(function(){
+				var input = $(this);
+				var dealer  = input.attr('value');
+							
+				if ( dealer == "" )
+					return;
+					
+				$.ajax({
+					url	: "confirmData.php",
+					type: "POST",
+					data: {action: 'confirm', dealer_id : dealer},
+					success: function(result)
+					{
+						$("#validCount").html(result);
+					}
+
+				});
+			});
+			
+			$("#btnSubmit").click(function(){
+				var input = $(this);
+				var dealer  = input.attr('value');
+							
+				if ( dealer == "" )
+					return;
+				
+				$.ajax({
+					url	: "confirmData.php",
+					type: "POST",
+					data: {action: 'submit', dealer_id : dealer},
+					success: function(result)
+					{
+						alert(result);
+						window.location.href = window.location.href
+					}
+
+				});
+			});
+		});
 	//multiple dropdown selection	
 		$( document ).ready(function() {
-			 $("select#cap").click( function(){
+			$("select#cap").click( function(){
 					//var id = this.id;
 					var id = $(this).children(":selected").attr("id");
 					console.log(id);
@@ -75,7 +114,7 @@
 					$.ajax({
 
 						url:'getdrop2.php?data='+id,
-						type:"get",
+						type:"GET",
 						success:function(data){
 
 						   $("tr#trow>th#second").html("");
@@ -87,45 +126,6 @@
 			});
 			
 		});
-			
-			
-		<?php if (isset($_POST['dealer_id']) ){ ?>
-		function confirmValids(){
-			alert("DEMO");
-			var dealer  = <?php echo $_POST['dealer_id'] ?>;
-			$.ajax({
-				type: "POST",
-				url	: 'confirmData.php',
-				data: {action: 'confirm', dealer_id : dealer},
-				success: function(result)
-				{
-					document.getElementById("validCount").innerHTML = result;
-				}
-
-			});
-		}
-		
-		
-		
-		function submit(){
-			
-			var dealer  = <?php echo $_POST['dealer_id'] ?>;
-			$.ajax({
-				type: "POST",
-				url	: 'confirmData.php',
-				data: {action: 'submit', dealer_id : dealer},
-				success: function(result)
-				{
-					alert(result);
-					location.reload();
-				}
-
-			});
-		}
-		
-		<?php } ?>
-
-
 	</script>
 
   
@@ -234,7 +234,7 @@
 						<br/>
 						<h1><b>Replacement Inspection</b></h1>
 						<br/>
-					<form action= "" method="post" id= "formID">
+					<!--form action= "" method="post" id= "formID"-->
 						<table width="70%">
 							<tr>
 								<th>Area :</th>
@@ -273,7 +273,7 @@
 							</tr>
 
 					</table>
-				</form>
+				<!--/form-->
 				</form>
    
 <?php
@@ -292,7 +292,7 @@
 		<table cellpadding='0' cellspacing='0' border='0'>
 		  <thead>
 			<tr>
-				<th >Replacement</th>
+				<th>Replacement</th>
 				<th>Replacement Date</th>
 				<th>Warranty Expiry - Date</th>
 				<th>Within Warranty Period</th>
@@ -321,34 +321,20 @@
 		$defected = check_defect ($conn, $valid);
 		$row["defected"] = $defected;
 		
-//check valid
+		//check valid
 		if (isset($final_valid)) {
 			$check_replace = check_replacement ($conn,$valid,$final_valid, $defected) ;
 			$row["replacement"] = $check_replace;
-		
-//count invalid batteries and set staus			  
-		if (isset($_POST['action'])) {
-			switch ($_POST['action']) {
-				case 'confirm':
-					count_invalids($conn, $batch_num, $battery_num, $check_replace);
-					break;
-				case 'submit':
-					set_status($conn, $batch_num, $battery_num, $check_replace);
-					break;
-			  
-			}
-		}
+				
 		$id = "".$row["batch_num"]."|".$row["battery_num"];
 		$idIn = "".$row["batch_num"].$row["battery_num"];
 		 echo "
 			<tr>
 				<td>".$idIn."</td>
 				<td>
-					<form id='dateform_".$idIn."' class='autosubmit' method='POST' action='ajax-update.php'>
-						<input id='date_".$idIn."' type='date' id='date_".$idIn."' name='replaced_date' size='20' value= '".$row['replaced_date']."' class='autosubmit'>
-						<input id='batch_".$idIn."' type='hidden' name='batch_num' value=".$row['batch_num']."  />
-						<input id='battery_".$idIn."' type='hidden' name='battery_num' value=".$row['battery_num']."  />
-					</form>
+					<input id='date_".$idIn."' type='date' id='date_".$idIn."' name='replaced_date' size='20' value= '".$row['replaced_date']."' class='autosubmit'>
+					<input id='batch_".$idIn."' type='hidden' name='batch_num' value=".$row['batch_num']."  />
+					<input id='battery_".$idIn."' type='hidden' name='battery_num' value=".$row['battery_num']."  />
 				</td>
 				<td>".$row['warranty_period']."</td>
 				<td>".$row["validity"]."</td>
@@ -369,7 +355,20 @@
 }
 
 $conn->close();
+?>
+</div>
+<div class="bottom" align="center">
+	<div style='text-align:left;color:black;padding:5px;' id='validCount'></div>
 
+	<button id="btnConfirm" type=button class='confirm' name='confirm' value='<?php echo isset($_POST['dealer_id']) ? $_POST['dealer_id'] : "" ?>'>Confirm</button>
+	<button id="btnSubmit" type=button class='submit' name='send' value='<?php echo isset($_POST['dealer_id']) ? $_POST['dealer_id'] : "" ?>' >Submit</button>
+
+</div>
+</div>
+</div>
+<html>
+
+<?php
 // this fetch data from released batteries and store in an array
 function warranty_calculation ($conn, $batchNum , $batteryNum) {
  
@@ -426,49 +425,3 @@ function check_replacement ($conn,$data, $final_valid, $defected) {
 	  return "INVALID" ; 
 	}
 }
-
-//change the status of the battery acoording to the validity and count the number of valid and invalid batteries
-function count_invalids($conn, $batchNum,$batteryNum, $check_replace){
-	$valids = array() ;
-	$invalids = array ();
-	
-	while ($check_replace == "VALID") {
-		foreach ($batchNum as $key){
-			$valids[] = $key;
-		}
-		$sum_valids = count($valids);
-	}
-	while ($check_replace == "INVALID") {
-		foreach ($batchNum as $key){
-			$invalids[] = $key;
-		}
-		$sum_invalids = count($invalids);
-	}		
-	echo " <tr><td>Valid replacements:</td><td>$sum_valids</td></tr>
-			<tr><td>Invalid Replacements : </td><td>$sum_invalids</td></tr>";
-}
-
-function set_status($conn, $batchNum,$batteryNum, $check_replace){
-
-	if ($check_replace == "VALID") {
-		mysqli_query($conn,"UPDATE released_batteries SET battery_status = '5'
-		WHERE battery_status = '3' AND batch_num = '$batchNum' AND battery_num = '$batteryNum' ");
-	} else {
-		mysqli_query($conn,"UPDATE released_batteries SET battery_status = '6'
-		WHERE battery_status = '3' AND batch_num = '$batchNum' AND battery_num = '$batteryNum' ");
-	}
-}
-?>
-
-</div>
-<div class="bottom" align="center">
-	<div style='text-align:right;color:black' id='validCount'></div>
-
-	<button class='submit' name='confirm' value='confirm' onClick="confirmValids()">Confirm</button>
-	<button class='submit' name='send' value='send' onClick="submit()">Submit</button>
-
-</div>
-
-</div>
-</div>
-<html>

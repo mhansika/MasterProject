@@ -59,7 +59,7 @@ $role= $user_data['role'];
 		</div>
 		<?php
 		require "../../database/connect.php";
-		/*session_start();*/
+		session_start();
 		$error=FALSE;
 		$dealer_iderr = $v1 = "";
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {

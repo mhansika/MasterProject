@@ -27,7 +27,7 @@ $role= $user_data['role'];
 		</div>
 		<?php
 		require "../../database/connect.php";
-		/*session_start();*/
+		session_start();
 		$error=FALSE;
 		$salesPerson_iderr = "";
 		$v0=$v1=$v2=$v3=$v4=$v5=$v6=$v7=$v8=$v9="";

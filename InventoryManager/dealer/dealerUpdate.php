@@ -340,7 +340,7 @@ $role= $user_data['role'];
 
                     <tr>
                         <td>
-                            <?php echo $h10; ?>
+                            <span class="error">* <?php echo $area_noerr;?></span>
                         </td>
                         <td>
                             <input type="text" name="email" style="width: 200px" value="<?php echo $h8; ?>">

@@ -65,8 +65,9 @@ include '../../core/init.php';
 
 if (isset($_POST['send'])) {
 $username = $_POST['username'];
+$user_id= user_id_from_username($username);
 
-$sql = "SELECT password FROM users WHERE username = $username ";
+$sql = "SELECT password FROM users WHERE user_id = $user_id";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 	while($row = $result->fetch_assoc() ){
@@ -75,18 +76,28 @@ $current_password = $row['password'];
 
   if (md5($_POST['current_password']) === $current_password) {
 
-     if (trim($_POST['password']) != trim($_POST['password_again']) ) {
-       $errors[]='Your new passwords do not match';
-     }
+     if (trim($_POST['password']) != trim($_POST['password_again']) ) { ?>
+     <script language='javascript'>
+                alert("Passwords you entered do not match ! Please try again...") ;
+            </script>
+     <? }
 	else {
-		change_password($user_id,$_POST['password']);
-		echo "password updated successfully";
+		 $user_id=user_id_from_username($username);
+  $password = $_POST['password'];	 
+  $password=md5($password);
+  $conn= mysqli_connect('localhost','root','','warranty_management');
+  mysqli_query($conn,"UPDATE users SET password = '$password' WHERE user_id = $user_id");?>
+		<script language='javascript'>
+                alert("Password Updated Successfully") ;
+            </script>
 		
-	}
-
-  } else {
-    $errors[]='Your current password is incorrect';
-  }
+	<?php }
+  header('Location:http://localhost/MasterProject/login.php');
+  } else {?>
+    <script language='javascript'>
+                alert("Your Current Password is incorrect !") ;
+            </script>
+ <?php }
 	
 	
 }	
@@ -96,21 +107,6 @@ $current_password = $row['password'];
 
 
 
- /*    if (isset($_GET['success']) && empty($_GET['success'])) {
-      echo "Your password has been changed";
-    } else {
-
-
-      if (empty($_POST) === false && empty($errors) === true) {
-        change_password($session_user_id,$_POST['password']);
-        header('Location:');
-
-      } else if(empty($errors) === false) {
-        echo output_errors($errors);
-      }
-
-	}
- */
 
 ?>
 <body>
@@ -121,8 +117,8 @@ $current_password = $row['password'];
             <h2 style="font-size: xx-large">Change Password</h2>
 
             <form class="form" action="" method="post">
-				     <input type="text" name="username" placeholder="Username" />
-					          <input type="password" name="current_password" placeholder="Current Password" />
+				<input type="text" name="username" placeholder="Username" />
+				<input type="password" name="current_password" placeholder="Current Password" />
                 <input type="password" name="password" placeholder="New Password" />
 				<input type="password" name="password_again" placeholder="Confirm Password" />
                 <button class="submit" name="send" value="Login">Update</button><br/><br>

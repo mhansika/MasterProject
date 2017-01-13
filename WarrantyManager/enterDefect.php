@@ -98,9 +98,6 @@
 		
 	});
 		
-		
-
-	
 </script>
 
 </head>
@@ -209,8 +206,6 @@
         <div class="table">
             <div id="content">
             <form action="#" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
-
-
                     <div class="ad">
 							<a href="../index.php"  style="display:block;float:right;margin-right:45px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" src="../img/lgout.png" ></a>
                     </br>
@@ -235,7 +230,7 @@
 								<th> <input name="date_2" type="date"  size="9" value=""/></th>
                             </div>
 								<th><button type="submit" name="submit" value="submit">Search</button> </th>
-								<th><a href = "enterDefectType.php"><img src="img/defect.png" width="200px" height= "57px"></a></th>
+								<th><a href = "enterDefectType.php"><img src="img/defect.png" width="200px" height= "50px"></a></th>
 					       </form>
                       </tr>
   
@@ -252,15 +247,15 @@ require "../core/database/connect.php";
 if (isset($_POST['submit'])) {
      
 	$from_date = strtotime($_POST['date_1']);
-	$to_date = strtotime('-30 day',$from_date);
+	$to_date = strtotime($_POST['date_2']);
 	$First_Date = date('Y-m-d',$from_date);
 	$Next_Date =  date('Y-m-d',$to_date);
 	
 
-	$sql="SELECT battery_status,replaced_date,batch_num,battery_num,defect_type FROM released_batteries 
-	WHERE battery_status = '3' AND replaced_date BETWEEN '" . $Next_Date . "' AND  '" . $First_Date . "' ";
+	$sql="SELECT battery_status,replaced_date,batch_num,battery_num,defect_type FROM released_batteries WHERE battery_status = '3' AND replaced_date BETWEEN '" . $First_Date . "' AND  '" . $Next_Date . "' ";
 
 
+	
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
 		
@@ -270,13 +265,8 @@ if (isset($_POST['submit'])) {
 		  <thead>
 			<tr>
 			  <th>Replaced Battery Number</th>
-			   
 			 
 			  <th>Enter/Update Defect Type</th>
-
-
-				 
-			  
 			</tr>
 		  </thead>
 		</table>
@@ -291,7 +281,7 @@ if (isset($_POST['submit'])) {
 			echo"
 				<tr>
 				<td>".$row1["batch_num"].$row1["battery_num"]."</td>  
-			";
+				";
 
 			?>
 			<td>
@@ -324,92 +314,17 @@ if (isset($_POST['submit'])) {
 mysqli_close($conn);
 
 ?>
-
-
-
-
-
-
-
-
-      <th></th>
-      <th></th>
-      
-    </tr>
-    <tr>
-      <th></th>
-      <th></th>
-      
-    </tr>
-    <tr>
-      <th></th>
-      <th></th>    </tr>
-    <tr>
-       <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-    </tr>
-     <tr>
-       <th></th>
-      <th></th>
-    </tr>
-    
    
-    
   </tbody>
 </table>
 </div>
 
-</div>
-
-
-
-                   
+</div>                 
 </form>
-
-
- 
-
 </div>
 </div>
-
- 
-       
-
-                        
-                        
-                            
-
 </div>
 </div>
-
 <div>
 
 </html>

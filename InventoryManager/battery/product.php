@@ -87,9 +87,6 @@ include '../include/header.php'
                             overflow-y: auto;   
                             overflow-x: hidden;  
                         }
-                        .tbl-content{
-                          
-                        }
                         </style>
                     </head>
                     <body>
@@ -105,8 +102,7 @@ include '../include/header.php'
                         </tr>";
                 // output data of each row
                 while($row = $result->fetch_assoc()) {
-                    echo "<div class='tbl-content'>
-                           <tr>
+                    echo "<tr>
                                 <td>".$row["battery_type"]."</td>
                                 <td>".$row["battery_name"]." </td>
                                 <td>".$row["warranty_period"]."</td>
@@ -114,9 +110,9 @@ include '../include/header.php'
                                 <td>".$row["voltage_Value"]."</td>
                                 <td>".$row["item_Type"]."</td>
                                 <td><img src='uploads/$row[imageUpload].png' height='75px' width='100px'></td>
-                          </tr>";
+                                </tr>";
                 }
-                echo "</div></table></body></html>";
+                echo "</table></body></html>";
             } else {
                 echo "0 results";
             }
