@@ -155,47 +155,8 @@ if (isset($_POST["submit"]))
   $str1 = $_POST['year'];
   //give last number of year
   $year = substr($str1, 3,4);
-
-  $str2 = $_POST['month'];
-  //select month
-   if($str2 == 'January'){
-    $month = 'A';
-   }
-   elseif($str2 == 'February'){
-    $month = 'B';
-   }
-   elseif($str2 == 'March'){
-    $month = 'C';
-   }
-   elseif($str2 == 'April'){
-    $month = 'D';
-   }
-   elseif($str2 == 'May'){
-    $month = 'E';
-   }
-   elseif($str2 == 'June'){
-    $month = 'F';
-   }
-   elseif($str2 == 'July'){
-    $month = 'G';
-   }
-   elseif($str2 == 'August'){
-    $month = 'H';
-   }
-   elseif($str2 == 'September'){
-    $month = 'I';
-   }
-   elseif($str2 == 'October'){
-    $month = 'J';
-   }
-   elseif($str2 == 'November'){
-    $month = 'K';
-   }
-   else{
-    $month = 'L';
-   }
-  
-   $line = $_POST['line'];
+  $month2 = $_POST['month'];
+  $line = $_POST['line'];
 
 }
 //get all details of anufacture battery table
@@ -215,7 +176,7 @@ echo'<table class="table table-striped table-bordered table-hover">
 if ($result->num_rows > 0) {
 while($row1 = $result->fetch_assoc() ){
   //check and increment ecah sum of battry types
-  if($row1['manufacture_year']==$year && $row1['manufacture_month']==$month && $row1['production_line']==$line){
+  if($row1['manufacture_year']==$year && $row1['manufacture_month']==$month2 && $row1['production_line']==$line){
       if($row1["battery_type"]=='Exide'){
         $sum1=$sum1+$row1["amount"];
         }
