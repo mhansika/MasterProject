@@ -22,7 +22,7 @@ select {
     padding: 16px 20px;
     border: none;
     border-radius: 4px;
-    background-color: #f1f1f1;
+    background-color: #C0C0C0;
 }
 input[type=submit]{
     background-color: #5E5E5E;
@@ -75,8 +75,14 @@ input[type=submit]{
         </ul>
     </div>
     <div id="content">
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <div style="margin-left=10px;">
         <form action="manufacture_report.php " method="post">
-     Year:
+     <b>Year:</b>
     <select id="selectElementId" name='year'></select>
 
    
@@ -92,7 +98,7 @@ input[type=submit]{
              select.appendChild(opt);
           }
       </script>
-    Month:
+    <b>Month:</b>
     <select name="month">
       <option value='January'>January</option>
       <option value='February'>February</option>
@@ -108,7 +114,7 @@ input[type=submit]{
       <option value='December'>December</option>
     </select> 
 
-    Production Line:
+    <b>Production Line:</b>
     <select name='line'>
       <option value = '1'>1</option>
       <option value = '2'>2</option>
@@ -116,6 +122,7 @@ input[type=submit]{
    <input type="submit" value="Submit" name="submit">
   
  </form>
+</div>
     </div>
     <?php
     include '../include/footer.php';
