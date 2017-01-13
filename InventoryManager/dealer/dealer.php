@@ -8,14 +8,29 @@ protect_page();
 
 	$role= $user_data['role'];
 	echo $role;
-/* function protectAdmin_page() { 
+function protectAdmin_page($role) { 
  	 if ($role === 'deo') {
-		 header('Location:../../core/init.php');
-    exit();
-  } 
+		?>
+		<script>
+  } function myAjax() {
+      $.ajax({
+           type: "POST",
+           url: 'dealer.php',
+           data:{action:'call_this'},
+           success:function(html) {
+             alert(html);
+           }
 
+      });
+ }
+</script>
+<?php
+if($_POST['action'] == 'call_this') {
+	include 'inventory.php';
 }
-protectAdmin_page(); */  
+}
+}
+protectAdmin_page($role);  
  
 ?>
 <?php
@@ -47,7 +62,7 @@ $role= $user_data['role'];
             </li>
             <li class="sidenav">
                 <div id="side">
-                    <a href="../dealer/dealer.php"><img src="../img/c.png" class="pic"></a>
+                    <a href="../dealer/dealer.php"  onclick="myAjax()"><img src="../img/c.png" class="pic"></a>
                     <span>Dealer</span>
                 </div>
             </li>

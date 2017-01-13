@@ -4,11 +4,11 @@
 	session_start();
 	$v = $_SESSION['dealer_name'];
 		
-	$sql = "UPDATE dealer SET active=0 WHERE dealer_name='$v'";
+	$sql = "DELETE FROM dealer WHERE dealer_name='$v'";
 
 	if (mysqli_query($connection, $sql)){
 		echo "Record deleted successfully";
-		header("Location: dealerSearch.php");
+		header("Location: searchdealer.php");
 	}else{
 		echo "Error deleting record: ";
 		}
