@@ -151,7 +151,7 @@ $str1=$str2="";
  if (isset($_POST["submit"]))
 
 {
- $sum1=$sum2=$sum3=0;
+ $sum1=$sum2=$sum3=$sum4=$sum5=$sum6=$sum7=$sum8=$sum9=$sum10=0;
 echo '<table class="table table-striped table-bordered table-hover">
                             <thead>
                                 <tr>
@@ -175,20 +175,53 @@ if ($result->num_rows >0) {
         $month=date("F",$time);
         $year=date("Y",$time);
 
-        if($str1==$year && $str2==$month && $area=='Colombo'){
+        if($str1==$year && $str2==$month && $area=='Kadawatha'){
           $sum1=$sum1+$row1['amount'];
     
         }
-        if($str1==$year && $str2==$month && $area=='Gampaha'){
+        if($str1==$year && $str2==$month && $area=='Kelaniya'){
           $sum2=$sum2+$row1['amount'];
+    
+        }
+        if($str1==$year && $str2==$month && $area=='Paliyagoda'){
+          $sum3=$sum3+$row1['amount'];
+    
+        }if($str1==$year && $str2==$month && $area=='Dematagoda'){
+          $sum4=$sum4+$row1['amount'];
+    
+        }if($str1==$year && $str2==$month && $area=='Kiribathgoda'){
+          $sum5=$sum5+$row1['amount'];
+    
+        }if($str1==$year && $str2==$month && $area=='Maradana'){
+          $sum6=$sum6+$row1['amount'];
+    
+        }if($str1==$year && $str2==$month && $area=='Nugegoda'){
+          $sum7=$sum7+$row1['amount'];
+    
+        }if($str1==$year && $str2==$month && $area=='Rathmalana'){
+          $sum8=$sum8+$row1['amount'];
+    
+        }if($str1==$year && $str2==$month && $area=='Maharagama'){
+          $sum9=$sum9+$row1['amount'];
+    
+        }if($str1==$year && $str2==$month && $area=='Dehiwala'){
+          $sum10=$sum10+$row1['amount'];
     
         }
         }
        
     }
   
-echo "<tbody><tr><td>Colombo</td><td>".$sum1." </td></tr>";
-echo "<tr><td>Gampaha</td><td>".$sum2." </td></tr></tbody></table>";
+echo "<tbody><tr><td>Kadawatha</td><td>".$sum1." </td></tr>";
+echo "<tr><td>Kelaniya</td><td>".$sum2." </td></tr>";
+echo "<tr><td>Paliyagoda</td><td>".$sum3." </td></tr>";
+echo "<tr><td>Dematagoda</td><td>".$sum4." </td></tr>";
+echo "<tr><td>Kiribathgoda</td><td>".$sum5." </td></tr>";
+echo "<tr><td>Maradana</td><td>".$sum6." </td></tr>";
+echo "<tr><td>Nugegoda</td><td>".$sum7." </td></tr>";
+echo "<tr><td>Rathmalana</td><td>".$sum8." </td></tr>";
+echo "<tr><td>Maharagama</td><td>".$sum9." </td></tr>";
+echo "<tr><td>Dehiwala</td><td>".$sum10." </td></tr></tbody></table>";
 
 } else {
     echo "";

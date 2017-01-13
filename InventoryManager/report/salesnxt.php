@@ -22,7 +22,7 @@ select {
     padding: 16px 20px;
     border: none;
     border-radius: 4px;
-    background-color: #f1f1f1;
+    background-color: #C0C0C0;
 }
 input[type=submit] {
     background-color: #5E5E5E;
@@ -76,7 +76,7 @@ input[type=submit] {
     </div>
     <div id="content">
    <form action="areaSold.php" method="post">
-    Year:
+  <b>Year:</b>
     <select id="selectElementId" name='year'></select>
    
       <script>
@@ -91,7 +91,7 @@ input[type=submit] {
              select.appendChild(opt);
           }
       </script>
-    Month:
+    <b>Month:</b>
     <select name="month">
       <option value='January'>January</option>
       <option value='February'>February</option>

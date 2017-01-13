@@ -73,7 +73,7 @@ $str1=$str2="";
  if (isset($_POST["submit"]))
 
 {
-  $sum1=$sum2=$sum3=0;
+  $sum1=$sum2=$sum3=$sum4=$sum5=$sum6=$sum7=$sum8=$sum9=$sum10=0;
   $str1 = $_POST['year'];
   $str2 = $_POST['month'];
 
@@ -89,12 +89,37 @@ if ($result->num_rows >0) {
         $month=date("F",$time);
         $year=date("Y",$time);
 
-        if($str1==$year && $str2==$month && $area=='Colombo'){
+        if($str1==$year && $str2==$month && $area=='Kadawatha'){
           $sum1=$sum1+$row1['amount'];
     
         }
-        if($str1==$year && $str2==$month && $area=='Gampaha'){
+        if($str1==$year && $str2==$month && $area=='Kelaniya'){
           $sum2=$sum2+$row1['amount'];
+    
+        }
+        if($str1==$year && $str2==$month && $area=='Paliyagoda'){
+          $sum3=$sum3+$row1['amount'];
+    
+        }if($str1==$year && $str2==$month && $area=='Dematagoda'){
+          $sum4=$sum4+$row1['amount'];
+    
+        }if($str1==$year && $str2==$month && $area=='Kiribathgoda'){
+          $sum5=$sum5+$row1['amount'];
+    
+        }if($str1==$year && $str2==$month && $area=='Maradana'){
+          $sum6=$sum6+$row1['amount'];
+    
+        }if($str1==$year && $str2==$month && $area=='Nugegoda'){
+          $sum7=$sum7+$row1['amount'];
+    
+        }if($str1==$year && $str2==$month && $area=='Rathmalana'){
+          $sum8=$sum8+$row1['amount'];
+    
+        }if($str1==$year && $str2==$month && $area=='Maharagama'){
+          $sum9=$sum9+$row1['amount'];
+    
+        }if($str1==$year && $str2==$month && $area=='Dehiwala'){
+          $sum10=$sum10+$row1['amount'];
     
         }
         }
@@ -114,11 +139,52 @@ if ($result->num_rows >0) {
   $psum2=(@($sum2/$sum))*100;
   $psum12 = round($psum2);
   $psum12 = (string)$psum12;
+
+  $psum3=(@($sum3/$sum))*100;
+  $psum13 = round($psum3);
+  $psum13 = (string)$psum13;
+
+  $psum4=(@($sum4/$sum))*100;
+  $psum14 = round($psum4);
+  $psum14 = (string)$psum14;
+
+  $psum5=(@($sum5/$sum))*100;
+  $psum15 = round($psum5);
+  $psum15 = (string)$psum15;
+
+  $psum6=(@($sum6/$sum))*100;
+  $psum16 = round($psum6);
+  $psum16 = (string)$psum16;
+
+  $psum7=(@($sum7/$sum))*100;
+  $psum17 = round($psum7);
+  $psum17 = (string)$psum17;
+
+  $psum8=(@($sum8/$sum))*100;
+  $psum18 = round($psum8);
+  $psum18 = (string)$psum18;
+
+  $psum9=(@($sum9/$sum))*100;
+  $psum19 = round($psum9);
+  $psum19 = (string)$psum19;
+
+  $psum10=(@($sum2/$sum))*100;
+  $psum110 = round($psum10);
+  $psum110 = (string)$psum110;
   
  ?>
-  <dd class="<?php echo 'percentage percentage-'.$psum11; echo'"'; ?>" ><span class="text">Colombo <?php echo $sum1 ?></span></dd>
-  <dd class="<?php echo 'percentage percentage-'.$psum12; echo'"'; ?>" ><span class="text">Gampaha <?php echo $sum2 ?></span></dd>
-  
+  <dd class="<?php echo 'percentage percentage-'.$psum11; echo'"'; ?>" ><span class="text">Kadawatha <?php echo $sum1 ?></span></dd>
+  <dd class="<?php echo 'percentage percentage-'.$psum12; echo'"'; ?>" ><span class="text">Kelaniya <?php echo $sum2 ?></span></dd>
+  <dd class="<?php echo 'percentage percentage-'.$psum13; echo'"'; ?>" ><span class="text">Paliyagoda <?php echo $sum2 ?></span></dd>
+  <dd class="<?php echo 'percentage percentage-'.$psum14; echo'"'; ?>" ><span class="text">Dematagoda <?php echo $sum2 ?></span></dd>
+  <dd class="<?php echo 'percentage percentage-'.$psum15; echo'"'; ?>" ><span class="text">Kiribathgoda <?php echo $sum2 ?></span></dd>
+  <dd class="<?php echo 'percentage percentage-'.$psum16; echo'"'; ?>" ><span class="text">Maradana <?php echo $sum2 ?></span></dd>
+  <dd class="<?php echo 'percentage percentage-'.$psum17; echo'"'; ?>" ><span class="text">Nugegoda <?php echo $sum2 ?></span></dd>
+  <dd class="<?php echo 'percentage percentage-'.$psum18; echo'"'; ?>" ><span class="text">Rathmalana <?php echo $sum2 ?></span></dd>
+  <dd class="<?php echo 'percentage percentage-'.$psum19; echo'"'; ?>" ><span class="text">Maharagama <?php echo $sum2 ?></span></dd>
+  <dd class="<?php echo 'percentage percentage-'.$psum110; echo'"'; ?>" ><span class="text">Dehiwala <?php echo $sum2 ?></span></dd>
+
+
   
 </dl>
 <?php
