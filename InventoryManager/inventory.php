@@ -7,32 +7,13 @@ protect_page();
 <?Php
 
 	$role= $user_data['role'];
-	echo $role;
-function protectAdmin_page($role) { 
- 	 if ($role === 'deo') {
-		?>
-		<script>
-  } function myAjax() {
-      $.ajax({
-           type: "POST",
-           url: 'dealer.php',
-           data:{action:'call_this'},
-           success:function(html) {
-             alert(html);
-           }
-
-      });
- }
-</script>
-<?php
-if($_POST['action'] == 'call_this') {
-	include 'inventory.php';
+	
+ 	 if ($role == "deo") {
+		 echo '';
 }
-}
-}
-protectAdmin_page($role);  
- 
 ?>
+
+
 
 
 <head>
@@ -42,7 +23,7 @@ protectAdmin_page($role);
 <body>
 <div class="row">
 <?php
-include 'include/header.php'
+include 'include/header.php';
 ?>
     <div id="nav">
         <ul id="mainsidebar">

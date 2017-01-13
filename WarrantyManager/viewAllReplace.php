@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-
+ <?php include '../core/init.php';
+      protect_page(); 
+	
+      ?>
 
 <html lang="en">
     <head>

@@ -128,7 +128,7 @@
                     <div class="ad">
 					<a href="../index.php"  style="display:block;float:right;margin-right:45px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" src="../img/lgout.png" ></a> 
                     </br>
-					<h1><b> Defect Types Of Batteries</b></h1>
+					<h1><b> Search For Battery Details</b></h1>
 					
 <div id = "form-align">
 	<div class="form-style-2">
