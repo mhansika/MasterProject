@@ -16,7 +16,24 @@ $role= $user_data['role'];
     <link href="css/jquery.bxslider.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
+    <style> 
+select {
+    width: 15%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+}
+input[type=submit]{
+    background-color: #5E5E5E;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style>
 </head>
 <body>
 <div class="row">
@@ -58,48 +75,47 @@ $role= $user_data['role'];
         </ul>
     </div>
     <div id="content">
-        <ul class="re-menu">
-            <li>
-                <a href="salesnxt.php">
-                    <span class="re-icon"><img src="../img/sm.png"> </span>
-                    <div class="re-content">
-                        <h3 class="re-sub">Sales Report</h3>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="manufacturenxt.php">
-                    <span class="re-icon"><img src="../img/manu.png"> </span>
-                    <div class="re-content">
-                        <h3 class="re-sub">Manufacture Report</h3>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="replacenxt.php">
-                    <span class="re-icon"><img src="../img/dd.png"> </span>
-                    <div class="re-content">
-                        <h3 class="re-sub">Replacement Report</h3>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="defectnxt.php">
-                    <span class="re-icon"><img src="../img/w.png"></span>
-                    <div class="re-content">
-                        <h3 class="re-sub">Defect Report</h3>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="reportnxt.php">
-                    <span class="re-icon"><img src="../img/st.png"></span>
-                    <div class="re-content">
-                        <h3 class="re-sub">Graphs</h3>
-                    </div>
-                </a>
-            </li>
-        </ul>
+        <form action="manufacture_report.php " method="post">
+     Year:
+    <select id="selectElementId" name='year'></select>
+
+   
+      <script>
+          var min = (new Date().getFullYear())-2,
+          max = min + 9,
+          select = document.getElementById('selectElementId');
+
+          for (var i = min; i<=max; i++){
+             var opt = document.createElement('option');
+             opt.value = i;
+             opt.innerHTML = i;
+             select.appendChild(opt);
+          }
+      </script>
+    Month:
+    <select name="month">
+      <option value='January'>January</option>
+      <option value='February'>February</option>
+      <option value='March'>March</option>
+      <option value='April'>April</option>
+      <option value='May'>May</option>
+      <option value='June'>June</option>
+      <option value='July'>July</option>
+      <option value='August'>August</option>
+      <option value='September'>September</option>
+      <option value='October'>October</option>
+      <option value='November'>November</option>
+      <option value='December'>December</option>
+    </select> 
+
+    Production Line:
+    <select name='line'>
+      <option value = '1'>1</option>
+      <option value = '2'>2</option>
+    </select>
+   <input type="submit" value="Submit" name="submit">
+  
+ </form>
     </div>
     <?php
     include '../include/footer.php';
