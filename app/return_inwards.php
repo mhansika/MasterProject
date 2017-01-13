@@ -111,7 +111,7 @@ $arr2 = substr($name, 4);
         $date =  $_POST["date"];
     }
 
-$sql = "UPDATE released_batteries SET battery_status=5,cus_sold_date='$date' WHERE  batch_num='$arr1'  AND battery_num='$arr2'";
+$sql = "UPDATE released_batteries SET battery_status=5,replaced_date='$date' WHERE  batch_num='$arr1'  AND battery_num='$arr2'";
 
 if ($conn->query($sql) === TRUE) {
     echo "";

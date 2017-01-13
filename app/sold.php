@@ -1,4 +1,7 @@
- <?php
+<?php include '../core/init.php';
+protect_page();
+?>
+<?php
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -53,7 +56,7 @@ $date="";
             
         }
         else{
-                document.getElementById('bcd').innerHTML="Please Enter only 10 characters";
+                //document.getElementById('bcd').innerHTML="Please Enter only 10 characters";
                 document.getElementById('barcode').style.border ="solid 2.5px black";
 
                 return false;
@@ -110,20 +113,8 @@ $date="";
     </div>
    
 <?php
-
-
-
-
-
-
-
-
-
-
-
-
-
-    if (isset($_POST["barcode"])){
+$days="";
+if (isset($_POST["barcode"])){
         $name = $_POST["barcode"];
     }
 $arr1 = substr($name, 0,4);

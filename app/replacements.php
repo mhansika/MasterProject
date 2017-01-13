@@ -156,15 +156,18 @@ $arr22 = substr($newname, 4);
         
 }
 
-function getExpirydateForNewBattery ($conn,$arr1,$arr2) {
+/*function getExpirydateForNewBattery ($conn,$arr1,$arr2) {
 $query=mysqli_query($conn,"SELECT warranty_period FROM released_batteries WHERE batch_num='$arr1'  AND battery_num='$arr2'");
 $data=mysqli_fetch_assoc($query);
 return $data ; 
 
-}
+}*/
 
-$expiry_date= $data["warranty_period"];
-
+//$expiry_date= $data["warranty_period"];
+$sql3="SELECT warranty_period FROM released_batteries WHERE batch_num='$arr1'  AND battery_num='$arr2'";
+$result = $conn->query($sql3);
+$row = $result->fetch_assoc();
+$expiary_date=$row['warranty_period'];
 $sql = "UPDATE released_batteries SET battery_status=3,replaced_date='$date' WHERE  batch_num='$arr1'  AND battery_num='$arr2'";
 
  
@@ -173,7 +176,8 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Error updating record: " . $conn->error;
 }
-$sql2 = "UPDATE released_batteries SET battery_status=4,cus_sold_date='$date',warranty_period='$expiry_date' WHERE  batch_num='$arr12'  AND battery_num='$arr22'";
+
+$sql2 = "UPDATE released_batteries SET battery_status=4,cus_sold_date='$date',warranty_period='$expiary_date' WHERE  batch_num='$arr12'  AND battery_num='$arr22'";
 
 if ($conn->query($sql2) === TRUE) {
     echo "";
