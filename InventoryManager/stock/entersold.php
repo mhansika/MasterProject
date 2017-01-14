@@ -2,10 +2,8 @@
 
  <?php include '../../core/init.php';
       protect_page(); 
-      include 'header.php';
+      include '../include/header.php';
       ?>
-
-
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -26,10 +24,9 @@
     height:600px;
     margin-top:-600px;
     margin-right: 10%;
-    
-    
+
 }
-    
+
 .form-style-2{
     max-width: 500px;
     padding: 20px 12px 10px 20px;
@@ -412,10 +409,9 @@
         
 
     </div>
-
-<div id="footer">
-
-</div>
+<?php
+include '../include/footer.php';
+?>
 </body>
 </html>
 

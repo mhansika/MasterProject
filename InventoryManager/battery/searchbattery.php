@@ -27,7 +27,7 @@ $role= $user_data['role'];
         <ul id="mainsidebar">
             <li class="sidenav">
                 <div id="side">
-                    <a href="../battery/product.php"><img src="../img/a.png" class="pic"></a>
+                    <a href="../battery/product.php"><img src="../img/a.png" class="pro"></a>
                     <span>Product Details</span>
                 </div>
             </li>
@@ -75,17 +75,17 @@ $role= $user_data['role'];
                 <tr>
                     <td colspan="2" id="data">
                         <input name="name" size="30" maxlength="25" style="width: 300px" required>
-                        <input type="submit" class="button" value="Search" name="submit" >
+                        <input type="submit" class="save" value="Search" name="submit" >
                     </td>
                 </tr>
             </form>
-            <tr>
+            <!--tr>
                 <td id="data"><b>Battery Type:</td>
                 <td id="data"></td>
             </tr>
             <tr>
                 <td id="data"><b>Warranty Period:</td>
-            </tr>
+            </tr-->
             <?php
             require "../../core/database/connect.php";
             if(isset($_POST['submit'])){
@@ -101,7 +101,7 @@ $role= $user_data['role'];
             }
             mysqli_close($conn);
             ?>
-        <tr>
+        <!--tr>
             <td id="data"></td>
             <td id="data">
         <a class="link" id="delbattery" href="delbattery.php?" onclick="return confirm('Are you sure you wish to delete this Record?');">
@@ -111,7 +111,7 @@ $role= $user_data['role'];
         <a class="link" id="upbattery" href="upbattery.php">
             <button class="update">Update</button> </a>
             </td>
-        </tr>
+        </tr-->
         </table>
         </form>
     </div>

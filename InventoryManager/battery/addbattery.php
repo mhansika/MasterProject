@@ -60,7 +60,7 @@ $role= $user_data['role'];
         <ul id="mainsidebar">
             <li class="sidenav">
                 <div id="side">
-                    <a href="../battery/product.php"><img src="../img/a.png" class="pic"></a>
+                    <a href="../battery/product.php"><img src="../img/a.png" class="pro"></a>
                     <span>Product Details</span>
                 </div>
             </li>
@@ -123,7 +123,7 @@ $role= $user_data['role'];
             else {
                 echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             }
-            header("Location:inventory.php");
+            /*header("Location:inventory.php");*/
         }
         ?>
         <form class="AddPro" action="" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">

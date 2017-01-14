@@ -4,19 +4,12 @@
 <?php include '../../core/init.php';
 protect_page();
 ?>
-
-
-
 <?Php
-
-	$role= $user_data['role'];
-	
- 	 if ($role == "deo") {
-		echo "<script>window.location.href = 'http://www.google.com';</script>";
+$role= $user_data['role'];
+if ($role == "deo") {
+    echo "<script>window.location.href = 'http://www.google.com';</script>";
 }
-?>  
- 
-
+?>
 <?php
 $role= $user_data['role'];
 ?>
@@ -82,7 +75,7 @@ $role= $user_data['role'];
         if (!$conn) {
             die("Connection failed: " . mysqli_connect_error());
         }
-       $sql = "SELECT * FROM dealer D join area A on (D.area_no = A.area_no) join sales_person S on(S.salesPerson_id = D.salesPerson_id)";
+        $sql = "SELECT * FROM dealer D join area A on (D.area_no = A.area_no) join sales_person S on(S.salesPerson_id = D.salesPerson_id)";
 
         $result = $conn->query($sql);
 
@@ -128,22 +121,22 @@ $role= $user_data['role'];
                     <th>E mail</th>
                     <th>Fax</th>
                 </tr>";
-                    // output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        $f_name=$row["F_name"];
-                        $L_name=$row["L_name"];
-                        $name=$f_name." ".$L_name;
-                        echo "<tr><td>".$row["dealer_id"]."</td><td>".$row["dealer_name"]." </td><td>".$row["area"]." </td><td>".$name." </td><td>".$row["NIC"]." </td><td>".$row["address"]." </td><td>".$row["mobileNo"]." </td><td>".$row["telephoneNo"]." </td><td>".$row["email"]." </td><td>".$row["fax"]." </td></tr>";
-                    }
-                    echo "</table></body></html>";
-                } else {
-                    echo "0 results";
-                }
-                $conn->close();
-                ?>
-            <?php
-            include '../include/footer.php';
-            ?>
-        </div>
-        </body>
-        </html>
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $f_name=$row["F_name"];
+                $L_name=$row["L_name"];
+                $name=$f_name." ".$L_name;
+                echo "<tr><td>".$row["dealer_id"]."</td><td>".$row["dealer_name"]." </td><td>".$row["area"]." </td><td>".$name." </td><td>".$row["NIC"]." </td><td>".$row["address"]." </td><td>".$row["mobileNo"]." </td><td>".$row["telephoneNo"]." </td><td>".$row["email"]." </td><td>".$row["fax"]." </td></tr>";
+            }
+            echo "</table></body></html>";
+        } else {
+            echo "0 results";
+        }
+        $conn->close();
+        ?>
+        <?php
+        include '../include/footer.php';
+        ?>
+    </div>
+</body>
+</html>

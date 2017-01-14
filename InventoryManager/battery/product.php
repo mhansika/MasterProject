@@ -11,7 +11,7 @@ include '../include/header.php'
     <ul id="mainsidebar">
         <li class="sidenav">
             <div id="side">
-                <a href="../battery/product.php"><img src="../img/a.png" class="pic"></a>
+                <a href="../battery/product.php"><img src="../img/a.png" class="pro"></a>
                 <span>Product Details</span>
             </div>
         </li>
