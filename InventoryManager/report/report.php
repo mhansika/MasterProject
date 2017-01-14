@@ -60,7 +60,7 @@ $role= $user_data['role'];
     <div id="content">
         <ul class="re-menu">
             <li>
-                <a href="salesreport2.php">
+                <a href="salesnxt.php">
                     <span class="re-icon"><img src="../img/sm.png"> </span>
                     <div class="re-content">
                         <h3 class="re-sub">Sales Report</h3>

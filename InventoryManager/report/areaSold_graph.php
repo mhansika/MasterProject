@@ -22,26 +22,14 @@ input[type=submit] {
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
-    font-size: 16px;
-}
-.button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
 }
 </style>
 </head>
 <body>
-  <a href="reportnxt.php" class="button">Back</a>
-  
+  <a href="reportnxt.php">image</a> 
   <div class="graphContainer">
   <form action="areaSold_graph.php" method="post">
-    <b>Year:</b>
+    Year:
     <select id="selectElementId" name='year'></select>
    
       <script>
@@ -56,7 +44,7 @@ input[type=submit] {
              select.appendChild(opt);
           }
       </script>
-    <b>Month:</b>
+    Month:
     <select name="month">
       <option value='January'>January</option>
       <option value='February'>February</option>
