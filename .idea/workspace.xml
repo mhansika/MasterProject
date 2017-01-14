@@ -22,19 +22,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="recovery.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/widgets/recovery.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="92" column="60" selection-start-line="92" selection-start-column="60" selection-end-line="92" selection-end-column="60" />
-              <folding>
-                <marker date="1484407825689" expanded="true" signature="1969:2012" ph="SELECT passw... users" />
-                <marker date="1484407825689" expanded="true" signature="2790:2846" ph="UPDATE users... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="recover.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/recover.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -55,21 +42,65 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IM.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IM.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/InventoryManager/css/IM.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="156" column="19" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
+            <state relative-caret-position="2533">
+              <caret line="188" column="18" selection-start-line="188" selection-start-column="18" selection-end-line="188" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/InventoryManager/dealer/view.php">
+      <file leaf-file-name="entermanufac.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/InventoryManager/stock/entermanufac.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="96" column="10" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
+            <state relative-caret-position="133">
+              <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#div#1;n#li#0;n#ul#0;n#nav#0;n#div#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1484419229862" expanded="true" signature="5342:5606" ph="INSERT INTO manufac_batteries... " />
+                <marker date="1484419229862" expanded="true" signature="5930:6006" ph="INSERT INTO released_batteries... " />
+                <marker date="1484419229862" expanded="true" signature="6403:6476" ph="SELECT batte... stock_in_hand" />
+                <marker date="1484419229862" expanded="true" signature="6544:6676" ph="UPDATE stock... " />
+                <marker date="1484419229862" expanded="true" signature="6833:6951" ph="INSERT INTO stock_in_hand... " />
+                <marker date="1484419229862" expanded="true" signature="7323:7426" ph="SELECT batte... released_batteries" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="entersold.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/InventoryManager/stock/entersold.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-68">
+              <caret line="219" column="25" selection-start-line="219" selection-start-column="25" selection-end-line="219" selection-end-column="25" />
+              <folding>
+                <marker date="1484419463978" expanded="true" signature="7214:7336" ph="SELECT curre... stock_in_hand" />
+                <marker date="1484419463978" expanded="true" signature="7541:7689" ph="..." />
+                <marker date="1484419463978" expanded="true" signature="7759:7991" ph="INSERT INTO `sold`... " />
+                <marker date="1484419463978" expanded="true" signature="8167:8320" ph="UPDATE stock... " />
+                <marker date="1484419463978" expanded="true" signature="12048:12086" ph="Select DISTI... area" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/InventoryManager/stock/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style1.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/InventoryManager/stock/css/style1.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -87,42 +118,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/InventoryManager/include/header.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="replacenxt.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/InventoryManager/report/replacenxt.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="106" column="40" selection-start-line="106" selection-start-column="40" selection-end-line="106" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="select.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/select.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="stock.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/InventoryManager/stock/stock.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1447">
-              <caret line="136" column="36" selection-start-line="136" selection-start-column="12" selection-end-line="136" selection-end-column="36" />
-              <folding />
+            <state relative-caret-position="257">
+              <caret line="57" column="13" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
+              <folding>
+                <element signature="n#style#0;n#button#0;n#a#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1484418286513" expanded="true" signature="2188:2253" ph="SELECT batte... stock_in_hand" />
+                <marker date="1484418286513" expanded="true" signature="2393:3450" ph="..." />
+                <marker date="1484418286513" expanded="true" signature="2408:2476" ph="{...}" />
+                <marker date="1484418286513" expanded="true" signature="2487:2784" ph="{...}" />
+                <marker date="1484418286513" expanded="true" signature="2795:3029" ph="{...}" />
+                <marker date="1484418286513" expanded="true" signature="3042:3353" ph="{...}" />
+                <marker date="1484418286513" expanded="true" signature="3368:3438" ph="{...}" />
+                <marker date="1484418286513" expanded="true" signature="3473:3754" ph="..." />
+                <marker date="1484418286513" expanded="true" signature="3501:3754" ph="..." />
+                <marker date="1484418286513" expanded="true" signature="3560:3748" ph="..." />
+                <marker date="1484418286513" expanded="true" signature="3576:3739" ph="..." />
+                <marker date="1484418286513" expanded="true" signature="3589:3708" ph="..." />
+                <marker date="1484418286513" expanded="true" signature="3904:4049" ph="..." />
+                <marker date="1484418286513" expanded="true" signature="3917:4049" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="product.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/InventoryManager/battery/product.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-522">
+              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+              <folding>
+                <marker date="1484370856141" expanded="true" signature="2025:2153" ph="SELECT batte... battery_description" />
+                <marker date="1484370856141" expanded="true" signature="2268:3105" ph="..." />
+                <marker date="1484370856141" expanded="true" signature="2300:2422" ph="{...}" />
+                <marker date="1484370856141" expanded="true" signature="2479:2596" ph="{...}" />
+                <marker date="1484370856141" expanded="true" signature="2744:2867" ph="{...}" />
+                <marker date="1484370856141" expanded="true" signature="2898:3073" ph="{...}" />
+                <marker date="1484370856141" expanded="true" signature="3160:3573" ph="..." />
+                <marker date="1484370856141" expanded="true" signature="3192:3573" ph="..." />
+                <marker date="1484370856141" expanded="true" signature="3222:3573" ph="..." />
+                <marker date="1484370856141" expanded="true" signature="3704:4255" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,9 +181,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/InventoryManager/salesperson/salep.php" />
-        <option value="$PROJECT_DIR$/InventoryManager/salesperson/addsalep.php" />
-        <option value="$PROJECT_DIR$/InventoryManager/report/salesp-report.php" />
         <option value="$PROJECT_DIR$/InventoryManager/dealer/getdrop.php" />
         <option value="$PROJECT_DIR$/InventoryManager/dealer/adddealer.php" />
         <option value="$PROJECT_DIR$/InventoryManager/.idea/inventory2.php" />
@@ -180,10 +215,8 @@
         <option value="$PROJECT_DIR$/InventoryManager/dealer/view.php" />
         <option value="$PROJECT_DIR$/InventoryManager/include/header.php" />
         <option value="$PROJECT_DIR$/InventoryManager/salesperson/searchsalep.php" />
-        <option value="$PROJECT_DIR$/InventoryManager/stock/entersold.php" />
         <option value="$PROJECT_DIR$/InventoryManager/report/report.php" />
         <option value="$PROJECT_DIR$/InventoryManager/report/reportnxt.php" />
-        <option value="$PROJECT_DIR$/InventoryManager/stock/entermanufac.php" />
         <option value="$PROJECT_DIR$/InventoryManager/report/replacenxt.php" />
         <option value="$PROJECT_DIR$/InventoryManager/dealer/dealer.php" />
         <option value="$PROJECT_DIR$/include/recover.css" />
@@ -194,6 +227,11 @@
         <option value="$PROJECT_DIR$/css/login.css" />
         <option value="$PROJECT_DIR$/InventoryManager/inventory.php" />
         <option value="$PROJECT_DIR$/InventoryManager/css/IM.css" />
+        <option value="$PROJECT_DIR$/InventoryManager/stock/stock.php" />
+        <option value="$PROJECT_DIR$/InventoryManager/stock/css/style.css" />
+        <option value="$PROJECT_DIR$/InventoryManager/stock/css/style1.css" />
+        <option value="$PROJECT_DIR$/InventoryManager/stock/entermanufac.php" />
+        <option value="$PROJECT_DIR$/InventoryManager/stock/entersold.php" />
       </list>
     </option>
   </component>
@@ -325,7 +363,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="189708000" />
+    <option name="totallyTimeSpent" value="191633000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -385,8 +423,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/InventoryManager/.idea/inventory2.php" />
-    <entry file="file://$PROJECT_DIR$/InventoryManager/css/css/IM2.css" />
     <entry file="file://$PROJECT_DIR$/InventoryManager/inventory2.php" />
     <entry file="file://$PROJECT_DIR$/InventoryManager/css/IM2.css" />
     <entry file="file://$PROJECT_DIR$/InventoryManager/deo/include/header.php" />
@@ -474,25 +510,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/InventoryManager/battery/product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/InventoryManager/dealer/view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
           <caret line="96" column="10" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/InventoryManager/stock/entersold.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -510,13 +532,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/InventoryManager/stock/entermanufac.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/InventoryManager/salesperson/searchsalep.php" />
     <entry file="file://$PROJECT_DIR$/include/recover.css" />
     <entry file="file://$PROJECT_DIR$/InventoryManager/battery/searchbattery.php">
@@ -530,14 +545,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-480">
           <caret line="66" column="34" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/InventoryManager/stock/stock.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1447">
-          <caret line="136" column="36" selection-start-line="136" selection-start-column="12" selection-end-line="136" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -625,11 +632,100 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/battery/product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-522">
+          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+          <folding>
+            <marker date="1484370856141" expanded="true" signature="2025:2153" ph="SELECT batte... battery_description" />
+            <marker date="1484370856141" expanded="true" signature="2268:3105" ph="..." />
+            <marker date="1484370856141" expanded="true" signature="2300:2422" ph="{...}" />
+            <marker date="1484370856141" expanded="true" signature="2479:2596" ph="{...}" />
+            <marker date="1484370856141" expanded="true" signature="2744:2867" ph="{...}" />
+            <marker date="1484370856141" expanded="true" signature="2898:3073" ph="{...}" />
+            <marker date="1484370856141" expanded="true" signature="3160:3573" ph="..." />
+            <marker date="1484370856141" expanded="true" signature="3192:3573" ph="..." />
+            <marker date="1484370856141" expanded="true" signature="3222:3573" ph="..." />
+            <marker date="1484370856141" expanded="true" signature="3704:4255" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/InventoryManager/css/IM.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="156" column="19" selection-start-line="156" selection-start-column="19" selection-end-line="156" selection-end-column="19" />
+        <state relative-caret-position="2533">
+          <caret line="188" column="18" selection-start-line="188" selection-start-column="18" selection-end-line="188" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/stock/stock.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="57" column="13" selection-start-line="57" selection-start-column="13" selection-end-line="57" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#a#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1484418286513" expanded="true" signature="2188:2253" ph="SELECT batte... stock_in_hand" />
+            <marker date="1484418286513" expanded="true" signature="2393:3450" ph="..." />
+            <marker date="1484418286513" expanded="true" signature="2408:2476" ph="{...}" />
+            <marker date="1484418286513" expanded="true" signature="2487:2784" ph="{...}" />
+            <marker date="1484418286513" expanded="true" signature="2795:3029" ph="{...}" />
+            <marker date="1484418286513" expanded="true" signature="3042:3353" ph="{...}" />
+            <marker date="1484418286513" expanded="true" signature="3368:3438" ph="{...}" />
+            <marker date="1484418286513" expanded="true" signature="3473:3754" ph="..." />
+            <marker date="1484418286513" expanded="true" signature="3501:3754" ph="..." />
+            <marker date="1484418286513" expanded="true" signature="3560:3748" ph="..." />
+            <marker date="1484418286513" expanded="true" signature="3576:3739" ph="..." />
+            <marker date="1484418286513" expanded="true" signature="3589:3708" ph="..." />
+            <marker date="1484418286513" expanded="true" signature="3904:4049" ph="..." />
+            <marker date="1484418286513" expanded="true" signature="3917:4049" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/stock/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="49" column="21" selection-start-line="49" selection-start-column="21" selection-end-line="49" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/stock/css/style1.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/stock/entermanufac.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="74" column="9" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#1;n#li#0;n#ul#0;n#nav#0;n#div#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1484419229862" expanded="true" signature="5342:5606" ph="INSERT INTO manufac_batteries... " />
+            <marker date="1484419229862" expanded="true" signature="5930:6006" ph="INSERT INTO released_batteries... " />
+            <marker date="1484419229862" expanded="true" signature="6403:6476" ph="SELECT batte... stock_in_hand" />
+            <marker date="1484419229862" expanded="true" signature="6544:6676" ph="UPDATE stock... " />
+            <marker date="1484419229862" expanded="true" signature="6833:6951" ph="INSERT INTO stock_in_hand... " />
+            <marker date="1484419229862" expanded="true" signature="7323:7426" ph="SELECT batte... released_batteries" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InventoryManager/stock/entersold.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="219" column="25" selection-start-line="219" selection-start-column="25" selection-end-line="219" selection-end-column="25" />
+          <folding>
+            <marker date="1484419463978" expanded="true" signature="7214:7336" ph="SELECT curre... stock_in_hand" />
+            <marker date="1484419463978" expanded="true" signature="7541:7689" ph="..." />
+            <marker date="1484419463978" expanded="true" signature="7759:7991" ph="INSERT INTO `sold`... " />
+            <marker date="1484419463978" expanded="true" signature="8167:8320" ph="UPDATE stock... " />
+            <marker date="1484419463978" expanded="true" signature="12048:12086" ph="Select DISTI... area" />
+          </folding>
         </state>
       </provider>
     </entry>

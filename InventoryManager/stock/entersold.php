@@ -100,8 +100,6 @@
 }
 </style>
 
-
-      
       <script type="text/javascript">
           $( document ).ready(function() {
      $("select#cap").click( function(){
@@ -216,32 +214,10 @@
                                 height:70px;
                                 text-align:center;"><img class= "pic" src="../img/Sold.png" align="middle"><span>Sold Products</span></a>
                 </div>
-            </li>
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" >
-
-                    <a href="stockInHand.php" id="salep" style="top: 10px;
-                                display:block;
-                                position:absolute;
-                                float:left;
-                                font-family:arial;
-                                color:#1C1C1C;
-                                text-decoration:none;
-                                width:100%;
-                                height:70px;
-                                text-align:center;"><img class= "pic" src="../img/stockH.png" align="middle"><span>Stock In Hand</span></a>
-                </div>
-            </li>
-
-    </nav>
-
-
     </nav>
 </div>
 
     <div class="content">
-
         <div class="table">
       
 <?php

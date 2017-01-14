@@ -4,7 +4,6 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
 	<link rel="stylesheet" href="css/style1.css" media="screen" type="text/css" />
-
 	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -12,17 +11,16 @@
 	protect_page();
 	include '../include/header.php';
 	?>
+
 	<style>
 		#form-align{
 			padding: 0;margin-left:30%;width:70%;height:600px;margin-top:100px;margin-right: 10%;
 		}
-
 		.form-style-2{
 			max-width: 500px;padding: 20px 12px 10px 20px;font: 13px Arial, Helvetica, sans-serif;
 		}
 		.form-style-2-heading{
 			font-weight: bold;border-bottom: 2px solid #ddd;margin-bottom: 20px;font-size: 15px;padding-bottom: 3px;color: #B40404; font-size: 24px; font-family: 'Signika', sans-serif;
-
 		}
 		.form-style-2 label{
 			display: block;margin: 0px 0px 15px 0px;
@@ -38,9 +36,7 @@
 		}
 		.form-style-2 input.input-field{
 			width: 48%;
-
 		}
-
 		.form-style-2 input.input-field,
 		.form-style-2 .batch-number-field,
 		.form-style-2 .select-field{
@@ -126,26 +122,6 @@
 									text-align:center;"><img class= "pic" src="../img/Sold.png" align="middle"><span>Sold Products</span></a>
 				</div>
 			</li>
-			<li class="var_nav">
-				<div class="link_bg"></div>
-				<div class="link_title" >
-
-					<a href="stockInHand.php" id="salep" style="top: 10px;
-									display:block;
-									position:absolute;
-									float:left;
-									font-family:arial;
-									color:#1C1C1C;
-									text-decoration:none;
-									width:100%;
-									height:70px;
-									text-align:center;"><img class= "pic" src="../img/stockH.png" align="middle"><span>Stock In Hand</span></a>
-				</div>
-			</li>
-
-	</nav>
-
-
 	</nav>
 </div>
 <?php

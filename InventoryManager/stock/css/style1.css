@@ -4,27 +4,6 @@ body{
     padding: 0;
     font-family: 'Open Sans';
 }
-#header{
-    height:100px;
-    width: 100%;
-    margin-top: 0px;
-    color:white;
-    position: relative;
-    text-align: center;
-    font-family:arial;
-    padding-top: 10px;
-
-}
-
-
-
-#footer{
-    background:#B40404;
-    position:fixed;
-    bottom:0px;
-    width:100%;
-    height:8%;
-}
 nav{
     background-color:black;
     margin-top:0px;
@@ -47,14 +26,6 @@ h1 a {
     height : 100px;
 }
 
-ul
-{
-    width: 170px;
-    margin-top:0px;
-    padding:0px;
-    list-style-type:none;
-    -webkit-backface-visibility: hidden; backface-visibility: hidden;
-}
 .var_nav
 {
     position:relative;
@@ -116,11 +87,6 @@ ul
     float:left;
 }
 .icon i{top:25px;position:relative;}
-ul#mainsidebar {
-    margin-top: 0px;
-    padding-top: 0;
-    margin-right: 0px;
-}
 span
 {
     color:white;
@@ -200,16 +166,13 @@ div.seperate{
 }
 
 
-
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
-
 .icon-bar {
     width: 723%;
     text-align: center;
     background-color: #000;
     overflow: auto;
     margin-left: -130%;
-    margin-top: -60%;
+    margin-top: 60%;
     margin-bottom: 20%;
 }
 

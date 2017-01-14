@@ -52,10 +52,10 @@ include '../include/header.php'
 </div>
 <div id="content">
     <a href="entermanufac.php">
-        <button class="enter">Enter For More</button>
+        <button class="enter" style="margin-right: 3%">Enter For More</button>
     </a>
     <section>
-        <div  class="tbl-header">
+        <div id="product">
             <table cellpadding="0" cellspacing="0" border="0">
                 <?php
                 $servername = "localhost";
