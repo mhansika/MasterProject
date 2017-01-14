@@ -128,6 +128,7 @@
 		</table>
 		
 		<a class="link" href="salesUpdate.php?">UPDATE</a>
+		<a class="link" href="salesDelete.php?" onclick="return confirm('Are you sure you wish to delete this Record?');">DELETE</a>
 	</form>
 	</div>
 	</body>

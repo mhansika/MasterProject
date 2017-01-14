@@ -26,8 +26,8 @@ $role= $user_data['role'];
 			<a href="../salesperson/salesSearch.php."><img src="../img/Search.png"></a>
 		</div>
 		<?php
-			require "database/connect.php";
-			session_start();
+			require "../../database/connect.php";
+			//session_start();
 			
 			$error=FALSE;
 			

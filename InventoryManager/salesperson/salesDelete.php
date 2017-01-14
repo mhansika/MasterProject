@@ -6,7 +6,7 @@
 		
 	
 				
-		$sql = "DELETE FROM sales_person WHERE salesPerson_id=$v";
+		$sql = "UPDATE sales_person SET active=0 WHERE salesPerson_id=$v";
 
 			if (mysqli_query($connection, $sql)) {
 				echo "Record deleted successfully";
