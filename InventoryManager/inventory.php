@@ -1,4 +1,4 @@
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <?php include '../core/init.php';
 protect_page();
 ?>
@@ -88,8 +88,12 @@ include 'include/header.php';
                 </tbody>
             </table>
         <div class="admin">
+            <a href="admin/view.php">
             <button class="deo">Data Entry Operator</button>
+            </a>
+            <a href="Do/view.php">
             <button class="adm">Admin</button>
+            </a>
         </div>
     </div>
 </div>
