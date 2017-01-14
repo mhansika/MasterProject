@@ -20,7 +20,45 @@ $role= $user_data['role'];
 </head>
 
 <body>
-
+<div class="row">
+    
+    <?php
+    include '../include/header.php'
+    ?>
+    <div id="nav">
+        <ul id="mainsidebar">
+            <li class="sidenav">
+                <div id="side">
+                    <a href="../battery/product.php"><img src="../img/a.png" class="pic"></a>
+                    <span>Product Details</span>
+                </div>
+            </li>
+            <li class="sidenav">
+                <div id="side">
+                    <a href="../stock/stock.php"><img src="../img/b.png" class="pic"></a>
+                    <span>Stock</span>
+                </div>
+            </li>
+            <li class="sidenav">
+                <div id="side">
+                    <a href="../dealer/dealer.php"><img src="../img/c.png" class="pic"></a>
+                    <span>Dealer</span>
+                </div>
+            </li>
+            <li class="sidenav">
+                <div id="side">
+                    <a href="../salesperson/salep.php"><img src="../img/d.png" class="pic"></a>
+                    <span>Salesperson</span>
+                </div>
+            </li>
+            <li class="sidenav">
+                <div id="side">
+                    <a href="../report/report.php"><img src="../img/e.png" class="pic"></a>
+                    <span>Reports</span>
+                </div>
+            </li>
+        </ul>
+    </div>
     <div id="content">
       
         
@@ -52,10 +90,10 @@ $role= $user_data['role'];
         ?>
         <form class="AddPro" action="" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
 
-        <tr>    <td id="data"><button class="submit" name="submit" value="send">Add New</button></td>
-                        <td id="data"><button class="reset" type="reset">Search</button></td> <td id="data"><button class="reset" type="reset">Backups</button></td> </tr>
-
-
+       <tr>    <td id="data"><a href="add.php"><button class="reset" name="submit" value="send">Add New</button></a></td>
+<td id="data"><a href="view.php"><button class="reset" name="submit" value="send">Search</button></a></td>
+<td id="data"><a href="backups.php"><button class="reset" name="submit" value="send">Backups</button></a></td>
+      
                         </br> </br>
             <table id="ad">
                 <h1 class="add">Add admin</h1>
