@@ -360,6 +360,7 @@ span{
 .user{
     float: right;
     border: dotted;
+    padding-right: 20%;
 }
 .photo{
     border-radius: 80%;

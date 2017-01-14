@@ -65,7 +65,7 @@ include 'include/header.php';
         <!img class="photo" src="<--?php echo $row['image']; -- ?>
         <img class="photo" src="<?php echo $row['image'] ; ?>" >
         <?php } ?>
-        <div class="user">
+        <div>
             <table class="user">
                 <tbody>
                 <tr>
