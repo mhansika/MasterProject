@@ -76,7 +76,7 @@ include '../include/header.php'
                             padding: 8px;
                         }
                         
-                        tr:nth-child(even){background-color: #f2f2f2}
+                        tr:nth-child(even){background-color: #BDBDBD}
                         
                         th {
                             background-color:#990000;

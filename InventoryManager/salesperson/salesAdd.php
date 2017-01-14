@@ -1,10 +1,6 @@
 <?php include '../../core/init.php';
 protect_page();
-
-
-
 $role= $user_data['role'];
-	
  	 if ($role == "DEO") {
 		echo "<script>window.location.href = '../restrict.php';</script>";
 }
@@ -60,19 +56,19 @@ $role= $user_data['role'];
             <a href="../salesperson/salesSearch.php."><img src="../img/Search.png"></a>
         </div>
         <?php
-    require "database/connect.php";
-    session_start();
+        require "../../database/connect.php";
+        session_start();
 
-    $error=FALSE;
+        $error=FALSE;
         $F_nameerr = $L_nameerr =  $NICerr = $addresserr = $area_noerr = $mobileNoerr = $telephoneNoerr = $emailerr = $DOBerr = "";
-        
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            
-            
-            
-          
-            
-            if(empty($_POST['area'])){ 
+
+
+
+
+
+            if(empty($_POST['area'])){
                 $area_noerr = "";
                 $error = TRUE;
             }else{
@@ -87,120 +83,94 @@ $role= $user_data['role'];
                             $a_no=$row['area_no'];
                         }
                     }
-                } 
+                }
             }
-            
-           
+
+
             if ($error==FALSE){
-           
 
-            
-            /*$sql="INSERT INTO `sales_person` (`F_name`, `area_no`, `NIC`, `address`, `L_name`, `mobileNo`, `telephoneNo`, `email`,) VALUES ('$_POST[F_name]',$a_no,'$_POST[NIC]','$_POST[address]','$_POST[L_name]','$_POST[mobileNo]','$_POST[telephoneNo]','$_POST[email]')";
 
-            /*$sql2="UPDATE `dealer` SET `salesPerson_id`= 'me add wena salespersonge id eka.mm danne na eka puluwan weida kyla' WHERE `dealer_id` =drop down eken select karapu dealerge id eka";*/      
-            $sql="INSERT INTO `sales_person` (`F_name`, `area_no`, `NIC`, `address`, `L_name`, `mobileNo`, `telephoneNo`, `email`) VALUES ('".$_POST['F_name']."','".$a_no."','".$_POST['NIC']."','".$_POST['address']."','".$_POST['L_name']."','".$_POST['mobileNo']."','".$_POST['telephoneNo']."','".$_POST['email']."')";
-            if(mysqli_query($connection,$sql)){
-                header("Location: salesAdd.php");
-                //die();
-            } else{echo "error";}
-             
+
+                /*$sql="INSERT INTO `sales_person` (`F_name`, `area_no`, `NIC`, `address`, `L_name`, `mobileNo`, `telephoneNo`, `email`,) VALUES ('$_POST[F_name]',$a_no,'$_POST[NIC]','$_POST[address]','$_POST[L_name]','$_POST[mobileNo]','$_POST[telephoneNo]','$_POST[email]')";
+    
+                /*$sql2="UPDATE `dealer` SET `salesPerson_id`= 'me add wena salespersonge id eka.mm danne na eka puluwan weida kyla' WHERE `dealer_id` =drop down eken select karapu dealerge id eka";*/
+                $sql="INSERT INTO `sales_person` (`F_name`, `area_no`, `NIC`, `address`, `L_name`, `mobileNo`, `telephoneNo`, `email`) VALUES ('".$_POST['F_name']."','".$a_no."','".$_POST['NIC']."','".$_POST['address']."','".$_POST['L_name']."','".$_POST['mobileNo']."','".$_POST['telephoneNo']."','".$_POST['email']."')";
+                if(mysqli_query($connection,$sql)){
+                    header("Location: salesAdd.php");
+                    //die();
+                } else{echo "error";}
+
             }
         }
-    ?>
-<form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">               
- <div class="ad">
-    <h1>Add Salesperson</h1>
-        <table>
-        <form>
-            <tr>
-                <td><b>First Name: <span class="error">* <?php echo $F_nameerr;?></span></b></td>
-                <td><b>Last Name: <span class="error">* <?php echo $L_nameerr;?></span></b></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="F_name" style="width: 200px" ></td>
-                <td><input type="text" name="L_name" style="width: 200px" ></td>
-            </tr>
-            <tr>
-                <td><b>NIC: <span class="error">* <?php echo $NICerr;?></span></b></td>
-                <td><b>Address: <span class="error">* <?php echo $addresserr;?></span></b></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="NIC" style="width: 200px" ></td>
-                
-                <td><input type="text" name="address" style="width: 300px" ></td>
-            </tr>
+        ?>
 
-            <tr>
-                
-                <td><b>Mobile No: </b></span></td>
-                <td><b>Telephone No: </span></b></td>
-            </tr>
-            <tr>
-                
-                <td><input type="text" name="mobileNo" style="width: 200px" ></td>
-                <td><input type="text" name="telephoneNo" style="width: 200px" ></td>
-            </tr>
-            <tr>
+        <form class="AddPro" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
+                <h1 class="add">Add Salesperson</h1>
+                <table id="ad">
+                        <tr>
+                            <td><b>First Name: <span class="error">* <?php echo $F_nameerr;?></span></b></td>
+                            <td><b>Last Name: <span class="error">* <?php echo $L_nameerr;?></span></b></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="F_name" style="width: 200px" ></td>
+                            <td><input type="text" name="L_name" style="width: 200px" ></td>
+                        </tr>
+                        <tr>
+                            <td><b>NIC: <span class="error">* <?php echo $NICerr;?></span></b></td>
+                            <td><b>Address: <span class="error">* <?php echo $addresserr;?></span></b></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="NIC" style="width: 200px" ></td>
+                            <td><input type="text" name="address" style="width: 300px" ></td>
+                        </tr>
+                        <tr>
+                            <td><b>Mobile No: </b></span></td>
+                            <td><b>Telephone No: </span></b></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="mobileNo" style="width: 200px" ></td>
+                            <td><input type="text" name="telephoneNo" style="width: 200px" ></td>
+                        </tr>
+                        <tr>
+                            <td><b>Email: </b></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="email" style="width: 200px" ></td>
+                        </tr>
+                        <tr>
+                            <td><b>Area: </b></td>
+                            <td><b>Dealer Name:<b></td>
+                        </tr>
+                        <tr id= "trow">
+                            <td>
+                                <?php
 
-                
-                <td><b>Email: </b></td>
-                
-            </tr>
-            <tr>
-                
-                <td><input type="text" name="email" style="width: 200px" ></td>
-                
-                
-            </tr>
-            
-            
-            <tr>
+                                echo '<select name="area" id="cap">';
+                                echo '<option>     -------ALL--------   </option>';
 
-                <td><b>Area: </b></td>
-                <td><b>Dealer Name:<b></td>
-            </tr>
-            <tr id= "trow">
-                <td>
-                    <?php 
-                        
-                        echo '<select name="area" id="cap">';
-                        echo '<option>     -------ALL--------   </option>';
-                        
-                        $sql1 = "Select DISTINCT area_no,area from area";
-                        $result1= mysqli_query($connection, $sql1);
-                             while($r=mysqli_fetch_row($result1))
-                             { 
-                                   echo '<option id=' .$r[0].'> ' . $r[1] . '</option>';
-
-                             }
-                        
-                        echo "</select>";
-
-                    ?>
-                </td>
-                <td id="second">
-
-              
-                       <select name="dealer_id">
-                        
-                        <option> -------ALL--------</option>
-
-                        </select>
-                       
-
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-           <td> <button type="submit">SAVE</button></td>
-           <td> <button type="reset">RESET</button></td>
-            </tr>
-
-        </form>
-        
-        </table>
-
-    </div>
+                                $sql1 = "Select DISTINCT area_no,area from area";
+                                $result1= mysqli_query($connection, $sql1);
+                                while($r=mysqli_fetch_row($result1))
+                                {
+                                    echo '<option id=' .$r[0].'> ' . $r[1] . '</option>';
+                                }
+                                echo "</select>";
+                                ?>
+                            </td>
+                            <td id="second">
+                                <select name="dealer_id">
+                                    <option> -------ALL--------</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td> <button type="submit">SAVE</button></td>
+                            <td> <button type="reset">RESET</button></td>
+                        </tr>
+                    </form>
+                </table>
+            </div>
     <?php
     include '../include/footer.php';
     ?>

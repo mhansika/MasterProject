@@ -186,9 +186,13 @@ span{
     padding-bottom: 2%;
 }
 #product{
-    margin-left: 10%;
-    margin-top: 2%;
+    margin-left: 15%;
+    margin-top: 7%;
 }
+#stock{
+    margin-top: 7%;
+}
+
 .submit, .reset, .update, .delete, .save{
     border-radius: 4px;
     padding: 10 10 10 10;

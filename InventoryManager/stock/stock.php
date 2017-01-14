@@ -55,7 +55,7 @@ include '../include/header.php'
         <button class="enter" style="margin-right: 3%">Enter For More</button>
     </a>
     <section>
-        <div id="product">
+        <div id="stock">
             <table cellpadding="0" cellspacing="0" border="0">
                 <?php
                 $servername = "localhost";
@@ -80,12 +80,10 @@ include '../include/header.php'
               margin-left: 30%;
         }
         th{
-            font-size: 50px;
             font-weight: bold;
             padding: 20px 15px;
             text-align: center;
             font-weight: 500;
-            font-size: 15px;
             color: #fff;
             text-transform: uppercase;
             background-color: #4e4c4c;
@@ -94,8 +92,7 @@ include '../include/header.php'
             padding: 15px;
             text-align:center;
             vertical-align:middle;
-            font-weight: 300;
-            font-size: 13px;
+          
             color: #000;
             border-bottom: 1px solid #c2c2a3;
         }
@@ -112,15 +109,18 @@ include '../include/header.php'
             text-align: center;
         }
         .stock{
-            margin-left: 30%;
-            padding-top: 2%;
+            margin-left: 20%;
+           
+        }
+        .st{
+            margin-left: 23.5%;
         }
     </style>
 </head>
         <body>
         <div class='stock'>
         <h1 class='add'>Stock in Hand</h1>
-        <table>
+        <table class='st'>
         <thead>
         <tr>
             <th>Battery Type</th>
