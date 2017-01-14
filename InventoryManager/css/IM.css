@@ -5,33 +5,38 @@ body{
 }
 #nav {
     float: left;
-    width: 8%;
-    height: auto;
+    width: 10%;
+    height: 87%;
     background-color: black;
     padding: 0 0 0 0;
     position: fixed;
+    margin-top: 5%;
 }
 #content{
-    width: 100%;
+    width: 90%;
     height: 90%;
     background-image: url("../img/2.png");
+    border: solid;
+    padding-top: 5%;
+    float: right;
+    padding-left: 10%;
 }
 .sidenav{
     position: relative;
     background-color: #B40404;
-    height: 17%;
+    height: 18%;
     margin-top: 0%;
     margin-left: 5%;
     margin-right: 5%;
-    margin-bottom: 5%;
-    padding-top: 0%;
+    margin-bottom: 3%;
+    padding-top: 5%;
 }
 #mainsidebar{
     margin: 0 0 0 0;
     padding: 0 0 0 0;
 }
 .sidenav:hover{
-    height: 15%;
+    height: 18%;
     background-color: black;
 }
 span{
@@ -57,43 +62,69 @@ span{
 }
 #header{
     background-color: #0f0f0f;
-    height: 10%;
+    height: 7%;
     min-width: 100%;
-    position: relative;
-    margin-bottom: 0%;
-    padding-bottom: 0%;
+    margin: 0;
+    padding:12px 10px;
     position: fixed;
+    display: block;
+    z-index: +1;
+    list-style: none;
 }
 #logo{
     height: 60px;
     width: 60px;
-    margin-bottom: 0%;
-    padding-bottom: 0%;
-    margin-top: -6%;
-    margin-left: 2%;
+    position: absolute;
+    left: 2.5%;
+    margin-top: -1%;
 }
 #logout{
-
+    position: absolute;
+    right: 3%;
+}
+#back{
+    position: absolute;
+    right: 11%;
+}
+.log{
+    background-color: #0f0f0f;
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+.log1{
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+}
+.log1:hover{
+    background-color:  white;
+    color: black;
 }
 #abm{
     font-weight: bolder;
     font-size: larger;
-    font-family: Calibri;
-    margin-top: inherit;
     color: white;
     text-decoration: none;
     text-align: center;
     padding: 0 0 0 0;
-    margin-bottom: 0%;
-    margin-top: 0%;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 #im{
     font-weight: bold;
     font-size: large;
     color: white;
     text-decoration: none;
-    font-family: Calibri;
     text-align: center;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
 }
 #footer{
     background-color: black;

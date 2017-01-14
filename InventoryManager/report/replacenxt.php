@@ -16,24 +16,24 @@ $role= $user_data['role'];
     <link href="css/jquery.bxslider.css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <style> 
-select {
-    width: 25%;
-    padding: 16px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #f1f1f1;
-}
-input[type=submit] {
-    background-color: #5E5E5E;
-    border: none;
-    color: white;
-    padding: 16px 32px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-</style>
+    <style>
+        select {
+            width: 25%;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #f1f1f1;
+        }
+        input[type=submit] {
+            background-color: #5E5E5E;
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <div class="row">
@@ -75,42 +75,42 @@ input[type=submit] {
         </ul>
     </div>
     <div id="content">
-     <form action="waranty_report.php " method="post">
-     Year:
-    <select id="selectElementId" name='year'></select>
+        <form action="waranty_report.php " method="post">
+            Year:
+            <select id="selectElementId" name='year'></select>
 
-   
-      <script>
-          var min = (new Date().getFullYear())-2,
-          max = min + 9,
-          select = document.getElementById('selectElementId');
 
-          for (var i = min; i<=max; i++){
-             var opt = document.createElement('option');
-             opt.value = i;
-             opt.innerHTML = i;
-             select.appendChild(opt);
-          }
-      </script>
-    Month:
-    <select name="month">
-      <option value='January'>January</option>
-      <option value='February'>February</option>
-      <option value='March'>March</option>
-      <option value='April'>April</option>
-      <option value='May'>May</option>
-      <option value='June'>June</option>
-      <option value='July'>July</option>
-      <option value='August'>August</option>
-      <option value='September'>September</option>
-      <option value='October'>October</option>
-      <option value='November'>November</option>
-      <option value='December'>December</option>
-    </select> 
+            <script>
+                var min = (new Date().getFullYear())-2,
+                    max = min + 9,
+                    select = document.getElementById('selectElementId');
 
-   <input type="submit" value="Submit" name="submit">
-    </form>
-        </div>
+                for (var i = min; i<=max; i++){
+                    var opt = document.createElement('option');
+                    opt.value = i;
+                    opt.innerHTML = i;
+                    select.appendChild(opt);
+                }
+            </script>
+            Month:
+            <select name="month">
+                <option value='January'>January</option>
+                <option value='February'>February</option>
+                <option value='March'>March</option>
+                <option value='April'>April</option>
+                <option value='May'>May</option>
+                <option value='June'>June</option>
+                <option value='July'>July</option>
+                <option value='August'>August</option>
+                <option value='September'>September</option>
+                <option value='October'>October</option>
+                <option value='November'>November</option>
+                <option value='December'>December</option>
+            </select>
+
+            <input type="submit" value="Submit" name="submit">
+        </form>
+    </div>
     <?php
     include '../include/footer.php';
     ?>

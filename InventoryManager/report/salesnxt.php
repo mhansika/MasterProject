@@ -75,6 +75,11 @@ input[type=submit] {
         </ul>
     </div>
     <div id="content">
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
    <form action="areaSold.php" method="post">
   <b>Year:</b>
     <select id="selectElementId" name='year'></select>
@@ -111,6 +116,8 @@ input[type=submit] {
   <input type="submit" value="Submit" name="submit">
     
  </form>
+ <!--form 2 -->
+
     </div>
     <?php
     include '../include/footer.php';
