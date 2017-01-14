@@ -20,15 +20,26 @@ input[type=submit] {
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
+    font-size: 16px;
+}
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
 }
 </style>
 <link href="rpt/css/graph.css" rel="stylesheet" />
 </head>
 <body>
-  <a href="reportnxt.php">image</a> 
+  <a href="reportnxt.php" class="button">Back</a>
   <div class="graphContainer">
     <form action="waranty_graph.php " method="post">
-     Year:
+     <b>Year:</b>
     <select id="selectElementId" name='year'></select>
 
    
@@ -44,7 +55,7 @@ input[type=submit] {
              select.appendChild(opt);
           }
       </script>
-    Month:
+    <b>Month:</b>
     <select name="month">
       <option value='January'>January</option>
       <option value='February'>February</option>

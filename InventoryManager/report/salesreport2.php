@@ -60,45 +60,22 @@ $role= $user_data['role'];
     <div id="content">
         <ul class="re-menu">
             <li>
-                <a href="salesreport2.php">
+                <a href="salesnxt.php">
                     <span class="re-icon"><img src="../img/sm.png"> </span>
                     <div class="re-content">
-                        <h3 class="re-sub">Sales Report</h3>
+                        <h3 class="re-sub">Area Sales Report</h3>
                     </div>
                 </a>
             </li>
             <li>
-                <a href="manufacturenxt.php">
-                    <span class="re-icon"><img src="../img/manu.png"> </span>
+                <a href="salesDrop.php">
+                    <span class="re-icon"><img src="../img/sm.png"> </span>
                     <div class="re-content">
-                        <h3 class="re-sub">Manufacture Report</h3>
+                        <h3 class="re-sub">Dealer Sales Report</h3>
                     </div>
                 </a>
             </li>
-            <li>
-                <a href="replacenxt.php">
-                    <span class="re-icon"><img src="../img/dd.png"> </span>
-                    <div class="re-content">
-                        <h3 class="re-sub">Replacement Report</h3>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="defectnxt.php">
-                    <span class="re-icon"><img src="../img/w.png"></span>
-                    <div class="re-content">
-                        <h3 class="re-sub">Defect Report</h3>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="reportnxt.php">
-                    <span class="re-icon"><img src="../img/st.png"></span>
-                    <div class="re-content">
-                        <h3 class="re-sub">Graphs</h3>
-                    </div>
-                </a>
-            </li>
+            
         </ul>
     </div>
     <?php

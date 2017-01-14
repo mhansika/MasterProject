@@ -38,7 +38,7 @@ $date="";
         {
             
              document.getElementById('bcd').innerHTML="Please Enter Barcode";
-            document.getElementById('barcode').style.border ="solid 2.5px black";
+            document.getElementById('barcode').style.border ="solid 2.5px red";
             document.loginForm.barcode.focus()
             return false;
         }
@@ -47,17 +47,16 @@ $date="";
             if(!flag)
             {
                 document.getElementById('bcd').innerHTML="Invalid Barcode";
-                document.getElementById('barcode').style.border ="solid 2.5px black";             
+                document.getElementById('barcode').style.border ="solid 2.5px red";             
                 document.loginForm.barcode.select()
-                return false;
-                
+                return false;  
                 
             }
-            
+              
         }
         else{
-                //document.getElementById('bcd').innerHTML="Please Enter only 10 characters";
-                document.getElementById('barcode').style.border ="solid 2.5px black";
+                document.getElementById('bcd').innerHTML="Please Enter only 10 characters";
+                document.getElementById('barcode').style.border ="solid 2.5px red";
 
                 return false;
                         
@@ -120,15 +119,9 @@ if (isset($_POST["barcode"])){
 $arr1 = substr($name, 0,4);
 $arr2 = substr($name, 4);
 $arr3 = str_split($arr1);
-    if (isset($_POST["date"])){
- 
-
+if (isset($_POST["date"])){
         $date =  $_POST["date"];
-     
-    
-    
-    }
-
+     }
 
        
 if ($arr3[0]=='D'){
