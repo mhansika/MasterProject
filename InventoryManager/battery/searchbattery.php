@@ -63,57 +63,45 @@ $role= $user_data['role'];
             <a href="addbattery.php"><img src="../img/Add.png"></a>
             <a href="searchbattery.php"><img src="../img/Search.png"></a>
         </div>
-        <form class="AddPro" action="searchbattery.php" method="POST">
-        <table id="ad">
-            <h1 class="add">Search Product</h1>
-                <tr>
-                    <td id="data">
-                        <b>Product Name:</b>
-                    </td>
-                </tr>
-                <td id="data"></td>
-                <tr>
-                    <td colspan="2" id="data">
-                        <input name="name" size="30" maxlength="25" style="width: 300px" required>
-                        <input type="submit" class="save" value="Search" name="submit" >
-                    </td>
-                </tr>
-            </form>
-            <!--tr>
-                <td id="data"><b>Battery Type:</td>
-                <td id="data"></td>
-            </tr>
-            <tr>
-                <td id="data"><b>Warranty Period:</td>
-            </tr-->
-            <?php
-            require "../../core/database/connect.php";
-            if(isset($_POST['submit'])){
-                $name = $_POST['battery_name'];
-                $sql = "SELECT * FROM battery_description WHERE battery_name='$name' LIMIT 1" ;
-                $result= mysqli_query($conn,$sql);
-                if(mysqli_num_rows($result) > 0){
-                    while($row = mysqli_fetch_assoc($result)){
-                        echo "<tr><td>".$row['battery_type']."</td><td></td><td>".$row['warranty_period']."</td></tr>";
-                    }
-// in the first time inputs are empty
-                }
+
+        <?php
+        require "../../database/connect.php";
+        /*session_start();*/
+        $error=FALSE;
+        //$dealer_iderr = $v1 = "";
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            
+                $battery_name = $_POST['battery_name'];
+                $v1 = $_POST['battery_name'];
+                $_SESSION['battery_name'] = $v1;
+                header("Location: viewsearchbt.php");
             }
-            mysqli_close($conn);
-            ?>
-        <!--tr>
-            <td id="data"></td>
-            <td id="data">
-        <a class="link" id="delbattery" href="delbattery.php?" onclick="return confirm('Are you sure you wish to delete this Record?');">
-            <button class="delete"> Delete</button></a>
-            </td>
-            <td id="data">
-        <a class="link" id="upbattery" href="upbattery.php">
-            <button class="update">Update</button> </a>
-            </td>
-        </tr-->
-        </table>
-        </form>
+        
+        ?>
+        <div class="AddPro">
+        <div class="ad">
+            <h1 class="add">Search Product</h1>
+            <table id="ad">
+                <form action="" method="POST">
+                    <tr>
+                        <td>
+                            <b>Product Name:</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type=text name=battery_name size="30" maxlength="25" style="width: 300px" required>
+                            <input type="submit" name="submit" value="Search">
+                    </tr>
+                </form>
+        </div>
+        </div>
+        <?php
+        include '../include/footer.php';
+        ?>
+        
+        
+        
     </div>
 </div>
 <?php

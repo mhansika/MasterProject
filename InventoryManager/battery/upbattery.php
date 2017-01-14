@@ -18,43 +18,7 @@ $role= $user_data['role'];
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 </head>
-<?php
-require "../../database/connect.php";
-session_start();
-$v = $_SESSION['type'];
-$sql = "SELECT * FROM battery_description WHERE battery_type = '$v'";
-$result= mysqli_query($connection, $sql);
-if(mysqli_num_rows($result) > 0){
-    while($row = mysqli_fetch_assoc($result)){
-        $h0=$row["battery_type"];
-        $h1=$row["warranty_period"];
-    }
-}else{
-    echo "Zero results";
-}
-$error=FALSE;
-$typeerr = $warranty_perioderr  = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST")
-    if(empty($_POST['type'])){
-        $typeerr = "";
-        $error = TRUE;
-    }else{
-        $type = $_POST['type'];
-    }
-    if(empty($_POST['warranty_period'])){
-        $warranty_perioderr = "";
-        $error = TRUE;
-    }else{
-        $warranty_period = $_POST['warranty_period'];
-    }
-    if ($error==FALSE){
-        $sql = "UPDATE `battery_description` SET `battery_type`='$_POST[type]',`warranty_period`='$_POST[warranty_period]' WHERE `battery_type`='$v'";
-        if(mysqli_query($connection,$sql)){
-            //die();
-            header("Location: searchbattery.php");
-        } else{echo "error";}
-}
-?>
+
 <body>
 <div class="row">
     <?php
@@ -69,24 +33,113 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             <a href="addbattery.php"><img src="../img/Add.png"></a>
             <a href="searchbattery.php"><img src="../img/Search.png"></a>
         </div>
-        <table>
-            <form action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
-                <tr>
-                    <td><b>Product type: <?php echo $_SESSION['type'] ?></b></td>
-                </tr>
-                <tr>
-                    <td><b>Warranty period:</b></td>
-                    <td width="400px">
-                        <input type="text" name="warranty_period" style="width: 300px" value="<?php echo $h1; ?>">
-                    </td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td> <button class="save" type="submit">Save</button></td>
-                </tr>
-            </form>
+        <?php
+        require "../../database/connect.php";
+        //session_start();
+        $v = $_SESSION['battery_name'];
+        //echo $v;
+
+
+        $sql = "SELECT * FROM battery_description WHERE battery_name = '$v'";
+
+        $result= mysqli_query($connection, $sql);
+        if(mysqli_num_rows($result) > 0){
+            while($row = mysqli_fetch_assoc($result)){
+                /*  echo "id: ".$row["dealer_id"]. "Name: ".$row["battery_name"]. "battery_type: ".$row["battery_type"]."<br/>";*/
+                
+                $h1=$row["battery_name"];
+                $h2=$row["battery_type"];
+                $h6=$row["warranty_period"];
+                $h7=$row["voltage_Value"];
+                $h8=$row["amperehour_Value"];
+                $h9=$row["item_Type"];
+            }
+        }else{
+            echo "Zero results";
+        }
+
+        
+
+        
+
+        $error=FALSE;
+        
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
+            $battery_name = $_POST['battery_name'];
+            
+            $battery_type = $_POST['battery_type'];
+
+            $warranty_period = $_POST['warranty_period'];
+            
+            $voltage_Value = $_POST['voltage_Value'];
+
+            $amperehour_Value = $_POST['amperehour_Value'];
+                
+            $item_Type = $_POST['item_Type'];
+            
+
+            if ($error==FALSE){
+
+                //$sql="UPDATE 'dealer' SET battery_name='$_POST[battery_name]', battery_type='$_POST[battery_type]', address='$_POST[address]', salesPerson_id='$_POST[salesPerson_id]', warranty_period='$_POST[warranty_period]', voltage_Value='$_POST[voltage_Value]', amperehour_Value='$_POST[amperehour_Value]', item_Type='$_POST[item_Type]' WHERE dealer_id='$v'";
+                $sql = "UPDATE `battery_description` SET `battery_name`='$_POST[battery_name]',`amperehour_Value`='$_POST[amperehour_Value]',`voltage_Value`='$_POST[voltage_Value]',`item_Type`='$_POST[item_Type]'WHERE `battery_name`='$v'";
+                if(mysqli_query($connection,$sql)){
+                    //die();
+                    header("Location: searchbattery.php");
+                } else{echo "error";}
+            }
+        }
+
+        ?>
+        <form class="AddPro" action="" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
+            <table id="ad">
+                <h1 class="add">Add Product</h1>
+                    <tr>
+                        <td id="data">Product type:</td>
+                        <td id="data"> <select name="battery_type">
+                                <option value="Exide">Exide</option>
+                                <option value="Lucas">Lucas</option>
+                                <option value="Dagenite">Dagenite</option>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="data">Product Name:</td>
+                        <td id="data"><input type="text" name="battery_name" style="width: 200px" value="<?php echo $h1; ?>" ></td>
+                    </tr>
+                    <tr>
+                        <td id="data">Warranty period:</td>
+                        <td id="data"><select name="warranty_period">
+                                <option value="1year">1 year</option>
+                                <option value="2year">2 year</option>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="data">Ampere-hour Value:</td>
+                        <td id="data"><input type="text" name="amperehour_Value" style="width: 200px" value="<?php echo $h8; ?>" ></td>
+                    </tr>
+
+                    <tr>
+                        <td id="data">Voltage Value:</td>
+                        <td id="data"><input type="text" name="voltage_Value" style="width: 200px" value="<?php echo $h7; ?>" ></td>
+                    </tr>
+                    <tr>
+                        <td id="data">Item Type:</td>
+                        <td id="data"><input type="text" name="item_Type" style="width: 200px" value="<?php echo $h9; ?>" ></td>
+                    </tr>
+                    <tr>
+                        <td id="data">Insert a image here: </td>
+                        <td id="data"><input type="file" name="imageUpload" id="imageUpload">
+                    </tr>
+                    <tr>
+                        <td id="data"></td>
+                        <td id="data"><button class="submit" name="submit" value="send">Submit</button></td>
+                        <td id="data"><button class="reset" type="reset">Reset</button></td>
+                    </tr>
+        
         </table>
-    </div>
+        </form>
     <?php
 include '../include/footer.php';
 ?>
