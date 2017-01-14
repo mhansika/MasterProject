@@ -57,13 +57,13 @@ include 'include/header.php';
     while($row = mysqli_fetch_assoc($query)){
     ?>
     <div style=" padding-top: 7%">
-        <!img class="photo" src="<--?php echo $row['image']; -- ?>"-- >
+        <!img class="photo" src="<--?php echo $row['image']; -- ?>
         <img src="<?php echo $row['image'] ; ?>" >
+        <?php echo $row['f_name']; ?>
         <?php } ?>
         <div style=" width: 50%;margin-left: 10%">
             <button class="enter">Data Entry Operator</button>
             <button class="enter">Admin</button>
-            <?php echo $row['f_name']; ?>
         </div>
     </div>
 </div>

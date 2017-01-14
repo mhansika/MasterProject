@@ -14,9 +14,7 @@ body{
 }
 #content{
     width: 90%;
-    height: 90%;
     background-image: url("../img/2.png");
-    border: solid;
     padding-top: 5%;
     float: right;
     padding-left: 10%;

@@ -89,9 +89,8 @@ if (isset($_POST['send'])) {
 }
 ?>
 <body>
-<div class="wrapper">
+<div class="wrap">
     <div class="login">
-
     </div>
     <div class="container">
         <form class="form" action="" method="post">
