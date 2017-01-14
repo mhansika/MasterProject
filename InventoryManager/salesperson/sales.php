@@ -25,7 +25,7 @@ $role= $user_data['role'];
 
 			<?php
 				require "database/connect.php";
-				session_start();
+				//session_start();
 				$x1 = $_SESSION['sales_name'];
 				
 				$pieces = explode(" ", $x1);

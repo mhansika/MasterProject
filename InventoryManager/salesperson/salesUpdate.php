@@ -25,7 +25,7 @@ $role= $user_data['role'];
     <body>
 	<?php
 		require "database/connect.php";
-		session_start();
+		//session_start();
 		$v = $_SESSION['salesPerson_id'];
 		//echo $v;
 		
