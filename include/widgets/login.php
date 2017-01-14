@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-
     <meta charset="UTF-8">
     <title>Login Screen</title>
     <link rel="stylesheet" type="text/css" href="css/login.css">
@@ -24,10 +22,8 @@
     /* IE10+ */
     background: linear-gradient(to bottom, #f4f4f4 1%, #ededed 100%);
     /
-
 }
     </style>
-       
     }
     <script>
         window.console = window.console || function(t) {};
@@ -37,14 +33,12 @@
             window.ontouchstart = function(){};
         }
     </script>
-    
     <script src='js/jquery.js'></script>
     <script>
         if (document.location.search.match(/type=embed/gi)) {
             window.parent.postMessage('resize', "*");
         }
     </script>
-
     <script src="js/timeout.js"></script>
     <script>
         $('#login-button').click(function (event) {
@@ -52,13 +46,9 @@
             $('form').fadeOut(800);
             $('.wrapper').addClass('form-success');
         });
-
     </script>
-
 </head>
-
 <body>
-
     <div class="wrapper">
         <div class="container">
             <h1>Welcome</h1>
@@ -70,8 +60,6 @@
                 <button class="submit" name="submit" value="Login">Login</button><br/><br>
 				<a style = "color:white;" href  = "include/widgets/recovery.php" >Change Password</a>
         </div>
-
-
         <ul class="bg-bubbles">
             <li></li>
             <li></li>
@@ -84,10 +72,6 @@
             <li></li>
             <li></li>
         </ul>
-
     </div>
-
-
 </body>
-
 </html>
