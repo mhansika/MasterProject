@@ -2,26 +2,16 @@
 <?php include '../core/init.php';
 protect_page();
 ?>
-
-
 <?Php
-
-	$role= $user_data['role'];
-	
- 	 if ($role == "deo") {
-		 echo '';
-}
+$uid= $user_data['user_id'];
+$role= $user_data['role'];
+		 /*echo '$role';*/
 ?>
-
-
-
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/IM.css" type="text/css"/>
 </head>
 <body>
-<div class="row">
 <?php
 include 'include/header.php';
 ?>
@@ -29,7 +19,7 @@ include 'include/header.php';
         <ul id="mainsidebar">
             <li class="sidenav">
                 <div id="side">
-                    <a href="battery/product.php"><img src="../img/a.png" class="pic"></a>
+                    <a href="battery/product.php"><img src="../img/a.png" class="pro"></a>
                     <span>Product Details</span>
                 </div>
             </li>
@@ -60,11 +50,25 @@ include 'include/header.php';
         </ul>
     </div>
     <div id="content">
-
+        <?php
+        include '../database/connect.php';
+        $query = $connection->query("select * from users where user_id ='$uid'");
+        /*$row = mysqli_fetch_assoc(mysqli_query($connection,$query));*/
+        while($row = mysqli_fetch_assoc($query)){
+        ?>
+        <div style=" padding-top: 7%">
+            <!img class="photo" src="<--?php echo $row['image']; -- ?>"-- >
+            <img src="<?php echo $row['image'] ; ?>" >
+            <?php } ?>
+            <div style=" width: 50%;margin-left: 10%;height: 50%">
+                <button class="enter">Data Entry Operator</button>
+                <button class="enter">Admin</button>
+                <?php echo $row['f_name']; ?>
+            </div>
+        </div>
     </div>
 <?php
 include 'include/footer.php';
 ?>
-</div>
 </body>
 </html>

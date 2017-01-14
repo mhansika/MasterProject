@@ -22,7 +22,7 @@ select {
     padding: 16px 20px;
     border: none;
     border-radius: 4px;
-    background-color: #C0C0C0;
+    background-color: #f1f1f1;
 }
 input[type=submit] {
     background-color: #5E5E5E;
@@ -75,13 +75,8 @@ input[type=submit] {
         </ul>
     </div>
     <div id="content">
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
         <form action="defect_report.php" method="post">
-    <b>Year:</b>
+    Year:
     <select id="selectElementId" name='year'></select>
    
       <script>
@@ -96,7 +91,7 @@ input[type=submit] {
              select.appendChild(opt);
           }
       </script>
-    <b>Month:</b>
+    Month:
     <select name="month">
       <option value='January'>January</option>
       <option value='February'>February</option>
@@ -111,7 +106,7 @@ input[type=submit] {
       <option value='November'>November</option>
       <option value='December'>December</option>
     </select> 
-    <b>Defect Type:</b>
+    Defect Type:
     
     <?php
     //get all defect types from data base

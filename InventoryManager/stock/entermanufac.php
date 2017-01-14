@@ -10,14 +10,9 @@
 
  <?php include '../../core/init.php';
       protect_page(); 
-	  include 'header.php';
+	  include '../include/header.php';
       ?>
-
-
-
-
 		<style>
-		
 #form-align{
 	   padding: 0;margin-left:30%;width:70%;height:600px;margin-top:-600px;margin-right: 10%;	
 }
@@ -78,15 +73,7 @@
   float: left;
 }
 </style>
-	 
-
-    
-       
-
-  
 </head>
-
-
 	<div id="body">
 		<div id="navigation"></div>
 		<nav>
@@ -408,7 +395,7 @@ if (isset($_POST["submit"]))
 	</div>
 	
 <?php
-include '../../include/footer.php';
+include '../include/footer.php';
 ?>
 		<div>
 	</body>
