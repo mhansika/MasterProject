@@ -210,7 +210,7 @@
 							<a href="../index.php"  style="display:block;float:right;margin-right:45px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" src="../img/lgout.png" ></a>
                     </br>
                     
-                     <h1><b>Enter Defect Types</b></h1>
+                     <h1><b> Defect Types Of Batteries</b></h1>
                      </br>
 
                     <table width="70%">
@@ -254,18 +254,18 @@ if (isset($_POST['submit'])) {
 
 	$sql="SELECT battery_status,replaced_date,batch_num,battery_num,defect_type FROM released_batteries WHERE battery_status = '3' AND replaced_date BETWEEN '" . $First_Date . "' AND  '" . $Next_Date . "' ";
 
-
+	echo $sql;
 	
 	$result = $conn->query($sql);
-	if ($result->num_rows > 0) {
+	if ($result->num_rows > 0) {?>
 		
-		echo "
 		<div  class='tbl-header'>
 		<table cellpadding='0' cellspacing='0' border='0'>
 		  <thead>
 			<tr>
 			  <th>Replaced Battery Number</th>
-			 
+			   
+			  <th>Defect Type</th>
 			  <th>Enter/Update Defect Type</th>
 			</tr>
 		  </thead>
@@ -274,14 +274,15 @@ if (isset($_POST['submit'])) {
 		<div  class='tbl-content'>
 		<table cellpadding='0' cellspacing='0' border='0'>
 		  <tbody>
-			<tr></tr>";
 			
+			
+		<?php
 		while($row1 = $result->fetch_assoc() ){
 			$id = $row1["batch_num"]."|".$row1["battery_num"];
 			echo"
 				<tr>
 				<td>".$row1["batch_num"].$row1["battery_num"]."</td>  
-				";
+				<td>".$row1["defect_type"]."</td> ";
 
 			?>
 			<td>
