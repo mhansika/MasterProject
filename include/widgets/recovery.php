@@ -90,7 +90,10 @@ if (isset($_POST['send'])) {
 ?>
 <body>
 <div class="wrap">
-    <button class="backLg"><a href="login.php">Back to Login</a></button>
+    <form action="../../login.php" method="post">
+    <button class="submit" name="send2" value="Login">Back To Login</button>   
+    </form>
+</div>
     <div class="container">
         <form class="form" action="" method="post">
             <h2 class="change">Change Password</h2>
