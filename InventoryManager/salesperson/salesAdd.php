@@ -8,6 +8,34 @@ $role= $user_data['role'];
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/IM.css" type="text/css"/>
+    <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+
+
+    <script>
+
+$( document ).ready(function() {
+     $("select#cap").click( function(){
+            //var id = this.id;
+            var id = $(this).children(":selected").attr("id");
+            console.log(id);
+
+            $.ajax({
+
+                url:'getdrop2.php?data='+id,
+                type:"get",
+                success:function(data){
+
+                   $("tr#trow>td#second").html("");
+                $("tr#trow>td#second").html(data);
+                }
+
+
+            });
+    });
+    
+});
+
+</script>
 
 </head>
 <body>
@@ -57,7 +85,7 @@ $role= $user_data['role'];
         </div>
         <?php
         require "../../database/connect.php";
-        session_start();
+        //session_start();
 
         $error=FALSE;
         $F_nameerr = $L_nameerr =  $NICerr = $addresserr = $area_noerr = $mobileNoerr = $telephoneNoerr = $emailerr = $DOBerr = "";
