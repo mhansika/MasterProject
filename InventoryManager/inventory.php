@@ -50,17 +50,45 @@ include 'include/header.php';
     </ul>
 </div>
 <div id="content">
+    <h1 class="login">You are logged in as : <?php echo $user_data['f_name'] .'  ' .$user_data['l_name'];?></h1>
     <?php
     include '../database/connect.php';
     $query = $connection->query("select * from users where user_id ='$uid'");
     /*$row = mysqli_fetch_assoc(mysqli_query($connection,$query));*/
     while($row = mysqli_fetch_assoc($query)){
+    $v11=$row["f_name"];
+    $v12=$row["l_name"];
+    $v13=$row["email"];
+    $v14=$row["role"];
     ?>
-    <div style=" padding-top: 7%">
+    <div>
         <!img class="photo" src="<--?php echo $row['image']; -- ?>
-        <img src="<?php echo $row['image'] ; ?>" >
-        <?php echo $row['f_name']; ?>
+        <img class="photo" src="<?php echo $row['image'] ; ?>" >
         <?php } ?>
+        <div class="user">
+            <table class="user">
+                <tbody>
+                <tr>
+                    <td>First Name:</td>
+                    <td><?php echo $v11?></td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td><?php echo $v12?></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><?php echo $v13?></td>
+                </tr>
+
+                <tr>
+                <tr>
+                    <td>Role:</td>
+                    <td><?php echo $v14?></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
         <div style=" width: 50%;margin-left: 10%">
             <button class="enter">Data Entry Operator</button>
             <button class="enter">Admin</button>

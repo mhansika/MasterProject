@@ -2,6 +2,7 @@ body{
     margin: 0 0 0 0;
     font-family: Calibri;
     min-width: 100%;
+    background-image: url("../img/2.png");
 }
 #nav {
     float: left;
@@ -10,11 +11,10 @@ body{
     background-color: black;
     padding: 0 0 0 0;
     position: fixed;
-    margin-top: %;
+   padding-top: 5%;
 }
 #content{
     width: 90%;
-    background-image: url("../img/2.png");
     padding-top: 5%;
     float: right;
     padding-left: 10%;
@@ -356,4 +356,15 @@ span{
     background-color: #9d9d9d;
     transition-duration: 0.4s;
     transform: scale(1.1);
+}
+.user{
+    float: right;
+    border: dotted;
+}
+.photo{
+    border-radius: 80%;
+    margin-left: 10%;
+}
+.login{
+    padding-left: 25%;
 }
