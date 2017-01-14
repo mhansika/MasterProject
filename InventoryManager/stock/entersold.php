@@ -16,7 +16,7 @@
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <style>
-        
+
 #form-align{
        padding: 0;
     margin-left:;
@@ -30,7 +30,6 @@
 .form-style-2{
     max-width: 500px;
     padding: 20px 12px 10px 20px;
-    font: 13px Arial, Helvetica, sans-serif;
 }
 .form-style-2-heading{
     font-weight: bold;
@@ -38,9 +37,7 @@
     margin-bottom: 20px;
     font-size: 15px;
     padding-bottom: 3px;
-    color: #B40404; 
-    font-size: 24px; 
-    font-family: 'Signika', sans-serif;
+    color: #B40404;
 }
 .form-style-2 label{
     display: block;
@@ -53,7 +50,7 @@
     padding-top: 8px;
     padding-right: 5px;
     color:black;
-    
+
 }
 .form-style-2 span.required{
     color:red;
@@ -64,11 +61,11 @@
 }
 .form-style-2 input.input-field{
     width: 48%;
-    
+
 }
 
-.form-style-2 input.input-field, 
-.form-style-2 .batch-number-field,  
+.form-style-2 input.input-field,
+.form-style-2 .batch-number-field,
  .form-style-2 .select-field{
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -83,8 +80,8 @@
     padding: 7px;
     outline: none;
 }
-.form-style-2 .input-field:focus, 
-.form-style-2 .batch-number-field:focus,  
+.form-style-2 .input-field:focus,
+.form-style-2 .batch-number-field:focus,
 .form-style-2 .select-field:focus{
     border: 1px solid #0C0;
 }
