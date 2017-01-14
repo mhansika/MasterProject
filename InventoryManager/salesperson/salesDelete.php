@@ -10,7 +10,7 @@
 
 			if (mysqli_query($connection, $sql)) {
 				echo "Record deleted successfully";
-				header("Location: searchsalep.php");
+				header("Location: salesSearch.php");
 			} else {
 				echo "Error deleting record: ";
 			}

@@ -54,8 +54,8 @@ $role= $user_data['role'];
     <div id="content">
         <div class="topnav">
             <a href="../salesperson/salep.php"><img src="../img/View.png"></a>
-            <a href="../salesperson/addsalep.php."><img src="../img/Add.png"></a>
-            <a href="../salesperson/searchsalep.php."><img src="../img/Search.png"></a>
+            <a href="../salesperson/salesAdd.php."><img src="../img/Add.png"></a>
+            <a href="../salesperson/salesSearch.php."><img src="../img/Search.png"></a>
         </div>
             <div class="form">
                 <div class="seperate">
