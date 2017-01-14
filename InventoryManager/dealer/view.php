@@ -95,6 +95,5 @@ $role= $user_data['role'];
 		<?php
 		include '../include/footer.php';
 		?>
-	</div>
 </body>
 </html>

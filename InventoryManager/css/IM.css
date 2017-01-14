@@ -1,6 +1,6 @@
 body{
     margin: 0 0 0 0;
-    font-family: Calibri;
+    font-family: 'Open Sans', sans-serif;
     min-width: 100%;
     background-image: url("../img/2.png");
 }
@@ -38,7 +38,7 @@ body{
     background-color: black;
 }
 span{
-    font-family: Calibri;
+    font-family: 'Open Sans', sans-serif;
     color: white;
     text-align: center;
     display: block;
@@ -196,20 +196,31 @@ span{
     font-size: large;
 
 }
-.submit:hover{
-    background-color: #B40404;
+.submit,.enter,.save{
+    color: #009688;
+    background: #fff;
+    border: 1px solid #009688;
+    font-size: 17px;
+    padding: 7px 12px;
+    font-weight: normal;
+    margin: 6px 0;
+    margin-right: 12px;
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    min-width: 120px;
 }
-.update:hover{
-    background-color: #B40404;
+.submit:hover {
+    color:#fff;
+    background:#009688;
 }
-.delete:hover{
-    background-color: #B40404;
+.enter:hover {
+    color:#fff;
+    background:#009688;
 }
-.save:hover{
-    background-color: #B40404;
-}
-.reset:hover{
-    background-color: #B40404;
+.save:hover {
+    color:#fff;
+    background:#009688;
 }
 .re-menu{
     padding-top: 1%;
@@ -235,7 +246,7 @@ span{
     position:relative;
 }
 .re-icon{
-    font-family: Calibri;
+    font-family: 'Open Sans', sans-serif;
     font-size: 30px;
     text-shadow: 0px 0px 1px #333;
     line-height: 90px;
@@ -285,9 +296,17 @@ span{
     margin-top: 2%;
     border-radius: 4px;
     padding: 10 10 10 10;
-    background-color: #5e5e5e;
-    color: white;
-    font-size: large;
+    color: #009688;
+    background: #fff;
+    border: 1px solid #009688;
+    font-size: 17px;
+    padding: 7px 12px;
+    font-weight: normal;
+    margin-right: 12px;
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    min-width: 120px;
 }
 .index-logout {
     background-color: #B40404;
@@ -358,14 +377,68 @@ span{
     transform: scale(1.1);
 }
 .user{
+    height: auto;
+    width: auto;
+    margin-right: 25%;
     float: right;
-    border: dotted;
-    padding-right: 20%;
+    margin-top: 8%;
 }
 .photo{
     border-radius: 80%;
-    margin-left: 10%;
+    margin-left: 20%;
 }
 .login{
     padding-left: 25%;
+}
+.admin{
+    width: 50%;
+    margin-left: 35%;
+    margin-top: 3%;
+}
+.up{
+    padding: 2% 2% 2% 0;
+    font-size: 22px;
+    width: 150px;
+    border-bottom: solid 1px;
+}
+.up1{
+    padding: 2% 0 2% 0;
+    font-size: 22px;
+    border-bottom: solid 1px;
+}
+.deo{
+    color: #009688;
+    background: #fff;
+    border: 1px solid #009688;
+    font-size: 17px;
+    padding: 7px 12px;
+    font-weight: normal;
+    margin: 6px 0;
+    margin-right: 12px;
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    min-width: 120px;
+}
+.deo:hover{
+    color:#fff;
+    background:#009688;
+}
+.adm{
+    color: #03A9F4;
+    background: #fff;
+    border: 1px solid #03A9F4;
+    font-size: 17px;
+    padding: 7px 12px;
+    font-weight: normal;
+    margin: 6px 0;
+    margin-right: 12px;
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    min-width: 120px;
+}
+.adm:hover{
+    color:#fff;
+    background:#03A9F4;
 }

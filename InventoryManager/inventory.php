@@ -65,33 +65,31 @@ include 'include/header.php';
         <!img class="photo" src="<--?php echo $row['image']; -- ?>
         <img class="photo" src="<?php echo $row['image'] ; ?>" >
         <?php } ?>
-        <div>
             <table class="user">
                 <tbody>
                 <tr>
-                    <td>First Name:</td>
-                    <td><?php echo $v11?></td>
+                    <td class="up">First Name</td>
+                    <td class="up1"><?php echo $v11?></td>
                 </tr>
                 <tr>
-                    <td>Last Name:</td>
-                    <td><?php echo $v12?></td>
+                    <td class="up">Last Name</td>
+                    <td class="up1"><?php echo $v12?></td>
                 </tr>
                 <tr>
-                    <td>Email:</td>
-                    <td><?php echo $v13?></td>
+                    <td class="up">Email</td>
+                    <td class="up1"><?php echo $v13?></td>
                 </tr>
 
                 <tr>
                 <tr>
-                    <td>Role:</td>
-                    <td><?php echo $v14?></td>
+                    <td class="up">Role</td>
+                    <td class="up1"><?php echo $v14?></td>
                 </tr>
                 </tbody>
             </table>
-        </div>
-        <div style=" width: 50%;margin-left: 10%">
-            <button class="enter">Data Entry Operator</button>
-            <button class="enter">Admin</button>
+        <div class="admin">
+            <button class="deo">Data Entry Operator</button>
+            <button class="adm">Admin</button>
         </div>
     </div>
 </div>
