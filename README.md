@@ -1,2 +1,0 @@
-# MasterProject
-UCSC project

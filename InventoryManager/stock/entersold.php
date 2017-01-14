@@ -19,10 +19,10 @@
         
 #form-align{
        padding: 0;
-    margin-left:30%;
+    margin-left:;
     width:100%;
     height:600px;
-    margin-top:-600px;
+    margin-top:100px;
     margin-right: 10%;
 
 }
@@ -38,7 +38,7 @@
     margin-bottom: 20px;
     font-size: 15px;
     padding-bottom: 3px;
-    color: #ff4411; 
+    color: #B40404; 
     font-size: 24px; 
     font-family: 'Signika', sans-serif;
 }
@@ -394,15 +394,15 @@
                        
 
                 </td>
+				
             </tr>
-              <p class="container">
+		
                                 <tr>
-                                    <td><button style= "border: 2px solid #4CAF50; margin-right:80px;" class="submit" name="submit" value="send">Submit</button></td>
-                                    <td><button style= "border: 2px solid red;" class="reset" name="reset" value="reset">Reset</button></td>
-                                </p>
-
+                                    <td><button style= "border: 2px solid #4CAF50;; margin-right:80px;color:black" class="submit" name="submit" value="send">Submit</button></td>
+                                    <td><button style= "border: 2px solid red;color:black" class="reset" name="reset" value="reset">Reset</button></td>
+                             
         
-        
+			</tr>
         </table>
         </form>
         
