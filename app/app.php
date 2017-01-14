@@ -136,7 +136,7 @@ h1  {
 
                 <div class="header"><img class="logo" src="img2/logo.png">
 
-                    <a href="login.php" class="signout"> <img class="signout" src="img2/signout.png" ></br><span>Logout</span> </a>
+                    <a href="lg_int.php" class="signout"> <img class="signout" src="img2/signout.png" ></br><span>Logout</span> </a>
                         </br><h1 style="font-weight: bolder; margin-top: 0% ; " >ASSOCIATED BATTERY MANUFACTURERS (CEYLON) LIMITED</h1>
                 </div>
 
