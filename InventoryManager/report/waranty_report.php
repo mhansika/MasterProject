@@ -83,11 +83,24 @@ pdf.fromHTML(
 
 
 </script>
-
+<style>
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}  
+</style>
 </head>
+<a href="replacenxt.php" class="button">Back</a>
 <!-- give function name -->
 <body id="content">
-    <a href="replacenxt.php">back</a>
+    
+
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
