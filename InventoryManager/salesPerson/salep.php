@@ -123,7 +123,7 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $fname=$row['F_name'];
         $lname=$row['L_name'];
-        $name=$fname.$lname;
+        $name=$fname." ".$lname;
         echo "<tr><td>".$row["salesPerson_id"]."</td><td>".$name."</td><td>".$row["area"]."</td><td>".$row["NIC"]."</td><td>".$row["address"]."</td><td>".$row["mobileNo"]."</td><td>".$row["email"]."</td></tr>";
     }
     echo "</table></body></html>";
