@@ -126,9 +126,9 @@ $role= $user_data['role'];
             <a href="../dealer/adddealer.php"><img src="../img/Add.png"></a>
             <a href="../dealer/view.php"><img src="../img/Search.png"></a>
         </div>
-        <!--<?php
+        <?php
         require "../../database/connect.php";
-        session_start();
+        //session_start();
         $v = $_SESSION['dealer_name'];
         //echo $v;
 
@@ -264,13 +264,15 @@ $role= $user_data['role'];
                 //$sql="UPDATE 'dealer' SET dealer_name='$_POST[dealer_name]', NIC='$_POST[NIC]', address='$_POST[address]', salesPerson_id='$_POST[salesPerson_id]', mobileNo='$_POST[mobileNo]', telephoneNo='$_POST[telephoneNo]', email='$_POST[email]', fax='$_POST[fax]' WHERE dealer_id='$v'";
                 $sql = "UPDATE `dealer` SET `dealer_name`='$_POST[dealer_name]',`area_no`=$h3,`salesPerson_id`=$h5,`NIC`='$_POST[NIC]',`address`='$_POST[address]',`mobileNo`='$_POST[mobileNo]',`telephoneNo`='$_POST[telephoneNo]',`email`='$_POST[email]',`fax`='$_POST[fax]' WHERE `dealer_name`='$v'";
                 if(mysqli_query($connection,$sql)){
+                    echo "<script>alert('Successfully Updated');
+                     window.location.href='http://localhost/MasterProject/InventoryManager/dealer/view.php';</script>";
                     //die();
-                    header("Location: dealerSearch.php");
+                    //header("Location: dealerSearch.php");
                 } else{echo "error";}
             }
         }
 
-        ?>-->
+        ?>
         <div class="ad">
             <form class="AddPro" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" id="hello" name= "myForm" onsubmit="return(validate());">
                 <h1 class="add">Update Dealer</h1>
@@ -342,7 +344,7 @@ $role= $user_data['role'];
 
                     <tr>
                         <td>
-                            <span class="error">* <?php echo $area_noerr;?></span>
+                            <?php echo $h10;?>
                         </td>
                         <td>
                             <input type="text" name="email" style="width: 200px" value="<?php echo $h8; ?>">

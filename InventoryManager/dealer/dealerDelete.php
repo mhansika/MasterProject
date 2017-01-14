@@ -7,8 +7,8 @@
 	$sql = "UPDATE dealer SET active=0 WHERE dealer_name='$v'";
 
 	if (mysqli_query($connection, $sql)){
-		echo "Record deleted successfully";
-		header("Location: dealerSearch.php");
+		echo "<script>alert('Successfully Deleted');</script>";
+		header("Location: view.php");
 	}else{
 		echo "Error deleting record: ";
 		}
