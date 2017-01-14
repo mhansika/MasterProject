@@ -1,3 +1,17 @@
+<?php include '../../core/init.php';
+protect_page();
+
+
+
+$role= $user_data['role'];
+	
+ 	 if ($role == "DEO") {
+		echo "<script>window.location.href = '../restrict.php';</script>";
+}
+?>
+
+
+
 <html>
 	<head>
 		<style>

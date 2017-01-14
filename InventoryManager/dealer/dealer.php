@@ -1,18 +1,15 @@
-<?php
-?>
-<html>
 <?php include '../../core/init.php';
 protect_page();
-?>
-<?Php
+
+
+
 $role= $user_data['role'];
-if ($role == "deo") {
-    echo "<script>window.location.href = 'http://www.google.com';</script>";
+	
+ 	 if ($role == "DEO") {
+		echo "<script>window.location.href = '../restrict.php';</script>";
 }
 ?>
-<?php
-$role= $user_data['role'];
-?>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/IM.css" type="text/css"/>
