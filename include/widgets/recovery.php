@@ -89,16 +89,13 @@ if (isset($_POST['send'])) {
 }
 ?>
 <body>
+
 <div class="wrap">
 
-    <a href="login.php">
-    <button class="backLg">Back to Login</button>
-    </a>
+  
 
-    <form action="../../login.php" method="post">
-    <button class="submit" name="send2" value="Login">Back To Login</button>   
-    </form>
-</div>
+   
+
     <div class="container">
         <form class="form" action="" method="post">
             <h2 class="change">Change Password</h2>
@@ -108,6 +105,9 @@ if (isset($_POST['send'])) {
             <input type="password" name="password_again" placeholder="Confirm Password" />
             <button class="submit" name="send" value="Login">Update</button><br/><br>
     </div>
+	  <a href="http://localhost/MasterProject/login.php">
+    <button class="backLg">Back to Login</button>
+    </a>
     <ul class="bg-bubbles">
         <li></li>
         <li></li>
