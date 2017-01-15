@@ -83,8 +83,9 @@
 			overflow: hidden;
 		}
 		.container label {
-			width: 250px;
-			float: left;
+			width: 150px;
+			float: right;
+			
 		}
 	</style>
 </head>
@@ -226,7 +227,7 @@ if (isset($_POST["submit"]))
 	$sql = $sql . "('$str', '". sprintf('%06d', $num)."','". '0' . "');";
 
 	if (mysqli_query($conn, $sql)) {
-		echo "<script>alert('Successfully Inserted');</script>";
+		echo "<script>alert('Successfully Inserted batteries');</script>";
 	}
 	else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
