@@ -172,6 +172,7 @@
             $result1=mysqli_query($connection,$sql1);
             $row1=mysqli_fetch_row($result1);
             //echo $row1[0];
+            if($row1[0]< 25){
                 echo "<script>alert('Not enough stock');
                      window.location.href='http://localhost/MasterProject/InventoryManager/stock/entersold.php';</script>";
             }
