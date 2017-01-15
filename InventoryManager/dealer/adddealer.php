@@ -221,6 +221,7 @@ $role= $user_data['role'];
             if ($error==FALSE){
                 $sql="INSERT INTO `warranty_management`.`dealer` (`dealer_name`, `area_no`, `salesPerson_id`, `NIC`, `address`, `mobileNo`, `telephoneNo`, `email`, `fax`,`active`) VALUES ('$_POST[dealer_name]', $a_no , '$_POST[salesPerson_id]', '$_POST[NIC]', '$_POST[address]', '$_POST[mobileNo]', '$_POST[telephoneNo]', '$_POST[email]', '$_POST[fax]',1)";
                 if(mysqli_query($connection,$sql)){
+                    echo "<script>alert('Successfully Inserted');</script>";
                     //die();
                     /*header("Location: adddealer.php");*/
                 } else{echo "error";}

@@ -88,10 +88,10 @@ include 'include/header.php';
                 </tbody>
             </table>
         <div class="admin">
-            <a href="admin/view.php">
+            <a href="Do/view.php">
             <button class="deo">Data Entry Operator</button>
             </a>
-            <a href="Do/view.php">
+            <a href="Admin/view.php">
             <button class="adm">Admin</button>
             </a>
         </div>
