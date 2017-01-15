@@ -135,6 +135,8 @@ $role= $user_data['role'];
             </li>
         </ul>
     </div>
+
+    <div id="content">
         <?php
         require "../../database/connect.php";
         /*session_start();*/
