@@ -143,7 +143,7 @@ $sql = "UPDATE released_batteries SET battery_status=2,cus_sold_date='$date', wa
 if ($conn->query($sql) === TRUE && $arr1 != null) {
     echo "<script>alert('Successfully Inserted');</script>";
 } else {
-    echo "Error updating record: " . $conn->error;
+
 }
 
 
