@@ -28,8 +28,11 @@
                 document.loginForm.oldcode.select()
                 return false;
             }
-            
-              
+            else{
+                document.getElementById('bcd1').innerHTML="";
+                document.getElementById('barcode1').style.border ="solid 2.5px white"; 
+            }
+                   
             }                
     
         else{
@@ -100,13 +103,13 @@
                     <label 
                     class="control-label" for="barcode">Enter Replace Battery Barcode</label>
                     <div class="form-group input-group">
-                        <input class="form-control" id="barcode1" name="oldcode" type="text" onblur="validation()"/>
+                        <input class="form-control" id="barcode1" name="oldname" type="text" onblur="validation()"/>
                         <span style="color:red" id="bcd1"></span>
                         <div class="input-group-addon"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> </div>
                     </div>
                     <label class="control-label" for="barcode">Enter Issued Battery Barcode</label>
                     <div class="form-group input-group">
-                        <input class="form-control" id="barcode2" name="newcode" type="text" onblur="validation()"/>
+                        <input class="form-control" id="barcode2" name="newname" type="text" onblur="validation()"/>
                         <span style="color:red" id="bcd2"></span>
                         <div class="input-group-addon"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> </div>
                     </div>
@@ -139,17 +142,18 @@ $oldname="";
 $newname="";
 $date="";
     if(isset($_POST["oldname"])){
-        $oldname =mysqli_real_escape_string($conn,$_POST['oldname']);
+        $oldname = $_POST['oldname'];
     }
         $arr1 = substr($oldname, 0,4);
          $arr2 = substr($oldname, 4);
     if(isset($_POST["newname"])){
-        $newname =mysqli_real_escape_string($conn,$_POST['newname']);
+        $newname = $_POST['newname'];
             }
 $arr12 = substr($newname, 0,4);
 $arr22 = substr($newname, 4);
     if(isset($_POST["date"])){
-        $date=mysqli_real_escape_string($conn,$_POST['date']);
+        $date=$_POST['date'];
+        
 }
 
 /*function getExpirydateForNewBattery ($conn,$arr1,$arr2) {
@@ -167,10 +171,9 @@ $expiary_date=$row['warranty_period'];
 $sql = "UPDATE released_batteries SET battery_status=3,replaced_date='$date' WHERE  batch_num='$arr1'  AND battery_num='$arr2'";
 
  
-if ($conn->query($sql) === TRUE) {
-    echo "";
+if ($conn->query($sql) === TRUE && $arr1 != null) {
+    echo "<script>alert('Successfully Inserted');</script>";
 } else {
-    echo "Error updating record: " . $conn->error;
 }
 
 $sql2 = "UPDATE released_batteries SET battery_status=4,cus_sold_date='$date',warranty_period='$expiary_date' WHERE  batch_num='$arr12'  AND battery_num='$arr22'";
