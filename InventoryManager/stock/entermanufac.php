@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-	<link rel="stylesheet" href="css/style1.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="style.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="style1.css" media="screen" type="text/css" />
 	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -11,28 +11,48 @@
 	protect_page();
 	include '../include/header.php';
 	?>
-
 	<style>
 		#form-align{
-			padding: 0;margin-left:30%;width:70%;height:600px;margin-top:100px;margin-right: 10%;
+			padding: 0;
+			margin-left:30%;
+			width:70%;
+			height:600px;
+			margin-right: 10%;
 		}
 		.form-style-2{
-			max-width: 500px;padding: 20px 12px 10px 20px;font: 13px Arial, Helvetica, sans-serif;
+			max-width: 500px;
+			padding-top: 15%;
+			font: 13px Arial, Helvetica, sans-serif;
 		}
 		.form-style-2-heading{
-			font-weight: bold;border-bottom: 2px solid #ddd;margin-bottom: 20px;font-size: 15px;padding-bottom: 3px;color: #B40404; font-size: 24px; font-family: 'Signika', sans-serif;
+			font-weight: bold;
+			border-bottom: 2px solid #ddd;
+			margin-bottom: 20px;
+			font-size: 15px;
+			padding-bottom: 3px;
+			color: #B40404;
+			font-size: 24px;
+			font-family: 'Signika', sans-serif;
+			text-align: center;
 		}
 		.form-style-2 label{
-			display: block;margin: 0px 0px 15px 0px;
+			display: block;
+			margin: 0px 0px 15px 0px;
 		}
 		.form-style-2 label > span{
-			width: 100px;font-weight: bold;float: left;padding-top: 8px;padding-right: 5px;color:black;
+			width: 100px;
+			font-weight: bold;
+			float: left;
+			padding-top: 8px;
+			padding-right: 5px;
+			color:black;
 		}
 		.form-style-2 span.required{
 			color:red;
 		}
 		.form-style-2 .batch-number-field{
-			width: 60px;text-align: center;
+			width: 60px;
+			text-align: center;
 		}
 		.form-style-2 input.input-field{
 			width: 48%;
@@ -58,12 +78,10 @@
 		.form-style-2 .select-field:focus{
 			border: 1px solid #0C0;
 		}
-
 		.container { /* To clear contained floats */
 			width: 100%;
 			overflow: hidden;
 		}
-
 		.container label {
 			width: 250px;
 			float: left;
@@ -71,58 +89,28 @@
 	</style>
 </head>
 <div id="body">
-	<div id="navigation"></div>
-	<nav>
-		<ul id="mainsidebar">
-			<li class="var_nav">
-				<div class="link_bg"></div>
-				<div class="link_title" id="pd">
-
-					<a href="../inventory.php" id="pd" style="top: 1px;
-									display:block;
-									position:absolute;
-									float:left;
-									font-family:arial;
-									color:#1C1C1C;
-									text-decoration:none;
-									width:100%;
-									height:70px;
-									text-align:center;"><img class= "pic" src="../img/Back.png" align="middle"><span>Back</span></a>
+	<div id="nav">
+		<ul id="mainsidebar" style="padding-top: 60%">
+			<li class="sidenav">
+				<div id="side">
+					<a href="../inventory.php"><img src="../img/Back.png" class="pic"></a>
+					<span>Back</span>
 				</div>
 			</li>
-			<li class="var_nav">
-				<div class="link_bg"></div>
-				<div class="link_title" >
-
-					<a href= "entermanufac.php" id="stock" style="top: 10px;
-									display:block;
-									position:absolute;
-									float:left;
-									font-family:arial;
-									color:#1C1C1C;
-									text-decoration:none;
-									width:100%;
-									height:70px;
-									text-align:center;"><img class= "pic" src="../img/manufac.png" align="middle"><span>Manufature Products</span></a>
+			<li class="sidenav">
+				<div id="side">
+					<a href="../stock/entermanufac.php"><img src="../img/manufac.png" class="pic"></a>
+					<span>Manufactured Products</span>
 				</div>
 			</li>
-			<li class="var_nav">
-				<div class="link_bg"></div>
-				<div class="link_title" id="dealer_title" >
-
-					<a href="entersold.php" id="dealer" style="top: 10px;
-									display:block;
-									position:absolute;
-									float:left;
-									font-family:arial;
-									color:#1C1C1C;
-									text-decoration:none;
-									width:100%;
-									height:70px;
-									text-align:center;"><img class= "pic" src="../img/Sold.png" align="middle"><span>Sold Products</span></a>
+			<li class="sidenav">
+				<div id="side">
+					<a href="../stock/entersold.php"><img src="../img/Sold.png" class="pic"></a>
+					<span>Sold Products</span>
 				</div>
 			</li>
-	</nav>
+		</ul>
+	</div>
 </div>
 <?php
 
@@ -238,7 +226,7 @@ if (isset($_POST["submit"]))
 	$sql = $sql . "('$str', '". sprintf('%06d', $num)."','". '0' . "');";
 
 	if (mysqli_query($conn, $sql)) {
-		echo "";
+		echo "<script>alert('Successfully Inserted');</script>";
 	}
 	else {
 		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -294,37 +282,15 @@ function getLatestBatteryNumber( $conn, $batchNo )
 		return 0;
 	}
 }
-
-
-
-
 ?>
-
 <div class="content">
-
-
 	<div id="form-align">
-
-
 		<div class="form-style-2">
 			<div class="form-style-2-heading">Manufactured Batteries</div>
 			<br/><br/>
 			<form action="entermanufac.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
-
-
-
-
-
-
 				<label><span>Batch No :</span><input type="text" class="batch-number-field" name="batch_num1" value="D" maxlength="1" required />-<input type="number" class="batch-number-field" name="batch_num2" value="2" maxlength="1" required />-<input type="text" class="batch-number-field" name="batch_num3" value="D" maxlength="1" required />-<input type="number" class="batch-number-field" name="batch_num4" value="6" maxlength="1" required /></label>
-
-
-
-
-
 				<label for="field2"><span>Battery Type: <span class="required">*</span></span>
-
-
 					<select id="battery" class="select-field" name="battery" required>
 						<option value="">----Select----</option>
 						<option value="Exide">Exide</option>
@@ -332,47 +298,28 @@ function getLatestBatteryNumber( $conn, $batchNo )
 						<option value="Dagenite">Dagenite</option>
 					</select>
 				</label>
-
-
 				<label for="field3"><span>Battery Name: <span class="required">*</span></span>
 					<select class="select-field" id="batterysubtype" name="battery_name" required>
 						<option value="">----Select----</option>
 						<option value="MF105D31R/L">MF105D31R/L</option>
 						<option value="65D31R/L">65D31R/L</option>
 						<option value="MFS65R/L">MFS65R/L</option>
-
 					</select>
-
 				</label>
-
-
-
-
 				<label for="field4"><span>Amount:<span class="required">*</span></span>
 					<input type="number" class="input-field" name="amount" style="width: 70px ;" required>
-
 				</label>
-
-
 				<br><br>
 				<p class="container">
-					<label><button style= "border: 2px solid #4CAF50;" class="submit" name="submit" value="send">Submit</button></label>
-					<label><button style= "border: 2px solid red;" class="reset" name="reset" value="reset">Reset</button></label>
+					<label><button style= "border: 2px solid #009688;" class="submit" name="submit" value="send">Submit</button></label>
+					<label><button style= "border: 2px solid #B40404;" class="reset" name="reset" value="reset">Reset</button></label>
 				</p>
-
 			</form>
-
-
-
 		</div>
 	</div>
-
-
 </div>
-
 <?php
 include '../include/footer.php';
 ?>
-<div>
-	</body>
-	<html>
+</body>
+<html>

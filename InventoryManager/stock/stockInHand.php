@@ -42,7 +42,7 @@
 					<div class="link_bg"></div>
 					<div class="link_title" >
 
-						<a href= "entermanufac.php" id="stock" style="top: 10px;
+						<a href= "css/entermanufac.php" id="stock" style="top: 10px;
 									display:block;
 									position:absolute;
 									float:left;
