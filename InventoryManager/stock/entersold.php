@@ -172,7 +172,7 @@
             $result1=mysqli_query($connection,$sql1);
             $row1=mysqli_fetch_row($result1);
             //echo $row1[0];
-            if($row1[0]< 25){
+            if($row1[0]< 0){
                 echo "<script>alert('Not enough stock');
                      window.location.href='http://localhost/MasterProject/InventoryManager/stock/entersold.php';</script>";
             }
@@ -180,7 +180,8 @@
             else{
                 $sql = "INSERT INTO `sold` (`battery_type`, `battery_name`, `amount`, `salesPerson_id`, `dealer_id`, `sold_Date`) VALUES ('$_POST[battery_type]', '$_POST[battery_name]', '$_POST[amount]', '$_POST[salesPerson_id]','$_POST[dealer_id]', now())";
                 if(mysqli_query($connection,$sql)){
-                    //die();
+                   echo "<script>alert('Successfully Sent Stock!');
+                     window.location.href='http://localhost/MasterProject/InventoryManager/stock/entersold.php';</script>";
                 }
                 else{
                     echo "error";

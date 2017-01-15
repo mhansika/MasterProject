@@ -230,7 +230,8 @@
 			<div id="content">
 				<form action="#" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
 					<div class="ad">
-					<a href="../index.php"  style="display:block;float:right;margin-right:45px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" src="../img/lgout.png" ></a>
+					<a href="http://localhost/MasterProject/login.php"  style="display:block;float:right;margin-right:45px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" src="../img/lgout.png" ></a>
+					<a href="../index.php"  style="display:block;float:right;margin-right:15px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" height="35px" width="100px" src="../img/back1.png" ></a>
 						<br/>
 						<h1><b>Replacement Inspection</b></h1>
 						<br/>
@@ -357,7 +358,6 @@
 $conn->close();
 ?>
 </div>
-<br>
 <div class="bottom" align="center">
 	<div style='text-align:left;color:black;padding:5px;' id='validCount'></div>
 
@@ -407,7 +407,7 @@ function check_defect ($conn, $data) {
 
 		$defect =  $data["defect_type"];
 		if (isset($defect)) {
-			if ($defect != "{NONE}"){
+			if ($defect != "NONE"){
 		   return "Defected";
 		   
 		} else {
