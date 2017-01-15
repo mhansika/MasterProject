@@ -1,369 +1,274 @@
-<?php include '../../core/init.php';
-protect_page();
-$role= $user_data['role'];
-if ($role == "DEO") {
-    echo "<script>window.location.href = '../restrict.php';</script>";
-}
+<?php
+require "../../database/connect.php";
 ?>
+<!DOCTYPE html>
+
+
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/IM.css" type="text/css"/>
-    <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
-    <script>
-        $( document ).ready(function() {
-            $("select#cap").click( function(){
-                //var id = this.id;
-                var id = $(this).children(":selected").attr("id");
-                console.log(id);
-                $.ajax({
-                    url:'getdrop2.php?data='+id,
-                    type:"get",
-                    success:function(data){
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
 
-                        $("tr#trow>td#second").html("");
-                        $("tr#trow>td#second").html(data);
-                    }
-                });
-            });
-        });
-    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
-        #form-align{
-            padding: 0;
-            margin-left:30%;
-            width:70%;
-            height:600px;
-            margin-right: 10%;
+        .inactive_btn {
+            border-radius:6px;
+            border:1px solid #d02718;
+            display:inline-block;
+            cursor:pointer;
+            color:#ffffff;
+            font-family:Arial;
+            font-size:15px;
+            font-weight:bold;
+            padding:14px 35px;
+            text-decoration:none;
+            text-shadow:0px 1px 0px #810e05;
         }
-        .form-style-2{
-            padding-top: 12%;
-            padding-left: 10%;
+        .inactive_btn:hover {
+            background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24537',GradientType=0);
+            background-color:#c62d1f;
         }
-        .form-style-2-heading{
-            font-weight: bold;
-            margin-bottom: 20px;
-            font-size: 25px;
-            padding-bottom: 2px;
-            color: #B40404;
-        }
-        .form-style-2 label{
-            display: block;
-            margin: 0px 0px 15px 0px;
-        }
-        .form-style-2 label > span{
-            width: 100px;
-            font-weight: bold;
-            float: left;
-            padding-top: 8px;
-            padding-right: 5px;
-            color:black;
-        }
-        .form-style-2 span.required{
-            color:red;
-        }
-        .form-style-2 .batch-number-field{
-            width: 60px;
-            text-align: center;
-        }
-        .form-style-2 input.input-field{
-            width: 48%;
-        }
-        .form-style-2 input.input-field,
-        .form-style-2 .batch-number-field,
-        .form-style-2 .select-field{
-            box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            border: 1px solid #C2C2C2;
-            box-shadow: 1px 1px 4px #EBEBEB;
-            -moz-box-shadow: 1px 1px 4px #EBEBEB;
-            -webkit-box-shadow: 1px 1px 4px #EBEBEB;
-            border-radius: 3px;
-            -webkit-border-radius: 3px;
-            -moz-border-radius: 3px;
-            padding: 7px;
-            outline: none;
-        }
-        .form-style-2 .input-field:focus,
-        .form-style-2 .batch-number-field:focus,
-        .form-style-2 .select-field:focus{
-            border: 1px solid #0C0;
-        }
-
-        .container { /* To clear contained floats */
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .container label {
-            width: 250px;
-            float: left;
+        .inactive_btn:active {
+            position:relative;
+            top:1px;
         }
     </style>
-</head>
-<body>
-<div class="row">
-    <?php
-    include '../include/header.php'
-    ?>
-    <div id="nav">
-        <ul id="mainsidebar" style="padding-top: 60%">
-            <li class="sidenav">
-                <div id="side">
-                    <a href="../battery/product.php"><img src="../img/a.png" class="pic"></a>
-                    <span>Back</span>
-                </div>
-            </li>
-            <li class="sidenav">
-                <div id="side">
-                    <a href="../stock/stock.php"><img src="../img/b.png" class="pic"></a>
-                    <span>Stock</span>
-                </div>
-            </li>
-            <li class="sidenav">
-                <div id="side">
-                    <a href="../dealer/dealer.php"><img src="../img/c.png" class="pic"></a>
-                    <span>Dealer</span>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <?php
 
+
+</head>
+
+<body>
+<?php
+if(isset($_POST['Enter']))
+{
     require "../../core/database/connect.php";
 
-
-    if (isset($_POST["submit"]))
-    {
-        $str =$_POST['batch_num1'].$_POST['batch_num2'].$_POST['batch_num3'].$_POST['batch_num4'];
-        $str = mysqli_real_escape_string($conn,$str);
-
-        $arr1 = substr($str, 0,4);
-        $arr2 = substr($str, 4);
-        $arr3 = str_split($arr1);
-
-        $serial_no		= '$arr1';
-        $battery_num	= '$arr2';
-        $amount			= (int)($_POST['amount']);
-        $battery_name=$_POST['battery_name'];
-        $b_type = $_POST['battery'];
-
-
-        //checking the battery types
-        if ($arr3[0]=='D'){
-            $battery_type='Dagenite';
-
-        }
-        elseif ($arr3[0]=='E') {
-            $battery_type='Exide';
-        }
-        elseif ($arr3[0]=='L') {
-            $battery_type='Lucas';
-        }
-
-
-
-        //checking the production line
-        if  ($arr3[1]=='1'){
-            $production_line='1';
-
-        }
-        elseif ($arr3[1]=='2') {
-            $production_line='2';
-
-        }
-
-        //checking the manufactured month
-        if ($arr3[2]=='A') {
-            $manufacture_month='January';
-        }
-        elseif ($arr3[2]=='B') {
-            $manufacture_month='February';
-        }
-        elseif ($arr3[2]=='C') {
-            $manufacture_month='March';
-        }
-        elseif ($arr3[2]=='D') {
-            $manufacture_month='April';
-        }
-        elseif ($arr3[2]=='E') {
-            $manufacture_month='May';
-        }
-        elseif ($arr3[2]=='F') {
-            $manufacture_month='June';
-        }
-        elseif ($arr3[2]=='G') {
-            $manufacture_month='July';
-        }
-        elseif ($arr3[2]=='H') {
-            $manufacture_month='August';
-        }
-        elseif ($arr3[2]=='I') {
-            $manufacture_month='September';
-        }
-        elseif ($arr3[2]=='J') {
-            $manufacture_month='October';
-        }
-        elseif ($arr3[2]=='K') {
-            $manufacture_month='November';
-        }
-        elseif ($arr3[2]=='L') {
-            $manufacture_month='December';
-        }
-
-        //checking the manufactured year
-
-        $manufacture_year = $arr3[3];
-
-        $sql = "INSERT INTO manufac_batteries (batch_num,battery_type,battery_name,production_line,manufac_date,manufacture_month,manufacture_year,amount) VALUES ('$str','$battery_type','$battery_name','$production_line',(NOW()),'$manufacture_month','$manufacture_year','$amount')";
-
-        if (mysqli_query($conn, $sql)) {
-            echo "";
-        }
-        else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-
-        // Adding batteries as bulk
-        // Uses multiple values at the VALUES clause.
-
-        $lastEntry = getLatestBatteryNumber( $conn, $str );
-        //$WarrantyPeriod = getWarrantyPeriod ($conn, $battery_type) ;
-
-        $sql = "INSERT INTO released_batteries(batch_num, battery_num,battery_status) VALUES ";
-
-        for ( $i = 1 ; $i < $amount; $i++ )
-        {
-            $num = $lastEntry + $i;
-            $sql = $sql . "('$str', '". sprintf('%06d', $num )."','". '0' ."'),";
-
-        }
-        $num = $lastEntry + $amount;
-        $sql = $sql . "('$str', '". sprintf('%06d', $num)."','". '0' . "');";
-
-        if (mysqli_query($conn, $sql)) {
-            echo "";
-        }
-        else {
-            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-        }
-
-        $query =mysqli_query($conn,"SELECT battery_type FROM stock_in_hand WHERE battery_name='$battery_name' ");
-        $rows=mysqli_num_rows($query);
-
-        if ($rows == 1) {
-
-            $query="UPDATE stock_in_hand SET current_stock=current_stock +'$amount' WHERE battery_type='$battery_type' AND battery_name ='$battery_name' ";
-            if (mysqli_query($conn, $query))
-            {
-                echo "";
-            }
-
-            else
-            {
-                echo "Error: " . $query . "<br>" . mysqli_error($conn);
-            }
-        }
-
-        else{
-            $query = "INSERT INTO stock_in_hand (battery_type,battery_name,current_stock) VALUES ('$battery_type','$battery_name','$amount')";
-
-            if (mysqli_query($conn, $query)) {
-                echo "";
-            }
-            else {
-                echo "Error: " . $query . "<br>" . mysqli_error($conn);
-            }
-        }
-    }
-    // This return the last entry related to the given batch number. If the entries from the middle are removed in the sequence, they are not considered.
-    function getLatestBatteryNumber( $conn, $batchNo )
-    {
-        $result = mysqli_query($conn, "SELECT battery_num FROM released_batteries WHERE batch_num='$batchNo' ORDER BY battery_num DESC LIMIT 1;");
-
-        if ( mysqli_num_rows($result) > 0) {
-            if($row = mysqli_fetch_array($result)) {
-                return (int)($row["battery_num"]);
-            }
-            else{
-                return 0;
-            }
-        } else {
-            return 0;
-        }
-    }
-
-    ?>
-    <div class="content">
-
-
-        <div id="form-align">
-
-
-            <div class="form-style-2">
-                <div class="form-style-2-heading">Manufactured Batteries</div>
-                <br/><br/>
-                <form action="entermanufac.php" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
-
-
-
-
-
-
-                    <label><span>Batch No :</span><input type="text" class="batch-number-field" name="batch_num1" value="D" maxlength="1" required />-<input type="number" class="batch-number-field" name="batch_num2" value="2" maxlength="1" required />-<input type="text" class="batch-number-field" name="batch_num3" value="D" maxlength="1" required />-<input type="number" class="batch-number-field" name="batch_num4" value="6" maxlength="1" required /></label>
-
-
-
-
-
-                    <label for="field2"><span>Battery Type: <span class="required">*</span></span>
-
-
-                        <select id="battery" class="select-field" name="battery" required>
-                            <option value="">----Select----</option>
-                            <option value="Exide">Exide</option>
-                            <option value="Lucas">Lucas</option>
-                            <option value="Dagenite">Dagenite</option>
-                        </select>
-                    </label>
-
-
-                    <label for="field3"><span>Battery Name: <span class="required">*</span></span>
-                        <select class="select-field" id="batterysubtype" name="battery_name" required>
-                            <option value="">----Select----</option>
-                            <option value="MF105D31R/L">MF105D31R/L</option>
-                            <option value="65D31R/L">65D31R/L</option>
-                            <option value="MFS65R/L">MFS65R/L</option>
-
-                        </select>
-
-                    </label>
-
-
-
-
-                    <label for="field4"><span>Amount:<span class="required">*</span></span>
-                        <input type="number" class="input-field" name="amount" style="width: 70px ;" required>
-
-                    </label>
-
-
-                    <br><br>
-                    <p class="container">
-                        <label><button style= "border: 2px solid #4CAF50;" class="submit" name="submit" value="send">Submit</button></label>
-                        <label><button style= "border: 2px solid red;" class="reset" name="reset" value="reset">Reset</button></label>
-                    </p>
-
-                </form>
-
-
-
-            </div>
-        </div>
-</div>
-    </div>
-<?php
-include '../include/footer.php';
+    mysqli_query($conn,"UPDATE dealer SET active = 0 WHERE dealer_id = '$_POST[Enter]'");
+}
 ?>
+<div id="body">
+    <div id="navigation"></div>
+    <nav>
+        <ul id="mainsidebar">
+            <li class="var_nav">
+                <div class="link_bg"></div>
+                <div class="link_title" id="dt">
+
+                    <a href="enterDefect.php" id="dt" style="top: 1px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                margin-top: 20px;
+                                text-align:center;"><img class= "pic" src="img/b.png" align="middle" width="80px"><span>Enter Defects</span></a>
+                </div>
+            </li>
+            <li class="var_nav">
+                <div class="link_bg"></div>
+                <div class="link_title" >
+
+                    <a href= "checkReplace.php" id="cr" style="top: 10px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                margin-top: 10px;
+                                text-align:center;"><img class= "pic" src="img/c.png" align="middle" width="80px"><span>Check Replacements</span></a>
+                </div>
+            </li>
+            <li class="var_nav">
+                <div class="link_bg"></div>
+                <div class="link_title" id="md" >
+
+                    <a href="misDealer.php" id="mis" style="top: 10px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                margin-top: 10px;
+                                text-align:center;"><img class= "pic" src="img/d.png" align="middle" width="80px"><span>Misused </br> Dealers</span></a>
+                </div>
+            </li>
+
+            <li class="var_nav">
+                <div class="link_bg"></div>
+                <div class="link_title" >
+
+                    <a href= "viewAllReplace.php" id="cr" style="top: 10px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                margin-top: 10px;
+                                text-align:center;"><img class= "pic" src="img/f.png" align="middle" width="80px"><span>View All Replacements</span></a>
+                </div>
+            </li>
+            <li class="var_nav">
+                <div class="link_bg"></div>
+                <div class="link_title" >
+
+                    <a href= "searchProduct.php" id="cr" style="top: 10px;
+                                display:block;
+                                position:absolute;
+                                float:left;
+                                font-family:arial;
+                                color:#1C1C1C;
+                                text-decoration:none;
+                                width:100%;
+                                height:70px;
+                                margin-top: 10px;
+                                text-align:center;"><img class= "pic" src="img/g.png" align="middle" width="80px"><span>Search Product</span></a>
+                </div>
+            </li>
+
+
+
+    </nav>
+
+
+    </nav>
+</div>
+
+<div class="content">
+
+    <div class="tbl">
+        <div id="content">
+            <form action="#" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
+
+
+                <div class="ad">
+                    <a href="../index.php"  style="display:block;float:right;margin-right:45px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" src="../img/lgout.png" ></a>
+                    </br>
+
+                    <h1><b> Misused Dealers</b></h1>
+                    </br>
+
+                    <table width="70%">
+                        <tr>
+                            <!--<th>Area</th>-->
+                            <th></th>
+                            <th></th>
+
+
+
+
+                        </tr>
+                        <tr></tr>
+                        <tr>
+
+                        </tr>
+
+
+
+
+                    </table>
+                    <div  class="tbl-header">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <thead>
+                            <tr>
+                                <th>Dealer Name</th>
+                                <th>No of Invalid Replacements</th>
+                                <th>Set Dealer Inactive</th>
+
+
+
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div  class="tbl-content">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                            <tbody>
+                            <?php
+
+
+
+
+
+                            $sql2="SELECT dealer_id FROM dealer WHERE active=1";
+                            $query2=(mysqli_query($connection,$sql2));
+                            while ($res2 = mysqli_fetch_assoc($query2)){
+                                $sql="SELECT battery_num,dealer_id,coalesce(count(case when battery_status =3  then 1 end), 0) as count FROM released_batteries WHERE dealer_id IS NOT NULL AND dealer_id = ANY (SELECT dealer_id FROM released_batteries WHERE battery_status=3)  AND dealer_id = '$res2[dealer_id]' GROUP BY dealer_id";
+                                $query=(mysqli_query($connection,$sql));
+                                while($res = mysqli_fetch_assoc($query)){
+                                    $sql5 = "SELECT dealer_name FROM dealer WHERE dealer_id = '$res[dealer_id]'";
+                                    $query5=(mysqli_query($connection,$sql5));
+                                    while($res5 = mysqli_fetch_assoc($query5)){
+                                        echo "<tr>";
+                                        echo "<th>".$res5['dealer_name']."</th>";
+                                    }
+                                    echo "<th>".$res['count']."</th>";
+
+                                    echo"
+     <form  method='POST' >";
+                                    ?>
+                                    <td><button class="inactive_btn" type="submit" name="Enter" value="<?php echo "$res[dealer_id]"?>" onclick="return confirm('Are you sure you wish to inactive this dealer?');">Inactive</button></td>
+
+                                    <?php
+
+                                    echo'</form>';
+
+
+                                }
+
+                            }
+                            ?>
+
+
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+
+
+
+            </form>
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+
 </body>
 </html>
+
+
+
+
+

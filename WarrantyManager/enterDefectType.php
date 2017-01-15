@@ -1,182 +1,157 @@
-<!DOCTYPE html>
- <?php include '../core/init.php';
-      protect_page(); 
-	
-      ?>
-	  					
-
-
-
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-		<link rel="stylesheet" href="css/form.css" media="screen" type="text/css" />
-        <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
-       
-        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <style>
-        
-       
-         </style>
-
-  
-</head>
-
-
-<div id="body">
-    <div id="navigation"></div>
-    <nav>
-        <ul id="mainsidebar">
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" id="dt">
-
-                    <a href="enterDefect.php" id="dt" style="top: 1px;
-                                display:block;
-                                position:absolute;
-                                float:left;
-                                font-family:arial;
-                                color:#1C1C1C;
-                                text-decoration:none;
-                                width:100%;
-                                height:70px;
-                                margin-top: 20px;
-                                text-align:center;"><img class= "pic" src="img/b.png" align="middle" width="80px"><span>Enter Defects</span></a>
-                </div>
-            </li>
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" >
-
-                    <a href= "checkReplace.php" id="cr" style="top: 10px;
-                                display:block;
-                                position:absolute;
-                                float:left;
-                                font-family:arial;
-                                color:#1C1C1C;
-                                text-decoration:none;
-                                width:100%;
-                                height:70px;
-                                margin-top: 10px;
-                                text-align:center;"><img class= "pic" src="img/c.png" align="middle" width="80px"><span>Check Replacements</span></a>
-                </div>
-            </li>
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" id="md" >
-
-                    <a href="misDealer.php" id="mis" style="top: 10px;
-                                display:block;
-                                position:absolute;
-                                float:left;
-                                font-family:arial;
-                                color:#1C1C1C;
-                                text-decoration:none;
-                                width:100%;
-                                height:70px;
-                                margin-top: 10px;
-                                text-align:center;"><img class= "pic" src="img/d.png" align="middle" width="80px"><span>Misused </br> Dealers</span></a>
-                </div>
-            </li>
-            <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" >
-
-                    <a href= "viewAllReplace.php" id="cr" style="top: 10px;
-                                display:block;
-                                position:absolute;
-                                float:left;
-                                font-family:arial;
-                                color:#1C1C1C;
-                                text-decoration:none;
-                                width:100%;
-                                height:70px;
-                                margin-top: 10px;
-                                text-align:center;"><img class= "pic" src="img/f.png" align="middle" width="80px"><span>View All Replacements</span></a>
-                </div>
-            </li>
-             <li class="var_nav">
-                <div class="link_bg"></div>
-                <div class="link_title" >
-
-                      <a href= "searchProduct.php" id="cr" style="top: 10px;
-                                display:block;
-                                position:absolute;
-                                float:left;
-                                font-family:arial;
-                                color:#1C1C1C;
-                                text-decoration:none;
-                                width:100%;
-                                height:70px;
-                                margin-top: 10px;
-                                text-align:center;"><img class= "pic" src="img/search.png" align="middle" width="80px"><span>Search Product</span></a>
-                </div>
-            </li>
-
-            
-
-    </nav>
-
-
-    </nav>
-</div>
-
-    <div class="content">
-
-        <div class="table">
-            <div id="content">
-     
-
-
-                    <div class="ad">
-					<a href="../index.php"  style="display:block;float:right;margin-right:45px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" src="../img/lgout.png" ></a> 
-                    </br>
-                      <h1><b>Update Defect Types</b></h1>
-                   
-                   
-                     </br>
-
-<div id = "form-align">
-  <div class="form-style-2">
-	
-			<form method = "GET" id = "form1">
-					<label for="field1"><span>Add to the list : </span><input type="text" class="input-field" name="defect" value="" /></label>
-					<label><span>&nbsp;</span><button type="submit" name="submit" value="submit">ADD</button><label>
-					 
-					 <br> <br> <br> <br> <br>
-					 
-					 <br><br> <br> <br>
-
-					 
-
-
-<?php
-require "../core/database/connect.php";
-
-
-if(isset($_GET['submit']))
-{   
-
-    $defect_type=mysqli_real_escape_string($conn,$_GET['defect']);
-
- 
-
-    $sql =mysqli_query($conn,"INSERT INTO defect_types (defect) VALUES ('$defect_type')");
-	if ($conn->query($sql) === TRUE) {
-    echo "Added successfully";
-} else {
-    echo "Error Inserting record " ;
-}	
-
-	}
-   //header("Location:enterDefect.php");		
+<html xmlns="http://www.w3.org/1999/html">
+<?php include '../core/init.php';
+protect_page();
 ?>
-</form>
-	
+<?Php
+$uid= $user_data['user_id'];
+$role= $user_data['role'];
+/*echo '$role';*/
+?>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../InventoryManager/css/IM.css" type="text/css"/>
 
+    <script>
+        $(function(){
+            $(".AutoSubmitCombo").change(function(){
+                var input = $(this);
 
+                if ( input.selectedIndex <= 0 )
+                    return;
 
+                var value = input.val();
+                var id = input.attr('id');
 
+                if ( value == "" )
+                    return;
+
+                var form = input.parents('form');
+
+                id = id.split('_')[1];
+
+                if ( id == "" )
+                    return;
+
+                var vals = id.split("|");
+                var batch = vals[0];
+                var num = vals[1];
+
+                $.ajax({
+                    url: "ajax-update1.php",
+                    type: "POST",
+                    data: {
+                        batch_num: batch,
+                        battery_num: num,
+                        val: value
+                    },
+                    cache: false,
+                    timeout: 10000,
+                    success: function(data) {
+                        // Alert if update failed
+                        if (data) {
+                            alert(data);
+                        }
+                        // Load output into a P
+                        else {
+                            $('#notice').text('Field updated');
+                            $('#notice').fadeOut().fadeIn();
+                        }
+                    }
+                });
+            });
+        });
+        //multiple dropdown selection
+        $( document ).ready(function() {
+            $("select#cap").click( function(){
+                //var id = this.id;
+                var id = $(this).children(":selected").attr("id");
+                console.log(id);
+                $.ajax({
+                    url:'getdrop2.php?data='+id,
+                    type:"get",
+                    success:function(data){
+
+                        $("tr#trow>th#second").html("");
+                        $("tr#trow>th#second").html(data);
+                    }
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+<?php
+include '../InventoryManager/include/header.php';
+?>
+<div id="nav">
+    <ul id="mainsidebar">
+        <li class="sidenav">
+            <div id="side">
+                <a href="enterDefect.php"><img src="../img/a.png" class="pro"></a>
+                <span>Enter Defects</span>
+            </div>
+        </li>
+        <li class="sidenav">
+            <div id="side">
+                <a href="checkReplace.php"><img src="../img/b.png" class="pro"></a>
+                <span>Check Replacements</span>
+            </div>
+        </li>
+        <li class="sidenav">
+            <div id="side">
+                <a href="misDealer.php"><img src="../img/c.png" class="pro"  onclick="myAjax()"></a>
+                <span>Misused Dealers</span>
+            </div>
+        </li>
+        <li class="sidenav">
+            <div id="side">
+                <a href="viewAllReplace.php"><img src="../img/d.png" class="pro"></a>
+                <span>All Replacements</span>
+            </div>
+        </li>
+        <li class="sidenav">
+            <div id="side">
+                <a href="searchProduct.php"><img src="../img/e.png" class="pic"></a>
+                <span>Search Battery</span>
+            </div>
+        </li>
+    </ul>
 </div>
-</div> 
+<div id="content">
+    <div class="listUP">
+        <h1 class="add">Update Defect Types</h1>
+                <form class="AddPro" method = "GET" id = "form1">
+                    <label>
+                        <span style="color: #0A0A0A;float: left;padding-right: 2%">Add to the list :</span>
+                        <input type="text" class="input-field" name="defect" value=""/>
+                    </label>
+                    <label>
+                        <span>&nbsp;</span>
+                        <button class="update" type="submit" name="submit" value="submit" style="margin-left: 10%">Add</button><label>
+                            <?php
+                            require "../core/database/connect.php";
+
+                            if(isset($_GET['submit']))
+                            {
+
+                                $defect_type=mysqli_real_escape_string($conn,$_GET['defect']);
+
+                                $sql =mysqli_query($conn,"INSERT INTO defect_types (defect) VALUES ('$defect_type')");
+                                if ($conn->query($sql) === TRUE) {
+                                    echo "Added successfully";
+                                } else {
+                                    echo "Error Inserting record " ;
+                                }
+
+                            }
+                            //header("Location:enterDefect.php");
+                            ?>
+                </form>
+    </div>
+</div>
+<?php
+include '../InventoryManager/include/footer.php';
+?>
+</body>
+</html>
