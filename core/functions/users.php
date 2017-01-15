@@ -56,7 +56,7 @@ function login($username,$password) {
 
 
 
-    $query=mysqli_query($conn,"SELECT * FROM users WHERE username= '$username' AND password='$password'");
+    $query=mysqli_query($conn,"SELECT * FROM users WHERE username= '$username' AND password='$password' AND active ='1'");
     $result=mysqli_num_rows($query);
     return ($result==1) ? $user_id :false;
     
