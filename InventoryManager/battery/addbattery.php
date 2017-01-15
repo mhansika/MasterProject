@@ -1,5 +1,3 @@
-<?php
-?>
 <html>
 <?php include '../../core/init.php';
 protect_page();
@@ -165,13 +163,12 @@ $role= $user_data['role'];
                         <td id="data">Insert a image here: </td>
                         <td id="data"><input type="file" name="imageUpload" id="imageUpload">
                     </tr>
-                    <tr>
-                        <td id="data"></td>
-                        <td id="data"><button class="submit" name="submit" value="send">Submit</button></td>
-                        <td id="data"><button class="reset" type="reset">Reset</button></td>
-                    </tr>
         </form>
         </table>
+        <div class="btn-align">
+            <button class="save" name="submit" value="send">Save</button>
+            <button  class="reset" type="reset">Reset</button>
+        </div>
     </div>
 </div>
     <?php

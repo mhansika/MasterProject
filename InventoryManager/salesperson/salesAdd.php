@@ -191,17 +191,16 @@ $( document ).ready(function() {
                                 </select>
                             </td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td> <button type="submit">SAVE</button></td>
-                            <td> <button type="reset">RESET</button></td>
-                        </tr>
                     </form>
                 </table>
-            </div>
-    <?php
-    include '../include/footer.php';
-    ?>
+        <div class="btn-align">
+            <button class="save" type="submit">Save</button>
+            <button  class="reset" type="reset">Reset</button>
+        </div>
 </div>
+</div>
+<?php
+include '../include/footer.php';
+?>
 </body>
 </html>

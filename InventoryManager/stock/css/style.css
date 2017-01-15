@@ -80,12 +80,12 @@
 }
 .form-style-2 input.input-field{
     width: 48%;
-    
+
 }
 
-.form-style-2 input.input-field, 
-.form-style-2 .tel-number-field, 
-.form-style-2 .textarea-field, 
+.form-style-2 input.input-field,
+.form-style-2 .tel-number-field,
+.form-style-2 .textarea-field,
  .form-style-2 .select-field{
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -100,9 +100,9 @@
     padding: 7px;
     outline: none;
 }
-.form-style-2 .input-field:focus, 
-.form-style-2 .tel-number-field:focus, 
-.form-style-2 .textarea-field:focus,  
+.form-style-2 .input-field:focus,
+.form-style-2 .tel-number-field:focus,
+.form-style-2 .textarea-field:focus,
 .form-style-2 .select-field:focus{
     border: 1px solid #0C0;
 }
@@ -129,10 +129,10 @@
     color: #fff;
 }
 </style>
-	  
-	  
-	  
-	  
+
+
+
+
         button{
             border:red;
             background: #fff;
@@ -157,4 +157,4 @@
             margin-right: 0;
         }
 
-		
+

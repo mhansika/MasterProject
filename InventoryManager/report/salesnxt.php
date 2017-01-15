@@ -9,7 +9,7 @@ $role= $user_data['role'];
 ?>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/IM.css" type="text/css"/>
+    <link rel="stylesheet" href="../css/IM.css" type="text/css"/>
     <!-- bxSlider Javascript file -->
     <script src="../js/jquery.bxslider.js"></script>
     <!-- bxSlider CSS file -->
@@ -74,12 +74,8 @@ input[type=submit] {
             </li>
         </ul>
     </div>
+    <div class="report" style="margin-left: 20%">
     <div id="content">
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
    <form action="areaSold.php" method="post">
   <b>Year:</b>
     <select id="selectElementId" name='year'></select>
@@ -110,18 +106,19 @@ input[type=submit] {
       <option value='October'>October</option>
       <option value='November'>November</option>
       <option value='December'>December</option>
-    </select> 
+    </select>
 
 
   <input type="submit" value="Submit" name="submit">
-    
+
  </form>
  <!--form 2 -->
 
     </div>
-    <?php
-    include '../include/footer.php';
-    ?>
 </div>
+</div>
+<?php
+include '../include/footer.php';
+?>
 </body>
 </html>

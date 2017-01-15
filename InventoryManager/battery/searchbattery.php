@@ -91,22 +91,15 @@ $role= $user_data['role'];
                     <tr>
                         <td colspan="2">
                             <input type=text name=battery_name size="30" maxlength="25" style="width: 300px" required>
-                            <input type="submit" name="submit" value="Search">
+                            <button class="search" type="submit" name="submit" value="Search">Search</button>
                     </tr>
                 </form>
         </div>
         </div>
-        <?php
-        include '../include/footer.php';
-        ?>
-        
-        
-        
-    </div>
 </div>
-<?php
-include '../include/footer.php';
-?>
+    <?php
+    include '../include/footer.php';
+    ?>
 </div>
 </body>
 </html>

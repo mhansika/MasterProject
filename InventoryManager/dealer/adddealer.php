@@ -229,7 +229,7 @@ $role= $user_data['role'];
         ?>
             <form class="AddPro" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post" id="hello" name= "myForm" onsubmit="return(validate());">
                     <h1  class="add">Add Dealer</h1>
-                    <table id="ad">
+                    <table id="tbl_add">
                         <tr>
                             <td colspan="2">
                                 <b>Dealer Name:</b>
@@ -318,17 +318,11 @@ $role= $user_data['role'];
                         <tr>
                             <td></td>
                         </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="save" type="submit">Save</button>
-                            </td>
-                            <td>
-                                <button  class="reset" type="reset">Reset</button>
-                            </td>
-                        </tr>
                     </table>
+                <div class="btn-align">
+                    <button class="save" type="submit">Save</button>
+                    <button  class="reset" type="reset">Reset</button>
+                </div>
             </form>
         <?php
         include '../include/footer.php';

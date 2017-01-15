@@ -98,9 +98,8 @@ $role= $user_data['role'];
                         overflow-x: hidden;  
                     }
                     .dealer{
-                        margin-left: 15%;
-                        padding-top: 5%;
-                        margin-top: 2%;
+                        margin-left: 5%;
+                        margin-top: 7%;
                     }
                     </style>
             </head>

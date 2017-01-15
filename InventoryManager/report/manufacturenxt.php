@@ -74,13 +74,8 @@ input[type=submit]{
             </li>
         </ul>
     </div>
+    <div class="report">
     <div id="content">
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <div style="margin-left=10px;">
         <form action="manufacture_report.php " method="post">
      <b>Year:</b>
     <select id="selectElementId" name='year'></select>

@@ -58,8 +58,7 @@ $role= $user_data['role'];
         </ul>
     </div>
     <div id="content">
-        <ul class="re-menu">
-            
+        <ul class="re-menu" style="padding-top: 8%">
             <li>
                 <a href="areaSold_graph.php">
                     <span class="re-icon"><img src="../img/sm.png"> </span>

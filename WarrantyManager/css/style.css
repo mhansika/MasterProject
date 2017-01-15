@@ -42,11 +42,11 @@ td {
             text-align: center;
             margin-left: 60px;
 
-            
+
         }
 
         body{
-    
+
     margin: 0;
     padding: 0;
     font-family: 'Open Sans';
@@ -60,7 +60,7 @@ nav{
     background-color:black;
     margin-top:1px;
     width: 125px;
-    
+
 }
 
 
@@ -71,7 +71,7 @@ ul
     padding:0px;
     list-style-type:none;
     -webkit-backface-visibility: hidden; backface-visibility: hidden;
-    
+
 }
 .var_nav
 {
@@ -88,7 +88,7 @@ ul
 .var_nav:hover {
     width: 120px;
     background: black;
-    
+
 }
 .content{
 
@@ -139,7 +139,7 @@ th{
 h1  {
     font-family:arial;
     font-size: 35px;
-    
+
     text-align: center;
 }
 
@@ -158,15 +158,15 @@ h1  {
 
 
  button {
-    
+
     border: none;
 
-    
+
     text-align: center;
     text-decoration: none;
-    
+
     font-size: 20px;
-  
+
     margin-top: 0px;
     border-radius: 0px;
     font-family: Calibri;
@@ -177,7 +177,7 @@ h1  {
      button:hover {
             background-color: #0f0f0f ;
             color: white;
-        }    
+        }
 
 
 

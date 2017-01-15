@@ -192,14 +192,49 @@ span{
 #stock{
     margin-top: 7%;
 }
-
-.submit, .reset, .update, .delete, .save{
-    border-radius: 4px;
-    padding: 10 10 10 10;
-    background-color: #5e5e5e;
-    color: white;
-    font-size: large;
-
+.update.search{
+    color: #2196F3;
+    background: #fff;
+    border: 1px solid #2196F3;
+    font-size: 17px;
+    padding: 7px 12px;
+    font-weight: normal;
+    margin: 6px 0;
+    margin-right: 12px;
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    min-width: 120px;
+}
+.delete,.reset{
+    color: #B71C1C;
+    background: #fff;
+    border: 1px solid #B71C1C;
+    font-size: 17px;
+    padding: 7px 12px;
+    font-weight: normal;
+    margin: 6px 0;
+    margin-right: 12px;
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    min-width: 120px;
+}
+.delete:hover {
+    color:#fff;
+    background:#B71C1C;
+}
+.reset:hover {
+     color:#fff;
+     background:#B71C1C;
+ }
+.update:hover {
+    color:#fff;
+    background:#2196F3;
+}
+.search:hover {
+    color:#fff;
+    background:#2196F3;
 }
 .submit,.enter,.save{
     color: #009688;
@@ -446,4 +481,12 @@ span{
 .adm:hover{
     color:#fff;
     background:#03A9F4;
+}
+.report{
+    margin-left: 10%;
+    padding-top: 5%;
+}
+.btn-align{
+    padding-left: 25%;
+    padding-top: 2% ;
 }

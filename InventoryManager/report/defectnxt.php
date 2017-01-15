@@ -74,12 +74,8 @@ input[type=submit] {
             </li>
         </ul>
     </div>
+    <div class="report">
     <div id="content">
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
         <form action="defect_report.php" method="post">
     <b>Year:</b>
     <select id="selectElementId" name='year'></select>
@@ -131,9 +127,10 @@ input[type=submit] {
     
  </form>
     </div>
-    <?php
-    include '../include/footer.php';
-    ?>
 </div>
+</div>
+<?php
+include '../include/footer.php';
+?>
 </body>
 </html>

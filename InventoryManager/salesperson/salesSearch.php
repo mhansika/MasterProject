@@ -48,7 +48,9 @@ $role= $user_data['role'];
 				}
 		?>
 
-				<form action="" method="POST">
+				<form class="AddPro" action="" method="POST">
+					<h1 class="add">Search Salesperson</h1>
+					<table id="ad">
 					<tr>
 						<td><b>Salesperson Name:<span class="error">* <?php echo $nameerr;?></span></b></td>
 					</tr>

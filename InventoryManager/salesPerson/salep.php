@@ -88,7 +88,7 @@ if ($result->num_rows > 0) {
                         text-align: center;
                         padding: 8px;
                     }
-                    tr:nth-child(even){background-color: #f2f2f2}
+                    tr:nth-child(even){background-color: #BDBDBD}
                     th {
                         background-color: #990000;
                         color: white;
@@ -99,9 +99,8 @@ if ($result->num_rows > 0) {
                         overflow-x: hidden;  
                     }
                     .dealer{
-                        margin-left: 15%;
-                        padding-top: 5%;
-                        margin-top: 2%;
+                        margin-left: 10%;
+                        margin-top: 7%;
                     }
                     </style>
             </head>

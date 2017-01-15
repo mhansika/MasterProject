@@ -1,32 +1,18 @@
 <!DOCTYPE html>
-
-
  <?php include '../core/init.php';
-      protect_page(); 
-	
+      protect_page();
 ?>
-
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
 		<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css">
-   
-       
+
         <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script src="js/jquery-editable-select.js"></script>
-
-        <style>
-
-
-       
-		</style>
-
-
 <script>
-
 	$(function(){
 		$(".AutoSubmitCombo").change(function(){
 			var input = $(this);
@@ -81,9 +67,7 @@
 				//var id = this.id;
 				var id = $(this).children(":selected").attr("id");
 				console.log(id);
-
 				$.ajax({
-
 					url:'getdrop2.php?data='+id,
 					type:"get",
 					success:function(data){
@@ -91,18 +75,11 @@
 					   $("tr#trow>th#second").html("");
 					$("tr#trow>th#second").html(data);
 					}
-
-
 				});
 		});
-		
 	});
-		
 </script>
-
 </head>
-
-
 <div id="body">
     <div id="navigation"></div>
     <nav>
@@ -192,31 +169,19 @@
                                 text-align:center;"><img class= "pic" src="img/g.png" align="middle" width="80px"><span>Search Product</span></a>
                 </div>
             </li>
-
-            
-
-    </nav>
-
-
     </nav>
 </div>
-
     <div class="content">
-
         <div class="table">
             <div id="content">
             <form action="#" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
                     <div class="ad">
 							<a href="../index.php"  style="display:block;float:right;margin-right:45px;margin-top:20px;color: black;font-size:18px;margin-bottom:10px;padding-bottom:10px;"> <img class="logout" src="../img/lgout.png" ></a>
                     </br>
-                    
                      <h1><b> Defect Types Of Batteries</b></h1>
                      </br>
-
                     <table width="70%">
                       <tr>
-    
-    
                         <th>From : </th>
                       	<th>To : </th>
                         <th></th>
@@ -233,24 +198,15 @@
 								<th><a href = "enterDefectType.php"><img src="img/defect.png" width="200px" height= "50px"></a></th>
 					       </form>
                       </tr>
-  
-  
-
- 
-
 				</table>
 <?php
-
 require "../core/database/connect.php";
-
-
 if (isset($_POST['submit'])) {
      
 	$from_date = strtotime($_POST['date_1']);
 	$to_date = strtotime($_POST['date_2']);
 	$First_Date = date('Y-m-d',$from_date);
 	$Next_Date =  date('Y-m-d',$to_date);
-	
 
 	$sql="SELECT battery_status,replaced_date,batch_num,battery_num,defect_type FROM released_batteries WHERE battery_status = '3' AND replaced_date BETWEEN '" . $First_Date . "' AND  '" . $Next_Date . "' ";
 
@@ -258,7 +214,6 @@ if (isset($_POST['submit'])) {
 	
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {?>
-		
 		<div  class='tbl-header'>
 		<table cellpadding='0' cellspacing='0' border='0'>
 		  <thead>
@@ -274,8 +229,7 @@ if (isset($_POST['submit'])) {
 		<div  class='tbl-content'>
 		<table cellpadding='0' cellspacing='0' border='0'>
 		  <tbody>
-			
-			
+
 		<?php
 		while($row1 = $result->fetch_assoc() ){
 			$id = $row1["batch_num"]."|".$row1["battery_num"];
@@ -283,10 +237,8 @@ if (isset($_POST['submit'])) {
 				<tr>
 				<td>".$row1["batch_num"].$row1["battery_num"]."</td>  
 				<td>".$row1["defect_type"]."</td> ";
-
 			?>
 			<td>
-			
 			<form id='form_<?php echo $id; ?>' class='autosubmit' method='POST' action='ajax-update1.php'>
 				<select id ="dt_<?php echo $id; ?>" name='defect_type' class="AutoSubmitCombo">
 				<option value = ''>--SELECT--</option>
@@ -308,18 +260,11 @@ if (isset($_POST['submit'])) {
 	}
 	echo"</form>";
 }
-
-
-
-
 mysqli_close($conn);
-
 ?>
-   
   </tbody>
 </table>
 </div>
-
 </div>                 
 </form>
 </div>
@@ -327,7 +272,6 @@ mysqli_close($conn);
 </div>
 </div>
 <div>
-
 </html>
 
 

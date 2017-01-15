@@ -43,11 +43,8 @@ include_once "connection.php";
 <script type="text/javascript" src="js/basic.js"></script>
 
 <script lang="javascript" type="text/javascript">
-
-
 function run()
  {
-    
     var pdf = new jsPDF('p', 'pt', 'letter'),
     source = $('#content')[0],
     specialElementHandlers = {
@@ -55,7 +52,6 @@ function run()
             return true;
         }
     };
-    
     margins = {
         top: 40,
         //yata idan tynna ona ida tika
@@ -64,10 +60,6 @@ function run()
         right: 40,
         width: 522
     };
-    
-    
-
-
 pdf.fromHTML(
         source,
         margins.left,
@@ -80,10 +72,7 @@ pdf.fromHTML(
         },
         margins
    );
-   
 };
-
-
 </script>
 <style>
 .button {
@@ -97,14 +86,10 @@ pdf.fromHTML(
     font-size: 12px;
 }  
 </style>
-
-
 </head>
 <a href="manufacturenxt.php" class="button">Back</a>
 <!-- give function name -->
 <body id="content">
-    
-
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
@@ -113,11 +98,9 @@ pdf.fromHTML(
 
                     </div>
                 </div>
-                
                 <div class="row">
                     <div class="col-md-12">
                        <div >
-     
       <div class="row pad-top-botm ">
          <div class="col-lg-6 col-md-6 col-sm-6 ">
             <img src="rpt/img/logo.png" width="25%" height="15%" style="padding-bottom:20px;" /> 
@@ -128,12 +111,10 @@ pdf.fromHTML(
               <br />
                   <i>Address :</i> No. 31, 
                       Katukurunduwatte Road,
-
               <br />
                   off Attidiya Road, 
               <br />
                   Ratmalana.
-              
          </div>
      </div>
      <div  class="row text-center contact-info" style="text-align:center;">
@@ -154,9 +135,6 @@ pdf.fromHTML(
              <hr />
          </div>
      </div>
-    
-
-
      <div class="row">
          <div class="col-lg-12 col-md-12 col-sm-12">
            <div class="table-responsive">
@@ -183,8 +161,7 @@ echo'<table class="table table-striped table-bordered table-hover">
                                     <th>Amount</th>
                                     
                                 </tr>
-                            </thead>';   
-
+                            </thead>';
 if ($result->num_rows > 0) {
 while($row1 = $result->fetch_assoc() ){
   //check and increment ecah sum of battry types
@@ -202,7 +179,6 @@ while($row1 = $result->fetch_assoc() ){
    }
 
  }
-
 echo "<tbody><tr><td>Exide</td><td>".$sum1." </td>";
 echo "<tr><td>Lucas</td><td>".$sum2." </td>";
 echo "<tr><td>Deganite</td><td>".$sum3." </td></tbody></table>";
@@ -211,10 +187,7 @@ echo "<tr><td>Deganite</td><td>".$sum3." </td></tbody></table>";
     echo "0 results";
 }
 $conn->close();
-
-
 ?>
-                                
              </div>
              <br>
              <hr >
@@ -278,9 +251,5 @@ $conn->close();
     <script src="rpt/js/jquery.metisMenu.js"></script>
     <!-- CUSTOM SCRIPTS -->
     <script src="rpt/js/custom.js"></script>
-
-
-
-
 </body>
 </html>

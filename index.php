@@ -6,22 +6,9 @@ protect_page();
 $role = $user_data['role'];
 if ($role=="admin") {
 ?>
-	
-
-</script>
 <?php
 	}elseif ($role=="deo"){
-		
-		
-		
 	}?>
-	
-	
-
-
-
-
-
 <html>
 <head>
     <title>WELCOME</title>

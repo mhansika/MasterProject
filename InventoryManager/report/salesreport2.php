@@ -58,7 +58,7 @@ $role= $user_data['role'];
         </ul>
     </div>
     <div id="content">
-        <ul class="re-menu">
+        <ul class="re-menu" style="padding-top: 8%">
             <li>
                 <a href="salesnxt.php">
                     <span class="re-icon"><img src="../img/sm.png"> </span>
@@ -69,7 +69,7 @@ $role= $user_data['role'];
             </li>
             <li>
                 <a href="salesDrop.php">
-                    <span class="re-icon"><img src="../img/sm.png"> </span>
+                    <span class="re-icon"><img src="../img/dea.png"> </span>
                     <div class="re-content">
                         <h3 class="re-sub">Dealer Sales Report</h3>
                     </div>
