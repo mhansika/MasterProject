@@ -55,8 +55,10 @@ $role= $user_data['role'];
 						<td><b>Salesperson Name:<span class="error">* <?php echo $nameerr;?></span></b></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type=text name=sales_name size="30" maxlength="25" style="width: 300px" required>
-						<input type="submit" class="button" value="Search" ></td>
+						<td colspan="2" style="width: 500px">
+							<input type=text name=sales_name size="30" maxlength="25" style="width: 300px;margin-right: 3%" required>
+							<input type="submit" class="search" value="Search">
+						</td>
 					</tr>
 				</form>
 			</table>

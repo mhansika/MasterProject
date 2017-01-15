@@ -89,8 +89,8 @@ $role= $user_data['role'];
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                            <input type=text name=battery_name size="30" maxlength="25" style="width: 300px" required>
+                        <td colspan="2" style="width: 600px">
+                            <input type=text name=battery_name size="30" maxlength="25" style="width: 300px;margin-right: 3%"" required>
                             <button class="search" type="submit" name="submit" value="Search">Search</button>
                     </tr>
                 </form>

@@ -1,26 +1,21 @@
 <?php include '../../core/init.php';
 protect_page();
 $role= $user_data['role'];
- 	 if ($role == "DEO") {
-		echo "<script>window.location.href = '../restrict.php';</script>";
+if ($role == "DEO") {
+    echo "<script>window.location.href = '../restrict.php';</script>";
 }
 ?>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/IM.css" type="text/css"/>
     <script   src="https://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
-
-
     <script>
-
 $( document ).ready(function() {
      $("select#cap").click( function(){
             //var id = this.id;
             var id = $(this).children(":selected").attr("id");
             console.log(id);
-
             $.ajax({
-
                 url:'getdrop2.php?data='+id,
                 type:"get",
                 success:function(data){
@@ -28,15 +23,10 @@ $( document ).ready(function() {
                    $("tr#trow>td#second").html("");
                 $("tr#trow>td#second").html(data);
                 }
-
-
             });
     });
-    
 });
-
 </script>
-
 </head>
 <body>
 <div class="row">
@@ -86,16 +76,9 @@ $( document ).ready(function() {
         <?php
         require "../../database/connect.php";
         //session_start();
-
         $error=FALSE;
         $F_nameerr = $L_nameerr =  $NICerr = $addresserr = $area_noerr = $mobileNoerr = $telephoneNoerr = $emailerr = $DOBerr = "";
-
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-
-
-
-
             if(empty($_POST['area'])){
                 $area_noerr = "";
                 $error = TRUE;
@@ -113,25 +96,18 @@ $( document ).ready(function() {
                     }
                 }
             }
-
-
             if ($error==FALSE){
-
-
-
                 /*$sql="INSERT INTO `sales_person` (`F_name`, `area_no`, `NIC`, `address`, `L_name`, `mobileNo`, `telephoneNo`, `email`,) VALUES ('$_POST[F_name]',$a_no,'$_POST[NIC]','$_POST[address]','$_POST[L_name]','$_POST[mobileNo]','$_POST[telephoneNo]','$_POST[email]')";
-    
+
                 /*$sql2="UPDATE `dealer` SET `salesPerson_id`= 'me add wena salespersonge id eka.mm danne na eka puluwan weida kyla' WHERE `dealer_id` =drop down eken select karapu dealerge id eka";*/
                 $sql="INSERT INTO `sales_person` (`F_name`, `area_no`, `NIC`, `address`, `L_name`, `mobileNo`, `telephoneNo`, `email`) VALUES ('".$_POST['F_name']."','".$a_no."','".$_POST['NIC']."','".$_POST['address']."','".$_POST['L_name']."','".$_POST['mobileNo']."','".$_POST['telephoneNo']."','".$_POST['email']."')";
                 if(mysqli_query($connection,$sql)){
                     header("Location: salesAdd.php");
                     //die();
                 } else{echo "error";}
-
             }
         }
         ?>
-
         <form class="AddPro" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="POST">
                 <h1 class="add">Add Salesperson</h1>
                 <table id="ad">
@@ -193,7 +169,7 @@ $( document ).ready(function() {
                         </tr>
                     </form>
                 </table>
-        <div class="btn-align">
+        <div class="btn-align" style="padding-left: 15%">
             <button class="save" type="submit">Save</button>
             <button  class="reset" type="reset">Reset</button>
         </div>

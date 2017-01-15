@@ -87,9 +87,9 @@ $role= $user_data['role'];
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2">
-							<input type=text name=dealer_name size="30" maxlength="25" style="width: 300px" required>
-							<input type="submit" name="submit" value="Search">
+						<td colspan="2" style="width: 600px">
+							<input type=text name=dealer_name size="30" maxlength="25" style="width: 300px;margin-right: 3%"" required>
+							<input class="search" type="submit" name="submit" value="Search">
 					</tr>
 				</form>
 		</div>

@@ -192,7 +192,21 @@ span{
 #stock{
     margin-top: 7%;
 }
-.update.search{
+.search{
+    color: #2196F3;
+    background: #fff;
+    border: 1px solid #2196F3;
+    font-size: 17px;
+    padding: 7px 12px;
+    font-weight: normal;
+    margin: 6px 0;
+    margin-right: 12px;
+    display: inline-block;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    min-width: 120px;
+}
+.update{
     color: #2196F3;
     background: #fff;
     border: 1px solid #2196F3;
@@ -489,4 +503,8 @@ span{
 .btn-align{
     padding-left: 25%;
     padding-top: 2% ;
+}
+.tbl{
+    padding-left: 40%;
+    margin-top: 2%
 }

@@ -8,7 +8,7 @@
                 <a class="log log1" href="http://localhost/MasterProject/login.php">Logout</a>
             </li>
             <li id="back">
-                <a class="log log1" href="http://localhost/MasterProject/select.php">Back</a>
+                <a class="log log1" href="http://localhost/MasterProject/index.php">Back</a>
             </li>
             <li>
                 <a href="http://localhost/MasterProject/InventoryManager/inventory.php"><img id="logo" src=../img/logo.png></a>
