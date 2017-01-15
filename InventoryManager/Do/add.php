@@ -1,5 +1,3 @@
-<?php
-?>
 <html>
 <?php include '../../core/init.php';
 protect_page();
@@ -21,10 +19,10 @@ $role= $user_data['role'];
 
 <body>
 <div class="row">
+    
     <?php
     include '../include/header.php'
     ?>
-
     <div id="nav">
         <ul id="mainsidebar">
             <li class="sidenav">
@@ -59,7 +57,6 @@ $role= $user_data['role'];
             </li>
         </ul>
     </div>
-
     <div id="content">
       
         
@@ -90,13 +87,15 @@ $role= $user_data['role'];
         }
         ?>
         <form class="AddPro" action="" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
+               <a href="add.php">Add</a>
+               <a href="view.php">Search</a>
+                
+                <a href="../inventory.php">Back</a>
 
-        <td id="data"><a href="add.php"><button class="reset" name="submit" value="send">Add New</button></a></td>
-                <td id="data"><a href="view.php"><button class="reset" name="submit" value="send">Search</button></a></td>
-               
-                        
+      
+                        </br> </br>
             <table id="ad">
-              <tr>  <h1 class="add">Add Dataentry Operator</h1></tr>
+                <h1 class="add">Add Data Entry Operator</h1>
                     
                     <tr>
                         <td id="data">First Name:</td>
@@ -114,7 +113,7 @@ $role= $user_data['role'];
                         <td id="data">Mobile:</td>
                         <td id="data"><input type="text" name="tpno" style="width: 200px" required></td>
                     </tr><tr>
-                        <td id="data">Nic:</td>
+                        <td id="data">NIC:</td>
                         <td id="data"><input type="text" name="nic" style="width: 200px" required></td>
                     </tr><tr>
                         <td id="data">email:</td>

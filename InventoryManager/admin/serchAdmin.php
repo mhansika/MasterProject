@@ -139,15 +139,16 @@ $role= $user_data['role'];
     <div id="content">
         <?php
         require "../../database/connect.php";
-        /*session_start();*/
+        //session_start();
         $v1 = $_SESSION['dealer_name'];
         $error=FALSE;
 
         $dealer_iderr = "";
         $v0=$v2=$v3=$v4=$v5=$v6=$v7=$v8=$v9=$zero="";
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        /*if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            
             $dealer_name = $_POST['dealer_name'];
-        }
+        }*/
         /*if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(empty($_POST['dealer_id'])){
                 $dealer_iderr = "";
@@ -216,10 +217,13 @@ $role= $user_data['role'];
                 <form action="" method="POST">
 
 
-<td id="data"><a href="add.php"><button class="reset" name="submit" value="send">Add New</button></a></td>
-<td id="data"><a href="view.php"><button class="reset" name="submit" value="send">Search</button></a></td>
-<td id="data"><a href="backup.php"><button class="reset" name="submit" value="send">Backups</button></a></td>
+ <a href="add.php">Add</a>
+               <a href="view.php">Search</a>
+                <a href="backup.php">Backups</a>
+                <a href="../inventory.php">Back</a>
 
+     </br></br>
+</br></br>
 
                     <h1 class="add"> Admin results</h1>
                     <table id="ad">
@@ -267,7 +271,7 @@ $role= $user_data['role'];
                     <tr>
                         <td></td>
                         <td></br></br>
-                            <button class="save"  value="send" <a class="link" href="delete.php?" onclick="return confirm('Are you sure you wish to delete this Record?');">Delete</button></a><button class="save"  value="send" <a class="link" href="update.php?" >Update</button
+                            <button class="save"  value="send" <a class="link" href="adminDelete.php?" onclick="return confirm('Are you sure you wish to delete this Record?');">Delete</button></a><button class="save"  value="send" <a class="link" href="update.php" >Update</button
                         </td>
                       <!--   <td>  <a class="link" href="dealerUpdate.php?">Update</a> -->
                         </td>

@@ -98,18 +98,57 @@ $role= $user_data['role'];
 
 <body>
 <div class="row">
-    
+    <?php
+    include '../include/header.php'
+    ?>
+    <div id="nav">
+        <ul id="mainsidebar">
+            <li class="sidenav">
+                <div id="side">
+                    <a href="../battery/product.php"><img src="../img/a.png" class="pic"></a>
+                    <span>Product Details</span>
+                </div>
+            </li>
+            <li class="sidenav">
+                <div id="side">
+                    <a href="../stock/stock.php"><img src="../img/b.png" class="pic"></a>
+                    <span>Stock</span>
+                </div>
+            </li>
+            <li class="sidenav">
+                <div id="side">
+                    <a href="../dealer/dealer.php"><img src="../img/c.png" class="pic"></a>
+                    <span>Dealer</span>
+                </div>
+            </li>
+            <li class="sidenav">
+                <div id="side">
+                    <a href="../salesperson/salep.php"><img src="../img/d.png" class="pic"></a>
+                    <span>Salesperson</span>
+                </div>
+            </li>
+            <li class="sidenav">
+                <div id="side">
+                    <a href="../report/report.php"><img src="../img/e.png" class="pic"></a>
+                    <span>Reports</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="content">
         <?php
         require "../../database/connect.php";
-        /*session_start();*/
+        //session_start();
         $v1 = $_SESSION['dealer_name'];
         $error=FALSE;
 
         $dealer_iderr = "";
         $v0=$v2=$v3=$v4=$v5=$v6=$v7=$v8=$v9=$zero="";
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        /*if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            
             $dealer_name = $_POST['dealer_name'];
-        }
+        }*/
         /*if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if(empty($_POST['dealer_id'])){
                 $dealer_iderr = "";
@@ -177,12 +216,16 @@ $role= $user_data['role'];
 
                 <form action="" method="POST">
 
-                 <tr>    <td id="data"><button class="submit" name="submit" value="send">Add New</button></td>
-                        <td id="data"><button class="reset" type="reset">Search</button></td> <td id="data"><button class="reset" type="reset">Backups</button></td> </tr>
 
+ <a href="add.php">Add</a>
+               <a href="view.php">Search</a>
+                
+                <a href="../inventory.php">Back</a>
 
-                        </br> </br>
-                    <h1 class="add"> Dataentry Operator Results</h1>
+     </br></br>
+</br></br>
+
+                    <h1 class="add"> Data Entry Operator results</h1>
                     <table id="ad">
                     <tr>
                         <td><b>First Name : </b></td>
@@ -228,7 +271,7 @@ $role= $user_data['role'];
                     <tr>
                         <td></td>
                         <td></br></br>
-                            <button class="save"  value="send" <a class="link" href="delete.php?" onclick="return confirm('Are you sure you wish to delete this Record?');">Delete</button></a><button class="save"  value="send" <a class="link" href="update.php?" >Update</button
+                            <button class="save"  value="send" <a class="link" href="adminDelete.php?" onclick="return confirm('Are you sure you wish to delete this Record?');">Delete</button></a><button class="save"  value="send" <a class="link" href="update.php" >Update</button
                         </td>
                       <!--   <td>  <a class="link" href="dealerUpdate.php?">Update</a> -->
                         </td>
