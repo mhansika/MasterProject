@@ -172,7 +172,6 @@
             $result1=mysqli_query($connection,$sql1);
             $row1=mysqli_fetch_row($result1);
             //echo $row1[0];
-            if($row1[0]< 50){
                 echo "<script>alert('Not enough stock');
                      window.location.href='http://localhost/MasterProject/InventoryManager/stock/entersold.php';</script>";
             }
@@ -219,7 +218,7 @@
                                             <option value="">------SELECT------</option>
                                             <option value="Exide">Exide</option>
                                             <option value="Lucas">Lucas</option>
-                                            <option value="Deganite">Deganite</option>
+                                            <option value="Deganite">Dagenite</option>
                                         </select></td>
                                 </tr>
                                 <tr>
