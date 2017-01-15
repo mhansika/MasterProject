@@ -56,8 +56,8 @@ if (isset($_POST['action']) and isset ($_POST['dealer_id']))
 	
 	if ( $_POST['action'] == "confirm" )
 	{
-		echo " 	<span style='text-align:right;color:black'>Valid replacements: $valids</span>
-				<span style='text-align:right;color:black'>Invalid Replacements : $invalids</span>";
+		echo " 	<span style='color:black';margin-right:5%;>Valid replacements: $valids</span>
+				<span style='color:black'>Invalid Replacements : $invalids</span>";
 	}else if ( $_POST['action'] == "submit" )
 	{
 		echo "Updated : $changed ";
