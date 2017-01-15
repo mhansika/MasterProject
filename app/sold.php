@@ -114,13 +114,13 @@ $date="";
 <?php
 $days="";
 if (isset($_POST["barcode"])){
-        $name = $_POST["barcode"];
+        $name =mysqli_real_escape_string($conn,$_POST["barcode"]);
     }
 $arr1 = substr($name, 0,4);
 $arr2 = substr($name, 4);
 $arr3 = str_split($arr1);
 if (isset($_POST["date"])){
-        $date =  $_POST["date"];
+        $date =mysqli_real_escape_string($conn,$_POST["date"]);
      }
 
        

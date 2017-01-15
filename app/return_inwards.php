@@ -103,12 +103,12 @@ $date="";
     </div>
 <?php
     if (isset($_POST["barcode"])){
-        $name = $_POST["barcode"];
+        $name =mysqli_real_escape_string($conn,$_POST["barcode"]);
     }
 $arr1 = substr($name, 0,4);
 $arr2 = substr($name, 4);
     if (isset($_POST["date"])){
-        $date =  $_POST["date"];
+        $date =mysqli_real_escape_string($conn,$_POST["date"]);
     }
 
 $sql = "UPDATE released_batteries SET battery_status=5,replaced_date='$date' WHERE  batch_num='$arr1'  AND battery_num='$arr2'";

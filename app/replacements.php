@@ -28,11 +28,8 @@
                 document.loginForm.oldcode.select()
                 return false;
             }
-            else{
-                document.getElementById('bcd1').innerHTML="";
-                document.getElementById('barcode1').style.border ="solid 2.5px white"; 
-            }
-                   
+            
+              
             }                
     
         else{
@@ -103,13 +100,13 @@
                     <label 
                     class="control-label" for="barcode">Enter Replace Battery Barcode</label>
                     <div class="form-group input-group">
-                        <input class="form-control" id="barcode1" name="oldname" type="text" onblur="validation()"/>
+                        <input class="form-control" id="barcode1" name="oldcode" type="text" onblur="validation()"/>
                         <span style="color:red" id="bcd1"></span>
                         <div class="input-group-addon"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> </div>
                     </div>
                     <label class="control-label" for="barcode">Enter Issued Battery Barcode</label>
                     <div class="form-group input-group">
-                        <input class="form-control" id="barcode2" name="newname" type="text" onblur="validation()"/>
+                        <input class="form-control" id="barcode2" name="newcode" type="text" onblur="validation()"/>
                         <span style="color:red" id="bcd2"></span>
                         <div class="input-group-addon"><span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> </div>
                     </div>
@@ -142,18 +139,17 @@ $oldname="";
 $newname="";
 $date="";
     if(isset($_POST["oldname"])){
-        $oldname = $_POST['oldname'];
+        $oldname =mysqli_real_escape_string($conn,$_POST['oldname']);
     }
         $arr1 = substr($oldname, 0,4);
          $arr2 = substr($oldname, 4);
     if(isset($_POST["newname"])){
-        $newname = $_POST['newname'];
+        $newname =mysqli_real_escape_string($conn,$_POST['newname']);
             }
 $arr12 = substr($newname, 0,4);
 $arr22 = substr($newname, 4);
     if(isset($_POST["date"])){
-        $date=$_POST['date'];
-        
+        $date=mysqli_real_escape_string($conn,$_POST['date']);
 }
 
 /*function getExpirydateForNewBattery ($conn,$arr1,$arr2) {

@@ -64,12 +64,33 @@
             <h1>Welcome</h1>
             <h2 style="font-size: xx-large">Inventory and Warranty Management System</h2>
 
-            <form class="form" action="login.php" method="post">
-                <input type="text" name="username" placeholder="Username" />
-                <input type="password" name="password" placeholder="Password" />
-                <button class="submit" name="submit" value="Login">Login</button>
-				<p style="padding-left:0px;color:white;"><a href="forgot_pass.php" style="color:white;">I forgot my password</a></p>
-			</form>	
+            <form name="frmReset" id="frmReset" method="post" onSubmit="return validate_password_reset();">
+<h1>Reset Password</h1>
+    <?php if(!empty($success_message)) { ?>
+    <div class="success_message"><?php echo $success_message; ?></div>
+    <?php } ?>
+
+    <div id="validation-message">
+        <?php if(!empty($error_message)) { ?>
+    <?php echo $error_message; ?>
+    <?php } ?>
+    </div>
+
+    <div class="field-group">
+        <div><label for="Password">Password</label></div>
+        <div>
+        <input type="password" name="member_password" id="member_password" class="input-field"></div>
+    </div>
+    
+    <div class="field-group">
+        <div><label for="email">Confirm Password</label></div>
+        <div><input type="password" name="confirm_password" id="confirm_password" class="input-field"></div>
+    </div>
+    
+    <div class="field-group">
+        <div><input type="submit" name="reset-password" id="reset-password" value="Reset Password" class="form-submit-button"></div>
+    </div>  
+</form>
         </div>
 
 
