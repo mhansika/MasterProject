@@ -140,8 +140,8 @@ $warrantyPeriod = date('Y-m-d', strtotime($date. ' + '.$days.'days'));
 
 $sql = "UPDATE released_batteries SET battery_status=2,cus_sold_date='$date', warranty_period='$warrantyPeriod' WHERE  batch_num='$arr1'  AND battery_num='$arr2'";
  
-if ($conn->query($sql) === TRUE) {
-    echo "";
+if ($conn->query($sql) === TRUE && $arr1 != null) {
+    echo "<script>alert('Successfully Inserted');</script>";
 } else {
     echo "Error updating record: " . $conn->error;
 }

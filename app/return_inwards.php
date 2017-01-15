@@ -113,9 +113,9 @@ $arr2 = substr($name, 4);
 
 $sql = "UPDATE released_batteries SET battery_status=5,replaced_date='$date' WHERE  batch_num='$arr1'  AND battery_num='$arr2'";
 
-if ($conn->query($sql) === TRUE) {
-    echo "";
-} else {
+if ($conn->query($sql) === TRUE && $arr1 != null) {
+    echo "<script>alert('Successfully Inserted');</script>";
+}  else {
     echo "Error updating record: " . $conn->error;
 }
 $conn->close();
