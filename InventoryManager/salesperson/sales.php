@@ -142,56 +142,56 @@ if ($role == "DEO") {
 					<table id="ad">
 					<tr>
 						<td><b>Salesperson Id : </b></td>
-						<td><span> <?php echo $x0;?><br/></span></td>
+						<td><?php echo $x0;?><br/></td>
 					</tr>
 					<tr>
 						<td>
 							<b>First Name :</b>
 						</td>
-						<td><span> <?php echo $v1;?><br/></span></td>
+						<td> <?php echo $v1;?><br/></td>
 					</tr>
 					<tr>
 						<td>
 							<b>Last Name: </b>
 						</td>
-						<td><span> <?php echo $v2;?><br/></span></td>
+						<td> <?php echo $v2;?><br/></td>
 					</tr>
 					<tr>
 						<td>
 							<b>Area: </b>
 						</td>
-						<td><span> <?php echo $v10;?><br/></span></td>
+						<td> <?php echo $v10;?><br/></td>
 					</tr>
 					<tr>
 						<td>
 							<b>NIC : </b>
 						</td>
-						<td><span> <?php echo $v4;?><br/></span></td>
+						<td> <?php echo $v4;?><br/></td>
 					</tr>
 					<tr>
 						<td>
 							<b>Address : </b>
 						</td>
-						<td><span> <?php echo $v5;?><br/></span></td>
+						<td> <?php echo $v5;?><br/></td>
 					</tr>
 
 					<tr>
 						<td>
 							<b>Mobile No : </b>
 						</td>
-						<td><span> <?php echo $v7;?><br/></span></td>
+						<td> <?php echo $v7;?><br/></td>
 					</tr>
 					<tr>
 						<td>
 							<b>Telephone No : </b>
 						</td>
-						<td><span> <?php echo $v8;?><br/></span></td>
+						<td> <?php echo $v8;?><br/></td>
 					</tr>
 					<tr>
 						<td>
 							<b>Email : </b>
 						</td>
-						<td><span> <?php echo $v9;?><br/></span></td>
+						<td> <?php echo $v9;?><br/></td>
 					</tr>
 			</table>
 			</form>
