@@ -140,7 +140,7 @@ $role= $user_data['role'];
 						<td></td>
 						<td></td>
 						<td>
-							<a class="delete" href="delbattery.php?" onclick="return confirm('Are you sure you wish to delete this Record?');">Delete</a>
+							
 						</td>
 						<td></td>
 						<td></td>
