@@ -65,15 +65,16 @@ $role= $user_data['role'];
         </div>
 
         <?php
+        //connect to the database connection
         require "../../database/connect.php";
-        /*session_start();*/
         $error=FALSE;
-        //$dealer_iderr = $v1 = "";
+
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            
+            //if battery name entered, created a sesssion with battery name.
                 $battery_name = $_POST['battery_name'];
                 $v1 = $_POST['battery_name'];
                 $_SESSION['battery_name'] = $v1;
+                //when search button is submitted,it goes to the viewsearchbt.php page
                 header("Location: viewsearchbt.php");
             }
         

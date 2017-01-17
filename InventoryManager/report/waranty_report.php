@@ -157,16 +157,19 @@ pdf.fromHTML(
          <div class="col-lg-12 col-md-12 col-sm-12">
            <div class="table-responsive">
  <?php
+ //sums set to 0
 $sum1=$sum2=$sum3=0;
 $Year=$Month="";
   if (isset($_POST["submit"]))
-{   
+{  
+//year and month assign to variables  
   $str1 = $_POST['year'];
 
   $str2 = $_POST['month'];
   
-//get all details of anufacture battery table
+//get all details of released battery table
 $sql="SELECT * FROM released_batteries";
+//put details to a array
 $result = $conn->query($sql);
 
            
@@ -179,16 +182,20 @@ echo'<table class="table table-striped table-bordered table-hover">
                                     
                                 </tr>
                             </thead>';   
-
+//retriev result by row by row
 if ($result->num_rows > 0) {
 while($row1 = $result->fetch_assoc() ){
  $date=$row1['replaced_date'];
           $time=strtotime($date);
+           //get month name and year
           $Month=date("F",$time);
           $Year=date("Y",$time);
           $batchNum=$row1['batch_num'];
+          //get first letter of batch number
           $type=$batchNum[0];
+          //check year and month equal to given details and status equal to 3
   if($Year==$str1 && $Month==$str2 && $row1['battery_status']==3){
+    //increment sums
       if($type=='E'){
         $sum1=$sum1+1;
         }
@@ -202,6 +209,7 @@ while($row1 = $result->fetch_assoc() ){
    }
 
  }
+ //show details
 echo "<tbody><tr><td>Exide</td><td>".$sum1." </td>";
 echo "<tr><td>Lucas</td><td>".$sum2." </td>";
 echo "<tr><td>Deganite</td><td>".$sum3." </td></tbody></table>";

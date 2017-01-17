@@ -58,10 +58,9 @@ function run()
             return true;
         }
     };
-    
+    //set margins
     margins = {
         top: 40,
-        //yata idan tynna ona ida tika
         bottom: 20,
         left: 40,
         right: 40,
@@ -173,9 +172,10 @@ echo '<table class="table table-striped table-bordered table-hover">
                                     
                                 </tr>
                             </thead>';  
+  //year and month assign two vaariables
   $str1 = $_POST['year'];
   $str2 = $_POST['month'];
-
+//sql query to retriev details
 $sql="SELECT * FROM sold S join dealer D on (S.dealer_id = D.dealer_id) join area A on (A.area_no = D.area_no)";
 $result = $conn->query($sql);
  
@@ -185,9 +185,11 @@ if ($result->num_rows >0) {
         $date = $row1['sold_Date'];
         $area = $row1['area'];
         $time=strtotime($date);
+        //get the month name
         $month=date("F",$time);
+        //get the year
         $year=date("Y",$time);
-
+        //increment sums
         if($str1==$year && $str2==$month && $area=='Kadawatha'){
           $sum1=$sum1+$row1['amount'];
     
@@ -224,7 +226,7 @@ if ($result->num_rows >0) {
         }
        
     }
-  
+ //print each sum 
 echo "<tbody><tr><td>Kadawatha</td><td>".$sum1." </td></tr>";
 echo "<tr><td>Kelaniya</td><td>".$sum2." </td></tr>";
 echo "<tr><td>Paliyagoda</td><td>".$sum3." </td></tr>";
@@ -247,11 +249,13 @@ $conn->close();
              <br>
              <hr>
              <div class="ttl-amts">
+                <!-- show paticular year and month-->
                   <h5>  Year : <?php echo $str1;?> Month : <?php echo $str2;?> </h5>
              </div>
              <br>
              <hr>
               <div class="ttl-amts">
+                <!-- current date-->
                   <h5>  Date : <?php echo date("Y/m/d"); ?></h5>
              </div>
              <br>
@@ -265,7 +269,7 @@ $conn->close();
       <div class="row pad-top-botm">
          <div class="col-lg-12 col-md-12 col-sm-12">
              <hr />
-             
+             <!--use a button to get pdf-->
               <button onclick="run()" class="btn btn-success btn-lg">Download In Pdf</button>
              </div>
          </div>

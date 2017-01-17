@@ -23,7 +23,7 @@ input[type=submit] {
     font-size: 16px;
 }
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -36,9 +36,11 @@ input[type=submit] {
 <link href="rpt/css/graph.css" rel="stylesheet" />
 </head>
 <body>
+<!--set link to go back-->
   <a href="reportnxt.php" class="button">Back</a>
   <div class="graphContainer">
     <form action="waranty_graph.php " method="post">
+      <!--set year-->
      <b>Year:</b>
     <select id="selectElementId" name='year'></select>
 
@@ -55,6 +57,7 @@ input[type=submit] {
              select.appendChild(opt);
           }
       </script>
+      <!--set month-->
     <b>Month:</b>
     <select name="month">
       <option value='January'>January</option>
@@ -75,27 +78,34 @@ input[type=submit] {
     </form>
   </div>
  <?php
+ //sums set to 0
 $sum1=$sum2=$sum3=0;
 $Year=$Month="";
   if (isset($_POST["submit"]))
-{   
+{  
+//year and month assign to variables 
   $str1 = $_POST['year'];
 
   $str2 = $_POST['month'];
   
-//get all details of anufacture battery table
+//get all details of released battery table
 $sql="SELECT * FROM released_batteries";
+//put details to a array
 $result = $conn->query($sql); 
-
+//retriev result by row by row
 if ($result->num_rows > 0) {
 while($row1 = $result->fetch_assoc() ){
  $date=$row1['replaced_date'];
           $time=strtotime($date);
+          //get month name and year
           $Month=date("F",$time);
           $Year=date("Y",$time);
           $batchNum=$row1['batch_num'];
+          //get first letter of batch number
           $type=$batchNum[0];
+          //check year and month equal to given details and status equal to 3
   if($Year==$str1 && $Month==$str2 && $row1['battery_status']==3){
+      //increment sums
       if($type=='E'){
         $sum1=$sum1+1;
         }
@@ -115,6 +125,7 @@ while($row1 = $result->fetch_assoc() ){
     Replacement Quantity of Batteries
   </dt>
   <?php
+  //put data to a graph
   $sum=$sum1+$sum2+$sum3;
   $psum1=(@($sum1/$sum))*100;
   //make integer
@@ -128,6 +139,7 @@ while($row1 = $result->fetch_assoc() ){
   $psum13 = round($psum3);
   $psum13 = (string)$psum13;
  ?>
+ <!--display graph-->
   <dd class="<?php echo 'percentage percentage-'.$psum11; echo'"'; ?>" ><span class="text">Exide <?php echo $sum1 ?></span></dd>
   <dd class="<?php echo 'percentage percentage-'.$psum12; echo'"'; ?>" ><span class="text">Lucas <?php echo $sum2 ?></span></dd>
   <dd class="<?php echo 'percentage percentage-'.$psum13; echo'"'; ?>" ><span class="text">Dagenite <?php echo $sum3 ?></span></dd>

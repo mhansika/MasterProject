@@ -95,7 +95,9 @@ $role= $user_data['role'];
             <a href="searchbattery.php"><img src="../img/Search.png"></a>
         </div>
         <?php
+        //connect to database connection
         require "../../core/database/connect.php";
+        //when submit the button every details on text boxes, assigned to variables
         if (isset($_POST["submit"])) {
             $battery_type = $_POST['battery_type'];
             $battery_name =$_POST['battery_name'];
@@ -109,11 +111,12 @@ $role= $user_data['role'];
             $uploadOk = 1;
             $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
             if (move_uploaded_file($_FILES["imageUpload"]["tmp_name"], $target_file)) {
-                echo "The file ". basename( $_FILES["imageUpload"]["name"]). " has been uploaded.";
+                echo "";
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }
             $image=basename( $_FILES["imageUpload"]["name"],".png"); // used to store the filename in a variable
+            //Insert Query
             $sql = "INSERT INTO battery_description (battery_type,battery_name,warranty_period,amperehour_Value,voltage_Value,item_Type,imageUpload) VALUES ('$battery_type','$battery_name','$warranty_period','$amperehour_Value','$VoltageValue',' $item_Type','$image')";
             if (mysqli_query($conn, $sql)) {
                 echo "";

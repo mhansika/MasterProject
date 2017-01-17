@@ -45,8 +45,7 @@ $role= $user_data['role'];
         $result= mysqli_query($connection, $sql);
         if(mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_assoc($result)){
-                /*  echo "id: ".$row["dealer_id"]. "Name: ".$row["battery_name"]. "battery_type: ".$row["battery_type"]."<br/>";*/
-                
+                                
                 $h1=$row["battery_name"];
                 $h2=$row["battery_type"];
                 $h6=$row["warranty_period"];
@@ -57,10 +56,6 @@ $role= $user_data['role'];
         }else{
             echo "Zero results";
         }
-
-        
-
-        
 
         $error=FALSE;
         
@@ -83,10 +78,10 @@ $role= $user_data['role'];
 
             if ($error==FALSE){
 
-                //$sql="UPDATE 'dealer' SET battery_name='$_POST[battery_name]', battery_type='$_POST[battery_type]', address='$_POST[address]', salesPerson_id='$_POST[salesPerson_id]', warranty_period='$_POST[warranty_period]', voltage_Value='$_POST[voltage_Value]', amperehour_Value='$_POST[amperehour_Value]', item_Type='$_POST[item_Type]' WHERE dealer_id='$v'";
+                //update quary
                 $sql = "UPDATE `battery_description` SET `battery_name`='$_POST[battery_name]',`amperehour_Value`='$_POST[amperehour_Value]',`voltage_Value`='$_POST[voltage_Value]',`item_Type`='$_POST[item_Type]'WHERE `battery_name`='$v'";
                 if(mysqli_query($connection,$sql)){
-                    //die();
+                    //after updating, again go to searchbattery.php
                     header("Location: searchbattery.php");
                 } else{echo "error";}
             }
@@ -95,7 +90,7 @@ $role= $user_data['role'];
         ?>
         <form class="AddPro" action="" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return(validate());">
             <table id="ad">
-                <h1 class="add">Add Product</h1>
+                <h1 class="add">Update Product</h1>
                     <tr>
                         <td id="data">Product type:</td>
                         <td id="data"> <select name="battery_type">
@@ -113,6 +108,7 @@ $role= $user_data['role'];
                         <td id="data"><select name="warranty_period">
                                 <option value="1year">1 year</option>
                                 <option value="2year">2 year</option>
+                                <option value="3year">2 year</option>
                         </td>
                     </tr>
                     <tr>

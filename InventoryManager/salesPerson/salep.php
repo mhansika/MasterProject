@@ -62,23 +62,15 @@ $role= $user_data['role'];
             <div class="form">
                 <div class="seperate">
                     <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "warranty_management";
+        require "../../database/connect.php";
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-//SELECT E.first_name NAME,D.department_name DNAME FROM employees E JOIN departments D ON (E.department_id = D.department_id);
-$sql = "SELECT S.* , A.area FROM sales_person S JOIN area A ON (S.area_no=A.area_no)";
-$result = $conn->query($sql);
+        //sql query
+        $sql = "SELECT S.* , A.area FROM sales_person S JOIN area A ON (S.area_no=A.area_no)";
+        $result = $connection->query($sql);
 
-if ($result->num_rows > 0) {
-    echo "<style>
+        if ($result->num_rows > 0) {
+            //show table
+            echo "<style>
                     table {
                         border-collapse: collapse;
                         width: 80%;
@@ -126,11 +118,11 @@ if ($result->num_rows > 0) {
         echo "<tr><td>".$row["salesPerson_id"]."</td><td>".$name."</td><td>".$row["area"]."</td><td>".$row["NIC"]."</td><td>".$row["address"]."</td><td>".$row["mobileNo"]."</td><td>".$row["email"]."</td></tr>";
     }
     echo "</table></body></html>";
-} else {
+    } else {
     echo "0 results";
-}
-$conn->close();
-?>
+    }
+    $connection->close();
+    ?>
                 </div>
             </div>
 </div>

@@ -7,6 +7,7 @@ include_once "connection.php";
 <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
 <link href="rpt/css/graph.css" rel="stylesheet" />
  <style> 
+
 select {
     width: 25%;
     padding: 16px 20px;
@@ -43,7 +44,7 @@ input[type=submit] {
   <form action="areaSold_graph.php" method="post">
     <b>Year:</b>
     <select id="selectElementId" name='year'></select>
-   
+  <!-- get years--> 
       <script>
           var min = (new Date().getFullYear())-2,
           max = min + 9,
@@ -56,6 +57,7 @@ input[type=submit] {
              select.appendChild(opt);
           }
       </script>
+      <!--get month-->
     <b>Month:</b>
     <select name="month">
       <option value='January'>January</option>
@@ -72,7 +74,7 @@ input[type=submit] {
       <option value='December'>December</option>
     </select> 
 
-
+<!--submit button-->
   <input type="submit" value="Submit" name="submit">
     
  </form>
@@ -84,23 +86,25 @@ input[type=submit] {
 $str1=$str2="";
  if (isset($_POST["submit"]))
 
-{
+{//all sums equal to 0
   $sum1=$sum2=$sum3=$sum4=$sum5=$sum6=$sum7=$sum8=$sum9=$sum10=0;
   $str1 = $_POST['year'];
   $str2 = $_POST['month'];
-
+//sql query
 $sql="SELECT * FROM sold S join dealer D on (S.dealer_id = D.dealer_id) join area A on (A.area_no = D.area_no)";
 $result = $conn->query($sql);
  
 
 if ($result->num_rows >0) {
   while($row1 = $result->fetch_assoc() ){
+    //date and area assign to variables
         $date = $row1['sold_Date'];
         $area = $row1['area'];
+        //get month name and year
         $time=strtotime($date);
         $month=date("F",$time);
         $year=date("Y",$time);
-
+        //check and increment sum
         if($str1==$year && $str2==$month && $area=='Kadawatha'){
           $sum1=$sum1+$row1['amount'];
     

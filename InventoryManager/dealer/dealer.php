@@ -61,22 +61,14 @@ $role= $user_data['role'];
             <a href="../dealer/view.php"><img src="../img/Search.png"></a>
         </div>
         <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "warranty_management";
-
-        // Create connection
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
-        // Check connection
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
+        require "../../database/connect.php";
+        //sql query
         $sql = "SELECT * FROM dealer D join area A on (D.area_no = A.area_no) join sales_person S on(S.salesPerson_id = D.salesPerson_id)";
-
-        $result = $conn->query($sql);
+        //get the result to a array
+        $result = $connection->query($sql);
 
         if ($result->num_rows > 0) {
+            //view the table
             echo "<style>
                     table {
                         border-collapse: collapse;
@@ -119,16 +111,17 @@ $role= $user_data['role'];
                 </tr>";
             // output data of each row
             while($row = $result->fetch_assoc()) {
+                //get first name, last name and combine them
                 $f_name=$row["F_name"];
                 $L_name=$row["L_name"];
                 $name=$f_name." ".$L_name;
                 echo "<tr><td>".$row["dealer_id"]."</td><td>".$row["dealer_name"]." </td><td>".$row["area"]." </td><td>".$name." </td><td>".$row["NIC"]." </td><td>".$row["address"]." </td><td>".$row["mobileNo"]." </td><td>".$row["telephoneNo"]." </td><td>".$row["email"]." </td><td>".$row["fax"]." </td></tr>";
             }
-            echo "</table></body></html>";
+            echo "</table>";
         } else {
             echo "0 results";
         }
-        $conn->close();
+        $connection->close();
         ?>
         <?php
         include '../include/footer.php';

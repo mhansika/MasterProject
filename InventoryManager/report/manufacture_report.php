@@ -52,9 +52,9 @@ function run()
             return true;
         }
     };
+    //set margins
     margins = {
         top: 40,
-        //yata idan tynna ona ida tika
         bottom: 20,
         left: 40,
         right: 40,

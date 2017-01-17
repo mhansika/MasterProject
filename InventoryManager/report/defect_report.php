@@ -52,10 +52,9 @@ function run()
             return true;
         }
     };
-    
+    <!--set margins-->
     margins = {
         top: 40,
-        //yata idan tynna ona ida tika
         bottom: 20,
         left: 40,
         right: 40,
@@ -83,8 +82,9 @@ pdf.fromHTML(
 
 </script>
 <style>
+
 .button {
-    background-color: #4CAF50; /* Green */
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -161,7 +161,7 @@ $str3="";$str1="";$str2="";
   $str1 = $_POST['year'];
   $str2 = $_POST['month'];
   $str3 = $_POST['defect_type'];
-//get all details from releasd battries table
+//get all details from relesed battries table
 $sql="SELECT * FROM released_batteries";
 $result = $conn->query($sql);
 //set table headers
@@ -177,13 +177,14 @@ if ($result->num_rows > 0) {
 while($row1 = $result->fetch_assoc() ){
         $date=$row1['replaced_date'];
           $time=strtotime($date);
+          //get month name and year
           $Month=date("F",$time);
           $Year=date("Y",$time);
         $batchNum=$row1['batch_num'];//$year = substr($str1, 3,4);
         //get the second number of batch number
         $line=$batchNum{1};
         $batteryNum=$row1['battery_num'];
-        
+        //check and show details
         if($Month==$str2 && $Year==$str1 && $row1['defect_type']==$str3){
           echo "<tbody><tr><td>".$batchNum."</td>"; 
           echo "<td>".$batteryNum."</td>";
@@ -205,18 +206,21 @@ $conn->close();
                <br>
              <hr >
              <div  style="float:left">
+              <!--get the year and month-->
                <h5>  Year :<?php 
                 echo $str1; ?> Month :<?php echo $str2; ?></h5>
              </div>
              <br>
              <hr >
              <div  style="float:left">
+              <!--print the defect type-->
                <h5>  Defect Type :<?php 
                 echo $str3; ?></h5>
              </div>
              <br>
              <hr >
               <div  style="float:left">
+                <!--print current date-->
                   <h5>  Date : <?php echo date("Y/m/d"); ?></h5>
              </div>
              <br>
@@ -230,7 +234,7 @@ $conn->close();
       <div class="row pad-top-botm">
          <div class="col-lg-12 col-md-12 col-sm-12">
              <hr />
-             
+             <!--pdf button-->
                <button onclick="run()" class="btn btn-success btn-lg">Download In Pdf</button>
 
              </div>

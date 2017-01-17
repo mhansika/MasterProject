@@ -43,7 +43,7 @@ input[type=submit] {
 <form action="manufacture_graph.php " method="post">
      <b>Year:</b>
     <select id="selectElementId" name='year'></select>
-   
+    <!--select year-->
       <script>
           var min = (new Date().getFullYear())-2,
           max = min + 9,
@@ -56,6 +56,7 @@ input[type=submit] {
              select.appendChild(opt);
           }
       </script>
+      <!--select month-->
     <b>month:</b>
     <select name="month">
       <option value='January'>January</option>
@@ -71,7 +72,7 @@ input[type=submit] {
       <option value='November'>November</option>
       <option value='December'>December</option>
     </select> 
-
+    <!--select line-->
     <b>Production Line:</b>
     <select name='line'>
       <option value = '1'>1</option>

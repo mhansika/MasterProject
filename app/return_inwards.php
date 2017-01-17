@@ -102,18 +102,22 @@ $date="";
     </div>
     </div>
 <?php
+//get the barcode
     if (isset($_POST["barcode"])){
         $name =mysqli_real_escape_string($conn,$_POST["barcode"]);
     }
-$arr1 = substr($name, 0,4);
-$arr2 = substr($name, 4);
+    //get first 4 letters
+    $BatchNum = substr($name, 0,4);
+    //get last 4 letters
+    $BatteryNum = substr($name, 4);
+    //get the date
     if (isset($_POST["date"])){
         $date =mysqli_real_escape_string($conn,$_POST["date"]);
     }
+//update the status and set return date 
+$sql = "UPDATE released_batteries SET battery_status=5,replaced_date='$date' WHERE  batch_num='$BatchNum'  AND battery_num='$BatteryNum'";
 
-$sql = "UPDATE released_batteries SET battery_status=5,replaced_date='$date' WHERE  batch_num='$arr1'  AND battery_num='$arr2'";
-
-if ($conn->query($sql) === TRUE && $arr1 != null) {
+if ($conn->query($sql) === TRUE && $BatchNum != null) {
     echo "<script>alert('Successfully Inserted');</script>";
 }  else {
     

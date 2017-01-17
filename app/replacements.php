@@ -101,7 +101,7 @@
                     </div>
 
                     <label 
-                    class="control-label" for="barcode">Enter Replace Battery Barcode</label>
+                    class="control-label" for="barcode">Enter Replaced Battery Barcode</label>
                     <div class="form-group input-group">
                         <input class="form-control" id="barcode1" name="oldname" type="text" onblur="validation()"/>
                         <span style="color:red" id="bcd1"></span>
@@ -141,42 +141,45 @@ $data="";
 $oldname="";
 $newname="";
 $date="";
+
+//get the posted values of text boxes
     if(isset($_POST["oldname"])){
         $oldname = $_POST['oldname'];
     }
-        $arr1 = substr($oldname, 0,4);
-         $arr2 = substr($oldname, 4);
+
+        $oldBatchNum = substr($oldname, 0,4);
+        $oldBatteryNum = substr($oldname, 4);
     if(isset($_POST["newname"])){
         $newname = $_POST['newname'];
             }
-$arr12 = substr($newname, 0,4);
-$arr22 = substr($newname, 4);
+    //get first 4 letters
+    $newbatchNum = substr($newname, 0,4);
+    //get last 4 letters
+    $newBatteryNum = substr($newname, 4);
+    //get the date
     if(isset($_POST["date"])){
         $date=$_POST['date'];
         
 }
 
-/*function getExpirydateForNewBattery ($conn,$arr1,$arr2) {
-$query=mysqli_query($conn,"SELECT warranty_period FROM released_batteries WHERE batch_num='$arr1'  AND battery_num='$arr2'");
-$data=mysqli_fetch_assoc($query);
-return $data ; 
 
-}*/
 
-//$expiry_date= $data["warranty_period"];
-$sql3="SELECT warranty_period FROM released_batteries WHERE batch_num='$arr1'  AND battery_num='$arr2'";
+//sql query to get warranty_period
+$sql3="SELECT warranty_period FROM released_batteries WHERE batch_num='$oldBatchNum'  AND battery_num='$oldBatteryNum'";
 $result = $conn->query($sql3);
 $row = $result->fetch_assoc();
+//get the expiry date of replaced battery
 $expiary_date=$row['warranty_period'];
-$sql = "UPDATE released_batteries SET battery_status=3,replaced_date='$date' WHERE  batch_num='$arr1'  AND battery_num='$arr2'";
+//update newly issued battery dettails
+$sql = "UPDATE released_batteries SET battery_status=3,replaced_date='$date' WHERE  batch_num='$oldBatchNum'  AND battery_num='$oldBatteryNum'";
 
  
-if ($conn->query($sql) === TRUE && $arr1 != null) {
+if ($conn->query($sql) === TRUE && $oldBatchNum != null) {
     echo "<script>alert('Successfully Inserted');</script>";
 } else {
 }
-
-$sql2 = "UPDATE released_batteries SET battery_status=4,cus_sold_date='$date',warranty_period='$expiary_date' WHERE  batch_num='$arr12'  AND battery_num='$arr22'";
+//update newly issued battery dettails
+$sql2 = "UPDATE released_batteries SET battery_status=4,cus_sold_date='$date',warranty_period='$expiary_date' WHERE  batch_num='$newbatchNum'  AND battery_num='$newBatteryNum'";
 
 if ($conn->query($sql2) === TRUE) {
     echo "";

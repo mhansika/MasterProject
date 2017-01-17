@@ -13,8 +13,6 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-$name="";
-$date="";
 
 
 ?>
@@ -112,19 +110,24 @@ $date="";
     </div>
    
 <?php
+$name="";
+$date="";
 $days="";
 if (isset($_POST["barcode"])){
         $name =mysqli_real_escape_string($conn,$_POST["barcode"]);
     }
-$arr1 = substr($name, 0,4);
-$arr2 = substr($name, 4);
-$arr3 = str_split($arr1);
+    //get first 4 letters of the barcode
+$batchNum = substr($name, 0,4);
+//get last 4 letters
+$batteryNum = substr($name, 4);
+//break 4 letters
+$arr3 = str_split($batchNum);
 if (isset($_POST["date"])){
         $date =mysqli_real_escape_string($conn,$_POST["date"]);
      }
 
-       
-if ($arr3[0]=='D'){
+ //check the first letter set valid warranty period   
+    if ($arr3[0]=='D'){
         $days= 365;
 
     }
@@ -137,14 +140,12 @@ if ($arr3[0]=='D'){
 
   
 $warrantyPeriod = date('Y-m-d', strtotime($date. ' + '.$days.'days'));
-
-$sql = "UPDATE released_batteries SET battery_status=2,cus_sold_date='$date', warranty_period='$warrantyPeriod' WHERE  batch_num='$arr1'  AND battery_num='$arr2'";
+//update the data
+$sql = "UPDATE released_batteries SET battery_status=2,cus_sold_date='$date', warranty_period='$warrantyPeriod' WHERE  batch_num='$batchNum'  AND battery_num='$batteryNum'";
  
-if ($conn->query($sql) === TRUE && $arr1 != null) {
+if ($conn->query($sql) === TRUE && $batchNum != null) {
     echo "<script>alert('Successfully Inserted');</script>";
-} else {
-
-}
+} 
 
 
 $conn->close();

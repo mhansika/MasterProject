@@ -59,37 +59,33 @@ $role= $user_data['role'];
             <a href="searchbattery.php"><img src="../img/Search.png"></a>
         </div>
 		<?php
+		//connect to database connection
 		require "../../database/connect.php";
 		/*session_start();*/
+		//use the session variable
 		$v1 = $_SESSION['battery_name'];
 		$error=FALSE;
 
-		//$dealer_iderr = "";
-		$v0=$v2=$v3=$v4=$v5=$v6=$v7=$v8=$v9=$zero="";
+	
+		
+		$battery_type=$warranty_period=$voltage_Value=$amperehour_Value=$item_Type="";
 		if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			$battery_name = $_POST['battery_name'];
 		}
-		/*if ($_SERVER["REQUEST_METHOD"] == "POST") {
-			if(empty($_POST['dealer_id'])){
-                $dealer_iderr = "";
-                $error = TRUE;
-			}else{
-				$dealer_id = $_POST['dealer_id'];
-				}
-			if ($error==FALSE){*/
+		//select values for particular battery name
 		$sql = "SELECT * FROM battery_description WHERE battery_name = '$v1'";
 
 		$result= mysqli_query($connection, $sql);
 		if(mysqli_num_rows($result) > 0){
 			while($row = mysqli_fetch_assoc($result)){
-				/*	echo "id: ".$row["dealer_id"]. "Name: ".$row["battery_name"]. "NIC: ".$row["NIC"]."<br/>";*/
-				$v0=$row["battery_type"];
+			//values from database, assigned to variables
+				$battery_type=$row["battery_type"];
 				$v1=$row["battery_name"];
 				$_SESSION['battery_name']=$v1;
-				$v2=$row["warranty_period"];
-				$v4=$row["voltage_Value"];
-				$v6=$row["amperehour_Value"];
-				$v7=$row["item_Type"];
+				$warranty_period=$row["warranty_period"];
+				$voltage_Value=$row["voltage_Value"];
+				$amperehour_Value=$row["amperehour_Value"];
+				$item_Type=$row["item_Type"];
 				
 			}
 		}else{
@@ -105,7 +101,8 @@ $role= $user_data['role'];
 					<table id="ad">
 					<tr>
 						<td><b>Battery Type : </b></td>
-						<td> <?php echo $v0;?><br/></td>
+						<!-- show data-->
+						<td> <?php echo $battery_type;?><br/></td>
 					</tr>
 
 					<tr>
@@ -115,24 +112,24 @@ $role= $user_data['role'];
 
 					<tr>
 						<td><b>Warranty Period: </b></td>
-						<td> <?php echo $v2;?><br/></td>
+						<td> <?php echo $warranty_period;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Ampherehour Value: </b></td>
-						<td> <?php echo $v6;?><br/></td>
+						<td> <?php echo $amperehour_Value;?><br/></td>
 					</tr>
 
 					<tr>
 						<td><b>Voltage Value : </b></td>
-						<td><?php echo $v4;?><br/></td>
+						<td><?php echo $voltage_Value;?><br/></td>
 					</tr>
 
 					
 
 					<tr>
 						<td><b>Item Type : </b></td>
-						<td> <?php echo $v7;?><br/></td>
+						<td> <?php echo $item_Type;?><br/></td>
 					</tr>
 
 					
